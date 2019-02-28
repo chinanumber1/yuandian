@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>修改优惠券</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+	<link href="css/mui.picker.css" rel="stylesheet" />
+	<link href="css/mui.picker.min.css" rel="stylesheet" />
+	<link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/imange-view.css"/>
+ 	<link rel="stylesheet" type="text/css" href="css/edit_coupon.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">修改优惠券</h1>
+	</header>
+	<div class="mui-content">
+		<div class="class_list ">
+	   		<ul class="mui-clearfix">
+	    		<li class="mui-pull-left class_basic" style="width: 90%;">基本信息</li>
+	    		<!-- <li class="mui-pull-left class_synchro " style="color:#999;">同步微信卡券</li> -->
+	    	</ul>
+	   	</div>
+	   	<div class="basic_information ">
+	   		<div class="mui-card">
+		    	<div class="mui-card-content" >
+		    		<span class="left_style">优惠券名称</span>
+		    		<ul>
+	   					<li><input  class="name" type="text" name="" id="" maxlength="9" placeholder="请输入名称，9个汉字以内 " /></li>
+	   				</ul>
+		    	</div>
+		    	<div class="mui-card-content upload_style">
+		    		<span class="left_style">优惠券展示图片</span>
+		    		<ul>
+	   					<li>
+	   						<ul>
+						    	<li class="up_img">
+						    	<!-- images/41-1_03.png -->
+									<img src="" class="img" alt="">
+									<input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" id="fileImage" name="imgFile">
+							    </li>
+					    	</ul>
+	   					</li>	
+		   			</ul>
+		    	</div>
+		    	<div class="mui-card-footer te_style">
+		    		<span>是否与商家会员卡优惠同时使用</span>
+		    		<div class="mui-input-row">
+	   				    <div class="mui-switch mui-active auto_get">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+		    	</div>
+		    	<div class="mui-card-footer te_style">
+		    		<span>是否领卡时自动领取</span>
+		    		<div class="mui-input-row">
+	   				    <div class="mui-switch use_with_card">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+		    	</div>
+		    	<!-- <div class="mui-card-footer te_style">
+		    		<span>同步到微信卡券</span>
+		    		<div class="mui-input-row">
+	   				    <div class="mui-switch mui-active sync_wx">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+		    	</div> -->
+		    	<!-- <div class="mui-card-content share_card_volume mui-clearfix">
+		    		<span class="left_style" style="margin-bottom: 0">同步到微信卡券</span>
+		    		<ul class="mui-pull-right" style="margin-top:-18px;">
+		    			<li class="see_card"><a href="javascript:void(0);">查看微信卡券示例</a></li>
+		    			<li>*选择创建朋友的券后该优惠券不能分享和赠送</li>
+		    		</ul>
+		    	</div> -->
+		    	<div class="mui-card-footer te_style">
+		    		<span>是否只允许新用户使用</span>
+		    		<div class="mui-input-row">
+	   				    <div class="mui-switch allow_new">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+		    	</div>
+		    </div>
+		    <!--使用平台，类别，分类-->
+		    <div class="mui-card">
+		    	<div class="mui-card-content">
+		    		<span class="left_style">使用平台</span>
+		    		<ul>
+	   					<li class="app_text"></li>
+	   					
+	   				</ul>
+	    		</div>
+	    		<div class="mui-card-content radio_change">
+		    		<span class="left_style">指定店铺</span>
+		    		<ul class="change_shop">
+
+	   				</ul>
+	    		</div>
+	    		<div class="mui-card-content select_change class_change ">
+	    			<span class="left_style">使用类别</span>
+	    			<ul id="class1">
+	    				<li class="mui-clearfix" ><span>请选择类别</span><i class="mui-pull-right"></i></li>
+	    			</ul>
+	    		</div>
+	    		<div class="mui-card-content select_change class_change shilei">
+	    			<span class="left_style">使用分类</span>
+	    			<ul id="class2">
+	    				<li class="mui-clearfix" ><span>请选择分类</span><i class="mui-pull-right"></i></li>
+	    			</ul>
+	    		</div>
+	    		<div class="mui-card-content  radio_change">
+	    			<span class="left_style fadang_qu">发放渠道 <i></i></span>
+	    			<!-- <ul id="class3">
+	    				<li class="mui-clearfix" ><span>请选择发放渠道</span><i class="mui-pull-right"></i></li>
+	    			</ul> -->
+	    			<ul class="qudao">
+	   					<li><i class="active add_service" data-id="0"> <b><sub></sub></b> 店内店外</i> </li>
+	   					<li><i class=" add_service" data-id="1"> <b><sub></sub></b> 仅店外</i> </li>
+	   					<li><i class=" add_service" data-id="2"> <b><sub></sub></b> 仅店内</i> </li>
+	   				</ul>
+	    		</div>
+		    </div>
+		    <!--展示短语展示-->
+		    <div class="mui-card">
+		    	<div class="mui-card-content text_style">
+		    		<span class="left_style">展示简短描述</span>
+		    		<ul>
+		    			<li><textarea name="" class="des" rows="3" cols="4" placeholder="请输入微信卡券优惠说明"></textarea></li>
+		    		</ul>
+		    	</div>
+		    	<div class="mui-card-content text_style">
+		    		<span class="left_style">使用说明</span>
+		    		<ul>
+		    			<li><textarea name=""class="des_detial"  rows="3" cols="4" placeholder="每条描述请换行,微信卡券使用须知"></textarea></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		    <!--数量.....-->
+		    <div class="mui-card">
+		    	
+		    	<div class="mui-card-content">
+		    		<span class="left_style">原本数量</span>
+		    		<ul>
+		    			<li><input type="tel" class="num jin" name="" id="" placeholder="请输入数量" disabled  /></li>
+		    		</ul>
+		    	</div>
+		    	<div class="mui-card-content select_change add_redoce">
+	    			<span class="left_style">改变数量</span>
+	    			<ul id="add_redoce">
+	    				<li class="mui-clearfix" ><span>请选择改变数量状态</span><i class="mui-pull-right"></i></li>
+	    			</ul>
+	    		</div>
+		    	<div class="mui-card-content">
+		    		<span class="left_style">增加或减少</span>
+		    		<ul>
+		    			<li><input type="tel" class="num_add" name="" id="" placeholder="请输入增加或减少数量" /></li>
+		    		</ul>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<span class="left_style">领取数量限制</span>
+		    		<ul>
+		    			<li><input type="tel" name="" id="" class="limit jin" placeholder="请输入领取数量" value="1"  disabled/></li>
+		    		</ul>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<span class="left_style">使用数量限制</span>
+		    		<ul>
+		    			<li><input type="tel" class="use_limit jin" name="" id="" placeholder="请输入限制数量" disabled/></li>
+		    		</ul>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<span class="left_style">优惠金额</span>
+		    		<ul>
+		    			<li><input type="number" class="discount jin" name="" id="" placeholder="请输入优惠金额" disabled/></li>
+		    		</ul>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<span class="left_style">最小订单金额</span>
+		    		<ul>
+		    			<li><input type="number" class="order_money jin" name="" id="" placeholder="请输入最小订单金额" disabled/></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		    <!--起始时间-->
+		    <div class="mui-card">
+		    	<div class="mui-card-content select_change time_change">
+		    		<span class="left_style">起始时间</span>
+		    		<ul>
+		    			<li class="mui-clearfix begin_date"><span id="pickTimeBtn">2017-06-12</span><i class="mui-pull-right"></i></li>
+		    			<li class="mui-clearfix end_date"><span id="pickTimeBtn1">请选择结束时间</span><i class="mui-pull-right"></i></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		    <!--状态-->
+		    <div class="mui-card">
+		    	<div class="mui-card-content select_change">
+	    			<span class="left_style">状态</span>
+	    			<ul>
+	    				<li class="mui-clearfix state_change"><span style="color:#333;">请选择状态</span><i class="mui-pull-right"></i></li>
+	    			</ul>
+	    		</div>
+		    </div>
+	   	</div>
+	    <div class="synchro_weixin hidden">
+	   		<h5>基本信息</h5>
+	   		<div class="mui-card mui-card-style">
+	   			<!-- <div class="mui-card-footer te_style" style="border-bottom:1px solid #f1f1f1 ">
+		    		<span>是否领卡时自动领取</span>
+		    		<div class="mui-input-row">
+	   				    <div class="mui-switch">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+		    	</div> -->
+	   			<div class="mui-card-content">
+	   				<span class="left_style">商家名称</span>
+	   				<ul class="card_moeny">
+	   					<li><input class="brand_name" type="text" name="" id="" placeholder="请输入名称,9个汉字以内" disabled></li>
+	   				</ul>
+	   			</div>
+	   			
+	   			<div class="mui-card-content select_change class_change">
+	    			<span class="left_style">卡券颜色</span>
+	    			<ul class="card_color" id="cardColor">
+	   					<li><span background="Color010">#63b359</span></li>
+	   				</ul>
+	    		</div>
+	   		</div>
+	   		<div class="mui-card">
+	   			<div class="mui-card-content">
+	   				<span class="left_style">卡券提示</span>
+	   				<ul class="card_moeny">
+	   					<li><input type="text" name="" class="notice" placeholder="请输入按钮名称,6个汉字以内" disabled></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<span class="left_style">卡券副标题</span>
+	   				<ul class="card_moeny">
+	   					<li><input type="text" class="center_sub_title" placeholder="请输入按钮名称,8个汉字以内" disabled></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content btn_sytle">
+	   				<span class="left_style">立即使用链接</span>
+	   				<ul class="">
+	   					<li><input type="text" class="center_url" placeholder="请选择使用链接" disabled></li>
+	   					<!-- <li><button type="button" class="form_libirly">从功能库选择</button></li> -->
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content btn_sytle">
+	   				<span class="left_style">更多优惠链接</span>
+	   				<ul class="">
+	   					<li><input type="text" class="promotion_url" placeholder="请选择优惠链接" disabled></li>
+	   					<!-- <li><button type="button" class="form_libirly">从功能库选择</button></li> -->
+	   				</ul>
+	   			</div>
+	   		</div>
+	   		<!--横向可滑动-->
+	   		<div class="mui-card">
+	   			 <div class="mui-card-content"> <!--    sroll_style -->
+	   				<!-- <div class="mui-scroll-wrapper scrollxx" data-scroll="8">
+					    <div class="mui-scroll mui-clearfix">
+					    		<div class="mui-pull-left active">自定义链接1(可填)</div>
+					    		<div class="mui-pull-left">自定义链接2(可填)</div>
+					    		<div class="mui-pull-left">自定义链接3(可填)</div>
+					    		<div class="mui-pull-left">自定义链接4(可填)</div>
+					    </div>
+					</div> -->
+					<span class="left_style">自定义链接</span>
+	   			</div>
+	   			<div class="customLists">
+	   				<div class="item_list item1">
+		   				<div class="mui-card-content sroll_next">
+			   				<span class="left_style">标题1</span>
+			   				<ul class="card_moeny">
+			   					<li><input class="custom_url_name" type="text" name="" id="" max="5" placeholder="请输入标题名称,5个汉字以内" disabled/></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content">
+			   				<span class="left_style">副标题</span>
+			   				<ul class="card_moeny">
+			   					<li><input  class="custom_url_sub_title"  type="text" name="" id="" max="6" placeholder="请输入副标题名称,6个汉字以内" disabled/></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content btn_sytle">
+			   				<span class="left_style">链接</span>
+			   				<ul class="">
+			   					<li><input  class="custom_url"  type="text"  placeholder="请选择链接" disabled/></li>
+			   					<!-- <li><button type="button" class="form_libirly">从功能库选择</button></li> -->
+			   				</ul>
+			   			</div>
+		   			</div>
+		   			<!-- <div class="item_list hidden item2">
+		   				<div class="mui-card-content sroll_next">
+			   				<span class="left_style">标题2</span>
+			   				<ul class="card_moeny">
+			   					<li><input class="item_list1" type="text" name="" id="" max="5" placeholder="请输入标题名称,5个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content">
+			   				<span class="left_style">副标题</span>
+			   				<ul class="card_moeny">
+			   					<li><input  class="item_list2"  type="text" name="" id="" max="6" placeholder="请输入副标题名称,6个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content btn_sytle">
+			   				<span class="left_style">链接</span>
+			   				<ul class="">
+			   					<li><input  class="item_list3"  type="text"  placeholder="请选择链接" /></li>
+			   					<li><button type="button" class="form_libirly">从功能库选择</button></li>
+			   				</ul>
+			   			</div>
+		   			</div>
+		   			<div class="item_list hidden item3" >
+		   				<div class="mui-card-content sroll_next">
+			   				<span class="left_style">标题3</span>
+			   				<ul class="card_moeny">
+			   					<li><input class="item_list1" type="text" name="" id="" max="5" placeholder="请输入标题名称,5个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content">
+			   				<span class="left_style">副标题</span>
+			   				<ul class="card_moeny">
+			   					<li><input  class="item_list2"  type="text" name="" id="" max="6" placeholder="请输入副标题名称,6个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content btn_sytle">
+			   				<span class="left_style">链接</span>
+			   				<ul class="">
+			   					<li><input  class="item_list3"  type="text"  placeholder="请选择链接" /></li>
+			   					<li><button type="button" class="form_libirly">从功能库选择</button></li>
+			   				</ul>
+			   			</div>
+		   			</div>
+		   			<div class="item_list hidden item4">
+		   				<div class="mui-card-content sroll_next">
+			   				<span class="left_style">标题4</span>
+			   				<ul class="card_moeny">
+			   					<li><input class="item_list1" type="text" name="" id="" max="5" placeholder="请输入标题名称,5个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content">
+			   				<span class="left_style">副标题</span>
+			   				<ul class="card_moeny">
+			   					<li><input  class="item_list2"  type="text" name="" id="" max="6" placeholder="请输入副标题名称,6个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content btn_sytle">
+			   				<span class="left_style">链接</span>
+			   				<ul class="">
+			   					<li><input  class="item_list3"  type="text"  placeholder="请选择链接" /></li>
+			   					<li><button type="button" class="form_libirly">从功能库选择</button></li>
+			   				</ul>
+			   			</div>
+		   			</div> -->
+	   			</div>
+	   			
+	   			
+	   		</div>
+	   		<!--特权说明-->
+	   		<div class="mui-card">
+	   			<div class="mui-card-content upload_style">
+		    		<span class="left_style">封面图片</span>
+		    		<ul>
+	   					<li>
+	   						<ul>
+						    	<li class="up_img">
+									<img class="icon_url_list" src="images/41-1_03.png" alt="">
+									<input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" id="fileImagede" name="imgFile" disabled>
+							    </li>
+					    	</ul>
+	   					</li>	
+		   			</ul>
+		    	</div>
+	   		</div>
+	   		<!--商家服务类型-->
+	   		<div class="mui-card">
+	   			<div class="mui-card-content radio_change">
+	   				<span class="left_style">商家服务类型</span>
+	   				<ul class="sevice">
+	   					<li><i class="active add_service waimai1" data-url="BIZ_SERVICE_DELIVER"> <b><sub></sub></b> 外卖服务</i> </li>
+	   					<li><i class="add_service chewei1 active" data-url="BIZ_SERVICE_FREE_PARK"> <b><sub></sub></b> 停车位</i> </li>
+	   					<li><i class="active add_service chongwu1" data-url="BIZ_SERVICE_WITH_PET"> <b><sub></sub></b> 可带宠物</i> </li>
+	   					<li><i class="add_service wifi1 active" data-url="BIZ_SERVICE_FREE_WIFI"> <b><sub></sub></b> 免费wifi</i> </li>
+	   				</ul>
+	   			</div>
+	   		</div>
+	   		<h5>卡券图文 (图片大小1MB)</h5>
+	   		<div class="add_img_text">
+		   		
+	   		</div>
+	   		<!-- <div class="add_text_img">+增加图文信息</div> -->
+	  	</div>
+
+	    <div style="padding-bottom: 60px;"></div>
+	</div>
+	<nav class="mui-bar mui-bar-tab">
+	   <a href="javascript:;">保存</a>
+	</nav>
+	
+	<!--查看微信卡券示例-->
+	<div id="middlePopover" class="mui-popover ">
+		<div id="slider" class="mui-slider" >
+		  <div class="mui-slider-group mui-slider-loop">
+		    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+		    <div class="mui-slider-item mui-slider-item-duplicate">
+		      <a href="javasctipt:;">
+		        <img src="images/41-4_03.png" >
+		      </a>
+		    </div>
+		    <!-- 第一张 -->
+		    <div class="mui-slider-item">
+		      <a href="javasctipt:;">
+		        <img src="images/41-4_03.png" data-preview-src="" data-preview-group="1">
+		      </a>
+		    </div>
+		    <!-- 第二张 -->
+		    <div class="mui-slider-item">
+		      <a href="javasctipt:;">
+		        <img src="images/41-4_03.png" data-preview-src="" data-preview-group="1">
+		      </a>
+		    </div>
+		    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+		    <div class="mui-slider-item mui-slider-item-duplicate">
+		      <a href="javasctipt:;">
+		        <img src="images/41-4_03.png" >
+		      </a>
+		    </div>
+		  </div>
+		  <div class="mui-slider-indicator">
+		    <div class="mui-indicator mui-active"></div>
+		    <div class="mui-indicator"></div>
+		  </div>
+		</div>
+	</div>
+	<!--点击从功能库选择弹层-->
+	<div id="middlePopover1" class="mui-popover fun_library">
+		<p class="mui-clearfix"><span>插入链接或关键词</span> <i class="mui-pull-right"></i></p>
+		<div class="prompt">
+			
+			<b></b>
+			<span>使用方法: 点击 “选中” 直接返回对应的模块外链接代码,或者点击 “详细” 选择具体的内容外链</span>
+		</div>
+		<h5><span>请选择模块</span></h5>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul>
+					<li><span>微站首页</span><a class="mui-pull-right active" href="javascript:;">选中</a></li>
+					<li><span>网站分类</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>餐饮</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>快店</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>Pad点餐</span><a class="mui-pull-right active" href="javascript:;">选中</a></li>
+					<li><span>营销活动</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>商家会员卡优惠券</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>快速买单</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>快速买单</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>快速买单</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>快速买单</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>快速买单</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>快速买单</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+					<li><span>快速买单</span><a class="mui-pull-right detailed" href="javascript:;">详细</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--详细弹层-->
+	<div id="" class="last_ceng hidden">
+		<p class="mui-clearfix"><b class="mui-pull-left close_floor"></b><span>餐饮列表</span> <i class="close_floor mui-pull-right"></i></p>
+		<div class="prompt">	
+			<b></b>
+			<span>点击对应内容后面的 “选中” 即可</span>
+		</div>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul>
+					<li><span>实物测试自提</span><a class="mui-pull-right active" href="javascript:;">选中</a></li>
+					<li><span>早餐</span><a class="mui-pull-right active" href="javascript:;">选中</a></li>
+					<li><span>美味早餐</span><a class="mui-pull-right active" href="javascript:;">选中</a></li>
+					<li><span>爱心早餐铺</span><a class="mui-pull-right active" href="javascript:;">选中</a></li>
+					<li><span>Pad点餐</span><a class="mui-pull-right active" href="javascript:;">选中</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		<div id="middlePopover6" class="mui-popover fun_library">
+		<p class="mui-clearfix"><span>选取会员卡颜色</span> <i class="mui-pull-right"></i></p>
+		<dl>
+			<dd></dd>
+		</dl>
+		
+	</div>	
+	
+	<div class="bg hidden close_floor"></div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/mui.zoom.js"></script>
+<script src="js/mui.picker.js"></script> 
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/mui.zoom.js"></script>
+<script src="js/mui.previewimage.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/work/edit_coupon.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

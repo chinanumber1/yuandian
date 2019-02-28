@@ -1,0 +1,41 @@
+.calendar{width: 100%;background-color: #fff;  font-size:12px;font-family:"Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3",sans-serif;}
+.calendar .calendar_num{position: relative;height:28px;background: #f4f4f4;margin:0px 0px 1px 0px; padding: 0px;}
+.calendar .calendar_num li.bold{font-weight: bold;}
+.calendar .calendar_num li{float: right;width: 14%;height: 28px;line-height: 26px;text-align: center;color: #999999;}
+.calendar .calendar_num li.picker_today{position:absolute;top:0;left:0;cursor:pointer;width:13%; display: none;}
+.calendar ul, menu, dir{display: block;list-style-type: disc;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;-webkit-padding-start: 40px;}
+.calendar ul li, ol li{list-style: none;}
+.calendar .calendar_left{position: relative; width: 100%;height:80px;overflow:hidden;text-align: center;color: #1a477e;font-weight: bold;}
+.calendar .pkg_double_month .date_text{padding:0; text-align: center; line-height: 80px; margin: 0px; color: #333;}
+.calendar .calendar_left .border{border-bottom: 1px solid #eaeaea;}
+.calendar p{display: block;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;}
+
+.calendar .pkg_circle_top{ background: url(../images/xzrqtpo_03.png) center no-repeat; left: 0px;}
+.calendar .pkg_circle_top, .pkg_circle_bottom{display: block;position: absolute;width: 80px;height: 80px; top: 3px;}
+
+
+.calendar .pkg_circle_bottom_disable, .pkg_circle_bottom_disable:hover{background-position: -80px -93px;cursor: default;}
+.calendar .pkg_circle_bottom{background: url(../images/xzrqtpo_05.png) center no-repeat; right: 0px;}
+.calendar .pkg_circle_bottom_disable, .pkg_circle_bottom_disable:hover{background-position: -80px -93px;cursor: default;}
+.calendar .calendar_right{float: left;width: 100%; height:270px;}
+.calendar table{display: table;border-collapse: collapse;border-spacing: 2px;border-color: gray;}
+.calendar tbody{display: table-row-group;vertical-align: middle;border-color: inherit;}
+.calendar tr{display: table-row;vertical-align: inherit;border-color: inherit;}
+.calendar .calendar_right td{height: 44px;border-width: 0 0 1px 1px;vertical-align:top;color: #aaa; text-align: center;}
+.calendar .calendar_right .on{cursor: pointer;}
+.calendar a{text-decoration: none;outline: none;}
+.calendar .calendar_right a{display: block;height: 40px;color: #999999; font-size: 14px;  padding:4px 4px 0;}
+.calendar .calendar_right .on .date{color: #999999;}
+.calendar .calendar_right .on a:hover{margin: -1px 0 0 -1px;background-color: #06c1ae; color: #fff;}
+.calendar .calendar_right .on a:hover .date{ color: #fff; }
+.calendar .calendar_right .on a:hover .calendar_price01{ color: #fff; }
+.calendar .calendar_right .date{display: block;}
+.calendar .calendar_right .today{margin: -1px 0 0 -1px;background-color: #fffbee;}
+.calendar .calendar_right .on .team{color: #fff;}
+.calendar .calendar_right .team{display: block;text-align: right;height: 16px;line-height: 16px;}
+.calendar .calendar_right .on .calendar_price01{color: #06c1ae; font-size: 12px;}
+.calendar dfn{font-style: normal;font-size: 12px;font-family: Arial !important;}
+.calendar .calendar_loding{float: right;width: 591px;text-align: center;padding: 147px 0;}
+.calendar .calendar_loding img{vertical-align: middle;margin-right: 10px;}
+.calendar img, fieldset{margin: 0;padding: 0;border: 0;}
+.rlzzc{ background: url(../images/tmbj_03.png); width:100%; z-index: 1111111111;  position: absolute; top: 380px; left: 0px; display: none;}

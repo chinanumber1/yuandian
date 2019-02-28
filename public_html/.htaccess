@@ -1,0 +1,20 @@
+RewriteEngine on
+
+RewriteRule cms\/(.*).(php)$ 每 [NC,F]
+RewriteRule conf\/(.*).(php)$ 每 [NC,F]
+RewriteRule core\/(.*).(php)$ 每 [NC,F]
+RewriteRule static\/(.*).(php)$ 每 [NC,F]
+RewriteRule tpl\/(.*).(php)$ 每 [NC,F]
+RewriteRule upload\/(.*).(php)$ 每 [NC,F]
+RewriteRule Cashier\/(.*).(php)$ 每 [NC,F]
+RewriteRule download\/(.*).(php)$ 每 [NC,F]
+RewriteRule app_down\/(.*).(php)$ 每 [NC,F]
+RewriteRule house_down\/(.*).(php)$ 每 [NC,F]
+RewriteRule wx-app\/(.*).(php)$ 每 [NC,F]
+RewriteRule runtime\/(.*).(php)$ 每 [NC,F]
+RewriteRule \.well-known\/(.*).(php)$ 每 [NC,F]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ index.php?/$1 [QSA,L]

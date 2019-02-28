@@ -1,0 +1,718 @@
+.clearfix {
+    *zoom:1
+}
+.clearfix:before,.clearfix:after {
+    display:table;
+    content:"";
+    line-height:0
+}
+.clearfix:after {
+    clear:both
+}
+.fullBg{background-color: #000;left: 0;right: 0;bottom: 0;opacity: 0.8;position: fixed;top: 0;z-index: 3;filter: alpha(opacity=80);-moz-opacity: 0.8;-khtml-opacity: 0.8;display: none;z-index: 1000;width: 100%}
+.f-l{float: left}
+.f-r{float: right}
+.mt10{margin-top: 10px}
+.hidden{visibility: hidden}
+.hide{display: none}
+.dpn{display: none }
+.dpb{display: block }
+.windowBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1001;
++background: url("../gameimage/videorgba.png") repeat;
+background: url("../hbimage/videorgba.png") repeat\0;
+}
+
+
+
+
+.gameConfig{}
+.gameConfig .gHd{border-bottom: 1px solid #e0e0e0;color: #333}
+.gameConfig .gHd ul{}
+.gameConfig .gHd ul li{float: left;padding: 10px 0;    border-bottom: 1px solid #e0e0e0;margin-bottom: -1px;}
+.gameConfig .gHd h3{border-right: 1px solid #e0e0e0}
+.gameConfig .gHd h3{border: 0;padding:10px 15px;color: #333;font-size: 12px;font-weight: normal}
+.gameConfig .gHd ul li a{font-size: 12px;font-weight: normal}
+.gameConfig .gHd ul li a{display: block;border-right: 1px solid #e0e0e0;padding:0 15px}
+.gameConfig .gHd ul li.on{border-bottom-color: #3caf59}
+
+.gBd{margin-top: 15px}
+.leftPhonewrap{float: left;width: 455px;position: relative;    height: 500px;}
+.leftPhonewrap .loadBgBox{
+    margin: 0 auto;
+    /*position: relative;*/
+    display: block;
+   }
+/*#itemContent{background: #313131 url(../hbimage/load.gif) center center no-repeat}*/
+
+#itemContent{ margin: 0 auto;}
+
+
+/*.itemList{background: #DFDFDF}*/
+.normalStyle{position: relative;display: none}
+#currentMod{display: block;
+}
+.normalStyle .hd{height: 110px;position: relative;z-index:10;}
+.normalStyle {background-position: 0 0;background-repeat: no-repeat;background-size: 100% 100%;background-size: cover;    margin: 0 auto;  width: 320px;   }
+.normalStyle  .hd .avatar{position: absolute;top: 15px;left: 50px;width: 76px;height: 76px;border: 1px dashed transparent}
+.normalStyle  .hd .minText{position: absolute;top: 15px;left: 110px;color: #fff;border: 1px dashed transparent}
+.normalStyle  .hd p.me{top: 20px;font-size: 18px; line-height: 100%;white-space: nowrap;}
+.normalStyle  .hd p.for{top: 60px;font-size: 14px; line-height: 100%;white-space: nowrap;}
+.normalStyle  .hd p.for em{   
+    vertical-align: middle;
+    }
+	.normalStyle  .hd p.for em{*display:inline}
+	.normalStyle  .hd p.for s{vertical-align:middle;display:inline-block;text-decoration:none}
+	.normalStyle  .hd p.for s{*display:inline}
+.normalStyle  .hd p em{color: #fff600}
+.normalStyle .hd p.descDate{    position: absolute;
+    color: #fff;
+    font-size: 14px;
+    top: 70px;
+    left: 100px;
+    padding: 0px;
+    border: 1px dashed transparent;display: none; line-height: 100%;white-space:nowrap}
+.normalStyle .hd p.descDate em{color: #fff}
+.normalStyle  .bd{position:absolute;top: 0;left: 0;right: 0;bottom: 0;overflow:hidden}
+.normalStyle  .bd .descText{position: absolute;width: 90%;border: 1px dashed transparent;left: 18px;
+    top: 20px;color: #fff;font-size: 14px;    padding: 0px; overflow: hidden;}
+.normalStyle  .bd .descText p{overflow: hidden; }
+.normalStyle  .bd p.descTip{position: absolute;color: #fff600;font-size: 14px;    top: 320px;
+    left: 65px;    padding: 0px;border: 1px dashed transparent; line-height: 100%;}
+.normalStyle  .bd p.descDate{position: absolute;color: #fff;font-size: 14px;    top: 347px;
+    left: 40px;    padding: 0px;border: 1px dashed transparent; line-height: 100%;}
+.normalStyle  .bd  img.descCode{position: absolute;width: 180px;height: 180px;    border: 1px dashed transparent}
+
+.normalStyle .opacityHd{background: #fff;opacity: .2;position: absolute;top: 0;right: 0;left: 0;bottom: 0;height: 110px}
+
+
+.itemList .normalStyle  .hd .avatar:hover,.itemList .normalStyle  .hd p:hover,.itemList .hd p.descDate:hover,.itemList  .normalStyle  .bd .descText:hover,.itemList .normalStyle  .bd p.descTip:hover,.itemList .normalStyle  .bd p.descDate:hover,.itemList .normalStyle  .bd  img.descCode:hover{border-color: #fff;cursor: move;z-index: 9}
+
+
+
+
+.style1{height: 256px;background-image: url(../../../../../../static/hbimage/placeholder/style1.png);width: 400px}
+.style1 .hd .avatar{    top: 15px;  left: 15px;}
+
+.style1 .hd p.me{top: 30px;left: 100px}
+.style1 .hd p.for{top: 34px;left: 230px;}
+.style1  .hd p.descDate{display: block}
+
+.style1 .bd{height: 100%;width:400px}
+.style1  .bd .descText{width: 240px;left: 10px;top: 123px;height: 72px}
+.style1  .bd p.descTip{top: 230px;left: 10px;}
+.style1  .bd p.descDate{display: none}
+.style1  .bd  img.descCode{    width: 120px;
+    height: 120px;  left: 265px;  top: 122px;}
+
+
+
+
+
+.style2{height: 500px;background-image: url(../../../../../../static/hbimage/placeholder/style2.png)}
+.style2 .hd .avatar{top: 15px;left: 20px}
+
+.style2 .hd p.me{top: 30px}
+.style2 .hd p.for{top: 65px}
+
+.style2 .bd{height: 100%}
+.style2  .bd .descText{width: 290px;left: 18px;top: 130px;height: 72px}
+.style2  .bd p.descTip{ top: 430px;
+    left: 65px;}
+.style2  .bd p.descDate{ top: 470px;
+    left: 40px; }
+.style2  .bd  img.descCode{width: 180px;height: 180px;left: 65px;top: 215px;}
+
+
+
+.style3{height: 320px;background-image: url(../../../../../../static/hbimage/placeholder/style3.png)}
+.style3 .hd .avatar{top: 15px;left: 20px}
+
+.style3 .hd p.me{top: 30px}
+.style3 .hd p.for{top: 65px}
+
+.style3 .bd{height: 100%}
+.style3  .bd .descText{    width: 160px;height: 110px;
+    left: 10px;
+    top: 125px;}
+.style3  .bd p.descTip{    top: 265px; left: 65px;}
+.style3  .bd p.descDate{ top: 295px;  left: 40px; }
+.style3  .bd  img.descCode{    width: 120px;  height: 120px;  left: 185px;  top: 125px;}
+
+
+
+
+
+.styleAndCrtl{
+    position: absolute;
+    top: -20px;
+    right: 0;
+    /*background-color: #3caf59;*/
+    cursor: pointer;
+}
+.styleAndCrtl a{
+    color: #fff;
+    padding: 0 3px;
+    height: 20px;
+    line-height: 22px;
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    float: right;
+    background-color: #3caf59;
+
+}
+.editText{position: relative}
+.editText:hover{border: 1px dotted #3caf59}
+
+.shareDiv  .ctrlBtn{top: 0;right: 12px}
+.ui-wrapper{  overflow: visible !important;}
+
+.recover{position: absolute;right: 1px;bottom: 1px;background: #3caf59;color: #fff;font-size: 12px;z-index: 99;padding:0 2px;display: block;height: 20px;
+    line-height: 20px;}
+.recover:hover{color: #fff}
+
+
+.moduleLayerBox {
+    position: absolute;
+    right: 0px;
+    top: -25px;
+    z-index: 9;
+    display: none;
+}
+.moduleLayer {
+    margin: 0;
+    padding: 0;
+    height: 24px;
+    z-index: 9030;
+    zoom: 1;
+    background-color: #3caf59;
+    border: 1px solid #3caf59;
+    border-bottom-style: dashed;
+    font-size: 12px;
+    color: #000;
+    font-family: ����,������;
+    display: inline-block;
+}
+.moduleLayer{*display: inline}
+
+.moduleLayer .item {
+    float: left;
+}
+
+.moduleLayer .tool {
+    position: relative;
+    float: left;
+    margin: 2px 2px;
+    padding: 0 3px;
+    height: 20px;
+    line-height: 22px;
+    display: inline;
+    text-decoration: none;
+    background-color: #3caf59;
+    color: #FFF;
+}
+
+.normalStyle:hover .moduleLayerBox{display: block}
+
+.normalStyle  .bd .descText .styleAndCrtl{top:0;right:0}
+
+
+
+
+
+
+.rightForm{    overflow: hidden;    padding: 0 10px;}
+.rightForm .bd{color: #666}
+.rightForm .bd .row{padding-bottom: 15px;margin:0}
+.rightForm .bd .formRow{margin-top: 10px}
+.rightForm .bd .rowTitle{float: left;color:#666;font-size: 14px;    margin-top: 3px;    width: 100px;text-align: right}
+.rightForm .rowTitle132 .formRow .rowTitle{width: 132px}
+.rightForm .bd  .rowTitle i{display: inline-block;font-style: normal;vertical-align: middle;color: red}
+
+.rightForm .bd .longTitle{line-height: 15px;margin-top: -4px;}
+.rightForm .bd .shortTitle{width: 80px}
+.rightForm .bd .putWrap{overflow: hidden;position: relative}
+.rightForm .bd .addWrapBorder{border:1px solid #e0e0e0;padding: 10px;width: 358px}
+.rightForm .bd .wxShareImg,.rightForm .bd .inclusionSet{display: none}
+.rightForm .bd .putWrap input[type=text],.rightForm .bd .putWrap textarea{    display: block;
+    width: 358px;
+    padding: 5px 10px;    font-size: 12px;
+    color: #333;
+}
+.rightForm .bd .putWrap input[type=text],.rightForm .bd .putWrap textarea,.rightForm .bd .putWrap select{border: 1px solid #e0e0e0;background: none;border-radius: 0;outline: none}
+.rightForm .bd .putWrap input[type=text].focusOn,.rightForm .bd .putWrap textarea.focusOn,.rightForm .bd .putWrap select.focusOn{border:1px solid #3caf59}
+.rightForm .bd .putWrap select{width: 50px}
+
+.rightForm .bd .putWrap p{font-size: 12px;color: #999;margin-top: 5px}
+
+.rightForm .bd .putWrap .placeHolder{margin-right: 10px;position: relative}
+.rightForm .bd .putWrap .placeHolder>img{width: 73px;height: 73px}
+.rightForm .bd .putWrap .placeHolder .imgLoding{position: absolute;top: 0;left: 0;background: url("../hbimage/rgbabg.png") repeat;width: 73px;height: 73px;}
+.rightForm .bd .putWrap .placeHolder .imgLoding img{    margin-left: 12px;  margin-top: 12px;  width: 50px;height: 50px;}
+.rightForm .bd .putWrap .uploadImg{overflow: hidden}
+.rightForm .bd .putWrap .uploadImg .filePut{}
+.rightForm .bd .putWrap .uploadImg .filePut input[type=file]{position: absolute;left: 0;top: 0;z-index: 5;cursor: pointer;height: 30px;margin-left: -100px}
+.rightForm .bd .putWrap .uploadImg .filePut input[type=file]{/* older safari/Chrome browsers */
+    -webkit-opacity: 0;
+/* Netscape and Older than Firefox 0.9 */
+    -moz-opacity: 0;
+/* Safari 1.x (pre WebKit!) ��ʽkhtml�ں˵�Safari�����*/
+    -khtml-opacity: 0;
+/* IE9 + etc...modern browsers */
+    opacity: 0;
+/* IE 4-9 */
+    filter:alpha(opacity=50);
+/*This works in IE 8 & 9 too*/
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+/*IE4-IE9*/
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+
+.rightForm .bd .putWrap .uploadImg .filePut .uploadCoverBtn{padding: 3px 10px;border: 1px solid #e0e0e0;display: inline-block;cursor: pointer;background: none;}
+.rightForm .bd .putWrap .uploadImg .filePut .uploadCoverBtn{*display: inline}
+
+.rightForm .bd .putWrap .clearBtn{position: absolute;
+    right: 50px;
+    top: 9px;
+    display: none;
+    width: 11px;
+    height: 11px;
+    z-index: 99;
+    background:url("../hbimage/gameconfig.png") -56px 0 no-repeat;}
+.rightForm .rowTitle132 .putWrap .clearBtn{
+    right: 20px;
+}
+
+.rightForm .bd .shortPut input[type=text]{width: 138px;display: inline;text-align: center}
+.rightForm .bd .minPut input[type=text]{width: 40px;display: inline;text-align: center}
+.rightForm .bd .midPut input[type=text]{width: 80px;display: inline;text-align: center}
+.rightForm .bd .hasDatepicker{cursor: pointer}
+.rightForm .bd .shortPut em,.rightForm .bd .minPut  em,.rightForm .bd .midPut  em{padding: 0 17px}
+.rightForm .bd .t0{color: #999}
+.rightForm .bd .t1{color: #666;padding: 15px 0}
+.rightForm .bd .t1 em{color: #3caf59}
+
+.rightForm .bd .row input[type=checkbox],.rightForm .bd .row input[type=radio]{display: none}
+.rightForm .bd .priceWrap{border: 1px solid #e0e0e0;background: #F5F5F5;}
+.rightForm .bd .formRow .showPicDiv{margin-right: 15px}
+.rightForm .bd .formRow label.checkBoxLabel,.rightForm .bd .formRow label.radioLabel,.rightForm .bd .formRow label{padding-left: 22px;background: url("../hbimage/checknormal.png") no-repeat  0 3px;height: 24px;display: inline-block;line-height: 24px;    margin-right: 11px;}
+.rightForm .bd .formRow label.checkOn,.rightForm .bd .formRow label.radioOn{background: url("../hbimage/checkon.png") no-repeat  0 3px;}
+
+.rightForm .bd .priceSeting{border-top: 1px solid #e0e0e0;padding-bottom: 10px}
+.rightForm .bd .priceSeting .setHd{border-bottom: 1px solid #e0e0e0}
+.rightForm .bd .priceSeting .setHd ul li{     float: left;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-left: 8px;cursor: pointer}
+.rightForm .bd .priceSeting .setHd ul{padding: 12px 0;    overflow: hidden;}
+.rightForm .bd .priceSeting .setHd ul li.on{background: #3caf59;color: #fff}
+.rightForm .bd .priceSeting .shortPut input{text-align: left}
+
+
+
+.rightForm .bd .shareType{display: block}
+
+.rightForm .bd .formRow .rowBtn{display: inline-block;padding: 5px 15px;color: #333;border:1px solid  #e0e0e0}
+.rightForm .bd .formRow .rowBtn{*display: inline;}
+
+.checkBorder {
+    border-radius: 5px;
+    box-shadow: 1px 0 15px rgba(60,175,89,0.8),-1px 0 15px rgba(60,175,89,0.8),0px 1px 15px rgba(60,175,89,0.8),0px -1px 15px rgba(60,175,89,0.8);
+}
+
+
+.uploadBox {
+    width: 465px;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    right: 50px;
+    padding: 0 20px 30px;
+    z-index: 9999;
+    box-shadow: 0 0 6px rgba(0,0,0,.2);
+}
+
+.uploadDown {
+    -webkit-animation: uploadDown .5s 1 forwards;
+    -moz-animation: uploadDown .5s 1 forwards;
+    -o-animation: uploadDown .5s 1 forwards;
+    animation: uploadDown .5s 1 forwards;
+}
+.uploadUp {
+    -webkit-animation: uploadUp .5s 1 forwards;
+    -moz-animation: uploadUp .5s 1 forwards;
+    -o-animation: uploadUp .5s 1 forwards;
+    animation: uploadUp .5s 1 forwards;
+}
+.uploadBox .updTopBar {
+    border-bottom: 1px solid #d7d7d7;
+    padding: 15px 2px 10px;
+    font-weight: 700;
+}
+
+.uploadBox .updTopBar .editPicClose {
+    width: 24px;
+    height: 24px;
+    background: url('../hbimage/gameconfig.png') no-repeat -74px -24px;
+    cursor: pointer;
+}
+.uploadBox .updTopBar .editPicClose:hover {
+
+    background-position:  -74px -0px;
+}
+
+.uploadBox .uploadInfoBox {
+    max-height: 420px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.uploadBox .uploadInfoBox::-webkit-scrollbar{width:8px;}
+.uploadBox .uploadInfoBox::-webkit-scrollbar-track{background-color:#eee;}
+.uploadBox .uploadInfoBox::-webkit-scrollbar-thumb{background-color:#e3e3e3;border-radius: 100px}
+.uploadBox .uploadInfoBox::-webkit-scrollbar-thumb:hover {background-color:#e3e3e3;}
+.uploadBox .uploadInfoBox::-webkit-scrollbar-thumb:active {background-color:#e3e3e3;}
+.uploadBox .uploadLine {
+    padding: 10px 10px 10px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+.uploadBox .uploadLine .item {
+    display: inline-block;
+    vertical-align: middle;
+}
+.uploadBox .uploadLine .item {
+    *display: inline;
+}
+.uploadBox .uploadLine .itemTitle{width: 80px}
+.uploadBox .uploadLine .imgBox {
+    width: 80px;
+    height: 80px;
+    border: 1px dashed #d7d7d7;
+    margin: 0 28px 0 0px;
+    overflow: hidden;
+    text-align: center;
+    background: #e8e8e8;
+    position: relative;
+}
+.uploadBox .uploadLine .imgBox .img {
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.uploadBox .uploadLine .imgBox .imgLoding{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../hbimage/rgbabg.png") repeat;
+    width: 80px;
+    height: 80px;
+}
+.uploadBox .uploadLine .imgBox .imgLoding img{
+    margin-top: 15px;
+    width: 50px;
+    height: 50px;}
+.uploadBox .uploadLine .btnBox {
+    width: 225px;
+    padding-bottom: 10px;
+}
+
+.uploadBox .uploadLine .btnBox .t2{margin-top: 10px}
+.uploadify-button-game {
+    width: 90px;
+    height: 30px;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    cursor: pointer;
+    background: #3caf59;
+    padding-bottom: 0;
+}
+
+.uploadBox .btn {
+    width: 90px;
+    height: 30px;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+.uploadBox .uploadLine .btnBox .recoveryBtn {
+    background: #999;
+    margin-left: 10px;
+    display: none;
+}
+.uploadInfoBox{padding-top: 15px; margin-left: 2px;}
+.uploadInfoBox .formRow{margin-top: 10px}
+.uploadInfoBox .formRow:first-child{margin-top: 0}
+.uploadInfoBox .formRow .rowTitle{float: left}
+.uploadInfoBox .formRow .putWrap{float: left}
+.uploadInfoBox .formRow .putWrap input[type=radio]{display: none}
+.uploadInfoBox .formRow .putWrap .radioLabel {padding-left: 22px;
+    background: url("../hbimage/checknormal.png") no-repeat 0 3px;
+    height: 24px;
+    display: inline-block;
+    line-height: 24px;}
+
+.uploadInfoBox .formRow .putWrap .checkOn{
+    background: url("../hbimage/checkon.png") no-repeat 0 3px;
+}
+.uploadInfoBox .uploadWay{padding-right: 15px;  border-right: 1px solid #ddd;}
+.uploadInfoBox .uploadWay .musicSelect{height: 24px;width: 80px;line-height: 24px;border: 1px solid #3caf59;color: #3caf59;background: #fff;border-radius: 4px;display: block;text-align: center}
+
+.uploadInfoBox .urlWay{margin-left: 15px}
+.uploadInfoBox .urlWay input{height: 26px;line-height: 26px;border: 1px solid #e0e0e0;outline: none;padding: 0 5px; width: 230px;}
+.uploadInfoBox .urlWay button{width: 80px;line-height: 26px;height: 26px;border: 1px solid #3caf59;background: #3caf59;color: #fff;outline: none;border-radius: 4px;    margin-left: 15px;cursor: pointer}
+.uploadInfoBox .rowCell{position: relative;   margin-bottom: 10px;}
+.uploadInfoBox .rowCell em{    position: absolute;
+    right: 0;
+    top: 0;color: red;
+    width: 105px;
+    text-align: center;
+    display: block; }
+
+.uploadInfoBox .blockCell{display: none}
+.uploadInfoBox .minCell{    margin-top: 5px;position: relative}
+.uploadInfoBox .minCell .amount{margin-left: 15px}
+.uploadInfoBox .minCell .slider-range{display: inline-block;width: 150px}
+.uploadInfoBox .minCell .slider-range{*display: inline}
+.uploadInfoBox .minCell .colorPicker{
+    width: 16px;
+    height: 16px;
+    display: block;
+    background: #f60;
+    vertical-align: middle;
+    margin-left: 5px;
+    display: none;
+    position: absolute;
+    left: 172px;
+    top: 5px;}
+
+
+.uploadInfoBox .btnStyle{}
+.uploadInfoBox .btnStyle ul{margin-right: -42px}
+.uploadInfoBox .btnStyle ul li{    float: left;
+    width: 75px;
+    text-align: center;
+    margin-right: 47px;margin-bottom: 10px}
+.uploadInfoBox .btnStyle ul li .btnImgBox{overflow: hidden;position: relative;border: 1px solid #e0e0e0;cursor: pointer}
+.uploadInfoBox .btnStyle ul li .btnImgBox{display:table-cell;width:75px;height:75px;vertical-align:middle;text-align:center;
+    *float:left;*font-family:simsun;*font-size:75px;*line-height:1;  }
+.uploadInfoBox .btnStyle ul li .btnImgBox img {vertical-align:middle;width: 100%}
+.uploadInfoBox .btnStyle ul li h3{font-size: 12px;color:#000;font-weight: normal;margin-top: 8px}
+
+.uploadInfoBox .btnStyle ul li .selectCover{position: absolute;width: 75px;height: 75px;top: 0;bottom: 0;right: 0;left: 0;background: url("../hbimage/select.png") no-repeat top center;z-index: 9;display: none}
+
+
+
+.saveBottomBar {
+    width: 992px;
+    height: 50px;
+    background: #ebebeb;
+    margin-top: 22px;
+    border-top: 1px solid #c8c8c8;
+}
+
+.saveBottomBar .buttonBox {
+    width: 165px;
+    height: 35px;
+    margin: 10px auto;
+}
+.saveBottomBar .buttonBox .bottomButon {
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 2px;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.saveBottomBar .buttonBox .bottomButon {
+    *display: inline;
+}
+.saveBottomBar .buttonBox .saveButon {
+    width: 85px;
+    background: none repeat scroll 0 0 #3caf59;
+    border: 1px solid #3caf59;
+    color: #fff;
+}
+
+.saveBottomBar .buttonBox .disableButon {
+    background-color: #f4f5f7;
+    color: #888;
+    border: 1px solid #c8c8c8;
+}
+
+.saveBottomBar .buttonBox .cancelButton {
+    width: 60px;
+    background: none repeat scroll 0 0 #f4f5f7;
+    margin-left: 10px;
+    border: 1px solid #c8c8c8;
+}
+
+.fixBottombar {
+    position: fixed;
+    left: 35px;
+    bottom: 0;
+}
+
+
+.imgUpLoadBtn{position: absolute;
+    top: -20px;right: 0;
+    padding: 0 3px;
+    height: 20px;
+    line-height: 22px;
+    display: block;
+    text-decoration: none;
+    background-color: #3caf59;
+    color: #FFF;cursor: pointer;display: none}
+.imgUpLoadBtn:hover{color: #fff}
+
+
+@-moz-keyframes uploadDown {
+    from {
+        top: -120px
+    }
+
+    to {
+        top: 60px
+    }
+}
+
+@-webkit-keyframes uploadDown {
+    from {
+        top: -120px
+    }
+
+    to {
+        top: 60px
+    }
+}
+
+@-o-keyframes uploadDown {
+    from {
+        top: -120px
+    }
+
+    to {
+        top: 60px
+    }
+}
+
+@keyframes uploadDown {
+    from {
+        top: -120px
+    }
+
+    to {
+        top: 60px
+    }
+}
+
+@-moz-keyframes uploadUp {
+    from {
+        top: 60px
+    }
+
+    to {
+        top: -120px
+    }
+}
+
+@-webkit-keyframes uploadUp {
+    from {
+        top: 60px
+    }
+
+    to {
+        top: -120px
+    }
+}
+
+@-o-keyframes uploadUp {
+    from {
+        top: 60px
+    }
+
+    to {
+        top: -120px
+    }
+}
+
+@keyframes uploadUp {
+    from {
+        top: 60px
+    }
+
+    to {
+        top: -120px
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

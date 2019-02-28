@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <section class="public pageSliderHide">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url="back" data-closewebview="true"></div>
+            <div class="content">线下零售</div>
+        </section>
+        <section class="homepage">
+            <div class="h44"></div>
+            <section class="scanning">
+                <div class="search">
+                    <input type="search" class="scan_input" readonly="readonly" placeholder="条码/商品名称" />
+                    <div class="cancel"></div>
+                </div>
+                <div class="sweep"></div>
+                <div class="estate">
+                    <ul class="clr">
+                        <li class="man">店员：<span id="staffinfo-name"></span></li>
+                        <li class="data">日期：<span id="staffinfo-nowday"></span></li>
+                        <li class="member">会员号：<span id="cartinfo-card_id">无</span></li>
+                        <li class="balance">余额：<span>￥<span id="cartinfo-card_money">0</span></span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="tit_list">
+                <ul></ul>
+            </section>
+
+            <section class="membership">
+                <div class="member_top">
+                    <div class="h2">会员卡</div>
+                    <div class="query">
+                        <div class="input">
+                            <input type="tel" class="introduce" placeholder="请输入会员卡/手机号" />
+                            <div class="search"></div>  
+                        </div>
+                        <div class="inquiry">查询</div>
+                    </div>
+                </div>
+                <div class="member_end">
+                    <div class="mem_top"><span>会员信息</span></div>
+                    <div class="mem_end">
+                        <div class="card_info hide">
+                            <ul class="clr">
+                                <li>
+                                    <h2>会员卡号</h2>
+                                    <p id="card_info-card_id">&nbsp;</p>
+                                </li>
+                                <li>
+                                    <h2>实体卡号</h2>
+                                    <p id="card_info-physical_id">&nbsp;</p>
+                                </li>
+                                <li>
+                                    <h2>会员姓名</h2>
+                                    <p id="card_info-name">&nbsp;</p>
+                                </li>
+                                <li>
+                                    <h2>会员性别</h2>
+                                    <p id="card_info-sex">&nbsp;</p>
+                                </li>
+                                <li>
+                                    <h2>手机号码</h2>
+                                    <p id="card_info-phone">&nbsp;</p>
+                                </li>
+                                <li>
+                                    <h2>会员折扣</h2>
+                                    <p class="c2e" id="discountBox"><span id="card_info-discount">&nbsp;</span>折</p>
+                                </li>
+                                <li>
+                                    <h2>可用积分</h2>
+                                    <p class="cf7" id="card_info-card_score">&nbsp;</p>
+                                </li>
+                                <li>
+                                    <h2>储值余额</h2>
+                                    <p class="ce9">￥<span id="card_info-card_money">0</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="nocard img-none">
+                            <img src="images/qkt.jpg"> 
+                            <p class="not_input">未输入会员信息</p>
+                            <p class="not_found">未查找到会员信息</p> 
+                            <p class="receive">领取或查找会员卡？</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="del"></div>
+            </section>
+
+            <section class="popup scan_code pop_wx">
+                <div class="h2"><span>用户微信扫码</span></div>
+                <div class="cot">
+                    <img src="" id="scan_code_img"/>
+                    <div class="inb">领取或者查找自己的会员卡</div>
+                </div>
+                <div class="del"></div>
+            </section>
+    
+            <div class="wx_mask"></div>
+
+            <section class="seek empty">
+                <div class="within">
+                    <h2>清空订单</h2>
+                    <div class="con">
+                        <div class="img">
+                            <img src="images/tct_06.jpg">   
+                        </div>
+                        <div class="tit">
+                            <p class="on">重要提示</p>
+                            <p class="p">清空后当前已选择的商品与会员数据将会被删除，<span class="red">确定清空吗？</span></p>
+                        </div>
+                        <div class="button">
+                            <div class="clr p20">
+                                <div class="fl close shut">点错了</div>
+                                <div class="fr ensure shut">确定清空</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="del shut"></div>
+            </section> 
+
+            <div class="bot_balance clr pageSliderHide">
+                <div class="fl w60 clr">
+                    <div class="fl joint">共<span id="totalNum">0</span>件</div>
+                    <div class="fl total">合计：￥<span id="totalPrice">0</span></div>
+                </div>
+                <div class="fl w40 jiesuan">结算</div>
+            </div>
+
+            <div class="jump_list pageSliderHide">
+                <ul class="jump_ul">
+                    <li class="sp">
+                        <a href="commodity.html">商品</a>
+                    </li>
+                    <li class="hyk">
+                        <a href="javascript:void(0)">会员卡</a>
+                    </li>
+                    <li class="qk">
+                        <a href="javascript:void(0)">清空</a>
+                    </li>
+                    <li class="gd">
+                        <a href="guadan.html">挂单</a>
+                        <em>0</em>
+                    </li>
+                </ul> 
+                <div class="more on"><span>收起</span></div>
+            </div>
+        </section>
+        
+        <section class="cable_show">
+            <section class="hunt">
+                <div class="hunt_input">
+                    <div class="c_input so">
+                        <input type="search" class="sp_sear">
+                        <div class="clean"><div></div></div>
+                    </div>
+                    <div class="hunt_remove">取消</div>
+                </div>
+            </section>
+            <section class="sp_foodright foods_list">
+                <dl></dl>
+            </section>
+        </section>
+        <div class="mask"></div>
+		<div class="scan_again"></div>
+		
+		<script id="listSearchTpl" type="text/html">
+			{{# for (var i in d){ }}
+				<dd data-goods_id="{{ d[i].goods_id }}">
+					<div class="food_right" style="padding:0;">
+						<h2>{{ d[i].name }}</h2>
+						<div class="surplus">{{# if(d[i].stock_num != -1){ }}剩余{{ d[i].stock_num }}{{# }else{ }}无限{{# } }}</div>
+						<div class="MenuPrice clr">
+							<i class="fl">￥</i>
+							<span class="fl">{{ d[i].price }}<em>/{{ d[i].unit }}</em></span>
+						</div>
+					</div>
+				</dd>
+			{{# } }}
+		</script>
+		<script id="listBuyTpl" type="text/html">
+			{{# for (var i in d){ }}
+				<li data-goods_id="{{ d[i].goods_id }}">
+					<div class="w50">
+						<h2>{{ d[i].name }}</h2>
+						<p>{{ d[i].number }}</p>
+					</div>
+					<div class="w50 clr">
+						<span class="w40">{{ d[i].count }}</span>
+						<span class="w60">￥{{ d[i].count*d[i].price }}</span>
+					</div>
+				</li>
+			{{# } }}
+		</script>
+		<script id="listGoodTpl" type="text/html">
+			<section class="revise">
+				<div class="p30">
+					<div class="rev_top">
+						<div class="p75" style="padding-left:0;">
+							<h2>{{ d.name }}</h2>
+							<p>{{ d.number ? d.number : '无条形码' }}</p>
+						</div>
+					</div>
+					<div class="rev_ul">
+						<ul>
+							<li class="clr">
+								<div class="fl">单价：</div>
+								<div class="fr price">{{d.price }}元/{{ d.unit }}</div> 
+							</li>
+							<li class="clr">
+								<div class="fl">数量：</div>
+								<div class="fr clr">
+									<a href="javascript:void(0)" class="fl jian">-</a>
+									<input class="fl rev_input" type="tel" value="{{ d.count }}" />
+									<a href="javascript:void(0)" class="fl jia">+</a>
+								</div>
+							</li>
+							<li class="clr">
+								<div class="fl">总额：</div>
+								<div class="fr total">￥{{ d.count*d.price }}</div>
+							</li>
+						</ul>
+					</div>
+					<div class="sib clr">
+						<div class="del">删除</div>
+					</div>
+				</div>
+                <div class="dels"></div>
+			</section>
+		</script>
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/retail.js"></script>
+    </body>
+</html>

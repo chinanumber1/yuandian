@@ -1,0 +1,185 @@
+@charset "utf-8";
+body{
+	background-color:#F0F2F5;
+}
+.coupon_title{
+	width:100%;
+	height:110px;
+}
+.coupon_title img{
+	width:100%;
+	height:100%;
+}
+.pageTitle{
+	background:white;
+	padding:12px 0 12px 10px;
+}
+.coupon_list{
+/* 	padding:0px 10px; */
+}
+
+.coupon_list dd{
+	padding:0px 0px 8px;
+	border-bottom:1px dashed #D3D3D3;
+	margin:8px 10px 0px;
+	position:relative;
+}
+.coupon_list dd .title{
+	/* font-size:16px; */
+}
+.coupon_list dd .progressBar{
+	position:absolute;
+	right:0;
+	top:0px;
+	border:1px solid #FBB0AE;
+	padding:0px 12px;
+	border-radius:6px;
+	color: #666;
+	z-index: 1;
+}
+.coupon_list dd .progressBar div{
+    position: absolute;
+    height: 100%;
+    left: 0px;
+	background-color:#FBB0AE;
+	z-index: -1;
+}
+.coupon_list dd .box{
+	margin-top:6px;
+	overflow: hidden;
+	position:relative;
+	border-radius:8px;
+	background-color: white;
+}
+.coupon_list dd .box .cf{
+	border: 1px solid #D3D3D3;
+	border-radius:8px;
+	overflow:hidden;
+}
+.coupon_list dd .box .content{
+	padding:12px 12px 0px;
+	border-radius:8px;
+	border-bottom:0;
+}
+.coupon_list dd .box .image_box{
+	position:absolute;
+}
+.coupon_list dd .box .image_box .text{
+	margin-top:8px;
+	color: #999;
+}
+.coupon_list dd .box .image{
+	width:72px;
+	height:72px;
+	border:1px solid #E1E1E1;
+	border-radius:8px;
+	overflow:hidden;
+}
+.coupon_list dd .box .image img{
+	width:100%;
+	height:100%;
+}
+
+.coupon_list dd .box .desc{
+	height:110px;
+	margin-left:92px;
+	margin-right:80px;
+}
+.coupon_list dd .box .desc .price{
+	font-size:18px;
+	color:#60BBF5;
+}
+.coupon_list dd .box .desc .price span{
+	font-size:32px;
+}
+.coupon_list dd .box .desc .use{
+	border-radius:8px;
+	width:80%;
+	background:#D8F3FF;
+	padding:4px 12px;
+	font-size:12px;
+}
+.coupon_list dd .box .get{
+	position:absolute;
+	top:0;
+	right:0;
+	width:80px;
+	height:100%;
+}
+.coupon_list dd .box .get .left-top{
+	border: 1px solid #D3D3D3;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: -8px;
+    z-index: 2;
+    background: #F0F2F5;
+    border-radius: 50%;
+}
+.coupon_list dd .box .get .left-bottom{
+	border: 1px solid #D3D3D3;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    bottom: -10px;
+    z-index: 1;
+    background: #F0F2F5;
+    border-radius: 50%;
+}
+.coupon_list dd .box .get .left-icon{
+	background:url(../img/hadpull.png) no-repeat;
+	background-size:100%;
+    position: absolute;
+    width: 76px;
+    height: 76px;
+	top: -12px;
+    left: -36px;
+    z-index: 1;
+    border-radius: 50%;
+}
+.coupon_list dd .box .get .left-back{
+    position: absolute;
+    top:12px;
+	left:5px;
+	/* bottom:16px; */
+	background:url(../img/coupon-line.png) repeat-y;
+	width:8px;
+	height:100%;
+}
+.coupon_list dd .box .get .getText{
+	width:20px;
+	vertical-align:middle;
+	margin-top:30px;
+	margin-left:40px;
+}
+.coupon_list dd:last-child{
+	margin-bottom:0;
+	border-bottom:0;
+}
+
+
+.coupon_list dd .time{
+	background-color:#60BBF5;
+	padding:2px 12px;
+	color:white;
+	font-size:12px;
+}
+.coupon_list dd.none .time{
+	background-color:#D9D9D9;
+}
+.coupon_list dd.none .box .desc .price{
+	color:#D9D9D9;
+}
+.coupon_list dd.none .box .desc .use{
+	background:#D9D9D9;
+}
+.coupon_list dd.none .box .get .getText{
+	display:none;
+}
+.coupon_list dd.none .get .left-icon{
+	background-image:url(../img/no_coupon.png);
+}
+
+.coupon_list dd.have .box .get .left-icon{
+	display:none;
+}

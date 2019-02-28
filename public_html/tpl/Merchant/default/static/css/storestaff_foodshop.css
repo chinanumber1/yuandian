@@ -1,0 +1,498 @@
+*{padding:0;margin:0;}
+html,body,p,table{font:normal 12PX '微软雅黑',Tahoma,Verdana,Helvetica,Arial,sans-serif;}
+li{list-style:none;}
+.foodshop_order{
+	overflow: hidden;
+	-webkit-user-select: none;
+}
+.foodshop_order .food_cart{
+	float:left;
+	width:350px;
+	background:#EDF2F8;
+}
+.foodshop_order .food_cart .food_cart_header{
+	height:80px;
+	background:#F03C3C url(./img/storestaff/foodshop_cart.png) no-repeat;
+	background-position:30px;
+	background-size:36px;
+	font-size:22px;
+	color:white;
+	text-indent:80px;
+	line-height:80px;
+}
+.foodshop_order .food_cart .food_buy_header{
+	height:80px;
+	background:#F03C3C url(./img/storestaff/foodshop_cart.png) no-repeat;
+	background-position:30px;
+	background-size:36px;
+	font-size:22px;
+	color:white;
+	text-indent:80px;
+	line-height:80px;
+}
+.foodshop_order .food_cart .food_cart_header span{
+	font-size:16px;
+	margin-right:5px;
+	margin-left:5px;
+}
+.foodshop_order .food_cart .food_buy_header span{
+	font-size:16px;
+	margin-right:5px;
+	margin-left:5px;
+}
+.foodshop_order .food_cart .food_cart_list{
+	overflow:auto;
+}
+.foodshop_order .food_cart .food_cart_list li{
+	padding:10px 8px;
+	border-bottom:1px solid #E6E6E6;
+	position:relative;
+}
+.foodshop_order .food_cart .food_cart_list li .name{
+	font-size:18px;
+}
+.foodshop_order .food_cart .food_cart_list li .name span{
+	font-size:16px;
+	color:#999;
+}
+.foodshop_order .food_cart .food_cart_list li .price{
+	font-size:22px;
+	color:#F03C3C;
+	margin-top:10px;
+	/* font-weight:bold; */
+}
+.foodshop_order .food_cart .food_cart_list li .price span{
+	color:#999;
+	font-size:16px;
+	font-weight:normal;
+	margin-left:3px;
+}
+.foodshop_order .food_cart .food_cart_list li .cart_btn{
+	border:1px solid #F05657;
+	position:absolute;
+	border-radius:18px;
+	right:10px;
+	bottom:10px;
+}
+.foodshop_order .food_cart .food_cart_list li .cart_btn div{
+	float:right;
+	width:40px;
+	color:#F05657;
+	font-size:28px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	cursor:pointer;
+}
+.foodshop_order .food_cart .food_cart_list li .cart_btn div.plus{
+	border-left:1px solid #F05657;
+}
+.foodshop_order .food_cart .food_cart_list li .cart_btn div.min{
+	border-right:1px solid #F05657;
+}
+.foodshop_order .food_cart .food_cart_list li .cart_btn div.number{
+	width:50px;
+}
+.foodshop_order .food_cart .food_cart_list li .cart_btn div.number input{
+	width:50px;
+	height:30px;
+	border:none;
+	outline:0;
+	background:transparent;
+	text-align:center;
+	vertical-align: top;
+	/* color: #F05657; */
+    font-size: 18px;
+}
+.foodshop_order .food_cart .food_cart_footer {
+    height: 140px;
+    background: #F4F4F4;
+}
+.foodshop_order .food_cart .food_cart_footer div{
+    float:left;
+	margin-top:40px;
+	height:68px;
+	line-height:68px;
+	padding:0 36px;
+	font-size:16px;
+	cursor:pointer;
+    border-radius: 8px;
+}
+.foodshop_order .food_cart .food_cart_footer div.changeCart{
+    margin-left:20px;
+	margin-right:30px;
+	border:1px solid #29C7A2;
+	color:#29C7A2;
+}
+.foodshop_order .food_cart .food_cart_footer div.checkCart{
+    /* margin-left:50px; */
+	background:#29C7A2;
+	color:white;
+}
+
+
+.foodshop_order .food_cart .food_buy_list{
+	overflow:auto;
+}
+.foodshop_order .food_cart .food_buy_list li{
+	padding:10px 8px;
+	border-bottom:1px solid #E6E6E6;
+	position:relative;
+}
+.foodshop_order .food_cart .food_buy_list li .name{
+	font-size:18px;
+}
+.foodshop_order .food_cart .food_buy_list li .name span{
+	font-size:16px;
+	color:#999;
+}
+.foodshop_order .food_cart .food_buy_list li .price{
+	font-size:22px;
+	color:#F03C3C;
+	margin-top:10px;
+	/* font-weight:bold; */
+}
+.foodshop_order .food_cart .food_buy_list li .price span{
+	color:#999;
+	font-size:16px;
+	font-weight:normal;
+	margin-left:3px;
+}
+.foodshop_order .food_cart .food_buy_list li .cart_btn{
+	border:1px solid #F05657;
+	position:absolute;
+	border-radius:18px;
+	right:10px;
+	bottom:10px;
+}
+.foodshop_order .food_cart .food_buy_list li .cart_btn div{
+	float:right;
+	width:40px;
+	color:#F05657;
+	font-size:28px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	cursor:pointer;
+}
+.foodshop_order .food_cart .food_buy_list li .cart_btn div.plus{
+	border-left:1px solid #F05657;
+}
+.foodshop_order .food_cart .food_buy_list li .cart_btn div.min{
+	border-right:1px solid #F05657;
+}
+.foodshop_order .food_cart .food_buy_list li .cart_btn div.number{
+	width:50px;
+}
+.foodshop_order .food_cart .food_buy_list li .cart_btn div.number input{
+	width:50px;
+	height:30px;
+	border:none;
+	outline:0;
+	background:transparent;
+	text-align:center;
+	vertical-align: top;
+	/* color: #F05657; */
+    font-size: 18px;
+}
+.foodshop_order .food_cart .food_buy_footer {
+    height: 140px;
+    background: #F4F4F4;
+}
+.foodshop_order .food_cart .food_buy_footer div{
+    float:left;
+	margin-top:40px;
+	height:68px;
+	line-height:68px;
+	padding:0 36px;
+	font-size:16px;
+	cursor:pointer;
+    border-radius: 8px;
+}
+.foodshop_order .food_cart .food_buy_footer div.changeBuy{
+    margin-left:20px;
+	margin-right:30px;
+	border:1px solid #29C7A2;
+	color:#29C7A2;
+}
+.foodshop_order .food_cart .food_buy_footer div.checkBuy{
+    /* margin-left:50px; */
+	background:#29C7A2;
+	color:white;
+}
+
+
+.foodshop_order .food_menu{
+	float: left;
+	position: relative;
+    background-color: #E2DADA;
+}
+.foodshop_order .food_menu .food_cat{
+	height:80px;
+	margin:15px 60px;
+}
+.foodshop_order .food_menu .food_cat li{
+	/* float:left; */
+	background-color:#F6FAFF;
+	height:80px;
+	width:120px;
+	line-height:80px;
+	text-align:center;
+	margin-right:10px;
+	border:1px solid #ECECEC;
+	font-size:18px;
+	border-radius:8px;
+	cursor:pointer;
+}
+.foodshop_order .food_menu .food_cat li.cur{
+	background-color:#F03C3C;
+	color:white;
+}
+.foodshop_order .food_menu .food_body{
+	background:url(./img/storestaff/foodshop_menu_bg.jpg) no-repeat;
+	background-size:100%;
+	overflow:auto;
+}
+.foodshop_order .food_menu .food_body ul{
+	padding:15px 0;
+	display:none;
+}
+.foodshop_order .food_menu .food_body li{
+	float:left;
+	margin-right:15px;
+	margin-bottom:15px;
+	padding:10px;
+	background:white;
+	cursor:pointer;
+	height:170px;
+}
+.foodshop_order .food_menu .food_body li .food_img{
+	width:250px;
+	height:139px;
+}
+.foodshop_order .food_menu .food_body li .food_img img{
+	width:100%;
+	height:100%;
+}
+.foodshop_order .food_menu .food_body li .food_text{
+	font-size:18px;
+	margin-top:8px;
+}
+.foodshop_order .food_menu .food_body li .food_text div{
+	color: #F03C3C;
+	float:right;
+	font-size:16px;
+}
+.foodshop_order .food_menu .food_body li .food_text div span{
+	font-size:20px;
+}
+.foodshop_order .food_menu .foot_tool{
+	height:140px;
+	background:#484D5E;
+}
+.foodshop_order .food_menu .foot_tool .food_tool_left{
+	float:left;
+}
+.foodshop_order .food_menu .foot_tool .food_tool_left ul{
+	padding:40px 80px;
+}
+.foodshop_order .food_menu .foot_tool .food_tool_left ul li{
+	height:68px;
+	line-height:68px;
+	padding:0 40px;
+	margin-right:30px;
+	float:left;
+	font-size:20px;
+	/* color:white; */
+	background:#FFFFFF;
+	border-radius:8px;
+	cursor:pointer;
+}
+.foodshop_order .food_menu .foot_tool .food_tool_right{
+	height:140px;
+	float:right;
+	background:#F03C3C url(./img/storestaff/foodshop_pay.png) no-repeat;
+	background-position:50px;
+	background-size:36px;
+	width:200px;
+	cursor:pointer;
+	font-size:26px;
+	color:white;
+	text-indent:100px;
+	line-height:140px;
+}
+
+.food_spec_box{display:none;}
+
+.food_spec_box .spec_title{
+	padding:20px;
+	background:#E7EBEE;
+	line-height:1.5;
+	position:relative;
+}
+.food_spec_box .spec_title .name{
+	font-size:18px;
+}
+.food_spec_box .spec_title .price{
+	font-size:20px;
+	color:#F03C3C;
+	margin-left:-4px;
+}
+.food_spec_box .spec_title .close_spec{
+	position: absolute;
+    background: url(./img/storestaff/foodshop_spec_close.png) no-repeat;
+    height: 54px;
+    width: 54px;
+    right: 5px;
+    top: 30px;
+    background-size: 40px;
+	cursor:pointer;
+}
+.spec_pro_box{
+	height: 320px;
+    overflow: auto;
+}
+.food_spec_box .spec_content,.food_spec_box .properties_content{
+	padding:20px;
+}
+.food_spec_box .spec_content .row,.food_spec_box .properties_content .row{
+	margin-bottom:20px;
+}
+.food_spec_box .spec_content .row:last-child,.food_spec_box .properties_content .row:last-child{
+	margin-bottom:0px;
+}
+.food_spec_box .spec_content .spec_name,.food_spec_box .properties_content .properties_name{
+	color:#333;
+	font-size:14px;
+	margin-bottom:10px;
+}
+.food_spec_box .spec_content .spec_box li,.food_spec_box .properties_content .properties_box li{
+	float:left;
+	color:#F03C3C;
+	font-size:14px;
+	padding:8px 16px;
+	margin-right:16px;
+	border: 1px solid #F03C3C;
+    border-radius: 5px;
+	cursor:pointer;
+	margin-bottom:8px;
+}
+.food_spec_box .spec_content .spec_box li.active{
+	background:#F03C3C;
+	color:white;
+}
+.food_spec_box .properties_content .properties_box li{
+	border-color: #06c1ae;
+    color: #06c1ae;
+}
+.food_spec_box .properties_content .properties_box li.active{
+	background: #06c1ae;
+    color: white;
+}
+
+.food_spec_box .spec_btn{
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    background: #F03C3C;
+    margin: 0 20px;
+    border-radius: 5px;
+	cursor:pointer;
+	margin-top:15px;
+}
+
+.food_group_box{
+	display:none;
+}
+.food_group_box li{
+	border-bottom:1px solid #E6E6E6;
+	padding: 20px 30px;
+	cursor:pointer;
+}
+.food_group_box li:hover{
+	background:#F4F4F4;
+}
+
+.food_group_box li .checkRadio{
+	width:30px;
+	height:60px;
+	background:url(./img/storestaff/foodshop_group_uncheck.png) no-repeat;
+	background-size:100%;
+	float:left;
+	margin-right:15px;
+	background-position:0px 8px;
+}
+.food_group_box li .checkRadio.checked{
+	background-image:url(./img/storestaff/foodshop_group_check.png);
+}
+.food_group_box li .textInfo .name{
+	font-size:16px;
+	margin-bottom: 5px;
+}
+.food_group_box li .textInfo .price{
+	font-size:14px;
+    color: #F03C3C;
+}
+
+.group_info_box{
+	display:none;
+}
+
+.layer_group_info_box table{
+	width: 100%;
+}
+.layer_group_info_box table{
+	width: 100%;
+}
+.layer_group_info_box table .left{
+    width: 120px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+}
+.layer_group_info_box table .right{
+	line-height: 60px;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+    padding-left: 20px;
+	position:relative;
+	cursor:pointer;
+}
+.layer_group_info_box table .right:hover{
+	background:#f1f1f1;
+}
+.layer_group_info_box table .right .group_info_checkbox{
+    position: absolute;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: #ccc;
+    top: 15px;
+	background:url(./img/storestaff/foodshop_group_uncheck.png) no-repeat;
+	background-size:100%;
+}
+.layer_group_info_box table .right.checked .group_info_checkbox{
+	background:url(./img/storestaff/foodshop_group_check.png) no-repeat;
+	background-size:100%;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+    background-color:#f6f8f8;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background-color:rgba(45, 41, 41, 0.5);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>评价回复</title>
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/imange-view.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reply.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">评价回复</h1>
+		</header>
+		<div class="mui-content">
+			<!--评价内容-->
+			<div class="mui-card rating">
+				<div class="details">
+					<!-- <div class="mui-card-header">
+						<ul class="mui-table-view">
+							<li class="">
+								<img class="mui-media-object mui-pull-left" src="images/4-_07.png">
+								<div class="mui-media-body">
+									<div class="mui-pull-left">
+										<span>勤劳的肉肉</span>
+										<p><i class="five_pointed"></i><i class="five_pointed"></i><i class="five_pointed"></i><i class="five_pointed"></i><i class="five_pointed"></i></p>
+									</div>
+									<div class="mui-pull-right">
+										<p>2017-05-19 18:07:25</p>
+									</div>
+								</div>
+
+							</li>
+						</ul>
+					</div>
+					
+					<div class="mui-card-content">
+						<h5>服务态度很好，也很好吃。</h5>
+						<p><b></b><span>章鱼小丸子 红烧肉</span></p>
+						
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll ">
+								<img src="images/4-_18.png" data-preview-src="" data-preview-group="1" />
+								<img src="images/4-_30.png" data-preview-src="" data-preview-group="1" />
+								<img src="images/4-_32.png" data-preview-src="" data-preview-group="1" />
+								<img src="images/4-_18.png" data-preview-src="" data-preview-group="1" />
+								<img src="images/4-_30.png" data-preview-src="" data-preview-group="1" />
+								<img src="images/4-_32.png" data-preview-src="" data-preview-group="1" />
+								<img src="images/4-_18.png" data-preview-src="" data-preview-group="1" />
+								<img src="images/4-_30.png" data-preview-src="" data-preview-group="1" />
+							</div>
+
+						</div>
+					</div> -->
+
+				</div>
+				
+				
+				<div class="mui-card-footer">
+					<textarea rows="5" cols="6" placeholder="请输入您想要回复的内容"></textarea>
+				</div>
+			</div>
+			<div class="confirm_reply">
+				<button type="button">确认回复</button>
+			</div>
+			<div class="only_one">
+				<p><i></i>&nbsp;温馨提示：您只有一次回复机会</p>
+			</div>
+		</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+		<!--图片滚动-->
+<script src="js/mui.zoom.js"></script>
+<script src="js/mui.previewimage.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="classLists" type="text/html">
+{{# for(var i = 0, len = d.length; i < len; i++){ }}
+	<div class="mui-card-header">
+		<ul class="mui-table-view">
+			<li class="">
+				<img style="width:42px;" class="mui-media-object mui-pull-left" src="{{ d[i].avatar }}">
+				<div class="mui-media-body">
+					<div class="mui-pull-left">
+						{{# if(d[i].nickname!=''){ }}
+							<span>{{ d[i].nickname }}</span>
+						{{# } else { }}
+							<span>匿名用户</span>
+						{{# } }}
+						<p>
+							{{# if(d[i].score==0){ }}
+						 		<i class="one_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i>
+							{{# }  else if(d[i].score==1) { }}
+						 		<i class="five_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i>
+						 	{{# }  else if(d[i].score==2) { }}
+						 		<i class="five_pointed"></i><i class="five_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i>
+						 	{{# }  else if(d[i].score==3) { }}
+						 		<i class="five_pointed"></i><i class="five_pointed"></i><i class="five_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i>
+						 	{{# }  else if(d[i].score==4) { }}
+						 		<i class="five_pointed"></i><i class="five_pointed"></i><i class="five_pointed"></i><i class="five_pointed"></i><i class="one_pointed"></i>
+						 	{{# }  else if(d[i].score==5) { }}
+						 		<i class="five_pointed"></i><i class="five_pointed"></i><i class="five_pointed"></i><i class="five_pointed"></i><i class="five_pointed"></i>
+						 	{{# } }}
+						</p>
+					</div>
+					<div class="mui-pull-right">
+						<p>{{ d[i].add_time_hi }}</p>
+					</div>
+				</div>
+
+			</li>
+		</ul>
+	</div>
+	
+	<div class="mui-card-content">
+		<h5>{{ d[i].comment }}</h5>
+		{{# var sum=''; }}
+		{{# if(d[i].goods!=[]){ }}
+			{{# for(var j=0;j< d[i].goods.length;j++ ){ }}
+				{{# sum+=d[i].goods[j]+' ';}}
+			{{# } }}
+			<p><b></b><span>{{ sum }}</span></p>
+		{{# } }}
+
+		{{# if(d[i].pic!=""&&d[i].pics!=[]&&d[i].pics!=undefined){ }}
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll ">
+					{{# for(var k=0;k< d[i].pics.length;k++){}}
+							<img src="{{ d[i].pics[k].s_image }}" data-preview-src="" data-preview-group="1" />
+					{{# } }}
+				
+				</div>
+			</div>
+		{{# } }}
+		
+	</div>
+	{{# if(d[i].merchant_reply_content!=''){ }}
+		<div class="rating-footer"><p><span>商家回复</span><i class="mui-pull-right">{{ d[i].merchant_reply_time_hi }}</i></p>	<div>{{ d[i].merchant_reply_content }}</div></div>
+	{{# } }}
+{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+	mui.init();
+	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var detail_id=$.getUrlParam('data');
+	common.http('Merchantapp&a=user_rating_list',{'ticket':ticket,'client':client,'detail_id':detail_id},function(data){
+		console.log(data);
+		laytpl(document.getElementById('classLists').innerHTML).render(data.reply_list, function(html){
+				$('.details').html(html);
+				
+		});
+		if(data.reply_list[0].pic==""||data.reply_list[0].pics==[]||data.reply_list[0].pics==undefined){ 
+			$('.mui-card-content').css('padding-bottom','0px');
+		}
+		if(data.reply_list[0].merchant_reply_content!=''){
+				$('.mui-card-footer').hide();
+				$('.confirm_reply').hide();
+		}
+		
+	});
+	
+	mui('.mui-content').on('tap','.confirm_reply',function(e){
+		document.activeElement.blur();
+		var val=$('textarea').val();
+		if(val!=''){
+			common.http('Merchantapp&a=user_rating_reply',{'ticket':ticket,'client':client,'detail_id':detail_id,'reply_content':val},function(data){
+				console.log(data);
+				if (data.length==0) {
+					mui.toast('回复成功，正在返回到列表');
+						if(common.checkApp()){
+							setTimeout(function(){
+								if(common.checkAndroidApp()){
+									window.pigcmspackapp.closewebview(2);
+								}else{
+									common.iosFunction('closewebview/2');
+								}
+							},2000);
+						}else{
+							setTimeout(function(){
+								history.go(-1);
+								document.execCommand('Refresh');
+							},2000); 
+						}	
+					}
+					common.http('Merchantapp&a=user_rating_list',{'ticket':ticket,'client':client,'detail_id':detail_id},function(data){
+						console.log(data);
+						laytpl(document.getElementById('classLists').innerHTML).render(data.reply_list, function(html){
+								$('.details').html(html);
+								
+						});
+						if(data.reply_list[0].pic==""||data.reply_list[0].pics==[]||data.reply_list[0].pics==undefined){ 
+							$('.mui-card-content').css('padding-bottom','0px');
+						}
+						
+					});
+					$('.mui-card-footer').hide();
+					$('.confirm_reply').hide();
+
+			});
+		}else{
+			mui.toast('请填写回复内容');
+		}
+		
+	});
+//图片侧滑
+mui('.mui-scroll-wrapper').scroll({
+				scrollY:false,
+				scrollX:true,
+				startX:0,
+				startY:0,
+				indicators:false,
+				deceleration:0.0005,
+				bounce:true
+			});
+			//图片预览
+mui.previewImage();
+function pageShowFunc(){
+	location.reload(true);
+}
+
+</script>
+	</body>
+
+</html>

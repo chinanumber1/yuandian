@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>商家二维码</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <style type="text/css">
+    	.mui-bar-nav{
+    		background: #FFC52E;
+    	}
+    	.mui-bar-nav h1{
+    		color: #FFFFFF;
+    		font-weight: normal;
+    	}
+    	.mui-bar-nav a{color: #FFFFFF;}
+    	.mui-content div{
+    		text-align: center;
+    		margin-top: 30px;
+    	}
+    	.mui-content div img{
+    		width: 80%;
+    	}
+    	.mui-content p{
+    		text-align: center;
+    		margin-top: 10px;
+    	}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">商家二维码</h1>
+	</header>
+	<div class="mui-content">
+	   	<div>
+	   		<img src="./images/empty.png"/>
+	   	</div>
+	   	<p>微信扫描二维码关注商家</p>
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+      	mui.init();
+        var qrcodeinfo = common.getCache('qrcodeinfo',true);
+        $('.mui-content img').attr('src',qrcodeinfo);
+</script>
+</body>
+</html>

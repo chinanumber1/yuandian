@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>店员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/pigcms.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<section class="public pageSliderHide">
+			<div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+			<div class="content">店员收银</div>
+			<div class="found link-url" data-url="cashier_set.html" data-webview="true">创建订单</div>
+			<div class="census">
+                <div class="sus_popup"></div>
+                <div class="sus_url">
+                    <a href="javascript:void(0)" class="scan search" >扫码支付</a>
+                    <a href="cashier_set.html" class="cashier_set " >创建订单</a>
+                </div>
+            </div>
+		</section>
+		<section class="order">
+			<div class="cable pageSliderHide">
+				<div class="cable_n">
+					<form id="searchForm" method="post">
+						<div class="input">
+							<input type="search" id="keyword" placeholder="请输入搜索内容" />
+						</div>
+						<div class="select">
+							<select id="condition">
+								<option value="order_id">订单号</option>
+								<option value="phone">手机号</option>
+							</select>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="discount" id="order_list"><ul></ul></div>
+		</section>
+		<script id="listTpl" type="text/html">
+			{{# for(var i = 0, len = d.length; i < len; i++){ }}
+				<li>
+					<a href="cashier_detail.html?order_id={{ d[i].order_id }}"  data-webview="true">
+						<div class="orderno">
+							<div class="orderno_top">
+								<h2>订单号:{{ d[i].order_id }}</h2>
+								<div class="clr letter">
+									<div class="fl clr"><em class="fl">总价：</em><span class="fl">{{ parseFloat(d[i].total_price) }} </span> 元</div>
+									{{# if(d[i].phone){ }}
+										<div class="fr callPhone" data-phone="{{ d[i].phone }}">用户手机：{{ d[i].phone }}</div>
+									{{# }else{ }}
+										<div class="fr">用户手机：---</div>
+									{{# } }}
+								</div>
+							</div>
+							<div class="orderno_end">买单时间：{{ d[i].pay_time }}</div>
+						</div>
+					</a>
+				</li>
+			{{# } }}
+		</script>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/cashier.js?t=54324232"></script>
+	</body>
+</html>

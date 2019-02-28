@@ -1,0 +1,101 @@
+ul{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-bar-nav a.mui-pull-right{
+	line-height: 44px;
+	font-size: 14px;
+}
+.mui-bar-nav a.mui-pull-right i{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../images/6-_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 5px;
+}
+p{
+	margin-bottom: 0;
+}
+/*优惠劵*/
+.new_pay{
+	border-left: 3px solid #FF724C;
+}
+.full_cat{
+	border-left: 3px solid #26bc53;
+}
+.mui-card-header{
+	padding: 8px;
+}
+.new_pay .mui-card-header span span{
+	display: inline-block;
+	width: 44px;height: 18px;
+	background: url(../images/9-_03.png) center no-repeat;
+	background-size: contain;
+	color: #fff;
+	font-size: 12px;
+    text-align: center;
+}
+
+.new_pay .mui-card-header span{
+	color: #FF724C;
+}
+/*满减头部*/
+.full_cat .mui-card-header span span{
+	display: inline-block;
+	width: 44px;height: 18px;
+	background: url(../images/9-_12.png) center no-repeat;
+	background-size: contain;
+	color: #fff;
+	font-size: 12px;
+    text-align: center;
+}
+
+.full_cat .mui-card-header span{
+	color: #26BC53;
+}
+.mui-card .mui-card-header p i{
+	display: inline-block;
+	width: 33px;
+	height: 30px;
+	background: url(../images/9-_05.png) center no-repeat;
+	background-size: 14px 15px;
+	vertical-align:middle;
+}
+.mui-card .mui-card-header p b{
+	display: inline-block;
+	width: 33px;
+	height: 30px;
+	background: url(../images/9-_07.png) center no-repeat;
+	background-size: 14px 15px;
+	vertical-align:middle;
+}
+
+.mui-card-content .mui-col-sm-4{
+	width: 33%;
+	text-align: center;
+	margin: 12px 0;
+}
+.mui-card-content .mui-col-sm-4:nth-child(2){
+	border-left: 1px solid #eee;
+	border-right: 1px solid #eee;
+}
+.mui-card-content .mui-col-sm-4 ul li:last-child{
+	font-size: 13px;
+	color: #666;
+}
+.mui-card-content .mui-col-sm-4 ul li .pay_money{
+	color: #FF724C;
+	font-size: 16px;
+}
+.mui-card-content .mui-col-sm-4 ul li .delate_money{
+	color: #26BC53;
+	font-size: 16px;
+}

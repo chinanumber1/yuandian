@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <section class="public">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+            <div class="content">预订待确认</div>
+            <div class="found">创建订单</div>
+        </section>
+        
+        <section class="reserve">
+            <div class="reserve_tab">
+                <div class="search">
+                    <input placeholder="搜索预订人、手机号码">
+                </div>
+                <div class="tab">
+                    <ul>
+                        <li>待付订金</li>
+                        <li>未点菜</li>
+                        <li>已点菜</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="entry">
+                <ul>
+                    <li>
+                        <div class="top pitch clr">
+                            <div class="fl">预订时间：2016-12-26 18:30</div>
+                            <div class="fr cancel">取消订单</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预订人: 王华先生  15055104342</h2>
+                                <p>桌台定金：<span class="red">￥20.00 未支付</span></p>
+                                <p>预定餐位：大厅 2号桌（2-4人）</p>
+                                <p>就餐人数：4人</p>
+                                <p>下单时间：2016-12-25 18:30:58</p>
+                            </div>
+                            <div class="remark">
+                                <span class="fl">备注：</span>
+                                <div class="p30 ">我要一个靠窗户的位置，带宝宝给我留一个儿童座椅我要一个靠窗户的位置，带宝宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top canc clr">
+                            <div class="fl">预订时间：2016-12-26 18:30</div>
+                            <div class="fr cancel">已取消</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预订人: 王华先生  15055104342</h2>
+                                <p>桌台定金：<span class="red">￥20.00 未支付</span></p>
+                                <p>预定餐位：大厅 2号桌（2-4人）</p>
+                                <p>就餐人数：4人</p>
+                                <p>下单时间：2016-12-25 18:30:58</p>
+                            </div>
+                            <div class="remark">
+                                <span class="fl">备注：</span>
+                                <div class="p30 ">无</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- <div class="no_img">
+                    <img src="images/not_03.jpg">
+                </div> -->
+            </div>
+
+            <div class="entry">
+                <ul>
+                    <li>
+                        <div class="top pitch clr">
+                            <div class="fl">预订时间：2016-12-26 18:30</div>
+                            <div class="fr cancel">取消订单</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预订人: 王华先生  15055104342</h2>
+                                <p>已付定金：<span class="red">￥20.00</span></p>
+                                <p>预定餐位：大厅 2号桌（2-4人）</p>
+                                <p>就餐人数：4人</p>
+                                <p>下单时间：2016-12-25 18:30:58</p>
+                                <p>订单来源：桌台二维码</p>
+                            </div>
+                            <div class="remark">
+                                <span class="fl">备注：</span>
+                                <div class="p30 ">我要一个靠窗户的位置，带宝宝给我留一个儿童座椅我要一个靠窗户的位置，带宝宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅</div>
+                            </div>
+                        </div>
+                        <div class="click">
+                            <dl>
+                                <dd class="food link-url" data-url="foodshop_order.html?order_id=43243242">
+                                    <span>点菜</span>
+                                </dd>
+                                <dd class="edit">
+                                    <span>编辑菜单</span>
+                                </dd>
+                                <dd class="print">
+                                    <span>打印菜单</span>
+                                </dd>
+                                <dd class="sett">
+                                    <span>结算</span>
+                                </dd>
+                                
+                            </dl>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top canc clr">
+                            <div class="fl">预订时间：2016-12-26 18:30</div>
+                            <div class="fr cancel">已取消</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预订人: 王华先生  15055104342</h2>
+                                <p>已付定金：<span class="red">￥20.00</span></p>
+                                <p>预定餐位：大厅 2号桌（2-4人）</p>
+                                <p>就餐人数：4人</p>
+                                <p>下单时间：2016-12-25 18:30:58</p>
+                                <p>订单来源：在线预订</p>
+                            </div>
+                            <div class="remark">
+                                <span class="fl">备注：</span>
+                                <div class="p30 ">我要一个靠窗户的位置，带宝宝给我留一个儿童座椅我要一个靠窗户的位置，带宝宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅</div>
+                            </div>
+                        </div>
+                        <div class="click">
+                            <dl>
+                                <dd class="food">
+                                    <span>点菜</span>
+                                </dd>
+                                <dd class="edit">
+                                    <span>编辑菜单</span>
+                                </dd>
+                                <dd class="print">
+                                    <span>打印菜单</span>
+                                </dd>
+                                <dd class="sett">
+                                    <span>结算</span>
+                                </dd>
+                                
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <ul>
+                    <li>
+                        <div class="top pitch clr">
+                            <div class="fl">预订时间：2016-12-26 18:30</div>
+                            <div class="fr cancel">取消订单</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预订人: 王华先生  15055104342</h2>
+                                <p>已付定金：<span class="red">￥20.00</span></p>
+                                <p>预定餐位：大厅 2号桌（2-4人）</p>
+                                <p>就餐人数：4人</p>
+                                <p>下单时间：2016-12-25 18:30:58</p>
+                                <p>订单来源：在线预订</p>
+                            </div>
+                            <div class="remark">
+                                <span class="fl">备注：</span>
+                                <div class="p30 ">我要一个靠窗户的位置，带宝宝给我留一个儿童座椅我要一个靠窗户的位置，带宝宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅宝给我留一个儿童座椅</div>
+                            </div>
+                        </div>
+                        <div class="already">
+                            <div class="pro">
+                                <h2>已点菜品：</h2>
+                                <div class="pro_list">
+                                    <dl>
+                                        <dd>
+                                            <span class="w4">毛血旺</span>
+                                            <span class="w1"><!-- <em class="end">已确认</em> --></span>
+                                            <span class="w2">x1</span>   
+                                            <span class="w3">￥48</span>
+                                        </dd>
+                                        <dd>
+                                            <span class="w4">毛血旺毛血旺毛血旺毛血旺血旺毛血旺血旺毛血旺血旺毛血旺</span>
+                                            <span class="w1"><!-- <em class="stay">待确认</em> --></span>
+                                            <span class="w2">x1</span>   
+                                            <span class="w3">￥448</span>
+                                        </dd>
+                                    </dl>
+                                    <div class="more"></div>
+                                </div>
+                                <div class="total clr">
+                                    <div class="fl">共12份</div>
+                                    <div class="fr">总计：<span class="price">￥288</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="click">
+                            <dl>
+                                <dd class="food">
+                                    <span>点菜</span>
+                                </dd>
+                                <dd class="edit">
+                                    <span>编辑菜单</span>
+                                </dd>
+                                <dd class="print">
+                                    <span>打印菜单</span>
+                                </dd>
+                                <dd class="sett">
+                                    <span>结算</span>
+                                </dd>
+                                
+                            </dl>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+
+        </section>
+
+        <div class="cease">
+            <div class="within">
+                <div class="cease_top clr">
+                    <h2 class="fl">已点菜品</h2>
+                    <div class="fl notice">暂未通知上菜</div>    
+                </div>
+                <div class="surface">
+                    <ul>
+                        <li>
+                            <div class="flex">
+                                <div class="w5">
+                                    <h2>蒜蓉蒸虾蒜蓉蒸虾</h2>
+                                    <p>(大份、微辣)</p>
+                                </div>
+                                <div class="w1"><!-- <em class="end">已确认</em> --></div>
+                                <div class="w3">x1</div>
+                                <div class="w4">￥2888.05</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex">
+                                <div class="w5">
+                                    <h2>238四人套餐</h2>
+                                </div>
+                                <div class="w1"><!-- <em class="stay">待确认</em> --></div>
+                                <div class="w3">x1</div>
+                                <div class="w4">￥2888.05</div>
+                            </div>
+                            <div class="sheath">
+                                <dl>
+                                    <dd>
+                                        <div class="w5">清蒸鲈鱼</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥28.07</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">剁椒鱼头</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥88.02</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">干锅豆腐</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥2848.05</div> 
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex">
+                                <div class="w5">
+                                    <h2>排骨冬瓜汤</h2>
+                                </div>
+                                <div class="w1"></div>
+                                <div class="w3">x1</div>
+                                <div class="w4">￥38</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex">
+                                <div class="w5">
+                                    <h2>铁板蛏子</h2>
+                                </div>
+                                <div class="w1"></div>
+                                <div class="w3">x1</div>
+                                <div class="w4">￥34.07</div>
+                            </div>
+                        </li>
+                         <li>
+                            <div class="flex">
+                                <div class="w5">
+                                    <h2>238四人套餐</h2>
+                                </div>
+                                <div class="w1"><!-- <em class="stay">待确认</em> --></div>
+                                <div class="w3">x1</div>
+                                <div class="w4">￥2888.05</div>
+                            </div>
+                            <div class="sheath">
+                                <dl>
+                                    <dd>
+                                        <div class="w5">清蒸鲈鱼</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥28.07</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">剁椒鱼头</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥88.02</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">干锅豆腐</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥2848.05</div> 
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                         <li>
+                            <div class="flex">
+                                <div class="w5">
+                                    <h2>238四人套餐</h2>
+                                </div>
+                                <div class="w1"><!-- <em class="stay">待确认</em> --></div>
+                                <div class="w3">x1</div>
+                                <div class="w4">￥2888.05</div>
+                            </div>
+                            <div class="sheath">
+                                <dl>
+                                    <dd>
+                                        <div class="w5">清蒸鲈鱼</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥28.07</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">剁椒鱼头</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥88.02</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">干锅豆腐</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥2848.05</div> 
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                         <li>
+                            <div class="flex">
+                                <div class="w5">
+                                    <h2>238四人套餐</h2>
+                                </div>
+                                <div class="w1"><!-- <em class="stay">待确认</em> --></div>
+                                <div class="w3">x1</div>
+                                <div class="w4">￥2888.05</div>
+                            </div>
+                            <div class="sheath">
+                                <dl>
+                                    <dd>
+                                        <div class="w5">清蒸鲈鱼</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥28.07</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">剁椒鱼头</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥88.02</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">干锅豆腐</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥2848.05</div> 
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                         <li>
+                            <div class="flex">
+                                <div class="w5">
+                                    <h2>238四人套餐</h2>
+                                </div>
+                                <div class="w1"><!-- <em class="stay">待确认</em> --></div>
+                                <div class="w3">x1</div>
+                                <div class="w4">￥2888.05</div>
+                            </div>
+                            <div class="sheath">
+                                <dl>
+                                    <dd>
+                                        <div class="w5">清蒸鲈鱼</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥28.07</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">剁椒鱼头</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥88.02</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">干锅豆腐</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥2848.05</div> 
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                         <li>
+                            <div class="flex">
+                                <div class="w5">
+                                    <h2>238四人套餐</h2>
+                                </div>
+                                <div class="w1"><!-- <em class="stay">待确认</em> --></div>
+                                <div class="w3">x1</div>
+                                <div class="w4">￥2888.05</div>
+                            </div>
+                            <div class="sheath">
+                                <dl>
+                                    <dd>
+                                        <div class="w5">清蒸鲈鱼</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥28.07</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">剁椒鱼头</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥88.02</div> 
+                                    </dd>
+                                    <dd>
+                                        <div class="w5">干锅豆腐</div>
+                                        <div class="w1"></div>
+                                        <div class="w3">x1</div>
+                                        <div class="w4">￥2848.05</div> 
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="tol_price clr">
+                    <div class="fl">共12份</div>
+                    <div class="fr price">总计：<span>￥488</span></div>
+                </div>
+            </div>
+            <div class="del"></div>
+        </div>
+
+        <div class="seek book">
+            <div class="within">
+                <h2>取消订单</h2>
+                <div class="con">
+                    <div class="img">
+                        <img src="images/tct_03.jpg">   
+                    </div>
+                    <div class="tit">
+                        <p class="on">重要提示</p>
+                        <p>确定取消预订之前，请及时联系顾客哦！</p>
+                    </div>
+                    <div class="button">
+                        <div class="clr p20">
+                            <div class="fl close shut">关闭</div>
+                            <div class="fr ensure shut">确定取消</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="del shut"></div>
+        </div>
+
+        <div class="seek prints">
+            <div class="within">
+                <h2>打印菜单</h2>
+                <div class="con">
+                    <div class="img">
+                        <img src="images/tct_04.jpg">   
+                    </div>
+                    <div class="tit">
+                        <p>打印订单，只会打印订单中的已点菜品。而且只会使用主打印机进行打印，一般适用于用户买单确定，<span class="red">确定打印？</span></p>
+                    </div>
+                    <div class="button">
+                        <div class="clr p20">
+                            <div class="fl close shut">关闭</div>
+                            <div class="fr ensure shut">确定打印</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="del shut"></div>
+        </div>
+
+        <div class="mask"></div>
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+        <script src="scripts/common.js"></script>
+        <script src="scripts/JRoll.js"></script>
+    </body>
+</html>
+
+<script>
+    $(".mask").height($(window).height());
+
+//顶部切换
+    $(".tab li").click(function(){
+        $(this).addClass("on").siblings().removeClass("on");
+        $(".entry").eq($(this).index()).show().siblings(".entry").hide();
+        judge();
+        $('body,html').animate({scrollTop: 0},300);
+    }).eq(0).trigger('click');
+
+
+//判断展开收起
+    function judge(){ 
+        $(".remark").each(function(){
+            var h=$(this).find(".p30").height();
+            if(h>36){
+                $(this).find(".p30").addClass("has_on");
+            } 
+        });
+    }
+    judge();
+
+    $(".entry .remark").click(function(){
+        if($(this).find(".p30").hasClass("has_on")){
+            $(this).find(".p30").toggleClass("mas_on");    
+        }
+    })
+
+
+// 更多菜品   
+   
+    var jroll = new JRoll(".surface");
+
+    $(".pro_list .more").click(function(){
+        $(".cease,.mask").fadeIn();
+        $(".surface").height($(".cease").height()-125);
+        jroll.refresh();
+    })
+
+   
+
+    $(".cease .del,.mask").click(function(){
+        $(".cease,.mask").fadeOut();
+    })
+        
+//取消订单  
+    $(".pitch .cancel").click(function(){
+        $(".book,.mask").fadeIn();
+    })
+
+    $(".book .shut,.mask").click(function(){
+        $(".book,.mask").fadeOut();
+    })
+
+//打印菜单
+    $(".click .print").click(function(){
+        $(".prints,.mask").fadeIn();
+    })
+
+    $(".prints .shut,.mask").click(function(){
+        $(".prints,.mask").fadeOut();
+    })
+</script>
+
+

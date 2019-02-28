@@ -1,0 +1,129 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-bar-nav a.mui-pull-right{
+	line-height: 44px;
+	font-size: 14px;
+}
+.mui-bar-nav a.mui-pull-right i{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../images/6-_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 5px;
+}
+
+/*卡片*/
+.mui-card{margin: 0;margin-top: 15px;  
+	border-left: 3px solid #FFA200;
+  margin: 10px 10px 15px 10px;}
+.mui-card-header,.mui-card-footer{
+	padding: 0;margin-left: 15px;
+}
+.mui-card-header{
+	/*padding: 5px 0;*/
+}
+.mui-card-header ul li{
+	font-size: 15px;
+	font-weight: bold;
+	color: #333333;
+}
+.mui-card-header ul li span{
+	font-weight: normal;
+	color: #E93E14;
+}
+.mui-card-header i{
+	display: inline-block;
+	width: 46px;height: 46px;
+	background: url(../images/8-_03.png) center no-repeat;
+	background-size: 18px 19px;
+	vertical-align: baseline;
+}
+.mui-card-content{
+	font-size: 12px;
+	margin-left: 15px;
+	margin-right: 3%;
+	padding: 8px 0;
+	position: relative;
+}
+.mui-card-content p{
+	margin-right:6px;
+	font-size:12px ;
+	color:#999999 ;
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	display:-webkit-box; 
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:2; 
+}
+.mui-card-content p.active{
+	margin-right:6px;
+	font-size:12px ;
+	color:#999999 ;
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	display:-webkit-box; 
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:12; 
+}
+.mui-card-content p span{
+	color: #FFA200;
+}
+.mui-card-content p.active i{
+	display: inline-block;
+	width: 8px;height: 5px;
+	background: url(../images/31-_06.png) center no-repeat;
+	background-size: contain;
+	position: absolute;
+	bottom:11px;
+	right: 0;
+}
+
+.mui-card-content p i{
+	display: inline-block;
+	width: 8px;height: 5px;
+	background: url(../images/31-_03.png) center no-repeat;
+	background-size: contain;
+	position: absolute;
+	bottom:11px;
+	right: 0;
+}
+
+
+/*查看*/
+.mui-card-footer {
+	display: block;
+	/*border-top: 1px solid #f1f1f1;*/
+}
+.mui-card-footer .mui-pull-right{
+	margin-right: 3%;
+	color: #ffa200;
+    border: 1px solid #ffa200;
+    border-radius: 3px;
+    padding: 3px 12px;
+    font-size: 13px;
+    margin-top: 8px;
+}
+.special {
+	margin-bottom: 10px;
+}
+.special .mui-card-footer:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #f1f1f1
+}

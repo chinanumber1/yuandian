@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>添加商品</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link href="css/mui.poppicker.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/imange-view.css"/>
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+    <!--   <link rel="stylesheet" type="text/css" href="css/mui.picker.css" />  -->
+    <link href="css/mui.picker.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/border.css"/>
+    <link href="css/dropload.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/add_goods.css?22"/>
+    <style type="text/css">
+        .speed_tiggle{
+            display: inline-block;
+            position:relative;
+            width: 45px;
+            height: 64px;
+            background: url(./images/16-_06.png) center no-repeat;
+            background-size: 20px 20px;
+            /* margin: 19px 0 0 6px; */
+        }
+        .goods_news1{
+
+            overflow-x: hidden;
+            background: #fff;
+
+        }
+        .speed_tiggle.actived{
+
+            display: inline-block;
+            position:relative;
+            width: 45px;
+            height: 64px;
+            background:url(./images/16-_03.png) center no-repeat;
+            background-size: 20px 20px;
+        }
+        .speed_tiggle input{
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 11px;
+            bottom: 21px;
+            z-index: 10;
+            opacity: 0;
+        }
+        .goods_news1{padding:0px 10px 0px 10px }
+        .goods_news1 img{border:1px solid #eee}
+        .goods_news1>li {
+            padding: 9px 0px 9px 0px;
+        }
+
+
+
+        .mui-icon-left-navs:before,.mui-icon-left-navs1:before  {
+            content: '\e471';
+        }
+        .pullup1, .loading1 {
+            text-align: center;
+            padding: 0 0 10px 0;
+            font-size: 14px;
+            color: #999;
+        }
+        .mui-scroll {
+            width: 100%;
+            height: 52px;
+        }
+
+        img {
+            width: 85px;
+            height: 53px;
+        }
+
+        .speend {
+            font-size: 13px;
+            background: #FFA200;
+            padding: 2px 3px;
+            color: #fff;
+            border-radius: 2px;
+            margin-right: 10px;
+        }
+
+        #scanQRCode1 {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            background: url(./images/17-_03.png) center no-repeat;
+            background-size: 20px 20px;
+        }
+
+        .mui-card-content .mui-col-sm-3 {
+            padding: 12px;
+        }
+
+        .timeManger {
+            width: 63%;
+        }
+
+        .mui-card-content .mui-col-sm-9 div ul {
+            padding: 4px;
+            margin: 0 10px;
+        }
+
+        .tjt-content {
+            height: auto !important;
+            border-bottom: none !important;
+        }
+
+        .tjt-content li {
+            padding: 0px !important;
+            font-size: initial !important;
+        }
+
+        .tjt-content h4 {
+            font-style: normal !important;
+            color: #535353 !important;
+        }
+
+        .tjt-content .time_zhi {
+            font-size: 12px !important;
+            color: #D6D6DA !important;
+            margin-top: 22px !important;
+        }
+
+        .tjt-content .time_zhis {
+            font-size: 12px !important;
+            color: #D6D6DA !important;
+            margin-top: 4px !important;
+        }
+
+        .tjt-content .span {
+            font-size: 12px !important;
+            color: #FFA200 !important;
+        }
+
+        .tjt-content ul {
+            width: auto !important;
+        }
+
+        .mui-switch {
+            margin-right: 10px;
+            background: #f0f0f0;
+        }
+
+        .mui-switch.mui-active {
+            border-color: #FFA200;
+            background-color: #FFA200;
+        }
+
+        .mui-switch.mui-active::before {
+            right: auto;
+            left: 10px;
+            content: "开启";
+            color: rgb(255, 255, 255);
+            top: 3px;
+        }
+
+        .mui-switch::before {
+            font-size: 13px;
+            position: absolute;
+            top: 3px;
+            right: 11px;
+            content: "关闭";
+            text-transform: uppercase;
+            color: rgb(153, 153, 153);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .tjt-head {
+            -webkit-justify-content: flex-start !important;
+            justify-content: flex-start !important;
+            padding: 0px !important;
+        }
+
+        .tjt_introduce {
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 30px !important;
+            border: none !important;
+            font-size: 14px;
+            flex: 1 !important;
+        }
+
+        .mui-card-footers p {
+            display: flex;
+        }
+
+        .mui-card-footers p b {
+            flex: 1;
+            position: relative;
+        }
+
+        .left_style a {
+            color: #404040 !important;
+        }
+
+        .mui-content {
+            overflow-y: scroll;
+        }
+
+        .listy-1 {
+            font-size: 14px;
+            color: #404040;
+            width: 24%;
+        }
+
+        label {
+            padding: 0px !important;
+        }
+
+        .ui-bt:after {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 1px;
+            content: '';
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            background-color: #f1f1f1;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center
+        }
+
+        .hiddens {
+            display: none !important;
+        }
+        .bgf{background-color: #fff;}
+        html,body, .mui-content{
+            overflow: auto !important;
+        }
+    </style>
+</head>
+<body class="">
+<div id="shop1">
+    <header class="mui-bar mui-bar-nav">
+        <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back"></div>
+        <h1 class="mui-title">添加商品</h1>
+    </header>
+    <div class="mui-content">
+        <div>
+            <div class="mui-card">
+                <!--页眉，放置标题-->
+                <div class="mui-input-row mui-card-header tjt-head">
+                    <label class='left_style open_bianma' style='width:24%;    padding: 0px;'>商品编码 <i></i></label>
+                    <input type="text" name="" class="number tjt_introduce" value="" placeholder="请输入商品条形码"/>
+                    <i class="" id="scanQRCode1"></i>
+                    <a href='javascript:;' id="speend" style='margin-right:12px'>
+                        <div class="speend" style='width:100%;text-align:center'>极速录入</div>
+                    </a>
+                </div>
+                <!-- <div class="mui-card-header tjt-head">
+                    <span class="left_style "><a href='javascript:;' class='open_bianma'>商品编码 <i></i></a></span>
+                    <input type="text" name="" class="number tjt_introduce" value="" placeholder="请输入商品条形码"/>
+                    <i class="mui-pull-right" id="scanQRCode1"></i>
+                    <i class="" id="scanQRCode1"></i>
+                    <a href='javascript:;' id="speend" style='margin-right:12px'><div class="speend" style='width:100%;text-align:center'>极速录入</div></a>
+                </div> -->
+                <!--内容区-->
+                <div class="shop_introduce">
+                    <div class="mui-card-content ">
+                        <span class="left_style">商品名称</span>
+                        <input type="text" name="" class="name" value="" placeholder="请输入商品名称"/>
+                        <!--<i class="mui-pull-right"></i>-->
+                    </div>
+                    <!--页脚，放置补充信息或支持的操作-->
+                    <div class="mui-card-footer mui-input-row">
+                        <label class="mui-pull-left left_style "><a href='javascript:;' class='open_photo'>商品图片 <i></i></a></label>
+                        <!--<ul class="mui-pull-right">
+                            <li>首张将作为列表页图片展示，最多上传5张照片。同一张照片不能选择(侧重文字模板的图片宽度建议为900px,高度建议为500px;侧重图片尺寸建议为:大于等于600px*600px的正方形)</li>
+                            <!<li>图片建议宽度700px,高420px。</li>-->
+                        <!--</ul>-->
+                        <div class="mui-scroll-wrapper">
+                            <div class="mui-scroll showImg">
+                                <div class="mui-pull-left uload">
+                                    <ul>
+                                        <li class="up_img">
+                                            <img src="images/17-8_03.png" alt=""/>
+                                            <input type="file" accept="image/jpg,image/jpeg,image/png,image/gif"
+                                                   id="fileImage" name="imgFile">
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="shop_docuont">
+            <div class="mui-card">
+                <!--页眉，放置标题-->
+                <!--内容区-->
+                <div class="mui-card-content mui-clearfix">
+                    <span class="left_style">商品状态</span>
+                    <ul class="mui-pull-right rido_change">
+                        <li class="all_up"><i><b></b></i> 上架</li>
+                        <!-- <li class=" check_all"><i><b></b></i> 线下零售</li>
+                        <li class="check_all"><i><b></b></i> 线上购买</li> -->
+                        <li class="all_down"><i><b></b></i> 下架</li>
+
+                    </ul>
+                </div>
+                <!--页脚，放置补充信息或支持的操作-->
+
+                <div class="mui-card-footer mui-clearfix  ui-border-b">
+                    <label class="left_style " style='line-height: inherit;width:24%'>
+                        <a href='javascript:;'class='ku_propt'>商品库存 <i></i></a>
+                    </label>
+                    <!--<input style="width: 68%;" type="tel" name="" id="" value="1000"/>-->
+                    <ul class="mui-pull-right ku_change mui-clearfix">
+                        <li class="mui-pull-left active"><i><b></b></i> 无限量</li>
+                        <li class="  mui-pull-left"><i><b></b></i> 自定义库存</li>
+                    </ul>
+                    <input type="tel" value="" class="ku_nuber stock_num" placeholder="请输入商品库存数"
+                           style="display:none;float:left"/>
+                </div>
+                <div class="mui-card-footer mui-clearfix mui-card-footers ">
+                    <p class='mui-input-row'>
+                        <label class="left_style" style='width:24%;line-height: inherit;'>商品分类</label>
+                        <b id="showUserPicker" class="mui-clearfix"><span id="goods_class">请选择商品分类</span> <i
+                                class="mui-pull-right"></i></b>
+                    </p>
+                </div>
+                <div id='category_list'>
+                    <div class="mui-card-footer mui-clearfix freight mui-card-footers ">
+                        <p class='mui-input-row'>
+                            <label class="left_style " style='line-height:inherit;width:24%;'><a href='javascript:;'
+                                                                                                 class='yun1'>运费模板
+                                <i></i></a></label>
+                            <b id="freight" class="mui-clearfix">
+                                <span id="" class=''>请选择运费模板</span>
+                                <i class="mui-pull-right"></i>
+                                <input type='text' id='freight_template' class=' hidden freight_template'
+                                       name='freight_template' value=''/>
+                            </b>
+
+                        </p>
+                    </div>
+
+                    <div class="mui-card-footer mui-clearfix freight ">
+                        <p class='mui-input-row '>
+                            <label class="left_style " style='width:32%;'><a href='javascript:;' class='yun2'>其他区域运费 <i></i></a></label>
+                            <input placeholder="请输入其他区域运费" type='number' style='width:58%' class='freight_value'
+                                   name='freight_value'/>
+                        </p>
+                    </div>
+                    <div class="mui-card-content mui-clearfix mui-input-row ">
+                        <label class="left_style " style='width:32%'><a href='javascript:;' class='freight_types'>运费计算方式
+                            <i></i></a></label>
+                        <ul class="mui-pull-right rido_change1" style='width:61%'>
+                            <li class="all_up active" data-value='0'><i><b></b></i> 按最大值计算</li>
+                            <!-- <li class=" check_all"><i><b></b></i> 线下零售</li>
+                            <li class="check_all"><i><b></b></i> 线上购买</li> -->
+                            <li class="all_down" data-value='1'><i><b></b></i> 单独计算</li>
+                            <input type='text' class='hidden freight_type' name='freight_type' value='0'/>
+
+                        </ul>
+                    </div>
+                    <div class="mui-card-footer mui-clearfix mui-card-footers ">
+                        <p>
+                            <span class="left_style" style='width:30%'>商城商品分类</span>
+                            <b id="showUserPicker1" class="mui-clearfix" style='width:62%'><span id="change_text"
+                                                                                                 data-fid='null'>请选择商城商品分类</span>
+                                <i class="mui-pull-right"></i></b>
+                            <input type='text' class='hidden cat_fid' name='cat_fid' id='cat_fid'/>
+                            <input type='text' class='hidden cat_id' name='cat_id' id='cat_id'/>
+                        </p>
+                    </div>
+                    <div class="mui-card-footer mui-clearfix mui-card-footers ">
+                        <p style='display:flex'>
+                            <span class="left_style" style='width:38%'>商城商品筛选属性</span>
+                            <b id="atributes" class="mui-clearfix" style='flex:1'><span id="change2">请选择商城商品属性</span> <i
+                                    class="mui-pull-right"></i></b>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mui-card-footer pcms ui-border-b " style="display:none;">
+                    <p class='mui-input-row'>
+                        <label class="left_style" style='width:24%;line-height: inherit;'>归属打印机</label>
+                        <b id="prinks" class="mui-clearfix"><span id="prinks_text">请选择归属打印机</span> <i
+                                class="mui-pull-right"></i></b>
+                    </p>
+                </div>
+                <div>
+                    <div class="mui-card-footer mui-clearfix freight mui-card-footers ui-border-b ">
+                        <p class='mui-input-row'>
+                            <label class="left_style " style='width:32%;line-height: inherit;'><a href='javascript:;'
+                                                                                                  class='is_discount'>是否参与折扣
+                                <i></i></a></label>
+                            <b id="is_discount" class="mui-clearfix">
+                                <span  class=''>参与折扣</span>
+                                <i class="mui-pull-right"></i>
+                                <input type='text' id='is_discounts' class=' hidden ' name='is_discount' value='1'/>
+                            </b>
+
+                        </p>
+                    </div>
+                    <div class="mui-card-content tjt-content ui-border-b ">
+                        <div class="mui-row mui-input-row">
+                            <label class="left_style mui-pull-left " style='width:32%'><a href='javascript:;'
+                                                                                          class='alayTimes'>每天显示时段
+                                <i></i></a></label>
+                            <div class="mui-col-sm-9 timeManger" style='width:61%'>
+                                <div class="mui-clearfix">
+                                    <ul class="mui-pull-left date_btn">
+                                        <li><span class="time_show span">开始时间</span></li>
+                                        <li><h4 data-options='{"type":"time"}' class="btn time_active" id='show_start_time'>
+                                            00:00</h4></li>
+                                    </ul>
+                                    <ul class="mui-pull-left">
+                                        <li></li>
+                                        <li class="time_zhi">至</li>
+                                    </ul>
+                                    <ul class="mui-pull-left date_btn">
+                                        <li><span class="time_show span">停业时间</span></li>
+                                        <li><h4 data-options='{"type":"time"}' class="btn time_active" id='show_end_time'>
+                                            00:00</h4></li>
+                                    </ul>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mui-card-footer mui-clearfix mui-card-footers ui-border-b ">
+                        <p>
+                            <span class="left_style ku_propt">限购类型 </span>
+                            <b id="limit_type" class="mui-clearfix">
+                                <span >每单限购</span> <i class="mui-pull-right"></i>
+                                <input type='text' class='hidden' id='limit_types' name='limit_type' value='0'/>
+
+                            </b>
+                        </p>
+                    </div>
+
+                    <div class="mui-card-footer mui-clearfix freight ">
+
+                        <p class='mui-input-row' style='display:flex;align-items: center'>
+                            <label class="left_style max_num " style='width:32%;' id='limit_name'><a href='javascript:;'
+                                                                                                     id='limit_names'
+                                                                                                     class='max_num'>每单限购数量
+                                <i></i></a></label>
+                            <input placeholder="请输入数量" style='flex:1' id='max_num' name='max_num' type="number"/>
+                        </p>
+                    </div>
+                    <div class="mui-card-footer">
+                        <span class="left_style">商品进价</span>
+                        <input class="fill_width cost_price" type="number" value="" placeholder="请输入商品进价"/>
+                    </div>
+                    <div class="mui-card-footer">
+                        <span class="left_style">商品售价</span>
+                        <input class="fill_width price" type="number" value="" placeholder="请输入商品售价"/>
+                    </div>
+                    <div class="mui-card-footer">
+                        <span class="left_style">商品排序</span>
+                        <input class="fill_width sort" type="tel" name="" value="0" placeholder="请输入商品排序"/>
+                    </div>
+                    <div class="mui-card-footer">
+                        <span class="left_style">打包费</span>
+                        <input class="fill_width packing_charge" type="number" name="" value="0" value=""
+                               placeholder="请输入打包费"/>
+                    </div>
+                    <div class="mui-card-footer ui-bt">
+                        <span class="left_style">商品单位</span>
+                        <input class="fill_width unit" type="text" value="" placeholder="如份、斤、个"/>
+                    </div>
+                    <div class="mui-card-footer mui-clearfix " style='display:flex;align-items:center'>
+                        <span class="left_style" style='width:32%;'>是否开启限时价</span>
+                        <div style='flex:1'>
+                            <div class="mui-switch have_group mui-pull-right limitPrice mui-active">
+                                <div class="mui-switch-handle"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id='limitPrice' class=''>
+                        <div class="mui-card-footer ui-bt">
+                            <span class="left_style">商品限时价</span>
+                            <input class="fill_width seckill_price" type="number" id='seckill_price' name='seckill_price'
+                                   value="" placeholder="请输入商品限时价"/>
+                        </div>
+
+                        <div class="mui-card-footer mui-clearfix">
+                            <span class="left_style ku_propt" style='width:27%'>限时价库存 </span>
+                            <!--<input style="width: 68%;" type="tel" name="" id="" value="1000"/>-->
+                            <ul class="mui-pull-right ku_change1 mui-clearfix" style='width:66%'>
+                                <li class="mui-pull-left active" data-value='-1'><i><b></b></i>无限量</li>
+                                <li class="  mui-pull-left"><i><b></b></i> 自定义库存</li>
+                            </ul>
+                            <input type="tel" value="-1" name='seckill_stock' class="seckill_stock " placeholder="请输入库存数"
+                                   id='seckill_stock' style="display:none;"/>
+
+                            <div style="display:none;">
+                                <span class="left_style" style='opacity: 0'>限时价库存</span>
+                                <input type="tel" value="" class="ku_nubers stock_num" placeholder="请输入的正整数"
+                                       style='margin-left:4.5%'/>
+                            </div>
+
+                        </div>
+                        <div class="mui-card-footer mui-clearfix">
+                            <span class="left_style ku_propt" style='width:27%'>限时价类型 </span>
+                            <!--<input style="width: 68%;" type="tel" name="" id="" value="1000"/>-->
+                            <ul class="mui-pull-right ku_change2 mui-clearfix" style='width:66%'>
+                                <li class="mui-pull-left active" style='margin-right:3%' data-value='0'><i><b></b></i> 固定时间段
+                                </li>
+                                <li class="  mui-pull-left" style='margin-right:3%' data-value='1'><i><b></b></i> 每天时间段</li>
+                            </ul>
+                            <input class='hidden' id='seckill_type' name='seckill_type' value="0"/>
+                            <div style="display:none;">
+                                <span class="left_style" style='opacity: 0'>商品限时价</span>
+                                <input type="tel" value="" class="ku_nubers stock_num" placeholder="请输入价格"
+                                       style='margin-left:4.5%'/>
+                            </div>
+                        </div>
+                        <div class="mui-card-footer everyDay">
+                            <span class="left_style">限时价日期</span>
+                            <div class="mui-row tjt-row">
+                                <div class="mui-col-sm-6" style='margin-right:10px'>
+                                    <li class="begin_date" name="appDate" style='display:flex;align-items: center'>
+                                        <i></i>
+                                        <span id="begin_date" class='seckill_start_date' style='flex:1;'>开始日期</span>
+                                        <b></b>
+                                    </li>
+                                </div>
+                                <div class='mui-pull-left tjt-hide'
+                                     style='margin-top:7px;margin-right:10px; color: #D6D6DA;font-size: 12px ;display:none'>
+                                    至
+                                </div>
+                                <div class="mui-col-sm-6">
+                                    <li class="end_date date_btn" id="pickTimeBtn" style='display:flex;align-items: center'>
+                                        <i></i>
+                                        <span id="end_date" class='seckill_end_date' style='flex:1;'>结束日期</span>
+                                        <b></b>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mui-card-content tjt-content">
+                            <div class="mui-row">
+                                <span class="left_style mui-pull-left" style='width:30%'>限时价时段</span>
+                                <div class="mui-col-sm-9 timeManger">
+                                    <div class="mui-clearfix">
+                                        <ul class="mui-pull-left date_btns one_btn" data-id='55'>
+                                            <li><h4 data-options='{"type":"time"}'
+                                                    class="btn time_active seckill_start_time">00:00</h4></li>
+                                        </ul>
+                                        <ul class="mui-pull-left">
+                                            <li class="time_zhis">至</li>
+                                        </ul>
+                                        <ul class="mui-pull-left date_btns one_btn">
+                                            <li><h4 data-options='{"type":"time"}' class="btn time_active seckill_end_time">
+                                                00:00</h4></li>
+                                        </ul>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-bottom: 60px;">
+
+            </div>
+        </div>
+
+        <!--商品属性 -->
+      
+    </div>
+    <nav class="mui-bar mui-bar-tab">
+        <a href="javascript:;">保存</a>
+    </nav>
+</div>
+<div id="shopAll" style="display:none">
+    <header class="mui-bar mui-bar-nav mui-clearfix">
+        <div class=" mui-icon mui-icon-left-navs mui-pull-left" data-url="back" ></div>
+        <h1 class="mui-title">选择录入商品</h1>
+
+        <span class="mui-pull-right hidden" id="cancel">完成</span>
+        <!--<div style="clear: both;"></div>-->
+    </header>
+    <div class="mui-content">
+        <div class="commod">
+            <div class="search">
+                <p><i></i> <span>商品名称</span></p>
+                <!-- <div class="mui-input-row mui-search">
+                    <input type="search" class="mui-input-clear" placeholder="商品名称" readonly>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="mui-content mui-row" >
+            <div class="mui-col-xs-3" >
+                <div id="segmentedControls" class=" mui-segmented-control-inverted mui-segmented-control-vertical">
+                    <dl class="classHtml" >
+
+                    </dl>
+                </div>
+            </div>
+            <div id="segmentedControlContents" class="mui-col-xs-9" >
+                <div class="all_change_show">
+                    <p></p>
+                    <div id="order_list">
+                        <ul class="goods_news ui-border-b">
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="seachAll" style="display:none">
+    <header class="mui-bar mui-bar-nav">
+        <div class=" mui-icon mui-icon-left-navs1 mui-pull-left" data-url="back" ></div>
+        <h1 class="mui-title">
+            <i></i>
+            <input type="search" class="mui-input-clear" id="keywords" placeholder="商品名称" style="    color: #000;"/>
+        </h1>
+    </header>
+    <div class="mui-content">
+        <div style="overflow-y:auto" id="searchBanner">
+            <ul class="goods_news1" >
+
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+  <div class="deliver_time_box hidden">
+            <div class="mask"></div>
+            <div class="timer">
+                <div class="header"><span style="margin-left: 17%;">选择分类</span> <i class="mui-pull-right">完成</i></div>
+                <div class="content">
+                    <div class="day" style="height: 346.6px;">
+
+                    </div>
+                    <div class="time" style="height: 346.6px;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+<script id="classLeft" type="text/html">
+    {{# for(var i = 0; i < d.length; i++){ }}
+    <dd  class="first_list {{# if(i==0){ }}  active    {{# } }}" data-id='{{ d[i].sort_id }}' data-name='{{ d[i].name }}'>
+        <i><b class="mui-pull-left"></b><span>{{ d[i].name }}</span></i>
+    </dd>
+    {{# } }}
+</script>
+<script id="classRight" type="text/html">
+    {{# for(var i = 0; i < d.length; i++){ }}
+    <li class="mui-clearfix" data-goodid="{{ d[i].goods_id }}">
+        <i data-goodid="{{ d[i].goods_id }}" class=" mui-pull-right check_tiggle speed_tiggle" ><input type="radio" name="1" data-goodid="{{ d[i].goods_id }}"/></i>
+        <img class="mui-pull-left" src="{{ d[i].image }}" data-preview-src="" data-preview-group="1">
+        <sub class="floor" style="display:none;">已下架</sub>
+        <ul class="mui-pull-left">
+            <li>{{ d[i].name }}</li>
+            <li style='color: #000;'><sapn>编号:</sapn><span>{{ d[i].name }}</span> </li>
+            <li><sapn>单位:</sapn><span>{{ d[i].unit }}</span> </li>
+            <li><sapn>进价:</sapn><span>￥{{ d[i].cost_price }}</span> </li>
+            <li><sapn>售价:</sapn><span>￥{{ d[i].price }}</span> </li>
+        </ul>
+    </li>
+    {{# } }}
+</script>
+<script id="add" type="text/html">
+    {{# for(var i = 0; i < d.length; i++){ }}
+    <li style=" display: flex;" class="ui-border-b">
+        <div style="width: 80px;height: 60px;"><img src="{{ d[i].image }}"></div>
+        <div style="font-size: 12px; padding-left: 16px;flex:1">
+            <div>{{ d[i].name }}</div>
+            <div>编号:{{ d[i].number }}</div>
+            <div>单位:{{ d[i].unit }}</div>
+            <div>进价:￥{{ d[i].cost_price }}</div>
+            <div>售价:￥{{ d[i].price }}</div>
+        </div>
+        <div >
+            <i  class="speed_tiggle"><input type="radio" name="1" data-goodid="{{ d[i].goods_id }}"></i>
+        </div>
+    </li>
+
+    {{# } }}
+</script>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+
+<!--图片滚动-->
+<script src="js/mui.zoom.js"></script>
+<script src="js/mui.previewimage.js"></script>
+<script src="js/mui.picker.js"></script>
+<!--筛选用到js-->
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/dropload.js"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    mui.init();
+    var ticket = common.getCache('ticket');
+    var client = common.checkAndroidApp() ? 2 : (common.checkIosApp() ? 1 : 0);
+    var store_id = $.getUrlParam('store_id');//店铺id
+    var addType = common.getCache('addType');
+    var goodsClass = [];//三级列表分类数组
+    var goods_id = $.getUrlParam('goods_id');
+    var types = $.getUrlParam('types');
+    console.log(types)
+    console.log(goods_id);
+    var prinks = [];
+    var prinks_index = '';
+    console.log(prinks_index);
+    var item1 = 0, item2 = 0, item3 = 0;
+    var pic_lens = 1;
+    var storeClass = [];//商品商城分类
+    var fid = '', ziid = '';
+    var mask = mui.createMask();//callback为用户点击蒙版时自动执行的回调；
+    var names = [];
+    var times;
+    var fareTemplet = [];
+    var gd = goods_id;
+    var goodsproperties = [];//商城商品筛选属性值
+    var shopId= common.getCache('shopId');//店铺ID
+    console.log(goods_id);
+    var sort_id='';//默认渲染商品ID
+    var type=0;//根据用户是否点击批量管理按钮修改样式
+    var fls=0;
+    var name='';
+    var fresh=true;
+    var searchFreach=true;
+    var page=0;
+    if ($(window).width() >= 375) {
+        $(".tjt-hide").show();
+        $(".tjt-row .mui-col-sm-6").css("width", '43%')
+    }
+  //$(".mui-col-xs-9").css("height",$(window).height()-88 );
+    if (goods_id != null) {
+        if (types != null) {
+            $("#speend").show();
+            $("#scanQRCode1").show()
+        } else {
+            $("#speend").hide();
+            $("#scanQRCode1").hide()
+        }
+
+    }
+	
+	//初始化录入商品页面的商品列表高度
+	$('.mui-segmented-control-vertical dl,.mui-col-xs-9').height($(window).height()-44-44);
+    $('#searchBanner').height($(window).height()-44);
+    $("input").on("focus", function () {
+        $(".mui-bar-tab").css("position", 'static')
+    })
+    $("input").on("blur", function () {
+        $(".mui-bar-tab").css("position", 'fixed')
+    })
+    // $("#speend").attr("href",'./speed_enter.html?store_id='+store_id+'&goods_id='+goods_id);
+    //初始加载页面调用方法  商品分类
+    init();
+    function init (){
+        common.http('WapMerchant&a=goodsSortList', {
+            'ticket': ticket,
+            'client': client,
+            'store_id': store_id
+        }, function (data) {
+            goodsClass=[];
+            goodsClass = data.list;
+            console.log(goodsClass);
+        });
+
+        function pinks(arr) {
+            prinks=[];
+            $.each(arr, function (i, val) {
+                var temp = {'value': val.pigcms_id, 'text': val.name};
+                prinks.push(temp);
+                temp = null;
+            });
+        }
+
+        function showHtml(type) {
+            if (type.goods) {
+                if (type.goods.freight_value != null) {
+                    $(".freight_value").val(type.goods.freight_value || '')
+                }
+                if (type.goods.freight_type != null) {
+                    $(".freight_type").val(type.goods.freight_type || '0');
+                }
+                if (type.goods.cat_fid != null) {
+                    $("#cat_fid").val(type.goods.cat_fid || '');
+                }
+                if (type.goods.cat_id != null) {
+                    $("#cat_id").val(type.goods.cat_id || '');
+                }
+                if (type.goods.seckill_price != null) {
+                    $("#seckill_price").val(type.goods.seckill_price || '');
+                }
+                if (parseInt(type.goods.seckill_price) == 0) {
+                    $("#limitPrice").hide();
+                    $(".limitPrice").removeClass("mui-active");
+                    $("#seckill_price").val(type.goods.seckill_price);
+                }
+
+                if (type.goods.freight_type == 1) {
+                    $(".rido_change1").find('li').eq(1).addClass("active");
+                    $(".rido_change1").find('li').eq(0).removeClass("active")
+                } else {
+                    $(".rido_change1").find('li').eq(0).addClass("active");
+                    $(".rido_change1").find('li').eq(1).removeClass("active")
+                }
+                if (type.goods.is_discount == 1) {
+                    $("#is_discount").find('span').html('参与折扣');
+                    $("#is_discounts").val(1)
+                } else {
+                    $("#is_discount").find('span').html('不参与折扣');
+                    $("#is_discounts").val(0)
+                }
+                $("#show_start_time").html(type.goods.show_start_time || '00:00');
+                $("#show_end_time").html(type.goods.show_end_time || '00:00');
+                if (type.goods.limit_type == 0) {
+                    $("#limit_type").find("span").html('每单限购')
+                } else {
+                    $("#limit_type").find("span").html('每个ID限购')
+                }
+                $("#limit_types").val(type.goods.limit_type);
+                $("#max_num").val(type.goods.max_num)
+                if (type.goods.seckill_stock != null && type.goods.seckill_stock != -1) {
+                    $(".ku_change1").find("li").eq(0).removeClass("active");
+                    $(".ku_change1").find("li").eq(1).addClass("active");
+                    $("#seckill_stock").show().val(type.goods.seckill_stock)
+                }
+                if (type.goods.seckill_type != null) {
+                    $("#seckill_type").val(type.goods.seckill_type)
+                    if (type.goods.seckill_type == 1) {
+                        $(".ku_change2 li").eq(1).addClass("active");
+                        $(".ku_change2 li").eq(0).removeClass("active");
+                        $(".everyDay").hide()
+                    } else {
+                        if (types == null) {
+                            $(".seckill_start_date").html(type.goods.seckill_start_date || '开始日期');
+                            $(".seckill_end_date").html(type.goods.seckill_end_date || '结束日期')
+                        }
+
+                    }
+                }
+                $(".seckill_start_time").html(type.goods.seckill_start_time || '00:00');
+                $(".seckill_end_time").html(type.goods.seckill_end_time || '00:00');
+            }
+
+        };
+
+        function getGoodsProperties() {
+            //获取商城商品
+            common.http('WapMerchant&a=getGoodsProperties', {
+                'ticket': ticket,
+                'client': client,
+                'store_id': store_id,
+                'cat_id': $("#change_text").attr('data-cat_id'),
+                'goods_id': goods_id,
+                'noTip': true,
+                'fid': $("#change_text").attr('data-fid')
+            }, function (data) {
+                names=[];
+                goodsproperties=[];
+                if (data != null && data.length > 0) {
+                    var types = '';
+                    times = data[0].id;
+                    $.each(data[0].value_list, function (i, val) {
+                        if (val.checked == 1) {
+                            types += val.name + ' ';
+                            goodsproperties.push(val.id);
+                            names.push(val.id);
+                        }
+                    })
+                    if ($.trim(types) != '') {
+                        $("#change2").html(types)
+                    }
+
+                }
+
+
+            });
+
+        };
+        $('#goods_class').attr('data-id', 0);
+        if (addType == 0) {
+            //$('input').val('');
+            if (types == null) {
+                goods_id = 0;
+            }
+
+            pic_lens = 0;
+            common.http('WapMerchant&a=goodsModify', {
+                'ticket': ticket,
+                'client': client,
+                'store_id': store_id,
+                'goods_id': 0
+            }, function (data) {
+                console.log(data);
+                if (goods_id != null) {
+                    showHtml(data);
+                }
+
+                //运费模板
+                if (data.store_theme == 0 || data.category_list == null) {
+                    $("#category_list").hide().remove()
+                } else {
+                    $("#category_list").show();
+                    storeClass=[];
+                    storeClass = data.category_list;
+                    if (data.category_list != null) {
+                        $.each(data.category_list, function (i, val) {
+                            if (data.goods) {
+                                if (data.goods.cat_fid == val.value) {
+                                    $("#change_text").html(val.text + ' ');
+                                    if (data.goods.cat_id != null) {
+                                        $.each(val.children, function (n, v) {
+                                            if (data.goods.cat_id == v.value) {
+                                                $("#change_text").html(val.text + ' ' + v.text);
+                                                $("#change_text").attr('data-fid', val.value);
+                                                $("#change_text").attr('data-cat_id', v.value);
+
+                                            }
+                                        })
+                                    }
+                                }
+                            }
+
+                        })
+
+                        if (gd != null && types == null) {
+                            getGoodsProperties()
+
+                        }
+
+
+                    }
+                    if (data.express_template != null && data.express_template.length > 0) {
+                        fareTemplet=[];
+                        $.each(data.express_template, function (i, val) {
+                            var n = {value: val.id, text: val.name}
+                            fareTemplet.push(n);
+                            if (data.goods) {
+                                if (data.goods.freight_template == val.id) {
+                                    $("#freight").find("span").html(val.name);
+                                    $(".freight_template").val(val.id)
+                                }
+                            }
+
+                        })
+                    }
+
+                }
+                if (data.print_list != null && data.print_list.length != 0) {
+                    pinks(data.print_list);
+                    $('.pcms').show();
+                } else {
+                    $('.pcms').hide();
+                }
+            });
+            $('.sort').val(0);
+            $('.packing_charge').val(0.00);
+            if (types != null) {
+                reNew()
+            }
+
+        } else {
+
+            //调用修改方法渲染数据
+            if (types != null) {
+                reNew()
+
+            }
+            common.http('WapMerchant&a=goodsModify', {
+                'ticket': ticket,
+                'client': client,
+                'goods_id': goods_id,
+                'store_id': store_id
+            }, function (data) {
+
+                if (goods_id != null) {
+                    showHtml(data)
+                }
+                if (data.goods) {
+                    $('.number').val(data.goods.number || '');//商品编码
+                    $('.name').val(data.goods.name || '');//商家名称
+                    if (data.goods.pic_arr != []) {
+                        var str = '';
+                        var pic_len = data.goods.pic_arr.length;
+                        pic_lens = pic_len;
+                        $.each(data.goods.pic_arr, function (i, val) {
+                            str += '<div class="mui-pull-left delate_photo" data-url=' + val.title + ' ><img src=' + val.url + ' data-preview-src="" data-preview-group="1"/><i></i></div>';
+                        });
+                        $('.showImg').append(str);
+                        $('.showImg').width(111 * (pic_len) + 105);
+
+                    }
+                }
+
+
+                //运费模板
+                if (data.store_theme == 0 || data.category_list == null) {
+                    $("#category_list").hide().remove()
+                } else {
+                    $("#category_list").show();
+                    storeClass=[];
+                    storeClass = data.category_list;
+                    if (data.category_list != null) {
+                        $.each(data.category_list, function (i, val) {
+                            if (data.goods) {
+                                if (data.goods.cat_fid == val.value) {
+
+                                    $("#change_text").html(val.text + ' ');
+                                    if (data.goods.cat_id != null) {
+                                        $.each(val.children, function (n, v) {
+                                            if (data.goods.cat_id == v.value) {
+                                                $("#change_text").html(val.text + ' ' + v.text);
+                                                $("#change_text").attr('data-fid', val.value);
+                                                $("#change_text").attr('data-cat_id', v.value);
+                                            }
+                                        })
+                                    }
+                                }
+                            }
+
+                        })
+
+                        if (gd != null && types == null) {
+                            getGoodsProperties()
+                        }
+                    }
+                    if (data.express_template != null) {
+                        fareTemplet=[];
+                        $.each(data.express_template, function (i, val) {
+                            var n = {value: val.id, text: val.name}
+                            fareTemplet.push(n);
+                            if (data.goods) {
+                                if (data.goods.freight_template == val.id) {
+                                    $("#freight").find("span").html(val.name);
+                                    $(".freight_template").val(val.id)
+                                }
+                            }
+
+                        })
+                    }
+
+                }
+                if (data.print_list != null) {
+                    pinks(data.print_list);
+                    $('.pcms').show();
+                    $.each(data.print_list, function (i, val) {
+                        if (data.goods) {
+                            if (data.goods.print_id == val.pigcms_id) {
+                                $('#prinks_text').text(val.name);
+                                prinks_index = val.pigcms_id;
+                            }
+                        }
+
+                    });
+                } else {
+                    $('.pcms').hide();
+                    $('#prinks_text').text('请选择归属打印机');
+                }
+
+
+                // $.each($('.showImg .delate_photo'),function(i,val){
+                // 	pic.push($(this).attr('data-url'));
+                // });
+                $('.rido_change>li').removeClass('active');
+                if (data.goods && data.goods.status == 0) {
+                    $('.rido_change>li:eq(1)').addClass('active');
+                } else {
+                    $('.rido_change>li:eq(0)').addClass('active');
+                }
+                $('.ku_change>li').removeClass('active');
+                if (data.goods) {
+                    if (data.goods.stock_num == -1) {
+                        $('.ku_change>li:eq(0)').addClass('active').siblings('li').removeClass('active');
+                        $('.ku_nuber').hide();
+                    } else {
+                        $('.ku_change>li:eq(1)').addClass('active').siblings('li').removeClass('active');
+                        $('.stock_num').val(data.goods.stock_num);
+                        $('.ku_nuber').show();
+                    }
+                    $('#goods_class').attr('data-id', data.goods.sort_id);//商品分类
+                    $('.cost_price').val(data.goods.cost_price);//商品进价
+                    $('.price').val(data.goods.price);//商品售价
+                    $('.sort').val(data.goods.sort);//排序
+                    $('.packing_charge').val(data.goods.packing_charge);//打包费
+                    $('.unit').val(data.goods.unit);//单位
+                }
+                /*根据value值遍历拿到商品分类名称*/
+                if (data.goods) {
+                    for (var i = 0; i < goodsClass.length; i++) {
+                        if (data.goods.sort_id == goodsClass[i].value) {
+                            $('#goods_class').text(goodsClass[i].text);
+                            item1 = goodsClass[i].value;
+                        } else {
+                            if (goodsClass[i].children != null) {
+                                for (var j = 0; j < goodsClass[i].children.length; j++) {
+                                    if (data.goods.sort_id == goodsClass[i].children[j].value) {
+                                        $('#goods_class').text(goodsClass[i].text + ' ' + goodsClass[i].children[j].text);
+                                        item1 = goodsClass[i].value;
+                                        item2 = goodsClass[i].children[j].value;
+                                    } else {
+                                        if (goodsClass[i].children[j].children != null) {
+                                            for (var k = 0; k < goodsClass[i].children[j].children.length; k++) {
+                                                if (data.goods.sort_id == goodsClass[i].children[j].children[k].value) {
+                                                    $('#goods_class').text(goodsClass[i].text + ' ' + goodsClass[i].children[j].text + ' ' + goodsClass[i].children[j].children[k].text);
+                                                    item1 = goodsClass[i].value;
+                                                    item2 = goodsClass[i].children[j].value;
+                                                    item3 = goodsClass[i].children[j].children[k].value;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            });
+
+
+        }
+
+    }
+
+
+    $('.mui-content').on('click', '.delate_photo i', function (e) {
+        $(this).parents('.delate_photo').remove();
+        pic_lens--;
+        $('.showImg').width(105 * (pic_lens + 1) + 150);
+    });
+
+
+    //保存按钮点击
+    mui('.mui-bar-tab').on('tap', 'a', function (e) {
+        document.activeElement.blur();
+
+        function pare(star, end, type) {
+            var t1 = star.split(":");
+            var t2 = end.split(":");
+            var t11 = parseInt(t1[0]);
+            var t12 = parseInt(t1[1]);
+            var t21 = parseInt(t2[0]);
+            var t22 = parseInt(t2[1]);
+            if (t11 > t21) {
+                mui.toast('开始时间不能大于结束时间');
+                return false
+            } else if (t11 == t21) {
+                if (t12 > t22) {
+                    mui.toast('开始时间不能大于结束时间');
+                    return false
+                } else {
+                    return true
+                }
+            } else {
+                return true
+            }
+
+
+        }
+
+        var number = $('.number').val();//商品编码
+        var name = $('.name').val();//商家名称
+        var pic = [];//商家图片
+        $.each($('.showImg .delate_photo'), function (i, val) {
+            pic.push($(this).attr('data-url'));
+        });
+        var status = 0;//上架至
+        if ($('.rido_change>li:eq(0)').is('.active')) {
+            status = 1;
+        } else {
+            status = 0;
+        }
+        var stock_num = '';//商家库存
+        if ($('.ku_change>li:eq(0)').is('.active')) {
+            stock_num = -1;
+        } else {
+            stock_num = Number($('.stock_num').val());
+        }
+        var sort_id = $('#goods_class').attr('data-id');//商品分类
+        var cost_price = $('.cost_price').val();//商品进价
+        var price = $('.price').val();//商品售价
+        var sort = $('.sort').val();//排序
+        var packing_charge = $('.packing_charge').val();//打包费
+        var unit = $('.unit').val();//单位
+        var freight_template = $("#freight_template").val();//运费模板
+        var freight_value = $(".freight_value").val();//其他区域运费
+        var freight_type = $(".freight_type").val();//运费计算方式
+        var cat_fid = $("#cat_fid").val();//商品商城分类
+        var cat_id = $("#cat_id").val();//商品商城分类
+        var is_discount = $("#is_discounts").val();//是否参与折扣
+        var show_start_time = $("#show_start_time").html();//每天显示时段 开始
+        var show_end_time = $("#show_end_time").html();//每天显示时段  结束
+        var limit_type = $("#limit_types").val();//限购类型
+        var max_num = $("#max_num").val();//限购数量
+        var seckill_price = $("#seckill_price").val();//商品限时价
+        var seckill_stock = $("#seckill_stock").val();//限时价库存
+        var seckill_type = $("#seckill_type").val();//限时价类型
+        var seckill_start_date = $(".seckill_start_date").html();//限时价日期开始
+        var seckill_end_date = $(".seckill_end_date").html();//限时价日期结束
+        var seckill_start_time = $(".seckill_start_time").html();//限时价时段开始
+        var seckill_end_time = $(".seckill_end_time").html();//限时价时段结束
+        var data = {
+            'ticket': ticket,
+            'client': client,
+            'store_id': store_id,
+            'number': number,
+            'name': name,
+            'pic': pic,
+            'status': status,
+            'stock_num': stock_num,
+            'sort_id': sort_id,
+            'cost_price': cost_price,
+            'price': price,
+            'sort': sort,
+            'packing_charge': packing_charge,
+            'unit': unit,
+            'print_id': prinks_index,
+            'cat_id': cat_id,
+            'is_discount': is_discount,
+            'show_start_time': show_start_time,
+            'show_end_time': show_end_time,
+            'limit_type': limit_type,
+            'max_num': max_num,
+            'seckill_price':seckill_price
+        };
+        if (name != '') {
+            if (pic != []) {
+                if (stock_num == '') {
+
+                    mui.toast('请输入商品库存数');
+                    return false
+                }
+                if ($("#category_list").length > 0) {
+                    /*if(freight_template==''){
+                                          mui.toast('请选择运费模板');
+                                          return false
+                                      }
+                                      if(freight_value==''){
+                                          $(".freight_value").focus();
+                                          mui.toast('请输入其他区域运费');
+                                          return false
+                                      }
+                                      if(freight_type==''){
+                                          mui.toast('请选择运费计算方式 ');
+                                          return false
+                                      }*/
+                    if (cat_fid != '') {
+                        data.cat_fid = cat_fid;
+                    }
+                    if (goodsproperties.length > 0) {
+                        data.goodsproperties = goodsproperties
+                    }
+                    data.freight_template = freight_template;
+                    data.freight_value = freight_value;
+                    data.freight_type = freight_type;
+                    data.cat_fid = cat_fid;
+
+                }
+
+                var com = pare(show_start_time, show_end_time, true);
+                if (com) {
+                    /*if(max_num==''){
+                                   $("#max_num").focus();
+                                   mui.toast('请输入每日限购数量 ');
+                                   return false
+							   }*/
+                    if ($(".limitPrice").hasClass("mui-active")) {
+
+                        data.seckill_stock = seckill_stock;
+                        /*if(seckill_price==''){
+                                       $("#seckill_price").focus();
+                                       mui.toast('请输入商品限时价 ');
+                                       return false
+                                   }*/
+                        if(seckill_stock==''){
+                                    
+                                       mui.toast('请输入限时价库存 ');
+                                       return false
+                                   }
+                        if (seckill_type == 0) {
+                            /* if(seckill_start_date=='开始日期'){
+                                          mui.toast('请选择开始日期');
+                                          return false
+                                      }
+                                      if(seckill_end_date=='结束日期'){
+                                          mui.toast('请选择结束日期');
+                                          return false
+                                      }*/
+                            if (seckill_start_date != '开始日期' && seckill_end_date != '结束日期') {
+                                var startTime = new Date(seckill_start_date.replace(/-/g, "\/"));
+                                var endTime = new Date(seckill_end_time.replace(/-/g, "\/"));
+                                if (startTime > endTime) {
+                                    mui.toast('开始日期不应大于结束日期');
+                                    return false
+                                }
+                                data.seckill_start_date = seckill_start_date;
+                                data.seckill_end_date = seckill_end_date;
+                                var com1 = pare(seckill_start_time, seckill_end_time, false);
+                                if (com1) {
+                                    data.seckill_start_time = seckill_start_time;
+                                    data.seckill_end_time = seckill_end_time
+                                }
+                            } else {
+                                if (seckill_start_date == '开始日期') {
+                                    data.seckill_start_date = '';
+                                }
+                                if (seckill_end_date == '结束日期') {
+                                    data.seckill_end_date = '';
+                                }
+                            }
+
+
+                            data.seckill_type = 0;
+
+
+                        } else {
+                            var com1 = pare(seckill_start_time, seckill_end_time, false);
+                            if (com1) {
+                                data.seckill_start_time = seckill_start_time;
+                                data.seckill_end_time = seckill_end_time
+                            }
+                            ;
+                            data.seckill_type = 1;
+                        }
+                    }
+                    if (cost_price == '') {
+
+                        mui.toast('请输入商品进价');
+                        return false
+                    }
+                    if (price == '') {
+
+                        mui.toast('请输入商品售价');
+                        return false
+                    }
+                    if (unit == '') {
+
+                        mui.toast('请输入商品单位');
+                        return false
+                    }
+                    if (goods_id != null && types == null) {
+                        data.goods_id = goods_id
+                    }
+                    if (stock_num == -1) {
+                        common.http('WapMerchant&a=goodsAdd', data, function (data) {
+                            console.log(data);
+                            if (data.length == 0) {
+                                mui.toast('保存成功');
+                                if (common.checkApp()) {
+                                   setTimeout(function () {
+                                        if (common.checkAndroidApp()) {
+                                            window.pigcmspackapp.closewebview(2);
+                                        } else {
+                                            common.iosFunction('closewebview/2');
+                                        }
+                                    }, 2000);
+                                } else {
+                                    setTimeout(function(){
+                                        history.go(-1);
+                                        document.execCommand('Refresh');
+                                    },2000);
+                                }
+                            }
+                        });
+                    } else if (stock_num >= 1) {
+                        common.http('WapMerchant&a=goodsAdd', data, function (data) {
+                            console.log(data);
+                            if (data.length == 0) {
+                                mui.toast('保存成功');
+                                if (common.checkApp()) {
+                                    setTimeout(function(){
+                                        if(common.checkAndroidApp()){
+                                            window.pigcmspackapp.closewebview(2);
+                                        }else{
+                                            common.iosFunction('closewebview/2');
+                                        }
+                                    },2000)
+                                } else {
+                                    setTimeout(function(){
+                                        history.go(-1);
+                                        document.execCommand('Refresh');
+                                    },2000);
+                                }
+                            }
+                        });
+                    } else {
+                        mui.toast('请输入大于等于1的正整数');
+                    }
+                }
+
+            } else {
+                mui.toast('请输入上传商品图片');
+            }
+
+        } else {
+
+            mui.toast('请输入商品名称');
+        }
+
+    });
+
+
+    //图片滚动
+    mui('.mui-scroll-wrapper').scroll({
+        scrollY: false,
+        scrollX: true,
+        startX: 0,
+        startY: 0,
+        indicators: false,
+        deceleration: 0.0005,
+        bounce: true
+    });
+    mui.previewImage();
+    //	//单选框点击
+    mui('.mui-content').on('tap', '.rido_change li', function (e) {
+        $(this).addClass('active').siblings('li').removeClass('active');
+
+    });
+    mui('.mui-content').on('tap', '.rido_change1 li', function (e) {
+        if ($('.rido_change1 li:eq(0)').is('.active')) {
+            $('.rido_change1 li:eq(0)').removeClass('active');
+            $('.rido_change1 li:eq(1)').addClass('active');
+            $('.freight_type').val(1);
+        } else {
+            $('.rido_change1 li:eq(0)').addClass('active');
+            $('.rido_change1 li:eq(1)').removeClass('active');
+            $('.freight_type').val(0);
+        }
+    });
+
+
+    // 上传图片
+    function imgUpload(id) {
+        var fullPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = fullPath.indexOf(pathName);
+        var localhostPath = fullPath.substring(0, pos);
+        var post_url = localhostPath + '/appapi.php?c=WapMerchant&a=goodsImage';
+        // console.log(post_url);
+        motify.log('加载中');
+        $.ajaxFileUpload({
+            url: post_url,
+            secureuri: false,
+            fileElementId: id,
+            dataType: 'json',
+            type: 'post',
+            data: {'store_id': store_id},
+            success: function (data, status) {
+                //mui.alert(status);
+                setTimeout(function () {
+                    $('.motifyShade,.motify').hide();
+                }, 2000);
+
+                var str = '<div class="mui-pull-left delate_photo" data-url=' + data.result.title + ' ><img src=' + data.result.url.s_image + ' data-preview-src="" data-preview-group="1"/><i></i></div>';
+                $('.showImg').append(str);
+
+            },
+            error: function (data, status, e) {
+                mui.alert('上传失败');
+            }
+        });
+    }
+
+    // 上传图片
+    $('.up_img').off('change', 'input').on('change', 'input', function (e) {
+        var id = $(this).attr('id');
+        var length = $('.showImg .delate_photo').length;
+        //console.log(length);
+
+        if (pic_lens < 5) {
+            pic_lens++;
+            console.log(pic_lens);
+            imgUpload(id);
+            $('.showImg').width(105 * (pic_lens + 1) + 150);
+
+        } else {
+            mui.toast('最多只能上传5张图片');
+        }
+
+    });
+    (function ($, doc) {
+        $.init();
+        mui('.mui-content').on('tap', '#showUserPicker', function (e) {
+            document.activeElement.blur();
+            var cityPicker3 = new $.PopPicker({
+                layer: 3
+            });
+            cityPicker3.setData(goodsClass);
+            cityPicker3.pickers[0].setSelectedValue(item1);
+            //console.log(item2);
+            cityPicker3.pickers[1].setSelectedValue(item2);
+            if (item3 != 0) {
+                cityPicker3.pickers[2].setSelectedValue(item3);
+            }
+
+            cityPicker3.show(function (items) {
+                item1 = items[0].value;
+                if (items[1].value == undefined) {
+                    item2 = 0;
+                    items[1].text = '';
+                    document.getElementById('goods_class').setAttribute('data-id', items[0].value);
+                    document.getElementById('goods_class').innerText = items[0].text;
+                } else {
+                    item2 = items[1].value;
+                    if (items[2].value == undefined) {
+                        item3 = 0;
+                        items[2].text = '';
+                        document.getElementById('goods_class').setAttribute('data-id', items[1].value);
+                        document.getElementById('goods_class').innerText = items[0].text + " " + items[1].text;
+                    } else {
+                        item3 = items[2].value;
+                        document.getElementById('goods_class').setAttribute('data-id', items[2].value);
+                        document.getElementById('goods_class').innerText = items[0].text + " " + items[1].text + " " + items[2].text;
+                    }
+                }
+            });
+        });
+    })(mui, document);
+
+    //归属打印机
+    (function ($, doc) {
+        $.init();
+        mui('.mui-content').on('tap', '#prinks', function (e) {
+            document.activeElement.blur();
+            /**
+             * 获取对象属性的值
+             * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+             * @param {Object} obj 对象
+             * @param {String} param 属性名
+             */
+            var _getParam = function (obj, param) {
+                return obj[param] || '';
+            };
+            //普通示例
+            var userPicker = new $.PopPicker();
+            userPicker.setData(prinks);
+            userPicker.pickers[0].setSelectedValue(prinks_index);
+            userPicker.show(function (items) {
+                document.getElementById('prinks_text').innerHTML = items[0].text;
+                document.getElementById('prinks_text').style.color = "#333";
+                prinks_index = items[0].value;
+                console.log(prinks_index)
+                //返回 false 可以阻止选择框的关闭
+                //return false;
+            });
+
+
+        });
+    })(mui, document);
+
+    //库存提示语
+    mui('.mui-content').on('tap', '.ku_propt', function (e) {
+        mui.alert('数量小于10时，商品详细页面会显示库存。', '商品库存', '知道了', function (e) {
+
+        });
+    });
+
+    ////点击小红点弹出遮罩层
+    mui('.mui-content').on('tap', '.open_bianma', function (e) {
+        e.stopPropagation();
+        $("input").blur();
+        mui.alert('扫描商品条形码可匹配平台商品库的商品信息，实现快速录入的功效。', function (e) {
+
+        });
+    });
+    mui('.mui-content').on('tap', '.yun1', function () {
+        $("input").blur();
+        mui.alert('用户在选购该商品的时候，不同的区域有不同的运费。', function (e) {
+
+        });
+    });
+    mui('.mui-content').on('tap', '.yun2', function () {
+        $("input").blur();
+        mui.alert('指的是用户选择的配送区域不在运费模板的区域内的其他城市的运费！（如果不选择运费模板的话，那么该商品的运费就是这个地方设置的值）。', function (e) {
+        });
+    });
+    mui('.mui-content').on('tap', '.freight_types', function () {
+        $("input").blur();
+        mui.alert('1、按最大值算：就是用户同时买了该店铺的多个商品，则本次购物的运费只收取商品运费最高的那个。2、单独计算：指的是用户在购买该商品的时候运费单独另外收取，不与其他商品合并计算运费。', function (e) {
+        });
+    });
+    mui('.mui-content').on('tap', '.is_discount', function () {
+        $("input").blur();
+        mui.alert('该商品是否参与店铺/分类折扣;折扣包括店铺折扣与分类折扣。', function (e) {
+        });
+    });
+    mui('.mui-content').on('tap', '.max_num', function (e) {
+        e.stopPropagation();
+        $("input").blur();
+        mui.alert('每个订单该商品最多可订购的数量，0为不限制。', function (e) {
+        });
+    });
+
+
+    mui('.mui-content').on('tap', '.alayTimes', function (e) {
+        e.stopPropagation();
+        $("input").blur();
+        mui.alert('不填或都填写00:00表示24小时都显示。', function (e) {
+        });
+    });
+    mui('.mui-content').on('tap', '.open_photo', function (e) {
+        e.stopPropagation();
+        $("input").blur();
+        mui.alert('首张将作为列表页图片展示，最多上传5张照片。同一张照片不能选择(侧重文字模板的图片宽度建议为900px,高度建议为500px;侧重图片尺寸建议为:大于等于600px*600px的正方形)', function (e) {
+
+        });
+    });
+
+    //库存自定义点击
+    mui('.mui-content').on('tap', '.ku_change li', function (e) {
+        if ($('.ku_change li:eq(0)').is('.active')) {
+            $('.ku_change li:eq(0)').removeClass('active');
+            $('.ku_change li:eq(1)').addClass('active');
+            $('.ku_nuber').show();
+        } else {
+            $('.ku_change li:eq(0)').addClass('active');
+            $('.ku_change li:eq(1)').removeClass('active');
+            $('.ku_nuber').hide();
+        }
+    });
+    mui('.mui-content').on('tap', '.ku_change1 li', function (e) {
+        if ($('.ku_change1 li:eq(0)').is('.active')) {
+            $('.ku_change1 li:eq(0)').removeClass('active');
+            $('.ku_change1 li:eq(1)').addClass('active');
+            $("#seckill_stock").show();
+            $("#seckill_stock").val('')
+
+
+        } else {
+            $('.ku_change1 li:eq(0)').addClass('active');
+            $('.ku_change1 li:eq(1)').removeClass('active');
+            $("#seckill_stock").hide();
+            $("#seckill_stock").val(-1)
+
+        }
+    });
+    mui('.mui-content').on('tap', '.ku_change2 li', function (e) {
+        if ($('.ku_change2 li:eq(0)').is('.active')) {
+            $('.ku_change2 li:eq(0)').removeClass('active');
+            $('.ku_change2 li:eq(1)').addClass('active');
+            $(".everyDay").hide();
+            $("#seckill_type").val(1)
+
+        } else {
+            $('.ku_change2 li:eq(0)').addClass('active');
+            $('.ku_change2 li:eq(1)').removeClass('active');
+            $(".everyDay").show();
+            $("#seckill_type").val(0)
+
+        }
+    });
+    $('#scanQRCode1').click(function (e) {
+        common.scan('scanSearchResult');
+    });
+
+    function scanSearchResult(str) {
+
+        var strArr = str.split(',');
+        if (strArr.length == 2) {
+            str = strArr[1];
+        }
+        $('.number').val(str);
+        reNew(str)
+
+    }
+	function reNew(reNew) {
+		var re = '';
+		var idId = goods_id;
+		if (reNew) {
+			re = reNew;
+			idId = '';
+			$(".rido_change").find("li").eq(0).addClass("active");
+			$(".rido_change").find("li").eq(1).removeClass("active")
+		}
+		common.http('WapMerchant&a=getSysGoods', {
+			'ticket': ticket,
+			'client': client,
+			'goods_id': idId,
+			'store_id': store_id,
+			'number': re
+		}, function (data) {
+			var datas = data.data;
+			console.log(datas)
+			$(".all_up").addClass("active");
+			$(".number").val(datas.number || '');
+			$(".name").val(datas.name || '');
+			$(".cost_price").val(datas.cost_price || '');
+			$(".price").val(datas.price || '');
+			$(".unit").val(datas.unit || '');
+			var ims = '<div class="mui-pull-left delate_photo" data-url=' + datas.imageTitle + '><img src=' + datas.image + ' data-preview-src="" data-preview-group="1"/><i></i></div>';
+			 if($('.showImg .delate_photo').length>0){
+				 $('.showImg .delate_photo').remove()
+			 }
+			$('.showImg').append(ims);
+			$('.showImg').width(111 + 105);
+		});
+	}
+
+
+    //运费模板
+    (function ($, doc) {
+        $.init();
+        mui('.freight').on('tap', '#freight', function (e) {
+            var userPicker = new $.PopPicker();
+            userPicker.setData(fareTemplet);
+            var that = this;
+            userPicker.show(function (items) {
+                that.children[0].innerHTML = items[0].text;
+                that.children[0].style.color = "#333333";
+                document.getElementById('freight_template').value = items[0].value;
+                pindex = 1;
+            }, false);
+
+        });
+
+
+    })(mui, document);
+    //是否参与折扣
+    (function ($, doc) {
+        $.init();
+        mui('.mui-content').on('tap', '#is_discount', function (e) {
+            var userPicker = new $.PopPicker();
+            userPicker.setData([
+                {
+                    value: 1,
+                    text: '参与折扣'
+                },
+                {
+                    value: 0,
+                    text: '不参与折扣'
+                }
+            ]);
+
+            var that = this;
+            userPicker.show(function (items) {
+                that.children[0].innerHTML = items[0].text;
+                that.children[0].style.color = "#333333";
+                document.getElementById('is_discounts').value = items[0].value;
+                pindex = 1;
+            }, false);
+
+        });
+
+    })(mui, document);
+    //限购类型
+    (function ($, doc) {
+        $.init();
+        mui('.mui-content').on('tap', '#limit_type', function (e) {
+            var userPicker = new $.PopPicker();
+            userPicker.setData([
+                {
+                    value: 0,
+                    text: '每单限购'
+                },
+                {
+                    value: 1,
+                    text: '每个ID限购'
+                }
+            ]);
+
+            var that = this;
+            userPicker.show(function (items) {
+                that.children[0].innerHTML = items[0].text;
+                that.children[0].style.color = "#333333";
+                document.getElementById('limit_types').value = items[0].value;
+
+                document.getElementById('limit_names').innerHTML = items[0].text + '数量 <i></i>';
+                pindex = 1;
+            }, false);
+
+        });
+
+
+    })(mui, document);
+    //时间设置
+
+    (function ($, doc) {
+        mui('.timeManger').on('tap', '.date_btn', function (e) {
+            var timeValue = this.children[1].children[0].innerText;
+            var me = this;
+            var optionsJson = '{"type":"time","value":"2012-01-01 ' + timeValue + '"}';
+            var options = JSON.parse(optionsJson);
+            // var id = this.getAttribute('id');
+            var picker = new $.DtPicker(options);
+            // picker.setSelectedValue("2012-01-01"+"08:00");
+            picker.show(function (rs) {
+                /*
+                     * rs.value 拼合后的 value
+                     * rs.text 拼合后的 text
+                     * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+                     * rs.m 月，用法同年
+                     * rs.d 日，用法同年
+                     * rs.h 时，用法同年
+                     * rs.i 分（minutes 的第二个字母），用法同年
+                     */
+                $(me)[0].lastElementChild.children[0].innerText = rs.text;
+
+
+                picker.dispose();
+            });
+
+        });
+    })(mui, document);
+    (function ($, doc) {
+        mui('.timeManger').on('tap', '.date_btns', function (e) {
+            var timeValue = this.children[0].children[0].innerText
+            var me = this;
+            var optionsJson = '{"type":"time","value":"2012-01-01 ' + timeValue + '"}';
+            var options = JSON.parse(optionsJson);
+            // var id = this.getAttribute('id');
+            var picker = new $.DtPicker(options);
+            // picker.setSelectedValue("2012-01-01"+"08:00");
+            picker.show(function (rs) {
+
+                $(me)[0].lastElementChild.children[0].innerText = rs.text;
+
+
+                picker.dispose();
+            });
+
+        });
+    })(mui, document);
+
+
+    //日期
+    (function ($, doc) {
+        $('.begin_date')[0].addEventListener('tap', function () {
+            var timeValue = document.getElementById('begin_date').innerText;
+            // var optionsJson = '{"type":"time","value":"2012-01-01 '+timeValue+'"}';
+            var optionsJson = '{"type":"date","beginYear":2014,"beginMonth":5,"beginDay":1,"endYear":2020}';
+            var options = JSON.parse(optionsJson);
+            var id = this.getAttribute('id');
+            var picker = new $.DtPicker(options);
+            picker.setSelectedValue(timeValue);
+            picker.show(function (rs) {
+                $('#begin_date')[0].innerText = rs.text;
+                picker.dispose();
+
+
+            });
+        });
+
+        $('.end_date')[0].addEventListener('tap', function () {
+            var timeValue = document.getElementById('end_date').innerText;
+            var optionsJson = '{"type":"date","beginYear":2014,"endYear":2020}';
+            var options = JSON.parse(optionsJson);
+            var id = this.getAttribute('id');
+            var picker = new $.DtPicker(options);
+            picker.setSelectedValue(timeValue);
+            picker.show(function (rs) {
+                $('#end_date')[0].innerText = rs.text;
+                picker.dispose();
+                //var start_date=replaceAll($('#begin_date').text());
+
+
+            });
+        });
+
+
+    })(mui, document);
+
+
+    ////复选框点击
+    mui('.deliver_time_box').on('tap', '.time .item', function (e) {
+        if ($(this).is('.active')) {
+            $(this).removeClass('active')
+        } else {
+            $(this).addClass('active');
+        }
+    });
+    // 选择分类
+    mui('.timer').on('tap', '.day .item', function (e) {
+        document.activeElement.blur();
+        var index = $(this).index();
+        $(this).addClass('active').siblings('.item').removeClass('active');
+        $('.time>.item_box:eq(' + index + ')').show().siblings('.item_box').hide();
+    });
+    //点击商品筛选属性
+    //mask.show();
+    mui('#atributes').on('tap', 'span', function (e) {
+        if (typeof $("#change_text").attr("data-cat_id") == "undefined") {
+            mui.toast('请先选择商城商品分类');
+            return false
+        }
+        if ($("#change_text").attr("data-fid") == 'null') {
+            names = [];
+            times = '';
+            goodsproperties = [];
+        }
+        console.log(times);
+        $('.day').html("");
+        $('.time').html("");
+        var cat_id = $("#change_text").attr("data-cat_id");
+        common.http('WapMerchant&a=getGoodsProperties', {
+            'noTip': true,
+            'ticket': ticket,
+            'client': client,
+            'store_id': store_id,
+            'cat_id': cat_id,
+            'goods_id': goods_id,
+            'fid': $("#change_text").attr('data-fid')
+        }, function (data) {
+            var str = '', sum = '', stj = '';//选择分类
+            console.log(data)
+            if (data.length > 0) {
+                $.each(data, function (i, val) {
+                    if (names.length == 0) {
+                        if (i == 0) {
+                            str += '<div class="item active" data-id="' + val.id + '" data-cat_id="' + val.cat_id + '">' + val.name + '</div>';
+                        } else {
+                            str += '<div class="item " data-id="' + val.id + '" data-cat_id="' + val.cat_id + '">' + val.name + '</div>';
+                        }
+                    } else {
+                        if (times == val.id) {
+                            str += '<div class="item active" data-id="' + val.id + '" data-cat_id="' + val.cat_id + '">' + val.name + '</div>';
+                        } else {
+                            str += '<div class="item " data-id="' + val.id + '" data-cat_id="' + val.cat_id + '">' + val.name + '</div>';
+                        }
+                    }
+
+                    if (data[i].value_list != null) {
+                        $.each(data[i].value_list, function (k, value) {
+                            if (names.length == 0) {
+                                console.log("ww")
+                                sum += '<div class="item " data-pid=' + value.pid + ' data-id=' + value.id + '>' + value.name + '<i class="mui-pull-right"></i></div>';
+                            } else {
+                                if (times == val.id) {
+                                    var splits = names.join(",");
+                                    if (splits.indexOf(value.id) != -1) {
+                                        sum += '<div class="item active" data-pid=' + value.pid + ' data-id=' + value.id + '>' + value.name + '<i class="mui-pull-right"></i></div>';
+                                    } else {
+                                        sum += '<div class="item " data-pid=' + value.pid + ' data-id=' + value.id + '>' + value.name + '<i class="mui-pull-right"></i></div>';
+                                    }
+                                }
+                            }
+
+                        });
+                    } else {
+                        $('#change2').text('请选择限购类型');
+                    }
+                    if (i == 0) {
+                        stj += '<div class="item_box" >' + sum + '</div>';
+                    } else {
+                        stj += '<div class="item_box" style="display:none">' + sum + '</div>';
+                    }
+
+                    sum = '';
+                });
+            }
+            $('.day').html(str);
+            $('.time').html(stj);
+        });
+
+        mask.show();
+        $('.deliver_time_box').removeClass('hidden');
+        //tab切换
+        mui('.deliver_time_box').on('tap', '.day .item', function (e) {
+            $(this).addClass('active').siblings('.item').removeClass('active');
+              mask.close();
+        });
+        //完成点击
+        mui('.deliver_time_box').on('tap', '.header i', function (e) {
+ 
+            var content = '请选择商城商品属性';
+            names = [];
+            var len = $('.time .item.active').length;
+            if (len > 0) {
+                for (var i = 0; i < len; i++) {
+                    console.log(i)
+                    names.push($('.time .item.active').eq(i).attr("data-id"));
+                    goodsproperties.push($('.time .item.active').eq(i).attr("data-id"))
+                }
+            }
+
+            times = $(".day .item.active").attr("data-id");
+
+            console.log(names, times)
+            if (len >= 3) {
+                content = $('.time .item.active:eq(0)').text() + '   ' + $('.time .item.active:eq(1)').text() + '   ' + $('.time .item.active:eq(2)').text() + '...';
+            } else if (len == 2) {
+                content = $('.time .item.active:eq(0)').text() + '  ' + $('.time .item.active:eq(1)').text();
+            } else if (len == 1) {
+                content = $('.time .item.active:eq(0)').text();
+            }
+            //console.log(content);
+            $('#atributes span').html(content).css('color', '#333');
+            $('.deliver_time_box').addClass('hidden');
+            mask.close();
+        });
+    });
+    mui('body').on('tap', '.mui-backdrop', function () {
+        $('.deliver_time_box').addClass('hidden');
+        mask.close();
+    });
+
+    //是否开启限时价
+    mui('.mui-content').on('tap', '.limitPrice', function (e) {
+        if ($(this).is(".mui-active")) {
+            $("#limitPrice").show()
+        } else {
+            $("#limitPrice").hide();
+            $("#seckill_price").val("")
+        }
+    });
+
+    //商品商城分类
+    (function ($, doc) {
+        $.init();
+        mui('.mui-content').on('tap', '#showUserPicker1', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            /**
+             * 获取对象属性的值
+             * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+             * @param {Object} obj 对象
+             * @param {String} param 属性名
+             */
+            var _getParam = function (obj, param) {
+                return obj[param] || '';
+            };
+            //普通示例
+            var cityPicker = new $.PopPicker({
+                layer: 2
+            });
+            ///console.log(storeClass);
+            cityPicker.setData(storeClass);
+            //cityPicker.pickers[0].setSelectedValue(fid);
+            //cityPicker.pickers[1].setSelectedValue(ziid);
+
+            cityPicker.show(function (items) {
+                document.getElementById('change_text').innerHTML = items[0].text + " " + items[1].text;
+                document.getElementById('change_text').style.color = "#333";
+                document.getElementById('change_text').setAttribute('data-fid', items[0].value);
+                document.getElementById('change_text').setAttribute('data-cat_id', items[1].value);
+                document.getElementById('cat_fid').value = items[0].value;
+                document.getElementById('cat_id').value = items[1].value;
+                //返回 false 可以阻止选择框的关闭
+                //return false;
+            });
+
+        });
+    })(mui, document);
+    //点击新建商品
+
+    var dropload1='';
+    var pageSearch=0;
+    mui('.mui-content').on('tap', '#speend', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('.goods_news').html(' ');
+         $('.classHtml').html(' ');
+        var hrefs= '<link rel="stylesheet" type="text/css" class="new" href="css/mui.picker.css" />'+'<link href="css/mui.picker.min.css" class="new" rel="stylesheet" />'+' <link rel="stylesheet" type="text/css" class="new" href="css/shop_manger_penci.css"/>'+' <link rel="stylesheet" class="new" type="text/css" href="css/commodity_management.css"/>';
+       $("body").append(hrefs);
+        $("#shop1").hide();
+    $("#shopAll").show();
+    $('body').addClass('bgf');
+           sort_id=0;page=1;
+        common.http('WapMerchant&a=sysGoods&page=' + page,{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':sort_id},function(data){
+            laytpl(document.getElementById('classLeft').innerHTML).render(data.sort_list, function(html){
+                sort_id=data.sort_list[0].sort_id;
+                $('.classHtml').html(html);
+                $('.all_change_show>p').text(data.sort_list[0].name);
+                 if(fresh){
+                     initview();
+                     fresh=false
+                 }else{
+                     // 解锁
+                dropload1.unlock();
+                dropload1.noData(false);
+                // 重置
+                dropload1.resetload();
+                 }
+               
+            });
+
+        })
+
+    
+
+    });
+    function initview (){
+         dropload1 = $('#order_list').dropload({
+            scrollArea : '#segmentedControlContents',
+            iscontent:true,
+            content:'#segmentedControlContents',
+            /*loadUpFn:function(me){
+                // 加载菜单一的数据
+                page=0;
+                page++;
+                common.http('WapMerchant&a=sysGoods',{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':sort_id,'page':page},function(data){
+                    if(page==1){
+                        $('.goods_news').html(" ");
+                    }
+                    if(data.goods_list && data.goods_list.length>0){
+                        laytpl(document.getElementById('classRight').innerHTML).render(data.goods_list, function(html){
+                            $('.goods_news').append(html);
+                        });
+                        // 每次数据加载完，必须重置
+                        me.resetload();
+                        // 重置页数，重新获取loadDownFn的数据
+                        page = 0;
+                        // 解锁loadDownFn里锁定的情况
+                        me.unlock();
+                        me.noData(false);
+                    }else{
+                        // 如果没有数据
+                        // 锁定
+                        me.lock();
+                        // 无数据
+                        me.noData();
+                    }
+                },function(){
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                })
+
+            },*/
+            loadDownFn : function(me){
+                page++;
+                common.http('WapMerchant&a=sysGoods&page=' + page,{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':sort_id},function(data){
+                    if(page==1){
+                        $('.goods_news').html(" ");
+                    }
+                    if(data.goods_list && data.goods_list.length>0){
+                        laytpl(document.getElementById('classRight').innerHTML).render(data.goods_list, function(html){
+                            $('.goods_news').append(html);
+                        });
+                    }
+                    if (data.next == 0) {
+                        // 如果没有数据
+                        // 锁定
+                        me.lock();
+                        // 无数据
+                        me.noData();
+                    }
+                    console.log($(document).height())
+                    me.resetload();
+                },function(){
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                })
+            },
+            threshold : 50
+        });
+
+        $(".classHtml").on("click",'.first_list',function(){
+            $(".first_list").removeClass("active");
+            $(this).addClass("active");
+            sort_id=$(this).attr("data-id");
+            name=$(this).attr("data-name");
+            $('.goods_news').html("");
+            $('.all_change_show>p').text(name);
+            page=0;
+            setTimeout(function(){
+                // 解锁
+                dropload1.unlock();
+                dropload1.noData(false);
+                // 重置
+                dropload1.resetload();
+            },500)
+        });
+        //点击右侧单选框
+        $(".goods_news ").on('click','input',function(){
+            $(".speed_tiggle").removeClass("active");
+            $(this).parent().addClass("active");
+            goods_id=$(this).attr("data-goodid");
+            types=0;
+            $("#shop1").show();
+            $("#shopAll").hide();
+            $(".new").hide().remove();
+            $('body').removeClass('bgf');
+            /*var url='add_goods.html?store_id='+store_id+'&goods_id='+goods_id+'&types=0';
+            setTimeout(
+                window.open(url,'_self')
+                ,1000)*/
+            init()
+        })
+
+    }
+        //点击搜索框
+        $('.search').on('tap',function(e){
+            var href1= ' <link rel="stylesheet" type="text/css" href="css/search.css" class="href1"/>';
+            $("body").append(href1);
+            $('body').removeClass('bgf');
+            $("#shop1").hide();
+            $("#shopAll").hide();
+            $(".new").hide().remove();
+            $(".goods_news1").html("");
+            $("#keywords").val("");
+            $("#keywords").val("");
+            $("#seachAll").show();
+            pageSearch=0;
+
+
+
+        });
+    $(".mui-icon-left-navs").on("click",function(){
+        $("#shop1").show();
+        $("#shopAll").hide();
+        $("#seachAll").hide();
+        $(".new").hide().remove();
+        $('body').removeClass('bgf');
+    })
+    $(".mui-icon-left-navs1").on("click",function(){
+        $("#shop1").show();
+        $("#seachAll").hide();
+        $(".href1").hide().remove();
+        $('body').removeClass('bgf');
+    })
+
+    var bind_name = 'input';var dropload2='';
+    if (navigator.userAgent.indexOf("MSIE") != -1){ bind_name = 'propertychange' }
+    $('#seachAll').bind(bind_name,'#keywords' ,function(){
+        var content=$.trim($('#keywords').val());
+        if(content!=''){
+            if(searchFreach){
+                searchFreach=false
+                searchFreachd()
+            }else{
+                coupon_find()
+            }
+        }
+
+
+
+
+    })
+
+    var  coupon_find=function(){
+        var content=$.trim($('#keywords').val());
+        $(".goods_news1").html(" ");
+        setTimeout(function(){
+            pageSearch=0;
+            // 解锁
+            dropload2.unlock();
+            dropload2.noData(false);
+            // 重置
+            dropload2.resetload();
+        },100)
+    }
+    function searchFreachd(){
+         dropload2=$('.goods_news1').dropload({
+            scrollArea : '#searchBanner',
+            iscontent:true,
+            content:'#searchBanner',
+            loadDownFn : function(me){
+                pageSearch++;
+                var content=$.trim($('#keywords').val());
+                common.http('WapMerchant&a=sysGoods&page=' + pageSearch,{'ticket':ticket,'client':client,'keyword':content},function(data){
+                    if(data.goods_list.length>0){
+                        laytpl(document.getElementById('add').innerHTML).render(data.goods_list, function(html){
+                            if(pageSearch==1){
+                                $('.goods_news1').html(html);
+                            }else{
+                                $('.goods_news1').append(html);
+                            }
+
+                        });
+                        if(!data.next || data.next==0 ){
+                            // 如果没有数据
+                            // 锁定
+                            console.log(222)
+                            me.lock();
+                            // 无数据
+                            me.noData();
+                        }
+                    }else{
+                        // 如果没有数据
+                        // 锁定
+                        me.lock();
+                        // 无数据
+                        me.noData();
+
+                    }
+                    me.resetload();
+                },function(){
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                });
+
+
+            },
+            threshold : 50
+        });
+
+    }
+
+
+
+
+    $("#seachAll").on('click','.speed_tiggle input',function(){
+        $(".speed_tiggle").removeClass("actived");
+        $(this).parent().addClass("actived");
+        goods_id=$(this).attr("data-goodid");
+        types=0;
+        $("#shop1").show();
+        $("#seachAll").hide();
+        $(".href1").remove();
+        init();
+
+
+    })
+</script>
+</body>
+</html>

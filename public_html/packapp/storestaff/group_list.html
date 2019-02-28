@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>店员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/pigcms.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<section class="public pageSliderHide">
+			<div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+			<div class="content">团购订单</div>
+		</section>
+		<section class="order">
+			<div class="cable pageSliderHide">
+				<div class="cable_n">
+					<form id="searchForm" method="post">
+						<div class="input">
+							<input type="search" id="find_value" placeholder="请输入搜索内容" />
+						</div>
+						<div class="select">
+							<select id="find_type">
+								<option value="1">消费密码</option>
+								<option value="2">快递单号</option>
+								<option value="3">订单ID</option>
+								<!--option value="4">团购ID</option-->
+								<option value="5">用户ID</option>
+								<option value="6">用户昵称</option>
+								<option value="7">手机号码</option>
+							</select>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="order_list" id="order_list"><ul></ul></div>
+		</section>
+		
+      <section class="consum_tc">
+            <div class="consum_tc_n">
+                <div class="tc_top">消费码验证</div>
+                <div class="scroll">
+                    <ul></ul>
+                </div>
+
+                <div class="all">
+                    <span id="allVerify">全部验证</span>
+                </div>
+
+                <div class="del"></div>
+            </div>
+        </section>
+        <div class="mask"></div>
+        <script id="passList" type="text/html">
+            {{# for(var i = 0, len = d.length; i < len; i++){ }}
+            <li class="clr">
+                <span class="fl">{{ d[i].group_pass }}</span>
+                {{# if (d[i].status == 0) { }}
+                <span class="fr a39" data-pass="{{ d[i].group_pass }}" data-order_id="{{ d[i].order_id }}">验证</span>
+                {{# } else { }}
+                <span class="fr ecc">已消费</span>
+                {{# } }}
+            </li>
+            {{# } }}
+        </script>
+		<script id="listTpl" type="text/html">
+			{{# for(var i = 0, len = d.length; i < len; i++){ }}
+				<li>
+					<a href="group_detail.html?order_id={{ d[i].order_id }}" class="clr" data-webview="true">
+						<div class="img fl">
+							<img src="{{ d[i].pic }}">
+						</div>
+						<div class="content">
+							<h2>{{ d[i].s_name }}</h2>
+							<div class="clr price">
+								<div class="fl">总价：{{ parseFloat(d[i].total_money) }}元</div>
+								<div class="fl">数量：{{ d[i].num }}</div>
+							</div>
+							<div class="state">
+								{{# if(d[i].type == 1){ }}
+									<span class="ff0">未消费</span>
+								{{# }else if(d[i].type == 2){ }}
+									<span class="ff0">未发货</span>
+								{{# }else if(d[i].type == 3){ }}
+									<span class="ecc">已消费</span>
+								{{# }else if(d[i].type == 4){ }}
+									<span class="ecc">已发货</span>
+								{{# }else if(d[i].type == 8){ }}
+									<span class="ecc">已取货</span>
+								{{# } }}
+								
+								
+								{{# if(d[i].status == 1){ }}
+									<span class="ff0">已取消</span>
+								{{# }else if(d[i].status == 2){ }}
+									<span class="ff0">线下未支付</span>
+								{{# }else if(d[i].status == 3){ }}
+									<span class="ecc">已付款</span>
+								{{# }else if(d[i].status == 4){ }}
+									<span class="ff0">待评论</span>
+								{{# }else if(d[i].status == 5){ }}
+									<span class="ecc">已完成</span>
+								{{# }else if(d[i].status == 6){ }}
+									<span class="ff0">未付款</span>	
+								{{# } }}
+								<!-- <span class="ff0">未付款</span>
+								<span class="ef6">未发货</span>
+								<span class="ecc">已消费</span>
+								<span class="fc6">待评价</span>
+								<span class="a2a">已取消</span> -->
+							</div>
+						</div>
+					</a>
+					{{# if(d[i].type == 1 && d[i].tuan_type != 2 && (d[i].group_start_status==1 || d[i].group_start_status==3)){ }}
+						
+						<div class="consum" data-type="{{ d[i].pass_array }}" data-order_id="{{ d[i].order_id }}">消费验证</div>
+					
+					{{# }else if(d[i].type == 2){ }}
+						<a href="group_detail.html?order_id={{ d[i].order_id }}" class="consum">去发货</a>
+					{{# } }}
+				</li>
+			{{# } }}
+		</script>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/group_list.js"></script>
+	</body>
+</html>

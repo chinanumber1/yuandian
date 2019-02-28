@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>店员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/pigcms.css" rel="stylesheet"/>
+		<link href="css/dropload.css" rel="stylesheet"/>
+		<style type="text/css">
+			.order .order_list .img{
+			   width:75px;
+			}
+			.order .order_list .content {
+				margin-left: 80px;
+				    height: auto;
+			}
+			.order .order_list .content .price{
+				padding: 5px 0 0 0;
+			}
+		</style>
+	</head>
+	<body style='position: static;'>
+		<section class="public pageSliderHide">
+		   <div>
+		   	  <div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+			<div class="content">优惠券列表</div>
+		   </div>
+		   <div class="order" style="    top: 0px; left: 0px;  ">
+		   	    <div class="cable pageSliderHide" style="position: initial;">
+				<div class="cable_n" style="position: relative;">
+					<form id="searchForm" method="post">
+						<div class="input">
+							<input type="search" id="find_value" placeholder="请输入搜索内容">
+						</div>
+						<div class="select">
+							<select id="find_type">
+								<option value="1">优惠券密码</option>
+								<option value="2">活动ID</option>
+								<option value="3">用户ID</option>
+								<!--option value="4">团购ID</option-->
+								<option value="4">用户昵称</option>
+								<option value="5">手机号码</option>
+							</select>
+						</div>
+					</form>
+				</div>
+			</div>
+		   </div>
+			
+		</section>
+		<section class="order" >
+			
+			<div class="order_list" id="order_list" style='height:100%'><ul></ul></div>
+		</section>
+		
+      <section class="consum_tc">
+            <div class="consum_tc_n">
+                <div class="tc_top">消费码验证</div>
+                <div class="scroll">
+                    <ul></ul>
+                </div>
+
+                <div class="all">
+                    <span id="allVerify">全部验证</span>
+                </div>
+
+                <div class="del"></div>
+            </div>
+        </section>
+        <div class="mask"></div>
+      
+		<script id="listTpl" type="text/html">
+			{{# for(var i = 0, len = d.length; i < len; i++){ }}
+				<li>
+					<a href="javascript:void(0)" class="clr" >
+						<div class="img fl">
+							<img src="{{ d[i].pic }}">
+						</div>
+						<div class="content">
+							<h2 class=''>优惠券:{{ d[i].name }}</h2>
+							<div class="clr price">
+								<div class="fl">用户昵称：{{# if(d[i].nickname!=''){ }} {{ d[i].nickname }}{{# }else{ }} {{ d[i].phone }} {{# } }}</div>
+								<div class="fl">兑换时间：{{ d[i].time }} </div>
+								
+							</div>
+							<div class="state">
+							
+								<!-- <span class="ff0">未付款</span>
+								<span class="ef6">未发货</span>
+								<span class="ecc">已消费</span>
+								<span class="fc6">待评价</span>
+								<span class="a2a">已取消</span> -->
+								{{# if(d[i].check_time != 0){ }}
+									<span class="ecc">已消费</span>
+								{{# }else{ }}
+									<span class="ecc">未消费</span>
+								{{# } }}
+								
+							</div>
+						</div>
+					</a>
+					{{# if(d[i].check_time == 0){ }}
+						<a href="javascript:void(0)" class="consum" data-pass="{{ d[i].number }}">验证消费</a>
+					{{# } }}
+				</li>
+			{{# } }}
+		</script>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+
+		<script src="scripts/dropload.js"></script>
+		<script src="scripts/work/couponList.js"></script>
+	</body>
+</html>

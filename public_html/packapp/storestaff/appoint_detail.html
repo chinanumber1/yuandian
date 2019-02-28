@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+        <link href="css/mobiscroll.2.13.2.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <section class="public">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+            <div class="content">订单详情</div>
+        </section>
+        <div class="h44"></div>
+        <section class="container">
+			<section class="caption"></section>
+			<section class="g_details">
+				<div class="infor rese_infor">
+					<ul></ul>
+				</div>
+			</section>
+        </section>
+        <!--div class="coping">
+            <ul>
+                <li class="top">
+                    <span>顶部</span>
+                </li>
+                <li class="key">
+                    <span>上页</span>
+                </li>
+            </ul>
+        </div-->
+        <div class="mask"></div>
+
+        <section class="seek">
+            <div class="within">
+                <h2>验证服务</h2>
+                <div class="con">
+                    <div class="img">
+                        <img src="images/tct_06.jpg">   
+                    </div>
+                    <div class="tit">
+                        <p class="on">重要提示</p>
+                        <p class="p rig_p">验证服务后，订单状态将修改为已完成，并且不能恢复，<span class="red">确定验证？</span></p>
+                    </div>
+                    <div class="button">
+                        <input type="hidden" id="order_id" value="0"/>
+                        <div class="clr p20">
+                            <div class="fl close">点错了</div>
+                            <div class="fr ensure">确认消费</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="del"></div>
+        </section>
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+        <script src="scripts/fastclick.js"></script>
+        <script src="scripts/layer/layer.m.js"></script>
+        <script src="scripts/common.js"></script>
+        <script src="scripts/work/appoint_order_detail.js"></script>
+        <script id="userDetail" type="text/html">
+        <ul class="top">
+            <li class="first">
+                <div class="h2">
+                    <div class="h2_top">
+                        <span class="name">{{d.user_name}} </span>
+                        <span class="pho callPhone" data-phone="{{ d.user_phone }}">{{d.user_phone}}</span>
+                    </div>
+                </div>
+                {{# if (d.appoint_type == 0) { }}
+                    <div class="service ddfw">到店服务</div>
+                {{# } else { }}
+                    <div class="service smfw">上门服务</div>
+                {{# } }}
+            </li>
+            <li class="two clr">
+                <div class="fl">
+                    <h2>预约项目</h2>
+                    <p>{{ d.appoint_name }}</p>
+                </div>
+                <div class="fr">
+                    <h2>预约时间</h2>
+                    <p>{{ d.appoint_date }}&nbsp;{{ d.appoint_time }}</p>
+                </div>
+            </li>
+            {{# if (d.content != '' && d.content != null) { }}
+            <li class="two three">
+                <h2>留言</h2>
+                <p>{{ d.content }}</p>
+            </li>
+            {{# } }}
+            {{# if (d.product_detail != '') { }}
+            <li class="two three">
+                <h2>选择预约详情</h2>
+                <p>名称：{{d.product_detail.name}}&nbsp;&nbsp;&nbsp;&nbsp;价格：￥{{d.product_detail.price}}</p>
+            </li>
+            {{# } }}
+        </ul>
+        <ul class="end">
+            <li class="two">
+                <h2 class="fl">服务状态</h2>
+                <p class="p50">
+                    <span class="e93">
+                    {{# if (d.paid == 0) { }}
+                        {{# if (d.service_status == 0) { }}未服务
+                        {{# } else if (d.service_status == 1) { }}已服务
+                        {{# } else if (d.service_status == 2) { }}已评价
+                        {{# } }}
+                    {{# } else if (d.paid == 1) { }}
+                        {{# if (d.complete_source == 2) { }}
+                            {{# if (d.service_status == 1) { }}已服务
+                            {{# } else { }}技师已服务
+                            {{# } }}
+                        {{# } else if (d.service_status == 0) { }}未服务
+                        {{# } else if (d.service_status == 1) { }}已服务
+                        {{# } else if (d.service_status == 2) { }}已评价
+                        {{# } }}
+                    {{# } else if (d.paid == 2) { }}已退款
+                    {{# } else if (d.paid == 3) { }}用户已取消
+                    {{# } else { }}订单异常
+                    {{# } }}
+                    </span><br>
+                    {{# if (d.worker_name != '') { }}
+                    <span class="e93">{{ d.worker_name }} 技师 {{ d.worker_phone }}</span><br>
+                    <em>{{ d.worker_time }}</em>
+                    {{# } }}
+                </p>
+            </li>
+        </ul>
+        </script>
+        <script id="orderDetail" type="text/html">
+        <li class="clr first">
+            <div class="fl book">订单信息</div>
+            {{# if (d.type == 1) { }}
+            <div class="fr payoff">平台分配</div>
+            {{# } }}
+        </li>
+        <li class="clr">
+            <div class="fl book">订单编号</div>
+            <div class="fr payoff">{{d.order_id}}</div>
+        </li>
+        <li class="clr">
+            <div class="fl">下单时间</div>
+            <div class="fr">{{d.order_time}}</div>
+        </li>
+        <li class="clr">
+            <div class="fl">预付订金</div>
+            <div class="fr e93">￥{{# if (d.product_id > 0) { }} {{ parseFloat(d.product_payment_price) }} {{# } else { }}{{ parseFloat(d.payment_money) }}{{# } }}</div>
+        </li>
+        <li class="clr">
+            <div class="fl">支付状态</div>
+            <div class="fr e93">{{# if (d.paid == 0) { }}未支付 {{# } else { }} 已支付 {{# } }}</div>
+        </li>
+        <li class="clr">
+            <div class="fl">订单总价</div>
+            <div class="fr e93">￥{{# if (d.product_id > 0) { }} {{ parseFloat(d.product_price) }} {{# } else { }}{{ parseFloat(d.appoint_price) }}{{# } }}</div>
+        </li>
+        <li class="clr">
+            <div class="fl">支付状态</div>
+            <div class="fr e93">{{# if (d.service_status > 0) { }} 已支付 {{# } else { }} 未支付 {{# } }}</div>
+        </li>
+        {{# if (parseFloat(d.merchant_balance) > 0) { }}
+        <li class="clr">
+            <div class="fl">使用商户余额</div>
+            <div class="fr e2c">{{parseFloat(d.merchant_balance)}}</div>
+        </li>
+        {{# } }}
+        {{# if (parseFloat(d.score_deducte) > 0) { }}
+        <li class="clr">
+            <div class="fl">订金积分抵扣</div>
+            <div class="fr e2c">-￥{{parseFloat(d.score_deducte)}}（使用{{parseFloat(d.score_used_count)}}积分）</div>
+        </li>
+        {{# } }}
+        {{# if (d.is_initiative && d.service_status) { }}
+        {{# if ((parseFloat(parseFloat(d.balance_pay) + parseFloat(d.product_balance_pay))) > 0) { }}
+        <li class="clr">
+            <div class="fl">余额支付金额</div>
+            <div class="fr e2c">-￥{{parseFloat(parseFloat(d.balance_pay) + parseFloat(d.product_balance_pay)) }}</div>
+        </li>
+        {{# } }}
+        {{# if (parseFloat(parseFloat(d.product_real_payment_price) + parseFloat(d.product_real_balace_price)) > 0) { }}
+        <li class="clr">
+            <div class="fl">实际支付金额</div>
+            <div class="fr e2c">-￥{{parseFloat(parseFloat(d.product_real_payment_price) + parseFloat(d.product_real_balace_price)) }}</div>
+        </li>
+        {{# } }}
+        {{# } else if (d.is_initiative && !d.service_status) { }}
+        {{# if (parseFloat(d.product_balance_pay) > 0) { }}
+        <li class="clr">
+            <div class="fl">余额支付金额</div>
+            <div class="fr e2c">-￥{{ parseFloat(d.product_balance_pay) }}</div>
+        </li>
+        {{# } }}
+        {{# if (parseFloat(d.product_real_payment_price) > 0) { }}
+        <li class="clr">
+            <div class="fl">实际支付金额</div>
+            <div class="fr e2c">-￥{{ parseFloat(d.product_real_payment_price) }}</div>
+        </li>
+        {{# } }}
+        {{# } else { }}
+        {{# if (parseFloat(d.balance_pay) > 0) { }}
+        <li class="clr">
+            <div class="fl">余额支付金额</div>
+            <div class="fr e2c">-￥{{parseFloat(d.balance_pay)}}</div>
+        </li>
+        {{# } }}
+        {{# if (parseFloat(d.pay_money) > 0) { }}
+        <li class="clr">
+            <div class="fl">实际支付金额</div>
+            <div class="fr e2c">-￥{{parseFloat(d.pay_money)}}</div>
+        </li>
+        {{# } }}
+        {{# } }}
+        {{# if (parseFloat(d.product_card_give_money) > 0) { }}
+        <li class="clr">
+            <div class="fl">余额商家赠送余额</div>
+            <div class="fr e2c">-￥{{ parseFloat(d.product_card_give_money) }}</div>
+        </li>
+        {{# } }}
+        {{# if (d.product_id && d.paid == 1 && d.pay_time > 0 && parseFloat(parseFloat(d.pay_money) + parseFloat(d.balance_pay) + parseFloat(d.score_deducte)) > 0) { }}
+        <li class="clr">
+            <div class="fl">实际支付定金</div>
+            <div class="fr e2c">-￥{{ parseFloat(parseFloat(d.pay_money) + parseFloat(d.balance_pay) + parseFloat(d.score_deducte)) }}</div>
+        </li>
+        {{# } }}
+        {{# if (d.product_id && d.paid == 1 && d.service_status == 1 && d.is_initiative) { }}
+        {{# if (parseFloat(parseFloat(d.user_pay_money) + parseFloat(d.product_balance_pay)) > 0) { }}
+        <li class="clr">
+            <div class="fl">实际支付余额</div>
+            <div class="fr e2c">-￥{{ parseFloat(parseFloat(d.user_pay_money) + parseFloat(d.product_balance_pay)) }}</div>
+        </li>
+        {{# } }}
+        <li class="clr">
+            <div class="fl">实际支付余额时间</div>
+            <div class="fr e2c">{{ d.user_pay_time }}</div>
+        </li>
+        {{# if (parseFloat(d.product_score_deducte) > 0) { }}
+        <li class="clr">
+            <div class="fl">实际支付积分金额</div>
+            <div class="fr e2c">-￥{{parseFloat(d.product_score_deducte)}}（使用{{parseFloat(d.product_score_used_count)}}积分）</div>
+        </li>
+        {{# } }}
+        {{# if (parseFloat(d.product_coupon_price) > 0) { }}
+        <li class="clr">
+            <div class="fl">实际支付平台优惠券金额</div>
+            <div class="fr e2c">-￥{{parseFloat(d.product_coupon_price) }}</div>
+        </li>
+        {{# } }}
+        {{# if (parseFloat(d.product_card_price) > 0) { }}
+        <li class="clr">
+            <div class="fl">实际支付商家优惠券金额</div>
+            <div class="fr e2c">-￥{{ parseFloat(d.product_card_price) }}</div>
+        </li>
+        {{# } }}
+        {{# } }}
+        {{# if (d.cue_list != '') { }}
+            {{# for (var i in d.cue_list) { }}
+            <li class="clr">
+                <div class="fl">{{ d.cue_list[i].name }}</div>
+                <div class="fr e2c">{{# if(d.cue_list[i].type == 2 && d.cue_list[i].address != undefined) { }} 地址：{{ d.cue_list[i].address }} {{# } }}{{ d.cue_list[i].value }}</div>
+            </li>
+            {{# } }}
+        {{# } }}
+        {{# if (d.service_status == 0 && d.is_del == 0 && d.paid==1) { }}
+            <div class="verification" data-id="{{d.order_id}}">验证服务</div>
+        {{# } }}
+        </script>
+                    
+                    
+    </body>
+</html>

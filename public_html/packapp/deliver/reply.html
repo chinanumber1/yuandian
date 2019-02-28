@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>我的评分</title>
+		<link rel="stylesheet" type="text/css" href="css/reply.css"/>
+		<link href="css/deliver.css?t=1" rel="stylesheet"/>
+	</head>
+	<style>
+		#pick_list{
+			overflow-y:hidden !important;
+		}
+	</style>
+	<body>
+		<section id="fixed_top">
+			<section class="public pageSliderHide">
+				<div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+				<div class="content">我的评分</div>
+			</section>		
+			<div class="h44"></div>
+        </section>
+		<div class="content">
+			<div class="showUser">
+				<div class="leftUser">
+					<div class="ziLeft">综合评分</div>
+					<div class="ziRight"></div>
+				</div>
+				<div class="rightUser">
+					<ul>
+						<li style='position:relative'>
+							<i>	<b style='z-index:100'></b></i>
+						
+						</li>
+						<li>共<span id="total"></span>人点评</li>
+					</ul>
+				</div>
+			</div>
+			<!--评论列表-->
+			<div class="rating">
+				<div class="rating_header">
+					<ul class="clear classRating">
+						<li class="ft active" data-status="0"><span>全部<i id="all"></i></span></li>
+						<li class="ft" data-status="1"><span>好评<i id="good"></i></span></li>
+						<li class="ft" data-status="2"><span>中评<i id="middle"></i></span></li>
+						<li class="ft" data-status="3"><span>差评<i id="bad"></i></span></li>
+					</ul>
+				</div>
+				<div class="rating_content" id="pick_list"></div>
+			</div>
+		</div>
+        <script id="replyListBoxTpl" type="text/html">
+        {{# for(var i in d){ }}
+        <div class="ratings">
+            <div class="rating_left"><img src="{{ d[i].avatar }}"/></div>
+            <div class="rating_right">
+                <div class="rating_ul">
+                    <ul>
+                        <li>{{ d[i].name }}</li>
+                        <li>
+							{{# 
+								for(var tmpI=0;tmpI<5;tmpI++){
+									if(d[i].score >= tmpI+1){
+							}}
+										<i class="active"></i>
+									{{# }else{ }}
+										<i></i>
+									{{# } }}
+							{{# 
+								}
+							}}
+                        </li>
+                        <li>{{ d[i].comment }}</li>
+                    </ul>
+                </div>
+                <div class="rating_time">{{ d[i].comment_time }}</div>
+            </div>
+        </div>
+        {{# } }}
+        </script>
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+        <script src="scripts/fastclick.js"></script>
+        <script src="scripts/layer/layer.m.js"></script>
+        <script src="scripts/work/common.js"></script>
+        <script src="scripts/common.js"></script>
+        <script src="scripts/work/reply.js"></script>
+</html>

@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+   	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+   	<title>店铺管理</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/imange-view.css"/>
+	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+	<link href="css/mui.picker.min.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" type="text/css" href="css/shop_manger_penci.css"/>
+    <style type="text/css">
+    		.showImg{
+				width:100%;
+				height: 52px;
+			}
+			img{width:85px; height: 57px;}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">店铺管理</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="shop_introduce">
+	    	<div class="mui-card">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header shop_name">
+					<span style="width: 35%;">店铺名称</span>
+					<input type="text"  value=""  placeholder="请填写店铺名称"/>
+				</div>
+				<!--内容区-->
+				<div class="mui-card-content">
+					<textarea class="txt_info" name="" rows="5" cols="5" placeholder="请填写店铺描述"></textarea>
+				</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">
+					<span class="mui-pull-left open_photo">商家图片 <i></i></span>
+					<div class="mui-scroll-wrapper left_srcoll">
+					    <div class="mui-scroll showImg">
+					    	<div class="mui-pull-left uload">
+				    			<ul>
+					    			<li class="up_img" >
+								    	<img src="images/17-8_03.png" alt="" />
+								    	<input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" 	id="fileImage" name="imgFile">
+						    		</li>
+				    			</ul>
+				    		</div>
+					    	
+					    	
+					    </div>
+					</div>
+				</div>
+			</div>
+	    </div>
+	    <!--联系电话-->
+	    <div class="shop_phone">
+	    	<div class="mui-card">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header">
+					<span class="mui-pull-left">联系电话</span>
+					<ul  class="phone_style">
+						<li><input class="uesrPhone" style="height: 30px;" type="tel" name="" id="" value=""  placeholder="请填写联系电话"/></li>
+						<li>*&nbsp;用于展示在用户前台</li>
+					</ul>
+				</div>
+				<div class="mui-card-header">
+					<span class="mui-pull-left">客服电话</span>
+					<ul>
+						<li class="phone_style"><input  class="kePhone" type="tel" name="" id=""  placeholder="请填写客服电话"/> </li>
+						<li>*&nbsp;只用于接收收入提醒</li>
+					</ul>
+				</div>
+			</div>
+	    </div>
+	    <!--营业时间-->
+	    <div class="business_time">
+	    	<div class="mui-card">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header">
+					<span class="zhuContent">是否设置成主店 <i></i></span>
+					<div class="mui-switch mui-active ismain">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<!--内容区-->
+				<div class="mui-card-content">
+					<div class="mui-row">
+					    <div class="mui-col-sm-3">营业时间</div>
+					    <div class="mui-col-sm-9 timeManger">
+					    	<div class="mui-clearfix">
+					    		<ul class="mui-pull-left date_btn">
+					    			<li><sapn class="time_show">开始时间</sapn></li>
+					    			<li> <h4 data-options='{"type":"time"}' class="btn time_active">00:00</h4> </li>
+					    		</ul>
+					    		<ul class="mui-pull-left">
+					    			<li></li>
+					    			<li class="time_zhi">至</li>
+					    		</ul>
+					    		<ul class="mui-pull-left date_btn">
+					    			<li><sapn class="time_show">停业时间</sapn></li>
+					    			<li> <h4  data-options='{"type":"time"}' class="btn time_active">00:00</h4> </li>
+					    		</ul>
+					    		<ul class="mui-pull-right addTime">
+					    			<li> <i></i></li>
+					    		</ul>
+					    	</div>
+					    	
+
+					    </div>
+					</div>
+				</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<!--<div class="mui-card-footer">页脚</div>-->
+			</div>
+			<!--店铺分类-->
+			<div class="shop_class">
+				<div class="mui-card">
+					<!--页眉，放置标题-->
+					<div class="mui-card-header" style="line-height:2;margin-top: 0;">
+						<span>店铺分类</span>
+						<span id='showUserPicker1' style="color: #C7C7CD;font-size: 15px;width: 72%;margin-left: -13%;padding:5px 0;"><span style="width: 89%" id="change_text">请选择店铺分类 </span><i class="mui-pull-right" style="margin-right:2px;"></i></span>
+						
+					</div>
+					<div class="mui-card-header" style="line-height:2;margin-top: 0;">
+						<span>店铺所在地</span>
+						<span id="storeAddress" style="color: #C7C7CD;font-size: 15px;width: 72%;margin-left: -13%;padding:5px 0;"><span style="width: 89%" id="change_address">请选择店铺所在地</span><i class="mui-pull-right"></i></span>
+						
+					</div>
+					<!-- 店铺所在商圈 -->
+					<div class="mui-card-header" id="trade" style="line-height:2;margin-top: 0;display:none;">
+						<span>店铺所在商圈</span>
+						<span id="shopTrade" style="color: #C7C7CD;font-size: 15px;width: 72%;margin-left: -13%;padding:5px 0;"><span style="width: 89%" id="tradeAddress">请选择店铺所在商圈</span><i class="mui-pull-right"></i></span>
+						
+					</div>
+					<!--内容区-->
+					<div class="mui-card-header">
+						<span><span class="byin">餐饮</span></span>
+						<div class="mui-switch mui-active have_meal">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</div>
+					<div class="mui-card-header">
+						<span><span class="ctuan">团购</span></span>
+						<div class="mui-switch have_group  ">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</div>
+					<div class="mui-card-header">
+						<span><span class="ashop">快店</span></span>
+						<div class="mui-switch   have_shop">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</div>
+					<div class="mui-card-header shop_adress" id="map">
+						<span class="left_style">店铺地址</span>
+						<p style="width: 68%;">
+							<b id="addressText">请选择店铺地址</b>
+							<i></i>
+						</p>
+					</div>
+					<div clsss="mui-card-footer ">
+						<span class="left_style">人均消费</span>
+						<input type="tel" class="consumption">
+						<span>元 ( 必填 ) </span>
+					</div>
+				</div>
+			</div>
+		
+	    </div>
+	    	<!--优惠买单-->
+			<h5 style="margin: 10px 0 10px 5px;">优惠买单</h5>
+			<div class="preference_type">
+				<div class="mui-card">
+					
+					<div class="mui-card-content">
+						<div class="mui-row">
+							<div class="mui-col-sm-3">优惠类型</div>
+							<div class="mui-col-sm-9 discountType">
+								<div class="a1">
+									<div class="mui-input-row mui-radio mui-left">
+										<label for=""><input name="radio1" class="a" type="radio" checked="checked">无优惠</label>
+									</div>
+								</div>
+								<div></div>
+								<div >
+									<div class="mui-input-row mui-radio mui-left">
+										<label for=""><input name="radio1"  class="a2"type="radio" >折扣</label>
+										<input style="padding-left: 8px;" class="discount_percent" type="number" placeholder=" 请输入折扣"/>
+									</div>
+									<span>* 0-10之间的数字，支持一位小数8代表8折，8.5代表85折</span>
+								</div>
+								<div></div>
+								<div class="a3">
+									<div class="mui-input-row mui-radio mui-left">
+										<label for=""><input class="a3" name="radio1" type="radio">满减</label>
+										<p><span>每满</span> <input type="number" class="condition_price" placeholder="请输入金额"/> <span>元， 减</span> <input type="number" class="minus_price" placeholder="请输入金额"/> <span>元</span></p>
+									</div>
+								</div>
+								<div></div>
+							</div>
+							</div>
+
+							<div class="mui-input-row radio_style VipDiscountType">
+								<div class="mui-row">
+									<div class="mui-col-sm-4 left_style">优惠方式 <i class="vip_style"></i></div>
+									<div class="mui-col-sm-4 ">
+										<div class="mui-input-row mui-radio mui-left">
+											<label style="width:100%;"><input name="vip_discount_type" value="2" class="vip_1" type="radio" />折上折</label>
+										</div>
+									</div>
+									<div class="mui-col-sm-4 ">
+										<div class="mui-input-row mui-radio mui-left">
+											<label style="width:100%;"><input name="vip_discount_type" value="1" class="vip_2" type="radio" />折扣最优</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<a href="javascript:void(0);" class="shop_keep">保 存</a>
+
+			<div class="mui-clearfix">
+				
+			</div>
+	</div>
+	<input type="hidden" id="province_id"/>
+	<input type="hidden" id="city_id"/>
+	<!-- <input type="hidden" id="area_id"/> -->
+	<div id="middlePopover" class="mui-popover">
+		<p><span>选择地址</span><i class="mui-pull-right"></i></p>
+		<input id="txtAddress" type="text" placeholder="请输入店铺地址" data-bind="textInput: addressInput" />
+		<div class="mui-scroll-wrapper top_scroll">
+			<div class="mui-scroll">
+				<ul class="allAddress">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="js/fastclick.js"></script>
+	<script src="js/mui.js"></script>
+	<!--图片滚动-->
+	<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>
+	<script src="js/mui.picker.js"></script> 
+
+
+<!--筛选用到js-->
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="https://api.map.baidu.com/api?ak=4c1bb2055e24296bbaef36574877b4e2&v=2.0&s=1" charset="utf-8"></script>
+<script src="js/MapType.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/MapGrid.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>   -->
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+mui.init();
+var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+var ashop=common.getCache('ashop');
+var ctuan=common.getCache('ctuan');
+var byin=common.getCache('byin');
+var discount_controler = 0;
+common.http('Merchantapp&a=config',{'client':client,noTip:true}, function(data){
+    discount_controler= data.discount_controler;
+});
+
+$('.ashop').text(ashop);
+$('.ctuan').text(ctuan);
+$('.byin').text(byin);
+
+
+var store_id=$.getUrlParam('store_id');
+var status=$.getUrlParam('status');
+var type=$.getUrlParam('type');
+console.log(type)
+//console.log(store_id);
+var storeClass=[];//店铺分类
+var citySerach="合肥";//根据城市搜索
+var trade=[];//所有商圈
+var tradeId="";//商圈ID
+var long="",lat="";
+var fid='',ziid='';
+var sheng,shi,qu,quan;
+var area_ids;
+var moren_area_name="";
+var j=1;
+var pic_lens=1;
+var cat_id='';
+function trim(str){ //删除左右两端的空格
+　return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+//浏览器获取地理定位
+if(type!=null){
+    new MapGrid('#addressText',{
+        //地图类型 高端(gouldMap) 百度(baiduMap)
+        type : baiduMap,
+        callback : function(lng,lat,city_name){
+            //lng 精度
+            console.log(lng,lat,city_name);
+            citySerach=city_name;
+            $(".editmap_map").hide().remove()
+            /*common.http('Home&a=get_city_id_by_name',{'client':client,'store_id':store_id,'lng':lng,'lat':lat,'now_city':city_name},function(data){
+                  console.log(data)
+			})*/
+        }
+
+    });
+       
+}
+
+// if(store_id!=0){
+
+// }
+common.http('WapMerchant&a=store',{'client':client,'store_id':store_id},function(data){
+	console.log(data);
+	storeClass=data.catList;
+	long=data.long;
+	lat=data.lat;
+	fid=data.cat_fid;
+	console.log(fid);
+	ziid=data.ziid;
+	sheng=data.province_id;
+	shi=data.city_id;
+	qu=data.area_id;
+	area_ids=data.area_id;
+	quan=data.circle_id;
+	$('#province_id').val(data.province_id);
+	$('#city_id').val(data.city_id);
+	if(data.circle_id!=0){
+		$('#trade').show();
+	}	
+	moren_area_name=data.area_name;
+	if(store_id!=0){
+		if(data.area_id!=0){
+			common.http('WapMerchant&a=ajaxCircle',{'client':client,'id':data.area_id},function(rel){
+				//console.log(rel);
+				if(rel==null){
+					document.getElementById('trade').style.display="none";
+					mui.toast('该地区下还没有商圈哦!');
+				}else{
+					trade=[];
+					for(var i=0;i<rel.length;i++){
+						var type_card={'value':'','text':''};
+						type_card.value=rel[i].area_id;
+						type_card.text=rel[i].area_name;
+						trade.push(type_card);
+					}
+					document.getElementById('trade').style.display="block";
+				}	
+			});
+		}
+	}
+	
+	if(data.cat_fname!=undefined){
+		$('#change_text').text(data.cat_fname+" "+data.cat_name).css('color','#333');
+	}else{
+		$('#change_text').text('请选择店铺分类');
+	}
+	
+	if(data.province_name!=undefined){
+		$('#change_address').text(data.province_name+" "+data.city_name+" "+data.area_name).css('color','#333');
+		if(data.city_name!=undefined){
+			citySerach=data.city_name
+		}
+	}else{
+		$('#change_address').text("请选择店铺所在地");
+	}
+	if(data.circle_id!="0"){
+		console.log(store_id);
+		if(store_id!=0){
+			$('#tradeAddress').text(data.circle_name).css('color','#333');
+			$('#trade').show();
+		}else{
+			$('#tradeAddress').text("请选择店铺所在商圈");
+		 	$('#trade').hide();
+		}
+	}else{
+		$('#tradeAddress').text("请选择店铺所在商圈");
+		 $('#trade').hide();
+	}
+	
+	$('.shop_name input').val(data.name);
+	$('.txt_info').val(data.txt_info);
+	$('.uesrPhone').val(data.phone);
+	$('.kePhone').val(data.kefu_phone);
+	data.ismain==1?$('.ismain').addClass('mui-active'):$('.ismain').removeClass('mui-active');
+	data.have_group==1?$('.have_group').addClass('mui-active'):$('.have_group').removeClass('mui-active');
+	data.have_meal==1?$('.have_meal').addClass('mui-active'):$('.have_meal').removeClass('mui-active');
+	data.have_shop==1?$('.have_shop').addClass('mui-active'):$('.have_shop').removeClass('mui-active');
+	$('.consumption').val(data.permoney);//人均消费
+	if(data.adress!=null){
+		$('#addressText').text(data.adress);
+	}
+	
+	$('.timeManger>.mui-clearfix:eq(0) ul:eq(0) li h4').text(data.open_1);
+	$('.timeManger>.mui-clearfix:eq(0) ul:eq(2) li h4').text(data.close_1);
+	//时间遍历
+	if(data.close_2!=data.open_2){
+		var str='<div class="mui-clearfix">	<ul class="mui-pull-left date_btn"><li><sapn class="time_show">开始时间</sapn></li><li> <h4  data-options={"type":"time"} class="btn time_active">'+data.open_2+'</h4> </li></ul><ul class="mui-pull-left"><li></li><li class="time_zhi">至</li></ul><ul class="mui-pull-left date_btn"><li><sapn class="time_show">停业时间</sapn></li><li> <h4  data-options={"type":"time"} class="btn time_active">'+data.close_2+'</h4> </li></ul><ul class="mui-pull-right jianTime"><li> <i></i></li></ul></div>';
+		$('.timeManger').append(str);	
+	}
+	if(data.close_3!=data.open_3){
+		var str='<div class="mui-clearfix">	<ul class="mui-pull-left date_btn"><li><sapn class="time_show">开始时间</sapn></li><li> <h4  data-options={"type":"time"} class="btn time_active">'+data.open_3+'</h4> </li></ul><ul class="mui-pull-left"><li></li><li class="time_zhi">至</li></ul><ul class="mui-pull-left date_btn"><li><sapn class="time_show">停业时间</sapn></li><li> <h4  data-options={"type":"time"} class="btn time_active">'+data.close_3+'</h4> </li></ul><ul class="mui-pull-right jianTime"><li> <i></i></li></ul></div>';
+		$('.timeManger').append(str);
+
+	}
+	// 渲染图片
+	var sum_pic='';
+	var pic_len=data.pic.length;
+	pic_lens=pic_len;
+	$.each(data.pic,function(i,val){
+		sum_pic+='<div class="mui-pull-left delate_photo" ><img src='+val.url+' data-url='+val.title+' data-preview-src="" data-preview-group="1"/><i></i></div>';
+	});
+	$('.showImg').append(sum_pic);
+	 $('.showImg').width(105*(pic_len+1)+150);
+	// 加载优惠方式
+	if(data.discount_txt.discount_type==0){
+		$('.discountType>div:eq(0) input').attr('checked','checked');
+	}else if(data.discount_txt.discount_type==1){
+		$('.discountType>div:eq(2) input').attr('checked','checked');
+		$('.discount_percent').val(data.discount_txt.discount_percent);
+	}else if(data.discount_txt.discount_type==2){
+		$('.discountType>div:eq(4) input').attr('checked','checked');
+		$('.condition_price').val(data.discount_txt.condition_price);
+		$('.minus_price').val(data.discount_txt.minus_price);
+	}
+	//加载vip优惠
+    if(data.vip_discount_type==2){
+        $('.VipDiscountType>div:eq(0) input:eq(0)').attr('checked','checked');
+	}else if(data.vip_discount_type==1){
+        $('.VipDiscountType>div:eq(0) input:eq(1)').attr('checked','checked');
+	}
+    if(discount_controler == 1){
+        $(".discountType").find("input").attr("disabled","disabled");
+        $(".VipDiscountType").find("input").attr("disabled","disabled");
+    }
+});
+
+// 保存按钮点击
+mui('.mui-content').on('tap','.shop_keep',function(e){
+	var name=$('.shop_name input').val();//店铺名称
+	var txt_info=$('.txt_info').val();//店铺详细描述
+	var phone=$('.uesrPhone').val();//联系电话
+	var kefu_phone=$('.kePhone').val();//客服电话
+	var pic=[];//上传图片
+	$.each($('.showImg .delate_photo'),function(i,val){
+		pic.push($(this).find('img').data('url'));
+	});
+	var  ismain=$('.ismain').is('.mui-active')?1:0;
+	var have_group=$('.have_group').is('.mui-active')?1:0;
+	var have_meal=$('.have_meal').is('.mui-active')?1:0;
+	var have_shop=$('.have_shop').is('.mui-active')?1:0;
+	// 营业时间
+	var length=$('.timeManger>.mui-clearfix').length;
+	console.log(length);
+	var close_1="",close_2="",close_3="",open_1="",open_2="",open_3="";
+	open_1=$('.timeManger>.mui-clearfix:eq(0) ul:eq(0) li h4').text();
+	close_1=$('.timeManger>.mui-clearfix:eq(0) ul:eq(2) li h4').text();
+	if(length==2){
+		open_2=$('.timeManger>.mui-clearfix:eq(1) ul:eq(0) li h4').text();
+		close_2=$('.timeManger>.mui-clearfix:eq(1) ul:eq(2) li h4').text();
+
+	}else if(length==3){
+		open_2=$('.timeManger>.mui-clearfix:eq(1) ul:eq(0) li h4').text();
+		close_2=$('.timeManger>.mui-clearfix:eq(1) ul:eq(2) li h4').text();
+		open_3=$('.timeManger>.mui-clearfix:eq(2) ul:eq(0) li h4').text();
+		close_3=$('.timeManger>.mui-clearfix:eq(2) ul:eq(2) li h4').text();
+	}
+	var province_id=$('#province_id').val();
+	var city_id=$('#city_id').val();
+	var area_id=$('#area_id').val();
+	var cat_fid=$('#change_text').data('fid');
+	
+	var cat_id=$('#change_text').data('id');
+	var permoney=$('.consumption').val();//人均消费
+	var adress=$('#addressText').text();
+	if(adress =='请选择店铺地址'){
+		adress='';
+	}
+	//优惠方式
+	var discount_percent="",discount_type=0,condition_price="",minus_price="";
+	// var discount_percent="",discount_type,condition_price="",minus_price="";
+	if($('.discountType .a1 input').is(':checked')){
+		discount_type=0;
+	}else if($('.discountType .a2').is(':checked')){
+		discount_type=1;
+		discount_percent=$('.discount_percent').val();
+	}else {
+		discount_type=2;
+		condition_price=$('.condition_price').val();
+		minus_price=$('.minus_price').val();
+	}
+	//vip优惠
+    var vip_discount_type='';
+	if($('.VipDiscountType input:eq(0)').is(':checked')){
+	    vip_discount_type = 2;
+	}else if($('.VipDiscountType input:eq(1)').is(':checked')){
+        vip_discount_type = 1;
+	}
+
+
+	var long_lat=long+','+lat;
+	var as_text=$('#change_text').text();
+	if(name==''){
+		mui.toast('店铺名称必填');	
+	}else{
+
+
+		if(txt_info==''){
+			mui.toast('店铺描述必填');	
+		}else{
+			if(as_text=='请选择店铺分类'){
+				mui.toast('请选择店铺分类')
+			}else{
+				if(permoney==''){
+					mui.toast('人均消费必填');	
+				}else{
+					if(phone==''){
+						mui.toast('联系电话必填');
+					}else{
+						if(kefu_phone==0){
+							mui.toast('客服电话必填');
+						}else{
+							/*if(discount_percent!='' ){
+                               if(isNaN(discount_percent)){
+                                 	mui.toast('折扣价格应输入');
+                                 	return false
+                                   
+                                 }
+
+							}*/
+							common.http('WapMerchant&a=storeModify',{'client':client,'store_id':store_id,"name":name,'txt_info':txt_info,'phone':phone,'kefu_phone':kefu_phone,'pic':pic,'ismain':ismain,'have_group':have_group,'have_meal':have_meal,'have_shop':have_shop,'close_1':close_1,'close_2':close_2,'close_3':close_3,'open_1':open_1,'open_2':open_2,'open_3':open_3,'province_id':province_id,'city_id':city_id,'area_id':area_ids,'circle_id':tradeId,'cat_fid':cat_fid,'cat_id':cat_id,'permoney':permoney,'adress':adress,'discount_type':discount_type,'discount_percent':discount_percent,'condition_price':condition_price,'minus_price':minus_price,'long_lat':long_lat,'status':status,'vip_discount_type':vip_discount_type},function(data){
+								console.log(data);
+									if(data.length==0){
+										mui.toast("保存成功");
+										if(common.checkApp()){
+											setTimeout(function(){
+												if(common.checkAndroidApp()){
+													window.pigcmspackapp.closewebview(2);
+												}else{
+													common.iosFunction('closewebview/2');
+												}
+											},2000);
+										}else{
+											setTimeout(function(){
+												history.go(-1);
+												document.execCommand('Refresh');
+											},2000); 
+										}	
+										
+									}
+							});
+						}
+						
+					}
+				}
+			}
+			
+		}
+	}	
+	
+});
+
+
+// 搜索框动态搜索
+$('#txtAddress').keyup(function(){
+	var address=$(this).val();
+	search(address);
+});
+function search(address){
+		$.get('/index.php?g=Index&c=Map&a=suggestion', {area_name:citySerach,query:address}, function(data){
+			console.log(data);
+			if(data.status == 1){
+				var str='';
+				$.each(data.result,function(i,val){
+					str+='<li data-long='+val.long+' data-lat='+val.lat+'><h5 >'+val.name+'</h5><p>'+val.address+'</p></li>';
+				});
+				$('.allAddress').html(str);
+			}
+			
+		/* 	$.post("{pigcms{:U('Home/cityMatching')}",{'city_name':data.result[0].city,'area_name':data.result[0].district,'get_province':'1','all_city':'1'},function(res){
+				if(res.status == 1){
+					$('.city_box span').html(res.info.area_name);
+					$('#province_id').val(res.info.province_id);
+					$('#city_id').val(res.info.area_id);
+					$('#area_id').val(res.info.now_area_id);
+					
+				}else{
+					alert('当前城市不可用');
+				}
+			}); */
+		});
+}
+//选择地址
+mui('body') .on('tap','.allAddress li',function(e){
+	lat=$(this).data('lat');
+	long=$(this).data('long');
+	$('#addressText').text($(this).find('h5').text());
+	mask.close();
+	mui('#middlePopover').popover('hide');
+});
+//地址点击
+mui('.mui-content').on('tap','.shop_adress',function(e){
+	mask.show(); 
+	mui('#middlePopover').popover('show');
+	$('#middlePopover input').val('');
+	search(citySerach);
+});
+//关闭按钮点击
+$('body #middlePopover p i.mui-pull-right').click(function(e){
+	mask.close();
+	mui('#middlePopover').popover('hide');
+});
+
+mui('body').on('tap','.mui-backdrop',function(e){
+	mask.close();
+	mui('#middlePopover').popover('hide');
+});
+
+// 上传图片
+function imgUpload(id){
+    var fullPath=window.document.location.href;  
+    var pathName=window.document.location.pathname;  
+    var pos=fullPath.indexOf(pathName);  
+    var localhostPath=fullPath.substring(0,pos);  
+    var post_url = localhostPath+'/appapi.php?c=WapMerchant&a=uploadStoreImage';
+   // console.log(post_url);
+    $.ajaxFileUpload({
+        url:post_url,
+        secureuri:false,
+        fileElementId:id,
+        dataType: 'json', 
+        type: 'post',
+        // data : {'wxcard_img' : 1},
+        success: function(data, status){  
+        	//console.log(data);
+        	var str='<div class="mui-pull-left delate_photo" ><img src='+data.result.url+' data-url='+data.result.title+' data-preview-src="" data-preview-group="1"/><i></i></div>';
+        	$('.showImg').append(str);
+        	
+        },
+        error: function(data, status, e){ 
+          //  alert(e);
+          //alert(111);
+        }
+    }); 
+}
+// 上传图片
+$('.up_img').off('change','input').on('change','input',function(e){
+	var id=$(this).attr('id');
+	var length=$('.showImg .delate_photo').length;
+	if(pic_lens<10){
+		pic_lens++;
+		console.log(pic_lens);
+		imgUpload(id);
+        $('.showImg').width(105*(pic_lens+1)+150);
+	}else{
+		mui.toast('最多只能上传10张图片');
+	}
+	
+});
+
+mui('.left_srcoll').scroll({
+		scrollY:false,
+		scrollX:true,
+		startX:0,
+		startY:0,
+		indicators:false,
+		deceleration:0.0005,
+		bounce:true
+});
+mui('.top_scroll').scroll({
+	deceleration:0.0005
+});
+mui.previewImage();
+mui.init({
+	swipeBack:true //启用右滑关闭功能
+});
+// 进去页面清空所有input框内数据
+$('input').val('');              
+var mask = mui.createMask();   //遮罩层       
+
+
+
+
+
+// 添加时间点击
+mui('.mui-content').on('tap','.addTime',function(e){
+	var length=$('.timeManger .mui-clearfix').length;
+	if(length<3){
+		var str='<div class="mui-clearfix">	<ul class="mui-pull-left date_btn"><li><sapn class="time_show">开始时间</sapn></li><li> <h4  data-options={"type":"time"} class="btn time_active">00:00</h4> </li></ul><ul class="mui-pull-left"><li></li><li class="time_zhi">至</li></ul><ul class="mui-pull-left date_btn"><li><sapn class="time_show">停业时间</sapn></li><li> <h4  data-options={"type":"time"} class="btn time_active">00:00</h4> </li></ul><ul class="mui-pull-right jianTime"><li> <i></i></li></ul></div>';
+		$('.timeManger').append(str);	
+	}else{
+		mui.toast("最多只能选择3个时间段");
+	}
+	
+	// (function($, doc){	
+	// 	var btns = $('.date_btn');
+	// 	btns.each(function(i, btn) {
+	// 		btn.addEventListener('tap', function() {
+	// 			var me=this;
+	// 			var optionsJson = '{"type":"time"}';
+	// 			var options = JSON.parse(optionsJson);
+	// 			// var id = this.getAttribute('id');
+	// 			var picker = new $.DtPicker(options);
+	// 			picker.show(function(rs) {
+					
+	// 				 * rs.value 拼合后的 value
+	// 				 * rs.text 拼合后的 text
+	// 				 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+	// 				 * rs.m 月，用法同年
+	// 				 * rs.d 日，用法同年
+	// 				 * rs.h 时，用法同年
+	// 				 * rs.i 分（minutes 的第二个字母），用法同年
+					 
+	// 				$(me)[0].lastElementChild.children[0].innerText=rs.text;
+					
+					
+	// 				picker.dispose();
+	// 			});
+	// 		}, false);
+	// 	});
+	// })(mui, document);
+});
+//删除时间点击
+mui('.mui-content').on('tap','.jianTime',function(e){
+	$(this).parents('.mui-clearfix').remove();
+}); 
+
+
+//店铺分类
+(function($, doc) {
+	$.init();
+	mui('.mui-content').on('tap','#showUserPicker1',function(e){
+		e.stopPropagation();
+		e.preventDefault(); 
+		/**
+		 * 获取对象属性的值
+		 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+		 * @param {Object} obj 对象
+		 * @param {String} param 属性名
+		 */
+		var _getParam = function(obj, param) {
+			return obj[param] || '';
+		};
+		//普通示例
+		var cityPicker= new $.PopPicker({
+			layer: 2
+		});
+		///console.log(storeClass);
+		cityPicker.setData(storeClass);
+		cityPicker.pickers[0].setSelectedValue(fid);
+		cityPicker.pickers[1].setSelectedValue(ziid);
+		
+			cityPicker.show(function(items) {
+				document.getElementById('change_text').innerHTML = items[0].text+" "+items[1].text;
+				document.getElementById('change_text').style.color="#333";
+				document.getElementById('change_text').setAttribute('data-fid',items[0].value);
+				document.getElementById('change_text').setAttribute('data-id',items[1].value);
+				//返回 false 可以阻止选择框的关闭
+				//return false;
+			});
+	
+	});
+})(mui, document);
+function count(o){
+        var t = typeof o;
+        if(t == 'string'){
+                return o.length;
+        }else if(t == 'object'){
+                var n = 0;
+                for(var i in o){
+                        n++;
+                }
+                return n;
+        }
+        return false;
+}
+/**///睡眠方法
+function sleep(numberMillis) { 
+var now = new Date(); 
+var exitTime = now.getTime() + numberMillis; 
+  while (true) {
+    now = new Date(); 
+    if (now.getTime() > exitTime) 
+    return; 
+  } 
+}
+
+//店铺所在地
+(function($, doc) {
+	$.init();
+	//sleep(2000);
+	$.ready(function(e){
+		$.preventDefault;
+		$.stopPropagation;
+		common.http('Merchantapp&a=cityList',{}, function(data){
+			var cityPicker3 = new $.PopPicker({
+				layer: 3
+			});
+			cityPicker3.setData(data);
+			console.log(data);
+			cityPicker3.pickers[0].setSelectedValue(sheng);
+			cityPicker3.pickers[1].setSelectedValue(shi);
+			cityPicker3.pickers[2].setSelectedValue(qu);
+			
+			var showCityPickerButton = doc.getElementById('storeAddress');
+			showCityPickerButton.addEventListener('tap', function(event) {
+				j++;
+				if(moren_area_name!=""&&j==2){
+					var mui_body= document.getElementsByClassName('mui-poppicker-body')[0].lastElementChild.lastElementChild.children[1];
+			 		var a=document.getElementsByClassName('mui-poppicker-body')[0].children[2].children[0].children[1].children;
+			 		for(var i=0;i<a.length;i++){
+			 			if(a[i].innerText==moren_area_name){
+			 				a[0].classList.remove('highlight');
+			 				a[i].classList.add('highlight');
+			 				mui_body.style.webkitTransform = "perspective(1000px) rotateY(0deg) rotateX(" +(20*i)+ "deg)";
+			 			}
+			 		}
+			 		
+				}
+				cityPicker3.show(function(items){
+					document.getElementById('province_id').value = items[0].value;
+					document.getElementById('city_id').value = items[1].value;
+					area_ids= items[2].value;
+					citySerach=items[1].value;
+					if(trim(items[0].text)==trim(items[1].text)){
+						document.getElementById('change_address').innerText =  items[0].text + " " + items[2].text;
+					}else{
+						document.getElementById('change_address').innerText =  items[0].text + " " + items[1].text + " " + items[2].text;
+					}
+					document.getElementById('change_address').style.color="#333";
+					common.http('WapMerchant&a=ajaxCircle',{'client':client,'id':items[2].value},function(data){
+						console.log(data);
+						if(data==null){
+							document.getElementById('trade').style.display="none";
+							mui.toast('该地区下还没有商圈哦!');
+						}else{
+							trade=[];
+							for(var i=0;i<data.length;i++){
+								var type_card={'value':'','text':''};
+								type_card.value=data[i].area_id;
+								type_card.text=data[i].area_name;
+								trade.push(type_card);
+							}
+							document.getElementById('trade').style.display="block";
+						}	
+					});
+				});
+			}, false);
+		});
+	});
+})(mui, document); 
+// 商圈下拉框
+(function($, doc) {
+	$.init();
+	mui('.mui-content').on('tap','#shopTrade',function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		//普通示例
+		var userPicker = new $.PopPicker();
+		console.log(trade);
+		userPicker.setData(trade);
+		userPicker.pickers[0].setSelectedValue(quan);
+		userPicker.show(function(items) {
+			document.getElementById('tradeAddress').innerText = items[0].text;
+			document.getElementById('tradeAddress').style.color="#333333";
+			tradeId=items[0].value;
+		}, false);
+	
+	});
+	
+})(mui, document);
+			
+			
+			
+mui('.mui-content').on('tap','.open_photo',function(e){
+	mui.alert('第一张将作为主图，最多上传10张;<br/>图片建议宽度700px,高度420px。','商家图片','知道了',function(e){
+		
+	})
+});
+
+mui('.mui-content').on('tap','.zhuContent',function(e){
+	mui.alert('如果将此店铺设置成主店，系统将自动取消其他已设置的主店',function(e){
+		
+	})
+});
+
+mui('.mui-content').on('tap','.vip_style',function(e){
+    mui.alert('折上折的意思是如果这个用户是有平台VIP等级，平台VIP等级有折扣优惠。那么这个用户的优惠计算方式是先用店铺的优惠进行打折后，再用VIP折扣进去打折；' +
+        '折扣最优是指：购买产品的总价用店铺优惠打折后的价格与总价跟VIP优惠打折后的价格进行比较，取最小值的优惠方式。',function(e){
+
+    })
+});
+//时间设置
+(function($, doc){	
+		mui('.mui-content').on('tap','.date_btn',function(e){
+			 var timeValue=this.children[1].children[0].innerText;
+			 //console.log(timeValue);
+				var me=this;
+				var optionsJson = '{"type":"time","value":"2012-01-01 '+timeValue+'"}';
+				var options = JSON.parse(optionsJson);
+				// var id = this.getAttribute('id');
+				var picker = new $.DtPicker(options);
+				// picker.setSelectedValue("2012-01-01"+"08:00");
+				picker.show(function(rs) {
+					/*
+					 * rs.value 拼合后的 value
+					 * rs.text 拼合后的 text
+					 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+					 * rs.m 月，用法同年
+					 * rs.d 日，用法同年
+					 * rs.h 时，用法同年
+					 * rs.i 分（minutes 的第二个字母），用法同年
+					 */
+					$(me)[0].lastElementChild.children[0].innerText=rs.text;
+					
+					
+					picker.dispose();
+				});
+		
+		});
+	})(mui, document);
+	
+		
+	 var winHeight = $(window).height(); //获取当前页面高度
+	 tmp_px1 = (winHeight/2-225)
+	 $('.mui-popover').css({'top':tmp_px1+'px','margin-top':'0px'});
+	//图片删除点击
+	mui('.mui-content').on('tap','.delate_photo i',function(e){
+		$(this).parent('.delate_photo').remove();
+		pic_lens--;
+        $('.showImg').width(105*(pic_lens+1)+150);
+	});
+</script>
+</body>
+</html>

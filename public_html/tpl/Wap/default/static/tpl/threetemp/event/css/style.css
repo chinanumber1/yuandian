@@ -1,0 +1,201 @@
+/* RESET */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3,
+h4, h5, h6, p, blockquote, pre, a, abbr, acronym,
+address, big, cite, code, del, dfn, em, font, img, ins,
+kbd, q, s, samp, small, strike, strong, sub, sup, tt,
+var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {margin: 0 auto;padding: 0;border: 0;outline: 0;font-weight: inherit;font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;}
+:focus { outline: 0;}
+div { margin: 0; padding: 0; }
+strong, b { font-weight: bold; }
+a, a:link, a:visited, a:hover, a:active{text-decoration:none}
+table {	border-collapse: separate;border-spacing: 0;}
+th, td {text-align: left; font-weight: normal;}
+img, iframe {border: none; text-decoration:none;}
+ol, ul {list-style: none;}
+input, textarea, select, button {font-size: 100%;font-family: inherit;}
+select {margin: inherit;}
+input, textarea, select {-webkit-appearance: none; -webkit-font-weight: 400; -webkit-border-radius: 0;}
+pre {white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; }
+
+/* HTML AND BODY */
+
+html, body
+{
+
+	font-family:"微软雅黑", "Courier New", Courier, monospace;
+	font-size: 16px;
+	font-weight: 100;
+	line-height: 1.2;
+	color: #42505f;
+	max-width: 100%;
+	min-width: 320px;
+	-webkit-text-size-adjust: none; /* prevent WebKit-based browsers from resizing text */
+	position: relative;
+	margin: 0 auto;
+}
+
+.weimob-content{
+	margin: 3px;
+	position: relative;
+}
+
+.weimob-list {
+    padding: 5px;
+}
+.weimob-page {
+    word-wrap: break-word;
+    word-break: keep-all;
+}
+
+.weimob-list-box {
+
+    display: block;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+    background: none repeat scroll 0% 0% transparent;
+    padding-bottom: 10px;
+
+}
+.weimob-list-sau {
+    position: absolute;
+}
+.weimob-list-sau {
+    width: 12%;
+    float: left;
+    display: inline-block;
+    border: 1px solid #CCC;
+    border-radius: 10px;
+    background-image: linear-gradient(#999, #000);
+    height: 50px;
+    color: #FFF;
+    padding: 2px;
+}
+.mday {
+    display: block;
+    color: #FFF;
+    font-size: 0.8rem;
+    text-align: center;
+}
+.day {
+    font-size: 1rem;
+}
+.years {
+    display: block;
+    color: #FFF;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.weimob-list-item {
+    position: relative;
+    display: block;
+    height: 70%;
+    overflow: hidden;
+    border-bottom: 1px solid #CCC;
+    background: none repeat scroll 0% 0% transparent;
+
+    padding: 2%;
+}
+.weimob-list-item {
+}
+.weimob-list-item {
+    width: 95%;
+    border-radius: 15px;
+    border: 1px solid #F5F5F5;
+    box-shadow: 1px 2px 3px #666;
+    display: inline-block;
+}
+
+.weimob-list-item-line {
+    /*display: table-cell;*/
+    height: inherit;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-left: 60px;
+    vertical-align: middle;
+    padding-right: 32px;
+}
+.weimob-list-item-line {
+    padding-left: 10px;
+    width: 95%;
+}
+.weimob-list-item-line {
+    padding-left: 10px !important;
+    padding-right: 10px;
+}
+
+.weimob-list-item-title {
+
+    color: #000;
+    font-size: 16px;
+    white-space: nowrap;
+}
+.weimob-list-item-title {
+    white-space: normal !important;
+    height: 27px;
+    line-height: 27px;
+    overflow: hidden;
+    padding-right: 50px;
+}
+.weimob-list-item-img {
+    margin: 5px;
+    height: 53%;
+    display: block;
+}
+.weimob-list-item-img img {
+    max-height: 130px;
+    width: 100% !important;
+}
+img {
+    vertical-align: middle;
+}
+
+.weimob-list-item-summary {
+    font-size: 0.8rem;
+    color: #333;
+    line-height: 28px;
+
+	background:url(../img/5.png) no-repeat scroll center bottom ;
+
+	background-size: 100% 3px;
+}
+
+.weimob-list-more {
+    height: 30px;
+	line-height:30px;
+    width: 100%;
+    margin-top: 10px;
+	float:left;
+	 font-size: 1rem;
+	 color: #000;
+}
+.weimob-list-item-more {
+    line-height: 30px;
+    width: 90%;
+    display: inline-block;
+	float:left;
+	padding-left:10px;
+}
+.list_page .page_text{
+    display:none;
+}
+.list_page{padding:8px 10px 20px 10px;text-align: center; }
+.list_page span,.list_page a{display:inline-block;
+    background:#B3B1B1; color:#666666; padding:8px 12px; margin:5px 0 0 5px;}
+.list_page .current{background:#666666; color:white; }
+    .authorization{
+        width:100%;
+        height:45px;
+        display:inline-block;
+        line-height:45px;
+        text-align:center;
+    }
+.authorization a{
+    text-decoration:none;
+    color:#666;
+    font-size:12px;
+    font-family: Arial;
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>店员中心</title>
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name='apple-touch-fullscreen' content='yes' />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="address=no" />
+<link href="css/pigcms.css" rel="stylesheet" />
+<style>
+	.remarkBg{
+		position: fixed;
+		top: 0;left: 0;
+		right: 0;bottom: 0;
+		background:rgba(0,0,0,.7);
+		z-index: 10000;
+		display: none;
+	}
+	.remarkContent{
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 80%;
+    	margin-left: -40%;
+		height: 300px;
+		margin-top:-150px;
+		z-index: 10001;
+		background: #fff;
+		border-radius: 3px;
+	}
+	.itemTop{
+		width: 100%;
+		height: 40px;
+		background: #2ECC71;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+	}
+	.itemContent textarea{
+		width: 80%;
+	    margin: 10px 7%;
+	    border: 1px solid #f1f1f1;
+	    resize: none;
+	    padding: 8px 3%;
+	}
+	.itemBottom{
+		margin-top: 10px;
+		width: 100%;
+		text-align: center;
+	}
+	.itemBottom button{
+		width: 40%;
+	    height: 40px;
+	    border-radius: 3px;
+	    color: #fff;
+        background: gray;
+	}
+	.itemBottom button:last-child{
+		background: #2ECC71;
+	}
+	.addBei{
+		position: absolute;
+		right: 80px;
+		top:35px;
+		border: 1px solid #FF6000;
+	    padding: 2px 6px;
+	    border-radius: 3px;
+	    color: #FF6000;
+	    z-index: 10000;
+	}
+</style>
+</head>
+<body>
+	<section class="public"></section>
+
+	<section class="foodleft">
+		<div class="foodnav">
+			<ul></ul>
+		</div>
+	</section>
+
+	<section class="foodright"></section>
+
+	<section class="Tcancel TcancelT"></section>
+
+	<section class="Tcancel setmenu"></section>
+
+	<section class="Cart">
+		<div class="Cart_top clr">
+			<h2>购物车</h2>
+			<span>清空</span>
+		</div>
+		<div class="Cart_list">
+			<ul></ul>
+		</div>
+	</section>
+
+	<section class="floor clr floorOn">
+		<div class="trolley"></div>
+		<div class="qty">0</div>
+		<div class="prix">
+			￥<i id="total_price">0</i>
+		</div>
+		<a href="javascript:void(0);" class="next">保存购物车</a>
+	</section>
+
+	<section class="al_point">
+		<div class="point_n">
+			<h2>0</h2>
+			<p>已点</p>
+		</div>
+	</section>
+
+	<div class="cease spot">
+		<div class="within">
+			<div class="cease_top clr">
+				<h2 class="fl">已点菜品(8)</h2>
+			</div>
+			<div class="dishes">
+				<ul></ul>
+			</div>
+			<div class="tol_price">
+				<div class="tol_n"></div>
+			</div>
+		</div>
+		<div class="del"></div>
+	</div>
+	<div class="remarkBg">
+		<div class="remarkContent">
+			<div class="itemTop">添加备注</div>
+			<div class="itemContent">
+                <input type="hidden" name="detail_id" id="detail_id" />
+				<textarea name="note" id="note" cols="5" rows="10" placeholder="请输入备注内容"></textarea>
+			</div>
+			<div class="itemBottom">
+				<button type="button" class="qu">取消</button>
+				<button type="button" class="que">确认</button>
+			</div>
+		</div>
+	</div>
+	<div class="Mask"></div>
+	<div class="Maskcat"></div>
+	<div class="Maskmenu"></div>
+	<script src="scripts/jquery-1.8.3.min.js"></script>
+	<script src="scripts/fastclick.js"></script>
+	<script src="scripts/layer/layer.m.js"></script>
+	<script src="scripts/common.js"></script>
+	<script src="scripts/work/foodshop_menu.js?t=5"></script>
+	
+	<script id="listTpl" type="text/html">
+	{{# for (var i in d){ }}
+		<dl class="foodright-{{d[i].sort_id}}" data-cat_id="{{d[i].sort_id}}">
+			<dt>{{d[i].sort_name}}</dt>
+			{{# for (var ii in d[i].goods_list){ }}
+			{{# if (d[i].goods_list[ii].goods_id == 0) { }}
+			<dd class="food_{{d[i].goods_list[ii].id}}">
+				<div class="package">
+					<div class="tit">
+						<h2>{{d[i].goods_list[ii].name}}</h2>
+						<div class="con">{{d[i].goods_list[ii].note}}</div>
+					</div>
+					<div class="packagePrice clr">
+						<i class="fl">￥</i> <span class="fl">{{d[i].goods_list[ii].price}}<em>/份</em></span>
+					</div>
+					<div class="packageAddsub">
+						<span class="packageSpeci" data-id="{{d[i].goods_list[ii].id}}">选菜品</span>
+					</div>
+				</div>
+			</dd>
+			{{# } else { }}
+			{{# datas.push(d[i].goods_list[ii]) }}
+			<dd class="food_0_{{d[i].goods_list[ii].goods_id}}">
+				<div class="foodr_img">
+					<img src="{{d[i].goods_list[ii].pic_arr[0].url.image}}">
+				</div>
+				<div class="food_right">
+					<h2>{{d[i].goods_list[ii].name}}</h2>
+					<div class="MenuPrice clr">
+						<i class="fl">￥</i> <span class="fl">{{d[i].goods_list[ii].price}}<em>/{{d[i].goods_list[ii].unit}}</em></span>
+					</div>
+					<div class="Addsub">
+						{{# if(d[i].goods_list[ii].is_properties == 1){ }}
+						<span class="Speci" data-id="{{d[i].goods_list[ii].goods_id}}">选规格</span>
+						{{# }else{ }}
+						<a href="javascript:void(0)" class="jian" data-price="{{d[i].goods_list[ii].price}}" data-id="{{d[i].goods_list[ii].goods_id}}" data-stock="-1" data-unit="{{d[i].goods_list[ii].unit}}" data-uid="0" data-extra_price="{{d[i].goods_list[ii].extra_price}}" data-index="0_{{d[i].goods_list[ii].goods_id}}" data-name="{{d[i].goods_list[ii].name}}"></a>
+						<input type="text" value="0" readOnly="true" class="num" />
+						<a href="javascript:void(0)" class="jia" data-price="{{d[i].goods_list[ii].price}}" data-id="{{d[i].goods_list[ii].goods_id}}" data-stock="-1" data-unit="{{d[i].goods_list[ii].unit}}" data-uid="0" data-extra_price="{{d[i].goods_list[ii].extra_price}}" data-index="0_{{d[i].goods_list[ii].goods_id}}" data-name="{{d[i].goods_list[ii].name}}"></a>
+						{{# } }}
+					</div>
+				</div>
+			</dd>
+			{{# } }}
+			{{# } }}
+		</dl>
+	{{# } }}
+	</script>
+	
+	<script id="goodsDetalTpl" type="text/html">
+		<div class="TcancelT_top clr">
+			<div class="TcancelT_topL">
+				<h2>{{d.name}}</h2>
+				<span><i>￥</i>{{d.price}}</span>
+			</div>
+			<a href="javascript:void(0)" class="gb"></a>
+		</div>
+		<div class="TcancelT_zh">
+			<div class="TcancelT_n">
+				{{# if (d.spec_list != '') { }}
+				{{# for(var s in d.spec_list) { }}
+				<div class="TcancelT_list">
+					<h2>{{d.spec_list[s].name}}</h2>
+					<div class="fications" data-id="{{d.spec_list[s].id}}" data-num="1" data-name="{{d.spec_list[s].name}}" data-type="spec">
+						<ul class="clr" >
+							{{# for(var cs in d.spec_list[s].list) { }}
+							<li data-id="{{d.spec_list[s].list[cs].id}}" data-name="{{d.spec_list[s].list[cs].name}}" data-type="spec" data-goods_id="{{d.goods_id}}">{{d.spec_list[s].list[cs].name}}</li>
+							{{# } }}
+						</ul>
+					</div>
+				</div>
+				{{# } }}
+				{{# } }}
+				{{# if (d.properties_list != '') { }}
+				{{# for(var p in d.properties_list) { }}
+				<div class="TcancelT_list">
+					<h2>{{d.properties_list[p].name}}</h2>
+					<div class="fications" data-id="{{d.properties_list[p].id}}" data-name="{{d.properties_list[p].name}}" data-num="{{d.properties_list[p].num}}" data-type="properties">
+						<ul class="clr" >
+							{{# for (var pv in d.properties_list[p].val) { }}
+							<li data-id="{{pv}}" data-name="{{d.properties_list[p].val[pv]}}" data-type="properties" data-goods_id="{{d.goods_id}}">{{d.properties_list[p].val[pv]}}</li>
+							{{# } }}
+						</ul>
+					</div>
+				</div>
+				{{# } }}
+				{{# } }}
+			</div>
+		</div>
+		<div class="Selected">
+			已选：<span></span>
+		</div>
+		<div class="join" data-goods_id="{{d.goods_id}}" data-stock="-1" data-unit="{{d.unit}}" data-uid="0" data-extra_price="{{d.extra_price}}" data-name="{{d.name}}" data-price="{{d.price}}">
+			<input type="button" value="加入菜单">
+		</div>
+	</script>
+	<script id="cartsTpl" type="text/html">
+	{{# for (var i in d) { }}
+    <li style="color: #09843d;">{{d[i].nickname}}</li>
+    {{# for (var ig in d[i].foods) { }}
+    <li>
+        <div class="img fl">
+            <img src="{{d[i].foods[ig].image}}">
+        </div>
+        <div class="con">
+            <div class="tit">
+                <h2>{{d[i].foods[ig].name}} {{# if (d[i].foods[ig].is_must == 1) { }}(必点){{# } else if (parseInt(d[i].foods[ig].package_id) > 0) { }}(套餐){{# } }} <span class="addRemark" id="addRemark_{{d[i].foods[ig].id}}">{{# if (d[i].foods[ig].note.length > 0) { }}({{d[i].foods[ig].note}}){{# } }}</span></h2>
+                {{# if(d[i].foods[ig].spec != ''){ }}
+                <p>（{{d[i].foods[ig].spec}}）</p>
+                {{# } }}
+            </div>
+            <div class="price clr">
+                <i class="fl">￥</i> <span class="fl">{{d[i].foods[ig].price}}<em>/{{d[i].foods[ig].unit}}</em></span>
+            </div>
+        </div>
+        {{# if (d[i].foods[ig].note.length > 0) { }}
+        <div class="addBei" data-id="{{d[i].foods[ig].id}}" data-note="{{d[i].foods[ig].note}}" id="addBei_{{d[i].foods[ig].id}}">修改备注</div>
+        {{# } else { }}
+        <div class="addBei" data-id="{{d[i].foods[ig].id}}" data-note="{{d[i].foods[ig].note}}" id="addBei_{{d[i].foods[ig].id}}">加备注</div>
+        {{# } }}
+        <div class="Addsub cart_goods">
+            {{# if (d[i].foods[ig].is_must == 1 || parseInt(d[i].foods[ig].package_id) > 0) { }}
+            <input type="text" value="{{d[i].foods[ig].num}}" readonly="true" class="num">
+            {{# } else { }}
+            <a href="javascript:void(0);" class="jian" data-id="{{d[i].foods[ig].id}}"></a>
+            <input type="text" value="{{d[i].foods[ig].num}}" readonly="true" class="num">
+            <a href="javascript:void(0);" class="jia" data-id="{{d[i].foods[ig].id}}"></a>
+            {{# } }}
+        </div>
+    </li>
+    {{# } }}
+    {{# for (var ig in d[i].package) { }}
+        {{# var packageList = d[i].package[ig].list; }}
+    <li>
+        <div class="con">
+            <div class="tit">
+                <h2>{{d[i].package[ig].name}}</h2>
+            </div>
+            <div class="price clr">
+                <i class="fl">￥</i> <span class="fl">{{d[i].package[ig].price}}<em>/份</em></span>
+            </div>
+        </div>
+        <div class="Addsub cart_goods">
+            <input type="text" value="{{d[i].package[ig].num}}" readonly="true" class="num">
+        </div>
+    </li>
+    {{# for (var ip in packageList) { }}
+    
+    <li>
+        <div class="img fl">
+            <img src="{{packageList[ip].image}}">
+        </div>
+        <div class="con">
+            <div class="tit">
+                <h2>{{packageList[ip].name}} {{# if (packageList[ip].is_must == 1) { }}(必点){{# } else if (parseInt(packageList[ip].package_id) > 0) { }}(套餐){{# } }} <span class="addRemark" id="addRemark_{{packageList[ip].id}}">{{# if (packageList[ip].note.length > 0) { }}({{packageList[ip].note}}){{# } }}</span></h2>
+                {{# if(packageList[ip].spec != ''){ }}
+                <p>（{{packageList[ip].spec}}）</p>
+                {{# } }}
+            </div>
+            <div class="price clr">
+                <i class="fl">￥</i> <span class="fl">{{packageList[ip].price}}<em>/{{packageList[ip].unit}}</em></span>
+            </div>
+        </div>
+        {{# if (packageList[ip].note.length > 0) { }}
+        <div class="addBei" data-id="{{packageList[ip].id}}" data-note="{{packageList[ip].note}}" id="addBei_{{packageList[ip].id}}">修改备注</div>
+        {{# } else { }}
+        <div class="addBei" data-id="{{packageList[ip].id}}" data-note="{{packageList[ip].note}}" id="addBei_{{packageList[ip].id}}">加备注</div>
+        {{# } }}
+        <div class="Addsub cart_goods">
+            {{# if (packageList[ip].is_must == 1 || parseInt(packageList[ip].package_id) > 0) { }}
+            <input type="text" value="{{packageList[ip].num}}" readonly="true" class="num">
+            {{# } else { }}
+            <a href="javascript:void(0);" class="jian" data-id="{{packageList[ip].id}}"></a>
+            <input type="text" value="{{packageList[ip].num}}" readonly="true" class="num">
+            <a href="javascript:void(0);" class="jia" data-id="{{packageList[ip].id}}"></a>
+            {{# } }}
+        </div>
+    </li>
+    {{# } }}
+    {{# } }}
+	{{# } }}
+	</script>
+	
+	<script id="groupDetailTpl" type="text/html">
+	<div class="TcancelT_top clr">
+		<div class="TcancelT_topL">
+			<h2>{{d.name}}</h2>
+			<span class="clr"> <i class="fl">￥</i> <em class="fl">{{d.price}}</em>
+			</span>
+		</div>
+		<a href="javascript:void(0)" class="gb"></a>
+	</div>
+	<div class="setmenu_list">
+		<dl>
+			{{# for (var i in d.goods_detail) { }}
+			<dd>
+				<div class="condition fl"><span>{{d.goods_detail[i].goods_list.length}}选{{d.goods_detail[i].num}}</span></div>
+				<div class="set_list">
+					<ul data-num="{{d.goods_detail[i].num}}">
+						{{# for (var ii in d.goods_detail[i].goods_list) { }}
+						{{# if (d.goods_detail[i].num == 1 && ii == 0) { }}
+						<li class="on" data-goods_id="{{d.goods_detail[i].goods_list[ii].goods_id}}" data-price="{{d.goods_detail[i].goods_list[ii].price}}" data-name="{{d.goods_detail[i].goods_list[ii].name}}">
+							<h2>{{d.goods_detail[i].goods_list[ii].name}}</h2>
+						</li>
+						{{# } else { }}
+						<li data-goods_id="{{d.goods_detail[i].goods_list[ii].goods_id}}" data-price="{{d.goods_detail[i].goods_list[ii].price}}" data-name="{{d.goods_detail[i].goods_list[ii].name}}">
+							<h2>{{d.goods_detail[i].goods_list[ii].name}}</h2>
+						</li>
+						{{# } }}
+						{{# } }}
+					</ul>
+				</div>
+			</dd>
+			{{# } }}
+		</dl>
+	</div>
+	<div class="join" data-id="{{d.id}}">
+		<input type="submit" value="加入菜单" >
+	</div>
+
+	
+	</script>	
+		
+</body>
+</html>

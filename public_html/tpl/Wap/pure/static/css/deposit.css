@@ -1,0 +1,102 @@
+/*#login{margin: 0.5rem 0.2rem;}*/
+			.btn-wrapper{margin:.28rem 0;}
+			dl.list{border-bottom:0;border:1px solid #ddd8ce;}
+			dl.list:first-child{border-top:1px solid #ddd8ce;}
+			dl.list dd dl{padding-right:0.2rem;}
+			dl.list dd dl>.dd-padding, dl.list dd dl dd>.react, dl.list dd dl>dt{padding-right:0;}
+			.nav{text-align: center;}
+			.subline{margin:.28rem .2rem;}
+			.subline li{display:inline-block;}
+			.captcha img{margin-left:.2rem;}
+			.captcha .btn{margin-top:-.15rem;margin-bottom:-.15rem;margin-left:.2rem;}
+			.public{ height: 44px; line-height: 44px; background: #f32516; color: #fff; position: fixed; width: 100%; top: 0px; left: 0px; z-index: 880; }
+			.public .content{ text-align: center;font-size: 16px;   }
+			.public .return{ position: absolute; width: 50px; height: 100%; left: 0px; top: 0px; }
+			.public .return:after{ display: block;content: "";border-top: 2px solid #fff;border-left: 2px solid #fff;width: 10px;height: 10px;-webkit-transform: rotate(-45deg);background-color: transparent;position: absolute; left: 16px;top: 16px; }
+			.fieldset {
+				position: relative;
+				border: 1px solid #dddddd;
+				background: white;
+			}
+			.fieldset .field {
+				position: relative;
+				height: 48px;
+				border: 1px solid #dddddd;
+				padding: 0 16px;
+			}
+			.fieldset .navigation {
+				
+				height: 48px;
+				line-height: 48px;
+				padding: 0 4px;
+				background-color: white;
+				background-image: none;
+				position: relative; 
+			}
+			 .fieldset .navigation .icon-a {
+				position: absolute;
+				top: 50%;
+				margin-top: -12px;
+				width: 24px;
+				height: 24px;
+			}
+		 .fieldset .line-a {
+    position: absolute;
+    top: 50%;
+    width: 70%;
+}
+ .fieldset .line {
+    position: relative;
+    height: 1px;
+    background: #dddddd;
+    width: 100%;
+}
+/* div:after {
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+} */
+.fieldset .navigation .icon-a {
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    width: 24px;
+    height: 24px;
+}
+
+.fieldset .navigation ._label {
+    font-size: 15px;
+    color: #484e51;
+    padding: 0 0 0 26px;
+}
+
+.fieldset .nav1 {
+        position: absolute;
+        left: 50%;
+        margin-left: -45px;
+    }
+.fieldset .nav2 {
+        position: absolute;
+        right: 0px;
+    }
+	
+	 .fieldset .line-a {
+        position: absolute;
+        top: 50%;
+        width: 70%;
+    }
+ .fieldset .navigation img {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+.notice{
+	margin-top: 7px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    color: #a09b99;
+}

@@ -1,0 +1,20 @@
+input.ke-input-text {
+background-color: #FFFFFF;
+background-color: #FFFFFF!important;
+font-family: "sans serif",tahoma,verdana,helvetica;
+font-size: 12px;
+line-height: 24px;
+height: 24px;
+padding: 2px 4px;
+border-color: #848484 #E0E0E0 #E0E0E0 #848484;
+border-style: solid;
+border-width: 1px;
+display: -moz-inline-stack;
+display: inline-block;
+vertical-align: middle;
+zoom: 1;
+}
+.form-group>label{font-size:12px;line-height:24px;}
+#upload_pic_box{margin-top:20px;height:150px;}
+#upload_pic_box .upload_pic_li{width:130px;float:left;list-style:none;}
+#upload_pic_box img{width:100px;height:70px;}

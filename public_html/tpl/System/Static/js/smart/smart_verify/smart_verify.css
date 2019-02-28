@@ -1,0 +1,32 @@
+/*验证提示*/
+.verify_tip
+{
+	position:absolute;
+	font-size:12px;
+	line-height:20px;
+	color:#888;
+	display:none;
+}
+
+.verify_tip .verify_tip_icon
+{
+	vertical-align:baseline;
+	line-height:20px;
+	display:inline-block;
+	margin-right:5px;
+}
+
+.verify_tip .icon_red
+{
+	color:#f20101;
+}
+
+.verify_tip .icon_green
+{
+	color:#090;
+}
+
+.verify_tip .icon_gray
+{
+	color:#888;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>群发列表</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/mass_lists.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">群发列表</h1>
+	</header>
+	<div class="mui-content">
+		<div class="allCards">
+			 <!-- <div class="mui-card">
+		    	<div class="mui-card-header">
+		    		<span>会员ID: 11319</span>
+		    		<a href="javascript:void(0);">已发送</a>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<img src="images/48-1_03.png"/>
+		    		<ul>
+		    			<li><b>王子君</b> <span><i class="phone"></i> 150 5510 7788</span></li>
+		    			<li><span><i class="gender"></i> 性别: 男</span> <span><i class="adress"></i> 所在地: 安徽合肥</span></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		    <div class="mui-card">
+		    	<div class="mui-card-header">
+		    		<span>会员ID: 11319</span>
+		    		<a href="javascript:void(0);">已发送</a>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<img src="images/48-1_03.png"/>
+		    		<ul>
+		    			<li><b>王子君</b> <span><i class="phone"></i> 150 5510 7788</span></li>
+		    			<li><span><i class="gender"></i> 性别: 男</span> <span><i class="adress"></i> 所在地: 安徽合肥</span></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		    <div class="mui-card">
+		    	<div class="mui-card-header">
+		    		<span>会员ID: 11319</span>
+		    		<a href="javascript:void(0);">已发送</a>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<img src="images/48-1_03.png"/>
+		    		<ul>
+		    			<li><b>贺 函</b> <span><i class="phone"></i> 150 5510 7788</span></li>
+		    			<li><span><i class="gender"></i> 性别: 男</span> <span><i class="adress"></i> 所在地: 安徽合肥</span></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		    <div class="mui-card">
+		    	<div class="mui-card-header">
+		    		<span>会员ID: 11319</span>
+		    		<a href="javascript:void(0);">已发送</a>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<img src="images/48-1_03.png"/>
+		    		<ul>
+		    			<li><b>王子君</b> <span><i class="phone"></i> 150 5510 7788</span></li>
+		    			<li><span><i class="gender"></i> 性别: 男</span> <span><i class="adress"></i> 所在地: 安徽合肥</span></li>
+		    		</ul>
+		    	</div>
+		    </div> -->
+		</div>
+		<div class="pullup1" style="display:none;">上拉加载更多...</div>
+		<div class="loading1" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>		   
+
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="pluscardLists" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+
+		 <div class="mui-card">
+		    	<div class="mui-card-header">
+		    		<span>会员ID: {{ d[i].uid }}</span>
+		    		<a href="javascript:void(0);">已发送</a>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<img src="{{ d[i].avatar }}"/>
+		    		<ul>
+		    			<li>
+		    			{{# if( d[i].nickname=="" ){ }}
+		    				<b>匿名用户</b> 
+		    			{{# } else{ }}
+		    				<b>{{ d[i].nickname }}</b> 
+		    			{{# } }}
+		    				
+		    				<span><i class="phone"></i> {{ d[i].phone }}</span></li>
+		    			<li>
+							{{# if( d[i].nickname==1 ){ }}
+		    					<span><i class="gender"></i> 性别: 男</span> 
+			    			{{# } else{ }}
+			    				<span><i class="gender"></i> 性别: 女</span> 
+			    			{{# } }}
+		    				<span><i class="adress"></i> 所在地: {{ d[i].youaddress }}</span></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+  	mui.init();
+  	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var pigcms_id=$.getUrlParam('pigcms_id');
+	var pindex=1;
+	function addCard(page){
+		common.http('Merchantapp&a=custom_user_detail',{'ticket':ticket,'client':client,'logid':pigcms_id,'pindex':page},function(data){
+		  	console.log(data);
+		  	if (data.length!=0) {
+				data.length<=9&&$('.pullup1').html('没有更多数据啦');
+				$('.loading1').hide();
+				$('.pullup1').show();
+				laytpl(document.getElementById('pluscardLists').innerHTML).render(data, function(html){
+					$('.allCards').append(html);
+				});
+				if(data.length>9){
+					var flag = false;
+					$(window).scroll(function(e) {
+					    e.stopPropagation();
+					    if(flag){
+					      //数据加载中
+					      return false;
+					    }
+					    //上拉加载
+					    if ($(document).scrollTop() == $(document).height() - $(window).height()) {
+					    	$('.pullup1').hide();
+					    	$('.loading1').show();
+					    	flag = true;
+					        pindex++;
+					      addCard(pindex);
+					    }
+					});
+				}
+			}else{
+				$('.pullup1').html('没有更多数据啦');
+				$('.loading1').hide();
+				$('.pullup1').show();
+			}
+		});
+
+	}
+	addCard(1);
+	
+</script>
+</body>
+</html>

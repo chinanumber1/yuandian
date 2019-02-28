@@ -1,0 +1,1 @@
+<?php return '80e52aead303767d7e4cf1495b8ca07d';?>

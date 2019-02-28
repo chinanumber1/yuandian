@@ -1,0 +1,142 @@
+html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td {
+	margin: 0;
+	padding: 0;
+	border-spacing:0px !important;
+	outline:medium;
+	word-break:break-word;
+	border:none;
+	list-style:none;
+}
+
+*{ font-family:"Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3",sans-serif; }
+/*A*/
+a{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:none;
+}
+/*img*/
+img{ border:0 none; max-width: 100% }
+/*li*/
+ul,li{list-style-type:none;}
+/*浮动*/
+.fl{
+	float:left;
+	display:inline;
+}
+.fr{
+	float:right;
+	display:inline;
+}
+.clr:after {
+	visibility: hidden;
+	display: block;
+	content: " ";
+	clear: both;
+	height: 0;
+	line-height: 0;
+}
+.clr {
+	zoom: 1;
+}
+a{ color: #333333; }
+a:focus { -moz-outline-style: none; }
+a:focus { outline: none; }
+.hide{display:none;}
+.clear{clear:both;}
+/*公共样式*/
+
+html{ color: #333333; }
+body{ padding:0px; margin:0px auto; font-size:14px; min-width:320px; max-width:640px; background-color: #f4f4f4; -webkit-tap-highlight-color: rgba(0,0,0,0);}
+textarea,input{ font-size: 14px; }
+input{-webkit-appearance: none; cursor: pointer;}
+
+
+/*二次申请向导服务-导游讲解类*/
+.Secondary{ margin-top: 2%; padding: 0 3%; background: #fff; }
+.Secondary li{ position: relative; padding-left: 90px; line-height: 50px; font-size: 14px;}
+.Secondary li span{ display: block; position: absolute; left: 0px;  background: url(../img/grjj_03.png) left center no-repeat; padding-left: 10px; width: 93px; font-size: 16px;  background-size: 8px; }
+.Secondary li input{ line-height: 50px; border-bottom: #eeeeee 1px solid; width: 100%; font-size: 14px; }
+.Secondary li span.on{ letter-spacing:30px; }
+.Secondary li span.on1{ letter-spacing:8px; }
+.Secondarytc{ background: url(../img/grjj_07.png) right 20px no-repeat; width:120px;  background-size: 15px; }
+.Secondarytc1{ background: url(../img/grjj_07.png) right 20px no-repeat; width:120px;  background-size: 15px; }
+
+.Secondary_title h5{ font-size: 16px; padding: 0 3%; line-height: 50px; background: #f4f4f4; font-weight: normal; }
+.Secondary1{ margin-top: 0px; }
+.Secondary li select.on{ width: 47%;  color: #999999;  background: #fff;}
+.Secondary li select.on option{ text-align: center; }
+
+.Secondary li.ydj input{ width: 100px; background: #f3fffe; line-height: 20px; }
+.Secondary li.ydj select{  width: 45px; background:#f3fffe; position: relative; padding-left: 5px; }
+.Secondary li.ydj select option{ border: #eeeeee 1px solid; }
+.Secondary li.ydj a.zezhu{  width: 12px;height: 10px;position: absolute;top: 22px;right: 0px;left: 240px;background: url(../img/grjj_07.png) right top no-repeat #f3fffe;display: block;background-size: 12px; display: none; }
+dl.scwj{border-bottom: #eeeeee 1px solid;}
+dl.scwj dd{ width: 47%; float: left; font-size: 13px; color: #666666; text-align: center;   margin-top: 10px; margin-right: 5%;  position: relative;z-index: 99; overflow: hidden;}
+dl.scwj dd img{ height: 85px;  width: 100%;}
+dl.scwj dd input{ position: absolute; top:0px; left: 0px;/* height:70px;*/ z-index: 9999; opacity:0;  }
+dl.scwj dd:last-child{ margin-right: 0px; }
+dl.scwj dd span{ line-height: 45px; }
+dl.yjwj{ padding-bottom: 10px; }
+dl.yjwj dd{ width: 22%;  margin-right: 4%;  }
+.dysb_d{ margin: 0 3%; }
+.dysub{ background: #06c1ae; color: #fff; font-size: 16px; width: 100%; border-radius: 100px; padding: 3% 0; margin:3% 0; display: block; text-align: center; }
+
+/*我的向导-审核中*/
+.Guide h2{ margin-bottom: 0px; }
+.Guide_end{ background: #fff; margin-top: 2%; }
+.Guide_top{ border-bottom: #eeeeee 1px solid; }
+.Guide_top h5{ font-weight: normal; font-size: 20px;  padding:0 3%; line-height: 45px; }
+.Guide_top h5 span{ display:  block; border: #ff8400 1px solid; float: right; font-size: 14px; color: #ff8400; line-height: 25px; width: 60px; text-align: center;  border-radius: 5px; margin-top: 8px;}
+.Guide_n{ padding: 5px 0; }
+.Guide_n p{ padding: 0 3%; color: #999999; font-size: 14px;  line-height: 30px;  }
+.Guide_n p span{ font-size: 14px; color: #666666; display: inline-block; width: 70px; text-align: right;  }
+.Guide_n p span.on{letter-spacing: 10px;}
+.Guide_shz h5 span{ border: #ff0000 1px solid; color: #ff0000; }
+.Guide_ytg h5 span{ border: #06c1ae 1px solid; color: #06c1ae; }
+
+/*新增认证*/
+.increaseid{ text-align: center; padding: 15px 0;border-bottom: #eeeeee 1px solid; }
+.increaseid dd.fl{ width: 30%;  }
+.increaseid dd.p165{ padding-left: 35%; }
+.increaseid_top img{ width: 100%; }
+.increaseid_end h2{  font-size: 13px;  color: #666666; font-weight: normal;  padding-top: 50px;  }
+.Correctid{ padding: 8px 3%; }
+.Correctid p.jszt{ text-align: center; line-height: 45px; }
+.Incon{ padding: 0 3%; }
+.Incon p{ color: #e91016; font-size: 12px; line-height: 35px;  background:url(../img/xtx_11.png) left center no-repeat; background-size:11px; padding-left: 15px; }
+
+.ft {
+		    float: left;
+		}
+		header {
+		    width: 100%;
+		    height: 44px;
+		    line-height: 44px;
+		    border-bottom: 1px solid #F1F1F1;
+		    background: #06C1AE;
+		    text-align: center;
+		}
+		header a {
+		    margin-left: 3%;
+		    color: #fff;
+		    font-size: 16px;
+		}
+		header a i{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			background: url(../imanges/f1.png) center no-repeat;
+			background-size: contain;
+			margin-top: 12px;
+			
+		}
+		a {
+		    text-decoration: none;
+		}
+		header span {
+		    
+		    color: #fff;
+		    font-size: 16px;
+		}

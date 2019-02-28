@@ -1,0 +1,71 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-card{margin: 0;margin-top: 15px;}
+.mui-card .mui-card-header,.mui-card .mui-card-footer{
+	padding: 0;
+} 
+
+.left_style{
+	display: inline-block;
+	margin: 10px 0 10px 10px;
+	font-size: 14px;
+	color: #404040;
+	width: 28%;
+}
+input[type='text'],input[type='tel']{
+	border: none;
+	padding: 0;
+	margin: 0;
+	/*width: 67%;*/
+	font-size: 15px;
+}
+/*第一块*/
+.mui-card .mui-card-content{
+    border-bottom: 1px solid #f1f1f1;
+    margin-left: 5px;
+    padding: 5px 0;
+}
+.deposit input,.user_time input{
+	width: 110px;
+	height: 35px;
+	background: #F7F7F7;
+	border;1px solid #F7F7F7;
+	font-size: 12px;
+	margin-bottom: 3px;
+		border:1px solid #E9E9E9;
+		padding-left: 8px;
+}
+.mui-card-content i{font-size: 14px;font-style: normal;color: #FFA200;}
+.mui-card-content ul{
+	width: 67%;
+	display: inline-block;
+	/*margin-left: 32%;*/
+}
+.mui-card-content ul li span{
+	font-size: 12px;
+	color: #FF5053;
+}
+.user_time input{
+	margin-top: 5px;
+}
+/*保存*/
+.mui-bar-tab a{
+	/*margin-top: 10px;*/
+	display: block;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #FFA200;
+	color: #FFFFFF;
+	font-size: 15px;
+}

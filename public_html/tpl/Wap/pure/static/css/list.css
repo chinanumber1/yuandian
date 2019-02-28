@@ -1,0 +1,446 @@
+@charset "utf-8";
+.searchBar{
+	height:50px;
+	border-bottom: 1px solid #ABABAB;
+	padding-right:50px;
+	position: relative;
+  	display: -webkit-box;
+  	background-color: #F4F4F4;
+}
+.searchBar .searchBox{
+	border:1px solid #E1E1E1;
+	height:36px;
+	margin-top:7px;
+	margin-left:6px;
+	border-radius: 5px;
+	width: 100%;
+	background-color:white;
+}
+.searchBar .searchBox input{
+	background: url(../img/search/search.png) no-repeat;
+	background-size:16px;
+	background-position: 10px 10px;
+	padding:2px 0 2px 30px;
+	height:36px;
+	line-height:36px;
+	border:none;
+	width:100%;
+	outline:0;
+	font-size:16px;
+}
+.searchBar .voiceBtn{
+	  position: absolute;
+  right: 0px;
+  top: 7px;
+  width: 40px;
+  height: 36px;
+  background: url(../img/search/voice.png) no-repeat;
+  background-size: 12px 19px;
+  background-position: 12px 8px;
+}
+.searchBar.wap {
+	padding-right:15px;
+}
+.searchBar.wap  .voiceBtn{
+	display:none;
+} 
+
+.navBox{
+	position:relative;
+}
+.navBox.absolute{
+	position:absolute;
+	z-index:1005;
+	width:100%;
+}
+.navBox>ul{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  background: #FFF;
+  text-align: center;
+  border-bottom: 1px solid #edebeb;
+}
+.navBox.absolute>ul{
+	border-bottom:1px solid #06c1ae;
+}
+.dropdown-toggle {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-ms-flex: 1;
+	/* border-left: 1px solid #c6c0b3; */
+	width: 100%;
+	text-align: left;
+	text-align: center;
+	color: #7b7b7b;
+	position:relative;
+    /*border-image: url(../img/list/dropRightBorder.png) 0 0 0 14;
+    border-image-width:1px;*/
+	background: url(../img/list/dropRightBorder.png) no-repeat;
+	background-position:3px right;
+	background-size:1px 38px;
+	height: 40px;
+    line-height: 40px;
+}
+.dropdown-toggle.active {
+    color: #06c1ae;
+}
+.dropdown-toggle.caret:after {
+	content: "";
+	width: 0;
+	height: 0;
+	display: inline-block;
+	border-top: 6px solid #7b7b7b;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-bottom: 0;
+	margin-left: 4px;
+	position: absolute;
+    top: 18px;
+}
+.dropdown-toggle.active.caret:after {
+	content: "";
+	width: 0;
+	height: 0;
+	display: inline-block;
+	border-bottom: 6px solid #06c1ae;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 0;
+	margin-left: 4px;
+	position: absolute;
+    top: 18px;
+}
+
+.searchBox{
+	position: relative;
+	margin-bottom:12px;
+}
+.searchBox>ul{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	background: #FFF;
+	text-align: center;
+	border-bottom: 1px solid #edebeb;
+}
+.searchBox .dropdown-toggle.active{
+	border-bottom: 2px solid #06c1ae;
+}
+
+
+.storeListBox{
+	  display: -webkit-box;
+	  position:relative;
+}
+.storeListBox dl{
+	width: 100%;
+}
+.storeListBox dd{
+	margin-bottom: 11px;
+	border-top: 1px solid #edebeb;
+	background-color: white;
+}
+.storeListBox dd:first-child{
+	border-top:none;
+}
+.storeListBox dd:last-child{
+	margin-bottom:4px;
+}
+.storeListBox .brand{
+	padding:15px 8px 15px  8px;
+	color:#06c1ae;
+	margin-top: 0px;
+	font-size: 16px;
+	line-height: 16px;
+}
+.storeListBox .brand .brandCon{
+	position: relative;
+	border-left: 4px solid #06c1ae;
+	padding-left: 8px;
+}
+.storeListBox .brand .location-right {
+  	position: absolute;
+  	top: 4px;
+  	right: 4px;
+  	color: #999;
+  	font-size: 12px;
+}
+.listBox .loadMoreList{
+	border-top: 0;
+	height: 40px;
+    line-height: 40px;
+	text-align:center;
+	text-indent: -10000px;
+	background:#f4f4f4 url(../img/loadingMore.gif) no-repeat;
+	background-position: center;
+	padding-bottom:7px;
+}
+.listBox .noMore{
+	height: 40px;
+	line-height: 40px;
+	/* background-color: #f4f4f4; */
+	border-top: 0;
+	text-align:center;
+	margin-bottom: 11px!important;
+	color: #999;
+}
+
+
+.no-deals{
+	    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+}
+.shade{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7);
+    z-index: 101;
+}
+.hide {
+    display: none!important;
+}
+
+
+.store_state{
+	position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.7);
+    color: white;
+    font-style: normal;
+    text-align: center;
+}
+.store_state.open{
+	position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    background: rgba(6,193,174,.7);
+    color: white;
+    font-style: normal;
+    text-align: center;
+}
+.dealcard{
+}
+.dealcard dd {
+	background-color: white;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 8px 3px;
+	
+}
+.dealcard dd:last-child{
+	margin-bottom:0px;
+}
+.dealcard .dealcard-img {
+	width: 91px;
+	height: 84px;
+	border-radius: 2px;
+	float: left;
+	position: absolute;
+	overflow:hidden;
+}
+.dealcard .dealcard-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+.dealcard .dealcard-img .closeTip{
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    color: white;
+    background: black;
+    text-align: center;
+}
+.dealcard .dealcard-block-right {
+    margin-left: 100px;
+}
+.dealcard .brand {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+}
+.dealcard .location-right{
+	position: absolute;
+  	top: 8px;
+  	right: 4px;
+  	color:#666;
+  	font-size: 11px;
+}
+.dealcard  .title{
+	padding-left:74px;
+}
+.dealcard  .title .star{
+	vertical-align: middle;
+	margin-left: 2px;
+	position: absolute;
+    left: 0px;
+    top: 6px;
+}
+.dealcard  .title .star i{
+	width:12px;
+	height:12px;
+	display:inline-block;
+	background:url(../images/none_star.png) no-repeat;
+	background-size:100%;
+	margin-right: 2px;
+}
+.dealcard  .title .star i.full{
+	background-image:url(../images/full_star.png);
+}
+.dealcard  .title .star i.half{
+	background-image:url(../images/mid_star.png);
+}
+.dealcard  .title .star i:last-child{
+	margin-right:6px;
+}
+.dealcard  .title .location-right{
+	top:2px;
+}
+.dealcard  .price .location-right,.dealcard  .title.pick .location-right{
+	background: #06c1ae;
+    color: white;
+    padding: 0px 2px;
+    border-radius: 2px;
+    font-size: 10px;
+    top: 0px;
+}
+.dealcard .title,.dealcard .price{
+	position:relative;
+}
+.dealcard .title.pick{
+	margin-top:14px;
+}
+.dealcard .title span,.dealcard .price span{
+    color:#666;
+	font-size: 11px;
+}
+.dealcard .price span.delivery{
+	border-left: 1px solid #bbb;
+    padding-left: 8px;
+	margin-left: 8px;
+}
+.dealcard .coupon {
+	color:#bbb;
+	font-size:11px;
+	margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.dealcard .coupon.hasMore{
+	height: 44px;
+}
+.dealcard .coupon .more{
+	position: absolute;
+    bottom: 11px;
+	right: 2px;
+    padding-right: 12px;
+}
+.dealcard .coupon .more:after{
+	display: inline-block;
+    content: "";
+    border-bottom: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    width: 4px;
+    height: 4px;
+    -webkit-transform: rotate(315deg);
+    background-color: transparent;
+    position: absolute;
+    top: 5px;
+    right: 4px;
+}
+.dealcard .coupon.showMore .more:after{
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+	border-bottom:none;
+    border-left:none;
+	top:8px;
+}
+.dealcard .coupon.showMore{
+	height:auto;
+}
+.dealcard .coupon ul{
+	
+}
+.dealcard .coupon li{
+	position: relative;
+    padding-left: 20px;
+	line-height: 22px;
+	padding-right: 60px;
+    height: 22px;
+    overflow: hidden;
+	
+	word-break:keep-all;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.dealcard .coupon.showMore li{
+	height:auto;
+	word-break: inherit;
+    white-space: inherit;
+}
+.dealcard .coupon li em{
+	width: 16px;
+    height: 16px;
+	line-height: 16px;
+    display: inline-block;
+    background-color: red;
+    position: absolute;
+    left: 0;
+    top: 3px;
+	border-radius: 2px;
+}
+.dealcard .coupon li em:before{
+	content:'惠';
+	font-size:11px;
+	color:white;
+	margin-left: 2px;
+}
+em.merchant_minus{
+	background-color:#FF6655!important;
+}
+em.system_minus{
+	background-color:#5D26EA!important;
+}
+em.merchant_minus:before,em.system_minus:before{
+	content:'减'!important;
+}
+em.newuser{
+	background-color:#FFAA22!important;
+}
+em.system_newuser{
+	background-color:#0EC0A8!important;
+}
+em.newuser:before,em.system_newuser:before{
+	content:'首'!important;
+}
+em.merchant_delivery{
+	background-color:#6C5CB4!important;
+}
+em.merchant_delivery:before{
+	content:'送'!important;
+}
+em.merchant_discount{
+	background-color:#DD1111!important;
+}
+em.merchant_discount:before{
+	content:'折'!important;
+}
+/*.dealcard .coupon li em.merchant_invoice{
+	background-color: white;
+    border: 1px solid #7CC6FF;
+	width: 14px;
+}
+.dealcard .coupon li em.merchant_invoice:before{
+	content:'票';
+	color: #7CC6FF;
+}*/

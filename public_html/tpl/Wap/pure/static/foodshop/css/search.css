@@ -1,0 +1,242 @@
+*{
+	margin: 0;
+	padding:0 ;
+	
+}
+a{
+	text-decoration: none;
+}
+body{
+	background: #F4F4F4;
+}
+ul,ol,dl,dd,dt{
+	list-style: none;
+}
+.ft{
+	float: left;
+}
+.rg{
+	float: right;
+}
+.after:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+/*背景图*/
+/*背景图*/
+.contanir{
+	width: 100%;
+	height: 11.38rem;
+	background: url(../img/bg.png) center no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.bg_mask{
+    background-color: rgba(0, 0,0, .6);
+    overflow-y: scroll;
+    height: 100%;
+}
+header {
+	padding: 15px 5% 0 5%;
+	
+}
+header a{
+	display: inline-block;
+	width: 0.508474rem;
+	height: 0.508474rem;
+	background: url(../img/4-2_03.png) center no-repeat;
+	background-size: contain;
+}
+.search{
+	display: inline-block;
+	margin-left: 8%;
+	width: 78%;
+	height: 0.508474rem;
+	vertical-align: top;
+	position: relative;
+}
+.search input{
+	background:rgba(88,85,82,.55);
+	border: none;
+	border-radius: 5px;
+	height: 0.508474rem;
+	padding-left: 0.526779rem;
+	color: #FFFFFF;
+	width: 80%;
+	font-size: 0.237288rem;
+}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+	color:#C7C7CD !important; 
+	/*color:#fff !important;*/ 
+}
+ 	
+.search i{
+	display: inline-block;
+	width: 0.386779rem;
+	height: 0.386779rem;
+	background: url(../img/s1.png) center no-repeat;
+	background-size: contain;
+	position: absolute;
+	left: 0.101694rem;
+	top: 0.050847rem;
+}
+
+/*搜索后样式*/
+.all_lists{
+	width: 94%;
+	margin: 10px 3%;
+}
+
+.list_item p{
+	width: 1.555932rem;
+	height:1.118644rem;
+	background: url(../img/7-1_03.png) center no-repeat;
+	background-size: contain;
+	text-align: center;
+	line-height:6.4;
+	color: #fff;
+	font-size: 0.237288rem;
+	margin: 0 auto;
+}
+.big_items{
+	width: 100%;
+	position: relative;
+	margin-top: 0.169491rem;
+}
+.big_items img{
+	width: 6rem;
+	height: 3.3rem;
+}
+.big_items>span{
+	display: inline-block;
+	width: 1.347457rem;
+	height: 0.495762rem;
+	background: url(../img/2-2_03.png) center no-repeat;
+	background-size: contain;
+	font-size: 0.237288rem;
+	line-height:0.495762rem;
+	color: #fff;
+	position: absolute;
+	left: 0;
+	top:0.254237rem
+}
+span.tuijian>b{
+	margin-left: 0.084745rem;
+}
+i.paihang{
+	display: inline-block;
+	width: 0.305084rem;
+	height: 0.305084rem;
+	background: url(../img/2-1_36.png) center no-repeat;
+	background-size: contain;
+	font-style: normal;
+	text-align: center;
+	line-height: 0.305084rem;
+	font-size: 0.203389rem;
+	color: #fff;
+	position: absolute;
+	right:0.016949rem;
+	top:-0.135593rem;
+}
+/*大图菜名蒙层*/
+.list_item>a{
+	display: block;
+}
+.food_name{
+	position: absolute;
+	top: 2.435594rem;
+	color: #fff;
+	width: 100%;
+	height: 0.864406rem;
+	background: -webkit-linear-gradient(top,rgba(148, 146, 142, 0.25), rgba(0, 0, 0, 0.8));
+	background: -o-linear-gradient(top,rgba(148, 146, 142, 0.25), rgba(0, 0, 0, 0.8));
+	background: -moz-linear-gradient(top,rgba(148, 146, 142, 0.25), rgba(0, 0, 0, 0.8));
+	background: linear-gradient(top,rgba(148, 146, 142, 0.25), rgba(0, 0, 0, 0.8));
+}
+.food_name li{
+	font-size: 0.237288rem;
+	margin-left: 5%;
+	margin-top:0.101694rem;
+}
+.food_name li:last-child{
+	margin-top: 0;
+}
+.food_name li span{
+	font-size: 0.203389rem;
+	margin-right: 2%;
+	color: #E81605;
+}
+.food_name li b{
+	color:  #E81605;
+}
+/*小图菜品样式*/
+.items_img{
+	
+	/*width: 100%;*/
+	font-size: 0;
+}
+.items_img dl{
+	position: relative;
+}
+.small_style{
+	position: absolute;
+    left: 0.084745rem;
+    top: 0.135593rem;
+    width: 100%;
+	/*text-align: center;*/
+	
+}
+.small_style b{
+	font-weight: normal;
+	display: inline-block;
+	background: #B71803;
+	border-radius: 3px;
+	font-size: 0.203389rem;
+	color: #FFFFFF;
+	text-align: center;
+	padding:2px 5px;
+}
+a.items_img{
+	display: inline-block;
+	font-size: 0.237288rem;
+	margin-top: 0.169491rem;
+	color: #E81605;
+	position: relative;
+	margin-left: 0.15rem;
+}
+.items_img  dd:last-child{
+	font-weight:bold;
+}
+.items_img img{
+	width: 1.8rem;
+	height: 1rem;
+}
+.items_img .name_color{
+	color: #fff;
+	/*margin-top: 0.101694rem;*/
+	width: 1.8rem;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.items_img dd{
+	line-height: 1.4;
+}
+.items_img a .paihang{
+	width: 0.305084rem;
+	height: 0.305084rem;
+	line-height: 0.305084rem;
+	position: absolute;
+	font-size: 0.203389rem;
+}
+.items_img>a:nth-child(3n){
+	margin-right: 0;
+}
+.no_dishes{
+	font-size: 0.271186rem;
+	color: #fff;
+	padding-top: 0.677966rem;
+	text-align: center;
+}

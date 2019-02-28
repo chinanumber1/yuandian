@@ -1,0 +1,111 @@
+ul,ol,dl,dd,dt,p{
+	list-style: none;
+	padding: 0;margin: 0;
+}
+.hidden{
+	display: none;
+}
+
+.mui-card{margin: 15px 0 0 0;}
+
+
+/*头部样式*/
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav h1{
+	color: #fff;
+}
+.mui-bar-nav a{
+	color: #fff;
+}
+
+.mui-card-footer:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #f1f1f1;
+}
+.mui-content .mui-card:last-child{
+	margin-bottom: 15px;
+}
+
+/*会员卡充值卡片样式*/
+.mui-card-header span,.mui-card-header p{
+	font-size: 14px;
+}
+.mui-card-header span{
+	color: #494949;
+}
+.mui-card-header p{
+	color: #999999;
+}
+.mui-card-content ul li{
+	width: 33%;
+	text-align: center;
+	padding: 10px 0;
+	border-bottom: 1px solid #F1F1F1;
+}
+.mui-card-content ul li:nth-child(2),.mui-card-content ul li:nth-child(5){
+	border-left: 1px solid #F1F1F1;border-right: 1px solid #F1F1F1;
+}
+.mui-card-content ul li dt.add{
+	color: #4AD282;
+	font-size: 15px;
+}
+.mui-card-content ul li dd{
+	color: #959595;
+	font-size: 13px;
+}
+
+.mui-card-content ul li dt.reduce{
+	color: #FF7956;
+	font-size: 15px;
+}
+
+.mui-card-footer p{
+	font-size: 15px;
+	color: #333333;
+	width: 100%;
+}
+.mui-card-footer p span{
+	color: #FFA200;
+}
+
+.mui-card-footer p span i{
+	display: inline-block;
+	width: 15px;height: 18px;
+	background: url(../images/37-1_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right:1% ;
+}
+
+
+.pullup,.loading{
+	text-align: center;
+	padding:10px 0 10px 0;
+	font-size: 14px;
+	color: #999;
+}
+.loading img{
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+

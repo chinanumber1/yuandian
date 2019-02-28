@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+        <link href="css/mobiscroll.2.13.2.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <section class="public">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url="reservation.html"></div>
+            <div class="content">订单详情</div>
+        </section>
+        <div class="h44"></div>
+
+        <section class="caption">
+            <ul class="top">
+                <li class="first">
+                    <div class="h2">
+                        <div class="h2_top">
+                            <span class="name">王华先生 </span>
+                            <span class="pho">15055107788</span>
+                        </div>
+                        <p>合肥市政务区南二环路白天鹅国际商务中心8楼</p>
+                    </div>
+                    <div class="service smfw">上门服务</div>
+                    <!-- <div class="service ddfw">到店服务</div> -->
+                </li>
+                <li class="two clr">
+                    <div class="fl">
+                        <h2>预约项目</h2>
+                        <p>完美理发</p>
+                    </div>
+                    <div class="fr">
+                        <h2>预约时间</h2>
+                        <p>2017-02-28 18:30</p>
+                    </div>
+                </li>
+                <li class="two three">
+                    <h2>留言</h2>
+                    <p>给我找个男理发师，给我找个男理发师，给我找个男理发师给我找个男理发师给我找个男理发师给我找个男理发师</p>
+                </li>
+            </ul>
+            <ul class="end">
+                <li class="two">
+                    <h2 class="fl">服务状态</h2>
+                    <p class="p50">
+                        <span class="e93">未服务 技师已抢单</span><br>
+                        <span class="e93">王明华 技师 15055107788</span><br>
+                        <em>2017-02-05 17:01:56</em>
+                    </p>
+                </li>
+            </ul>
+            
+        </section>
+
+        <section class="g_details">
+            <div class="infor rese_infor">
+                <ul>
+                    <li class="clr first">
+                        <div class="fl book">订单编号</div>
+                        <div class="fr payoff">平台分配</div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl book">订单编号</div>
+                        <div class="fr payoff">20174561225465</div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">下单时间</div>
+                        <div class="fr">2017-02-27 10:29:56</div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">预付订金</div>
+                        <div class="fr e93">￥5</div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">订金支付方式</div>
+                        <div class="fr e93">未支付</div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">订单总价</div>
+                        <div class="fr e93">￥50</div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">订单支付方式</div>
+                        <div class="fr e93">未支付</div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">商家会员卡折扣</div>
+                        <div class="fr e2c">-￥284.5（5折）</div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">平台优惠券</div>
+                        <div class="fr e2c">-￥300（满50元减3元）</div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">商家优惠券</div>
+                        <div class="fr e2c">-￥1（满100元减1元）</div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">积分抵扣</div>
+                        <div class="fr e2c">-￥4（使用100积分）</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        
+        
+
+        <div class="coping">
+            <ul>
+                <li class="top">
+                    <span>顶部</span>
+                </li>
+                <li class="key">
+                    <span>上页</span>
+                </li>
+            </ul>
+        </div>
+
+    
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+        <script src="scripts/common.js"></script>
+        
+    </body>
+</html>
+
+    <script>
+    
+        //顶部按钮
+        $(function(){
+            $(window).scroll(function(){
+                if($(this).scrollTop() > 200){
+                   $(".coping").show(); 
+                }else{
+                   $(".coping").hide();  
+                }
+            }) 
+            $(".coping .top").click(function(){
+                $("body,html").animate({
+                    scrollTop: 0
+                },500);
+            })
+        });
+            
+
+        //查看更多
+        $(".three p").each(function(){
+            if($(this).height()>22){
+                $(".three").addClass("casmore")
+            }
+        });
+        $(".three").click(function(){
+            if($(this).hasClass("hasmore")){
+                $(this).removeClass("hasmore")
+            }else{
+                $(this).addClass("hasmore")
+            }
+        })
+
+    </script>
+
+

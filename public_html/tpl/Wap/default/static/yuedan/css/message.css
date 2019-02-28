@@ -1,0 +1,161 @@
+html,body{
+	font-size: 16px;
+	background: #F9F9F9;
+	padding: 0;margin: 0;
+}
+ul,ol,dl,dd,dt,li,p,h1,h2,h3,h4,h5,h6{
+	list-style: none;
+	margin: 0;padding: 0;
+}
+a{
+	text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+    display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+li{
+    display: block;
+    -webkit-margin-before: 0em;
+    /*-webkit-margin-after: 0.4em;*/
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.hidden{
+	display: none;
+}
+.after:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.ft{
+	float: left;
+}
+.rg{
+	float: right;
+}
+
+/*头部*/
+header{
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	border-bottom: 1px solid #F1F1F1;
+	background: #06C1AE;
+	position: fixed;
+}
+header a{
+	margin-left: 3%;
+	color: #fff;
+}
+header a i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../imanges/f1.png) center no-repeat;
+	background-size: contain;
+	margin-top: 12px;
+	
+}
+header span{
+	display: block;
+	width: 40%;
+	margin: 0 30%;
+	text-align: center;
+	color: #fff;
+}
+.dolog{
+	width: 90%;
+	padding: 10px 5%;
+	background: #fff;
+	position: fixed;
+	top: 44px;
+	
+}
+.dolog textarea{
+	width: 94%;
+	min-height: 40px;
+	border-radius: 5px;
+	border:1px solid #aaa;
+	resize:none;
+	padding: 8px 3%;
+}
+.dolog  .send_out{
+	width: 100%;
+	height: 40px;
+	margin-top: 10px;
+	
+}
+.dolog  .send_out p{
+	padding: 8px 15px 8px 0;	
+}
+.dolog  .send_out button{
+	text-align: right;
+	background: #06C1AE;
+	border: none;
+	border-radius: 3px;
+	padding: 8px 15px;
+	color: #fff;
+}
+.dolog_lists{
+	padding: 10px 3%;
+	padding-top: 210px;
+}
+.dolog_lists div{
+	width: 100%;
+	margin-bottom: 15px;
+}
+.dolog_lists div ul li:first-child{
+	color: #404040;
+	font-size: 15px;
+	margin-bottom: 5px;
+}
+.posi{
+	position: relative;
+	top:-10px;
+}
+.ft img{
+	width: 30px;height: 30px;
+	margin-right: 3%;
+}
+.right img{
+	width: 30px;height: 30px;
+	margin-left: 3%;
+}
+.dolog_lists div ul li:first-child .span{
+	margin-right: 5%;
+}
+.dolog_lists div ul li:first-child span:first-child{
+	margin-right: 5%;
+	
+}
+.dolog_lists .right{
+	text-align: right;
+}
+.dolog_lists .ft ul li:last-child{
+	background: #F1F1F1;
+	border-radius: 7px 10px;
+	padding: 7px;
+	color: #333333;
+	max-width: 70%;
+	word-wrap: break-word;
+	text-align: left;
+}
+.dolog_lists .right ul li:last-child{
+	background: #06C1AE;
+	border-radius: 7px;
+	padding: 7px 10px;
+	color: #fff;
+	max-width: 70%;
+	text-align: left;
+}
+.dolog_lists .right ul li span{
+	word-wrap: break-word;
+	
+}

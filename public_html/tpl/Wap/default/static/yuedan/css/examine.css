@@ -1,0 +1,138 @@
+html,body{
+	font-size: 16px;
+	background: #F9F9F9;
+	padding: 0;margin: 0;
+}
+ul,ol,dl,dd,dt,li,p,h1,h2,h3,h4,h5,h6{
+	list-style: none;
+	margin: 0;padding: 0;
+}
+a{
+	text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+    display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+li{
+    display: block;
+    -webkit-margin-before: 0em;
+    /*-webkit-margin-after: 0.4em;*/
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.hidden{
+	display: none;
+}
+.after:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.ft{
+	float: left;
+}
+.rg{
+	float: right;
+}
+
+/*头部*/
+header{
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	border-bottom: 1px solid #F1F1F1;
+	background: #06C1AE;
+}
+header a{
+	margin-left: 3%;
+	color: #fff;
+}
+header span{
+	display: block;
+	width: 40%;
+	margin: 0 30%;
+	text-align: center;
+	color: #fff;
+}
+
+/*审核卡片头部*/
+.content{
+	width: 100%;
+}
+.person {
+	width: 100%;
+	background: #FFF;
+}
+.header{
+	display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 10px;
+    border-bottom:1px solid #f1f1f1;
+}
+
+.header .shenhe{
+	background: #fff;
+	border:1px solid #aaa;
+	border-radius: 3px;
+	padding: 5px 10px;
+	border-color: #f00;
+	color: #f00;
+}
+.header .pass{
+	background: #fff;
+	border:1px solid #aaa;
+	border-radius: 3px;
+	padding: 5px 10px;
+	border-color: #06C1AE;
+	color: #06C1AE;
+}
+.header .no_pass{
+	background: #fff;
+	border:1px solid #aaa;
+	border-radius: 3px;
+	padding: 5px 10px;
+	border-color: #f00;
+	color: #f00;
+}
+
+.ex_body p{
+	padding: 10px;
+	font-size: 14px;
+	color: #404040;
+}
+.ex_body p span{
+	color: #999;
+	font-size: 16px;
+}
+.ex_body dl{
+	width: 94%;
+	padding: 0 3%;
+}
+.ex_body dd img{
+	width: 100%;
+	
+}
+.ex_body dd{
+	text-align: center;
+	padding: 10px;
+}
+.ex_body dd:last-child{
+	padding-top:0 ;
+}
+.positive div{
+	display: inline-block;
+	width: 45%;
+	padding: 0 2%;
+}

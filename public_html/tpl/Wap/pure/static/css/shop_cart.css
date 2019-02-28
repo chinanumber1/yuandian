@@ -1,0 +1,92 @@
+.scanning .estate li.member {
+    background: url(../img/xtb_20.png) left center no-repeat;
+    background-size: 12px;
+    width: 54%;
+}
+.scanning .estate li.balance {
+    background: url(../img/xtb_22.png) left center no-repeat;
+    background-size: 12px;
+    width: 46%;
+}
+.sao{
+	width: 90%;
+	margin: 0 auto;
+	background: #fff;
+	height: 35px;
+	border-radius: 5px;
+	line-height: 35px;
+	text-align: center;
+	color: #666;
+}
+.sao i{
+	display: inline-block;
+	width: 18px;height: 18px;
+	background: url(../img/sao2.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 3px;
+}
+.scanning {
+    height: 75px;
+    background: #2ecc71;
+    position: relative;
+    padding: 0px 10px 0 10px;
+}
+.scanning .estate {
+    background: #fff;
+    margin-top: 10px;
+    border-radius: 5px;
+    right: 10px;
+    left: 10px;
+    bottom: -50px;
+    box-shadow: 2px 2px 8px #ceeade;
+    position: absolute;
+}
+.tit_list {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    margin-top: 60px;
+}
+.estate h4{
+	padding: 10px 0;
+	text-align: center;
+	color: #333;
+	font-size: 16px;
+}
+.member a{
+	font-size: 14px;
+	color: #2ECC71;
+	margin-left: 3px;
+}
+.revise .rev_ul li input {
+    border-radius: 0px;
+    width: 34px;
+    height: 26px;
+    text-align: center;
+    border: #d7d7d7 1px solid;
+    border-right: none;
+    font-size: 15px;
+    color: #666666;
+    line-height: 24px;
+}
+.revise .dels {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: url(../img/yhjy_03.png) center no-repeat;
+    background-size: 12px;
+}
+.revise .rev_ul li a {
+    display: block;
+    width: 30px;
+    height: 24px;
+    border: #d7d7d7 1px solid;
+    text-align: center;
+    border-right: none;
+    color: #ff6000;
+    font-size: 24px;
+    line-height: 19px;
+}

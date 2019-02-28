@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>桌台管理</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/table_manger.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+		<h1 class="mui-title">桌台管理</h1>
+		<!-- <a class="mui-pull-right" id="delate_table"></a> -->
+		<!-- <span class="mui-pull-right hidden" id="complete" >完成</span> -->
+	</header>	
+	<div class="mui-content">
+	    <div class="class_list">
+	    	<ul>
+	    		<li class="mui-pull-left class active">桌台分类</li>
+	    		<li class="mui-pull-left list">桌台列表</li>
+	    	</ul>
+	    </div>
+	    <!--桌台分类-->
+	    <div class="table_list ">
+	    	
+	    	
+	    </div>
+	    <!--桌台列表-->
+	    <div class="table-list hidden  mui-clearfix">
+	    	
+	    	
+	    </div>
+	    
+	    
+	    <div style="padding-bottom: 60px;"></div>
+	    <nav class="mui-bar mui-bar-tab new_table ">
+	       <a href="#">新建桌台分类</a>
+	    </nav>
+	    <nav class="mui-bar mui-bar-tab new_table_list hidden">
+	       <a href="#">新建桌台</a>
+	    </nav>
+	    <nav class="mui-bar mui-bar-tab all_delate hidden">
+	        <span><sub></sub> 全选<!-- <i>(已选1件)</i> --></span>
+	        <a href="#" class="mui-pull-right">删除</a>
+	    </nav>
+	</div>
+	<div id="middlePopover" class="mui-popover" style='opacity:1'>
+		<div class="see_ma"><span >查看二维码</span><i class="mui-pull-right"></i></div>
+		<img src="" alt="">
+		 <a id="saveQrCode" class="ass" style="cursor: pointer;" href="javascript:void(0);">下载二维码</a>
+	</div>
+	 <div class="mui-backdrop" style="opacity:1; display:none"></div>
+	 <div class="mui-backdrop mui-active" style="display:none"></div> 
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="tables" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+		<ul class="mui-pull-left mui-clearfix" data-id="{{ d[i].id }}">
+	    		<li><span>{{ d[i].type_name }}</span><i class="mui-pull-right new_table1"></i> </li>
+	    		<li><span>{{ d[i].name }}</span></li>
+	    		<li><a href="javascript:void(0);" class="removes">删除</a>  <a href="javascript:void(0);" class="er_ma" data-url="{{ d[i].qrcode_url }}">二维码</a></li>
+	    	</ul>
+		
+	{{# } }}
+</script>
+<script id="pluscardLists" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+		<div class="mui-card" data-id="{{ d[i].id }}">
+				<div class="mui-card-header">
+					<span>{{ d[i].name }}</span>
+					<p class="xin">
+						<b class="delate_table"></b>
+						<i class="edit_table_class"></i>
+					</p>
+					
+				</div>
+				<div class="mui-card-content">
+					<ul class="col_style">
+						<li class="mui-pull-left">
+							<ul class="small_lage">
+								<li>{{ d[i].min_people }}<span>人</span></li>
+								<li>容纳最少人数</li>
+							</ul>
+						</li>
+						<li class="mui-pull-left">
+							<ul class="small_lage">
+								<li>{{ d[i].max_people }}<span>人</span></li>
+								<li>容纳最多人数</li>
+							</ul>
+						</li>
+						<li class="mui-pull-left">
+							<ul class="small_lage">
+								<li>{{ d[i].num }}<span>桌</span></li>
+								<li>桌台数</li>
+							</ul>
+						</li>
+						<li class="mui-pull-left">
+							<ul class="small_lage">
+								<li>{{ d[i].deposit }}<span>元</span></li>
+								<li>预定金</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+	mui.init();
+	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var store_id=$.getUrlParam('store_id');//店铺ID
+	var f1=0;//列表弹层判断
+	var url='';
+	function pageShowFunc(){
+		location.reload(true);
+	}
+	setTimeout(function(e){
+		window.addEventListener('pageshow', function(event) {
+		  	pageShowFunc();
+		});
+	},1000);
+	common.http('WapMerchant&a=tableType',{'ticket':ticket,'client':client,'store_id':store_id},function(data){
+		//console.log(data);
+		if(data==null){
+			f1=0;
+			mui.toast('桌台还没有分类,请先添加桌台分类');
+		}else{
+			f1=1;
+			laytpl(document.getElementById('pluscardLists').innerHTML).render(data, function(html){
+				$('.table_list').html(html);
+			});
+		}
+		
+	});
+	common.http('WapMerchant&a=table',{'ticket':ticket,'client':client,'store_id':store_id},function(data){
+		//console.log(data);
+		if(data!=null){
+			laytpl(document.getElementById('tables').innerHTML).render(data, function(html){
+				$('.table-list').html(html);
+			});
+		}
+		
+	});
+
+
+	//tab选项卡切换
+	mui('.mui-content').on('tap','.class_list ul li.list',function(e){
+		if(f1==0){
+				mui.toast('桌台还没有分类,请先添加桌台分类');
+		}else{
+			
+			$('.table_list').addClass('hidden');
+			$('.table-list').removeClass('hidden');
+			$('.new_table').addClass('hidden');
+			$('.new_table_list').removeClass('hidden');
+			$(this).addClass('active').siblings('li').removeClass('active');
+		}
+	
+	});
+	mui('.mui-content').on('tap','.class_list ul li.class',function(e){
+		$(this).addClass('active').siblings('li').removeClass('active');
+		$('.table_list').removeClass('hidden');
+		$('.table-list').addClass('hidden');
+		$('.new_table').removeClass('hidden');
+		$('.new_table_list').addClass('hidden');
+	
+	});
+
+
+	//删除桌台分类
+	mui('.mui-content').on('tap','.delate_table',function(e){
+		var typeId =$(this).parents('.mui-card').attr('data-id');
+		var me=this;
+		mui.confirm('您确认删除此桌台分类吗?', function(e) {
+            if (e.index == 1) {
+               common.http('WapMerchant&a=typeDel',{'ticket':ticket,'client':client,'store_id':store_id,'typeId':typeId},function(data){
+					console.log(data);
+					if(data.length==0){
+						mui.toast('删除成功');
+						$(me).parents('.mui-card').remove();
+						if($('.table_list .mui-card').length==0){
+							f1=0;
+						}
+					}
+				});
+            } 
+        });
+		
+	});
+	//删除桌台
+	mui('.mui-content').on('tap','.removes',function(e){
+		var tableId =$(this).parents('ul').attr('data-id');
+		var me=this;
+		mui.confirm('您确认删除此桌台吗?', function(e) {
+            if (e.index == 1) {
+              	common.http('WapMerchant&a=tableDel',{'ticket':ticket,'client':client,'store_id':store_id,'tableId':tableId },function(data){
+					console.log(data);
+					if(data.length==0){
+						mui.toast('删除成功');
+						$(me).parents('ul').remove();
+					}
+				});
+            } else {
+                
+            }
+        });
+		
+	});
+
+
+
+		
+	//callback为用户点击蒙版时自动执行的回调；	
+	$('.table-list').on('click','ul li .er_ma',function(e){
+         e.stopPropagation();
+		 url=$(this).attr('data-url');
+		if(common.checkApp()){
+  			if(url==null){
+      			$('#saveQrCode').hide();
+      		}else{
+      			$('#middlePopover img').attr('src',url);
+      			$("#middlePopover").show();
+      			$(".mui-backdrop").show();
+      		}	
+  		}else{
+  			$('#saveQrCode').hide();
+  			$('#middlePopover img').attr('src',url);
+      			$("#middlePopover").show();
+      			$(".mui-backdrop").show();
+  		}
+		
+	});
+   
+   $('#middlePopover').on('click','#saveQrCode',function(e){
+         e.stopPropagation();
+        e.preventDefault(); 
+		downPic(url);
+		$("#middlePopover").hide();
+		$(".mui-backdrop").hide()
+	});
+	function downPic_callback(status){
+  		if(status==1){
+  			mui.toast('保存成功');
+  		}else{
+  			mui.toast('保存失败');
+  		}
+  	}
+  	function downPic(url){
+  		console.log(url);
+  		if(common.checkAndroidApp()){
+			window.pigcmspackapp.savePicToMobile(url,'downPic_callback');
+		}else{
+			var iosHref = window.btoa(url);
+			iosHref = iosHref.replace('/','&');
+			common.iosFunction('savePicToMobile/'+iosHref+'/downPic_callback');
+		}
+  	}
+
+
+	
+		
+	//点击蒙版
+  	mui('body').on('tap','.mui-backdrop',function(){
+  		$("#middlePopover").hide();
+  		$(".mui-backdrop").hide()
+  		$('#middlePopover img').attr('src',"");
+  	});
+  	//点击关闭按钮
+  	mui('#middlePopover').on('tap','i',function(){
+     	$("#middlePopover").hide();
+     	$(".mui-backdrop").hide();
+  		$('#middlePopover img').attr('src',"");
+  	});
+  	//点击保存按妞
+  	// mui('#middlePopover').on('tap','a',function(){
+  	// 	mui('#middlePopover').popover('hide');
+  	// 	mask.close();
+  	// });
+
+
+
+  	
+  	//新建桌台分类点击
+  	mui('.mui-content').on('tap','.new_table_list a',function(e){
+  		//window.location.href='new_table.html?tableId=0&store_id='+store_id;
+  		openWindow({
+  			url:'new_table.html?tableId=0&store_id='+store_id,
+  			id:'new_table'
+  		});
+  	});
+    //桌台列表编辑点击
+  	mui('.mui-content').on('tap','.new_table1',function(e){
+  		var id=$(this).parents('ul').attr('data-id');
+  		//window.location.href='new_table.html?tableId='+id+'&store_id='+store_id;
+  		openWindow({
+  			url:'new_table.html?tableId='+id+'&store_id='+store_id,
+  			id:'new_table'
+  		});
+  	});
+  	//桌台分类新建点击
+  	mui('.mui-content').on('tap','.new_table',function(e){
+  		//window.location.href='edit_table_class.html?typeId=0&store_id='+store_id;
+  		openWindow({
+  			url:'edit_table_class.html?typeId=0&store_id='+store_id,
+  			id:'edit_table_class'
+  		});
+  	});
+
+  	
+  	//桌台分类编辑点击
+  	mui('.mui-content').on('tap','.edit_table_class',function(e){
+  		var id=$(this).parents('.mui-card').attr('data-id');
+  		//window.location.href='edit_table_class.html?typeId='+id+'&store_id='+store_id;
+  		openWindow({
+  			url:'edit_table_class.html?typeId='+id+'&store_id='+store_id,
+  			id:'edit_table_class'
+  		});
+  	});
+  	
+  	function pageShowFunc(){
+		location.reload(true);
+	}
+</script>
+</body>
+</html>

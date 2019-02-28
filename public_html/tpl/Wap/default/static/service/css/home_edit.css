@@ -1,0 +1,338 @@
+
+/* @Author: lixueya
+* @Date:   2017-03-13 15:15:02
+* @Last Modified by:   lixueya
+* @Last Modified time: 2017-03-24 15:20:52
+*/
+.ellipsis{
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;/*IE/Safari */
+	-ms-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;/* Opera */
+	-moz-binding: url("ellipsis.xml#ellipsis");/*FireFox*/
+	display: inline-block;
+	vertical-align: middle;
+}
+/*ico start*/
+.ico-diary{
+	width:0.883957435rem;
+	height:0.883957435rem;
+	background:url(../images/home/ico_diary.png) 0 0 no-repeat;
+	background-size:100% 100%;
+	margin:-0.2rem 0.294652478rem 0 0.33674569rem;
+}
+.ico-add-white{
+	width:1.178609914rem;
+	height:1.178609914rem;
+	background:url(../images/home/ico_add_white.png) 0 0 no-repeat;
+	background-size:100% 100%;
+	margin:0rem 0.420932112rem 0 0;
+}
+.ico-prve,
+.ico-next{
+	width:1.094423491rem;
+	height:1.094423491rem;
+	background:url(../images/home/ico_prve.png) 0 0 no-repeat;
+	background-size:100% 100%;
+	margin:0rem 0.420932112rem 0 0;
+}
+.ico-next{
+	transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	margin:0rem  0 0 0.420932112rem;
+}
+/*ico end*/
+.service-edit-box1,
+.service-edit-box2{
+    width: 100%;
+    overflow-x: hidden;
+}
+.service-edit-box1 .form-list1,
+.service-edit-box2 .form-list1{
+	padding: 1.262796336rem 0.968143858rem 1.178609914rem;
+	background: #ffffff;
+}
+.service-edit-box1 .form-list1{
+	border-bottom:0.420932112rem solid #efefef;
+}
+.service-edit-box1 .form-list1:last-child,
+.service-edit-box1 .form-list1:only-child{
+	border-bottom:none;
+}
+.service-edit-box1 .form-list1 .li{
+	padding:0;
+}
+.service-edit-box1 .form-list1 .li.error{
+	background: none;
+}
+.service-edit-box1 .form-list1 .li .lab-title,
+.service-edit-box2 .form-list1 .li .lab-title{
+	width: 100%;
+	line-height: 1.8rem;
+    font-size: 1.2rem;
+    color: #4a4949;
+    display: block;
+    padding-bottom:0.673491379rem;
+}
+/*服务介绍 start*/
+.service-edit-box1 textarea.form-control{
+	display: block;
+	width:100%;
+	min-height:4.54606681rem;
+	line-height: 1.5rem!important;
+	text-align: left;
+	font-size: 0.876801589rem;
+	border: 1px solid #d2d2d2;
+	border-bottom:none;
+	border-radius: 0;
+}
+.service-edit-box1 .ele-wrap .content-wrong{
+	height:1.936287716rem;
+	line-height:1.936287716rem;
+	text-align: right;
+	color:#0f83c6;
+	font-size: 0.673491379rem;
+	padding-right:0.505118534rem;
+	border: 1px solid #d2d2d2;
+	border-top:none;
+	background: #f7f7f7;
+}
+.service-edit-box1 .ele-wrap .ico-info-red2{
+	margin-right:0.210466056rem;
+}
+/*服务介绍 end*/
+/*有服务分类 start*/
+.service-edit-box2 .form-list1{
+	border-top:0.420932112rem solid #efefef;
+}
+.service-edit-box2 .ele-wrap .desc-wrap{
+	border: 1px solid #e2e2e2;
+	border-radius: 0.25rem;
+}
+.desc-wrap .btn{
+	width:100%;
+	height:3.283270474rem;
+	line-height:3.283270474rem;
+	color:#006fcd;
+	font-size: 0.841864224rem;
+}
+.desc-wrap .cate-tag{
+	margin:0 0.505118534rem;
+	padding:1.136516703rem 0.420932112rem 1.010237069rem;
+	border-bottom:1px solid #dddddd;
+}
+/*公共 cate-tag*/
+.cate-tag .ullist-tag .city-li{
+	padding-bottom:1.010237069rem;
+}
+.cate-tag .ullist-tag .city-li:last-child{
+	padding-bottom:0rem;
+}
+.cate-tag .ullist-tag .city-title{
+	color:#4c4c4c;
+	font-size: 0.757677802rem;
+	padding:0 2.946524784rem 0.589304957rem 1.473262392rem;
+	background:url(../images/basic/ico_address2.png) 0 0.08rem no-repeat;
+	background-size:1.010237069rem 1.010237069rem;
+	position: relative;
+}
+.cate-tag .ullist-tag .ico-edit{
+	position: absolute;
+	right:0;
+	top:-0.3rem;
+}
+.tag-list1-wrap .tag-list1{
+	border: 0.168372845rem solid #f3f3f3;
+	border-radius:0.4rem;
+	background: #fafafa;
+}
+.tag-list1-wrap .tag-list1 .btn-desc{
+	float:left;
+	width:33.3%;
+	height:1.810008082rem;
+	line-height:1.810008082rem;
+	text-align: center;
+	color:#696969;
+	font-size: 0.757677802rem;
+	border-right: 1px solid #e8e8e8;
+	position: relative;
+}
+.tag-list1-wrap .tag-list1 .btn-desc:nth-child(3n){
+	border-right:none;
+}
+.tag-list1-wrap .tag-list1 .btn-desc:nth-child(3n+1):after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:303%;
+    border-top: 1px solid #e8e8e8;
+}
+.tag-list1-wrap .tag-list1 .btn-desc:first-child:after{
+	border-top:none;
+}
+.tag-list1-wrap .tag-list1 .btn-desc.btn-blue{
+	background: transparent;
+	color:#006fcd;
+	text-decoration: underline;
+}
+/*有服务分类 end*/
+/*日记详情 start*/
+.diary-page .diary-user{
+	display: -webkit-box;
+	height:3.872575431rem;
+	line-height:3.872575431rem;
+	padding-left:0.926050647rem;
+	background: #f3f3f3;
+}
+.diary-page .user_head_box{
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	align-content:center;
+	-webkit-justify-content:center;
+	-webkit-align-items:center;
+	-webkit-align-content:center;
+	-moz-justify-content:center;
+	-moz-align-items:center;
+	-moz-align-content:center;
+}
+.diary-user .user_head{
+	width:2.10466056rem;
+	height:2.10466056rem;
+}
+.diary-user .diary-info{
+	padding-left:0.589304957rem;
+}
+.diary-user .diary-info .name{
+	line-height: 1.1rem;
+    font-size:0.926050647rem;
+    color: #666666;
+    max-width: 10.94423491rem;
+}
+.diary-user .diary-info .l-badge{
+	display: inline-block;
+}
+.diary-user .l-badge .l-ico-badge img{
+	display: block;
+}
+.diary-page .diary-details{
+	padding:0.589304957rem 0.841864224rem 0.968143858rem;
+}
+.ebox-home{
+	background:#f5f5f5;
+	border-radius: 0.631398168rem;
+}
+.ebox-home .tab-home{
+	height:2.609779095rem;
+	line-height:2.609779095rem;
+	padding:0 0.757677802rem;
+	background: #ffffff;
+	border-radius: 0.631398168rem 0.631398168rem 0 0;
+}
+.ebox-home .tab-home .ico-del5{
+	width:1.599542026rem;
+	height:1.599542026rem;
+	background-size:0.99rem 0.99rem!important;
+	margin-top:-0.15rem;
+}
+.ebox-home .tab-home .home-title{
+	color:#8c8c8c;
+	font-size: 0.757677802rem;
+}
+.ebox-home-con{
+	padding:0.840932112rem 0.926050647rem;
+}
+.ebox-home-con .home-con{
+	min-height:3rem;
+}
+.ebox-home-con .home-con .txt-describe{
+	line-height:1.178609914rem;
+	color:#4b4b4b;
+	font-size: 0.841864224rem;
+	padding:0 0.252559267rem 0.757677802rem;;
+}
+.ebox-home-con .home-con .img-describe img{
+	display: block;
+	width:100%;
+	height:auto;
+	margin-bottom:0.420932112rem;
+}
+.ebox-home-con .home-con .img-describe img:last-child{
+	margin-bottom:0;
+}
+.user-address{
+	text-align: center;
+	min-height:2.609779095rem;
+	line-height:1.094423491rem;
+	padding:0.715584591rem 0.757677802rem;
+	background: #ffffff;
+	border-radius:0 0 0.631398168rem 0.631398168rem;
+}
+.user-address .address-txt{
+	padding-left:5.682583513rem;
+	text-align: left;
+	color:#8c8c8c;
+	font-size: 0.757677802rem;
+	margin-right:1.073262392rem;
+	position: relative;
+}
+.user-address .address-title{
+	position: absolute;
+	top:50%;
+	left:0;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	width:5.682583513rem;
+	color:#3e3e3e;
+	font-size: 0.757677802rem;
+}
+.address-title .ico-address{
+	width:0.883957435rem;
+	height:1.136516703rem;
+	background:url(../images/home/ico_address.png) 0 0 no-repeat;
+	background-size:100% 100%;
+	margin: -0.2rem 0.505118534rem 0 0;
+}
+/*日记详情 end*/
+/*底部浮层 start*/
+.pop_action_s5 .diary-action .btn-orange{
+	font-size: 0.876801589rem;
+	font-weight: bold;
+}
+.pop_action_s5 .diary-action .ico-add-white{
+	margin-top:-0.15rem;
+}
+.pop_action_s5 .diary-action .txt-s1,
+.pop_action_s5 .diary-action .txt-s2{
+	display: inline-block;
+	font-size: 0.876801589rem;
+	font-weight: bold;
+	margin-left:0.420932112rem;
+	vertical-align: middle;
+}
+.pop_action_s5 .diary-action .txt-s2{
+	display: block;
+	text-align: center;
+	padding-top:0.631398168rem;
+}
+.pop_action_s5 .diary-action .nat-flip{
+	text-align: right;
+}
+.pop_action_s5 .diary-action .nat-flip .btn{
+	width:5.724676724rem;
+	font-size: 0.757677802rem;
+	font-weight: bold;
+	border:0.084186422rem solid #dadada;
+	border-radius: 0.4rem;
+}
+.pop_action_s5 .diary-action .nat-flip .btn-next{
+	margin-left:0.420932112rem;
+}
+.pop_action_s5 .diary-action .nat-flip .btn .ico{
+	margin-top:-0.15rem;
+}
+/*底部浮层 end*/

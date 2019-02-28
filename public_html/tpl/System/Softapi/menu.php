@@ -1,0 +1,36 @@
+<xml>
+	<CreateTime>{pigcms{$_SERVER.REQUEST_TIME}</CreateTime>
+	<Groups>
+		<volist name="system_menu" id="vo">
+			<Group>
+				<GroupName><![CDATA[{pigcms{$vo.name}]]></GroupName>
+				<GroupImage><![CDATA[{pigcms{$config.site_url}/static/softIco/{pigcms{$vo.ico}.png]]></GroupImage>
+				<GroupUrl></GroupUrl>
+				<GroupLabel><![CDATA[group_{pigcms{$vo.id}]]></GroupLabel>
+				<Items>
+					<volist name="vo['menu_list']" id="voo">
+						<item>
+							<Name><![CDATA[{pigcms{$voo.name}]]></Name> 
+							<Image></Image> 
+							<Url><![CDATA[{pigcms{:U(ucfirst($voo['module']).'/'.$voo['action'])}]]></Url>
+							<Label><![CDATA[menu_{pigcms{$voo.id}]]></Label>
+						</item>
+					</volist>
+				</Items>
+			</Group>
+		</volist>
+	</Groups>
+	<Msg></Msg>
+	<Event>
+		<item>
+			<Type>file-bak</Type>
+			<RequestUrl><![CDATA[/admin.php?m=Api&a=file_bak]]></RequestUrl>
+			<RequestUnlinkUrl><![CDATA[/admin.php?m=Api&a=unlink_file]]></RequestUnlinkUrl>
+		</item>
+		<item>
+			<Type>sql-bak</Type>
+			<RequestUrl><![CDATA[/admin.php?m=Api&a=sql_bak]]></RequestUrl>
+			<RequestUnlinkUrl><![CDATA[/admin.php?m=Api&a=unlink_sql]]></RequestUnlinkUrl>
+		</item>
+	</Event>
+</xml>

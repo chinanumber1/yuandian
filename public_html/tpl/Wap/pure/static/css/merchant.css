@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+.headerBar{
+	height:46px;
+	line-height: 46px;
+	border-bottom: 1px solid #E1E1E1;
+	margin-bottom: 6px;
+	background-color: white;
+	color: #999;
+	position:absolute;
+	width:100%;
+}
+.headerBar .total{
+	padding-left:12px;
+}
+.headerBar .rightRange{
+	position:absolute;
+	right:0;
+	top:0;
+	bottom:0;
+	width:60px;
+	background:url(../img/rangeBig.png) no-repeat;
+	background-size:18px 20px;
+	background-position: 21px 13px;
+}
+.storeBox:last-child{
+	margin-bottom:0;
+}

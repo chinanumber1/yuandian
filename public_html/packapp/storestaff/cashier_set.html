@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--html lang="zh-CN" manifest="appcache.php"-->
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <section class="public pageSliderHide">
+            <div class="return link-url" data-url-type="openLeftWindow" data-closewebview="true" data-url="back"></div>
+            <div class="content">创建订单</div>
+        </section>
+        <section class="establish p40">
+			<form id="orderForm">
+				<div class="loop">
+					<ul>
+						<li class="clr">
+							<div class="fl tit">订单金额</div>
+							<div class="m100">
+                                <input type="hidden" id="is_use_discount" value="0"/>
+                                <input type="hidden" id="old_total_price" />
+                                <input type="number" id="total_price" placeholder="请输入金额" min="0.01" step="0.01"/>
+							</div>
+						</li>
+                        <li class="clr">
+                            <div class="fl tit">订单描述</div>
+                            <div class="m100">
+                                <textarea id="txt_info" placeholder="可选填，输入内容"></textarea>
+                            </div>
+                        </li>
+                        <li class="clr plat_discount" style="display:none">
+                            <div class="fl tit">优惠信息</div>
+                            <input type="hidden" id="coupon_discount_id" value="0">
+                            <div class="m100"><span style="color:red" id="coupon_discount">0折</span>平台折扣券/部分商品不参加折扣</div>
+                        </li>
+                        <li class="clr plat_discount" style="display:none">
+                            <div class="fl tit">优惠金额</div>
+                            <input type="hidden" id="coupon_discount_money" value="0">
+                            <div class="m100" style="color:red" id="show_coupon_discount_money">￥0</div>
+                        </li>
+						<li class="clr hasTableDiscount" style="display: none;">
+							<div class="fl tit">桌位优惠</div>
+							<div class="m100">
+								<div class="switch clr" id="switch2">
+									<div class="fl no">ON</div>
+									<div class="fl off on" id="offTableDiscount">OFF</div>
+								</div>
+								<p class="if">若开启则会使用“桌位折扣”的优惠</p>
+							</div>
+						</li>
+						<li class="clr hasDiscount">
+							<div class="fl tit">享受优惠</div>
+							<div class="m100">
+								<div class="switch clr" id="switch1">
+									<div class="fl no">ON</div>
+									<div class="fl off on" id="offDiscount">OFF</div>
+								</div>
+								<p class="if">若开启则会使用“优惠买单”的优惠</p>
+							</div>
+						</li>
+					</ul>
+					<div class="snap offTableDiscount" style="text-align: center;margin-top: 5px;display: none;">
+						当日第<span id="mer_tables"></span>桌,部分商品可享受<span style="color: red" id="mer_table_discount"></span>折优惠'
+					</div>
+					<div class="ample hasDiscount offDiscount">
+						<div class="snap" id="discountTxt">&nbsp;</div>
+						<ul>
+							<li class="clr">
+								<div class="fl tit">不可优惠金额</div>
+								<div class="m100">
+									<input type="number" id="no_discount_money" placeholder="请输入金额"/>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="rebate">
+					<ul>
+						<li class="clr hasDiscount offDiscount">
+							<div class="fl">优惠金额</div>
+							<div class="fr f33" id="show_minus"></div>
+						</li>
+						<li class="clr hasDiscount offTableDiscount" style="display: none;">
+							<div class="fl">桌位优惠</div>
+							<div id="can_discount_table_money" style="display: none;"></div>
+							<div class="fr f33" id="show_table_minus"></div>
+						</li>
+						<li class="clr">
+							<div class="fl">实收金额</div>
+							<div class="fr ecc" id="price"></div>
+						</li>
+					</ul>
+				</div>
+				<button type="submit" class="confirm" id="confirmOrder">确定</button>
+			</form>
+        </section> 
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/cashier_set.js?t=3"></script>
+    </body>
+</html>

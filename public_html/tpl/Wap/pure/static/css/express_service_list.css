@@ -1,0 +1,211 @@
+*{margin: 0;padding: 0;}
+body{background: #F4F4F4;}
+.ft{float:left;}
+.rg{float:right;}
+.clear:after{content: " ";display:block;clear: both;}
+ol,ul,li{list-style:none;}
+a{text-decoration: none;}
+
+.mui-bar-nav {
+    background: #06C1AE;
+}
+
+.mui-bar-nav {
+    top: 0;
+}
+.mui-bar {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+    border-bottom: 0;
+    /* -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
+    /* box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.return_add{
+	display: inline-block;
+	width: 44px;
+	height: 44px;
+	background: url(../img/f1_03.png) center no-repeat;
+	background-size: 20px 20px;
+}
+.mui-bar-nav a {
+    color: #fff;
+}
+.mui-pull-left {
+    float: left;
+}
+.mui-bar .mui-title {
+    right: 20%;
+    left: 20%;
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+    margin: 0;
+    text-overflow: ellipsis;
+}
+.mui-bar-nav h1 {
+    color: #fff;
+}
+.mui-title {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 44px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: 0 -10px;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #000;
+}
+.mui-bar-nav a.mui-pull-right {
+    font-size: 14px;
+}
+.mui-bar-nav a {
+    color: #fff;
+}
+.mui-pull-right {
+    float: right;
+}
+.yi_parts{
+	display: inline-block;
+    height: 44px;
+    width: 79px;
+    line-height: 44px;
+    text-align: center;
+}
+
+
+.yi_parts{
+	display:inline-block;
+	width: 44px;
+	height: 44px;
+	background: url('../images/new_my/recharge.png') center no-repeat;
+	background-size:20px 20px; 
+}
+
+.contanir{
+	width: 94%;
+	margin:30px 3% 10px 3%;
+	margin-top: 60px;
+}
+.all_express{
+	background: #fff;
+	padding: 6px 0;
+	border-radius: 5px;
+	margin: 15px 0;
+}
+.all_express>p{
+	background: #fff;
+	font-size: 14px;
+	padding: 5px 3%;
+	color: #9F9F9F;
+}
+.odd_numbers a{
+	font-size:15px;
+	color: red;
+}
+.odd_numbers a.active{
+	color:#06C1AE;
+}
+.all_express h3{
+	font-size: 16px;
+	display: block;
+	margin-left: 3%;
+	color: #333;
+}
+.pay_money,.remark{
+	color: #797979!important;
+}
+.pay_money span{
+	color: red;
+}
+.pay_money span.active{color: #06C1AE;}
+.pay_money span.active{
+	color:#06C1AE;
+}
+.remark{
+	width: 94%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.order{
+	display: -webkit-flex;
+	display: flex;
+ 	-webkit-justify-content: flex-end;	
+ 	justify-content: flex-end;
+}
+.order button{
+	background: #fff;
+	border-radius: 3px;
+	border:1px solid #06C1AE;
+	padding: 2px 5px;
+	color: #06C1AE;
+}
+.order button:first-child{
+	margin-right: 5%;
+}
+.order span{
+	display: block;
+	padding: 2px 5px;
+	color: #06C1AE;
+}
+/*暂无数据样式*/
+.all_yi{
+	font-size: 17px;
+	text-align: center;
+	margin-top: 140px;
+	color: #949494;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*弹层*/
+.mask{
+	position: fixed;
+	top:0;left: 0;right: 0;bottom: 0;
+	background: rgba(0,0,0,.6);
+	display: none;
+}
+.poppicker{
+    position: fixed;
+    top:50%;
+    width: 86%;
+    margin:  0 7%;
+    z-index: 1500;
+    background: #fff;
+    -webkit-transition: .3s;
+    bottom: 0px;
+    height: 300px;
+    margin-top: -150px;;
+}
+.poppicker h5{
+	text-align: center;
+	margin: 15px 0 10px 0;
+	font-weight: normal;
+	color: #333;
+}
+.poppicker p{
+	font-size: 14px;
+	margin: 0 4%;
+	line-height: 1.4;
+	color: #333333;
+	overflow-y: scroll;
+	height: 250px;
+}

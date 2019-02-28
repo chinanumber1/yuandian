@@ -1,0 +1,186 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-popup-button:after{
+	border-left: 1px solid #fff;
+	/*background-color: #ddd;*/
+}
+.mui-popup-button.mui-popup-button-bold{
+	font-weight: normal;
+}
+.mui-bar-nav a.mui-pull-right{
+	line-height: 44px;
+	font-size: 14px;
+}
+.mui-bar-nav a.mui-pull-right {
+	display: inline-block;
+	width: 19px;height: 23px;
+	background: url(../images/15-_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: 9px;
+	margin-right: 2px;
+}
+
+input{
+	font-size: 15px;
+}
+/*分类样式*/
+.mui-card{
+	margin: 0;
+}
+.mui-card.add .mui-card-header,.mui-card.add .mui-card-footer{
+	display: block;
+	padding: 0;
+}
+.mui-card .left_style{
+	display: inline-block;
+	margin: 10px 0 10px 3%;
+	font-size: 14px;
+	color: #585858;
+}
+.mui-card .right_style{
+	margin-left: 5%;
+}
+.mui-card input{
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+.mui-card .mui-card-header{
+	line-height: 2;
+}
+.mui-card .mui-card-header input{
+	width: 70%;
+	font-size: 15px;
+}
+.acc{
+	margin-top: 10px;
+}
+.acc span.left_style{
+	position: relative;
+    top: -36px;
+}
+.acc ul{
+	display: inline-block;
+	width: 68%;
+}
+.acc ul li input{
+	height: 30px;
+}
+.acc ul li:last-child{
+	font-size: 12px;
+	color: #FF8E72;
+	line-height: 15px;
+}
+.mui-card-footer{
+	line-height: 2;
+}
+.mui-card .mui-card-footer b{
+	display: inline-block;
+	width: 73%;
+	font-size: 15px;
+	color: #CFCFD4;
+	font-weight: normal;
+	
+}
+.mui-card .mui-card-footer b i{
+	display: inline-block;
+	width: 15px; height: 8px;
+	background: url(../images/7-6_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: 10px;
+}
+
+.week{
+	margin-top: 15px;
+}
+.week .mui-card-header{
+	padding: 0;
+}
+.list_week{
+	margin-top: 10px;
+}
+.list_week .mui-col-sm-8{
+	width: 70%;
+	margin-top: 10px;
+}
+
+.list_week .mui-col-sm-8 li{
+	width: 22%;
+	text-align: center;
+	border: 1px solid #F2F2F2;
+	margin-right: 3%;
+	margin-bottom: 10px;
+	padding: 3px 5px;
+	font-size: 12px;
+	background:#F2F2F2 ;
+	border-radius: 5px;
+	color: #777777;
+}
+
+.list_week .mui-col-sm-8 li.active{
+	background: #FFFFFF;
+	border-color:#FFA200 ;
+	color: #FFA200;
+}
+
+/*保存*/
+.mui-bar-tab a{
+	display: block;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #FFA200;
+	color: #FFFFFF;
+	font-size: 15px;
+}
+
+
+
+
+/*开关通用样式*/
+.mui-switch.mui-active {
+    border-color: #FFA200;
+    background-color: #FFA200;
+}
+.mui-switch{
+	background: #f0f0f0;
+	margin-right: 5px;
+}
+.mui-switch:before {
+	font-size: 13px;
+	position: absolute;
+	top: 3px;
+	right: 11px;
+	content: '关闭';
+	text-transform: uppercase;
+	color: #999;
+}
+
+.mui-switch.mui-active:before {
+	right: auto;
+	left: 10px;
+	content: '开启';
+	color: #fff
+}
+
+@media (min-width:410px ) {
+	.acc span.left_style{
+		position: relative;
+	    top: -22px;
+	}
+}
+@media (min-width: 400px){
+	.mui-col-sm-4 {
+	    width: 17%;
+	}
+}

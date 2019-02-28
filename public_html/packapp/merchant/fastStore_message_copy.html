@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>快店信息</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/imange-view.css"/>
+	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+	<link href="css/mui.picker.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/fastStore_message_copy.css"/>
+    <style type="text/css">
+    		.showImg{
+				width:100%;
+				height: 57px;
+			}
+			img{width:85px; height: 57px;}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">编辑<span class="byin">餐饮</span>店铺</h1>
+	</header>
+	<div class="mui-content">
+	    <!--基本信息-->
+	    <div class="essential_message">
+	    	<div class="mui-card">
+				<h5 class="left_style">基本信息</h5>
+				<div class="mui-card-content">
+					<div class="mui-row">
+					    <div class="mui-col-sm-3 left_style open_photo cad">点餐页背景图<i></i></div>
+					    <div class="mui-col-sm-9 ">
+					    	<ul >
+					    		<li class="up_img">
+							    	<img src="images/12-8_03.png" alt="" />
+							    	<input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" 	id="fileImage" name="file">
+					    		</li>
+					    	<!-- 	<li class="store_bg"><span>商城店铺背景建议上传尺寸900*450</span></li> -->
+					    	</ul>
+					    	
+					    </div>
+					</div>
+				</div>
+
+
+
+			<div class="shop_introduce">
+	    		<div class="mui-card">
+					<div class="mui-card-footer">
+						<span class="mui-pull-left open_photo huan">餐厅环境图片<i></i></span>
+						<div class="mui-scroll-wrapper left_srcoll" >
+						    <div class="mui-scroll showImg" style="width:560px;">
+						    	<div class="mui-pull-left uload">
+					    			<ul>
+						    			<li class="up_img1">
+									    	<img src="images/17-8_03.png" alt="">
+									    	<input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" id="fileImage1" name="file">
+							    		</li>
+					    			</ul>
+					    		</div>
+						    	
+						    	
+						  
+							</div>
+						</div>
+					</div>
+	   	 		</div>
+	   	 	</div>
+				
+			
+
+
+
+
+				<div class="mui-card-footer">
+					<span class="left_style">预订</span>
+					<div class="mui-switch mui-active is_book">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-footer fa_input yushow">
+					<span class="left_style">预订时长</span>
+					<p><input type="tel" name="" class="book_day" /><span> 可提前预订多少天后的桌台</span></p>
+				</div>
+				<div class="allTimes yushow">
+					<div class="mui-card-footer fa_input ">
+						<span class="left_style yushi"  style="width:26%;">预订时间<i></i></span>
+						<p><span data-options='{"type":"time"}' class="date_btn book_start" >00:00</span> <span> 至 </span> <span class="date_btn book_stop"  data-options='{"type":"time"}'>23:59</span></p>
+					</div>
+				</div>
+				<div class="mui-card-footer fa_input yushow">
+					<span class="left_style yuge">预订间隔时长<i></i></span>
+					<p><input type="tel" name="" class="book_time" value="60" /> <span> （分钟）</span></p>
+				</div>
+				<div class="mui-card-footer fa_input yushow">
+					<span class="left_style tiqu">提前取消时长<i></i></span>
+					<p><input type="tel" name="" class="cancel_time"  value="60" /> <span>（分钟）</span></p>
+				</div>
+			
+				<div class="mui-card-footer">
+					<span class="left_style">排号</span>
+					<div class="mui-switch mui-active is_queue">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<span class="left_style">外送</span>
+					<div class="mui-switch mui-active is_takeout">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<span class="left_style">停车位</span>
+					<div class="mui-switch mui-active is_park">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<span class="left_style quesh">店员确认上菜<i></i></span>
+					<div class="mui-switch mui-active is_auto_order">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<!-- <div class="mui-card-footer">
+					<span class="left_style">点餐页模板</span>
+					<div class="mui-switch mui-active template">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div> -->
+				<div class="mui-row mui-card-footer mui-clearfix" style="border-top:1px solid #f1f1f1;"> 
+				    <div class="mui-col-sm-3 left_style dianmo">点餐页模板<i></i></div>
+				    <div class="mui-col-sm-4">
+				    	<div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="template" type="radio" checked="checked" class="template1"> 列表</label>
+						</div>
+					</div>
+				    <div class="mui-col-sm-5">
+				    	<div class="mui-input-row mui-radio mui-left">
+						<label for=""><input name="template" type="radio" class="template2" > 图片</label>
+						</div>
+					</div>
+				</div>
+				<div class="mui-card-footer fa_input">
+					<span class="left_style">推荐别名	</span>
+					<p><input type="text" name="" class="hot_alias_name" value=""/><span> 建议四个字以内</span></p>
+				</div>
+				<div class="mui-card-footer fa_input">
+					<span class="left_style">热销榜显示个数	</span>
+					<p><input type="tel" name="" class="ranking_num" value=""/><span> 热销榜显示前几位</span></p>
+				</div>
+				
+			</div>
+	    </div>
+	    
+	    <h5 class="special">选择分类</h5>
+	    <div class="mui-card">
+	    		<div class="mui-card-footer dispatching_class">
+					<span class="left_style">选择分类</span>
+					<b  class="change_class"><span id="change2">请选择分类</span> <sub class="mui-pull-right"></sub></b>
+					
+				</div>
+	    </div>
+	
+	   	 <!--保存按钮-->
+	   	 <button type="button" class="btn_keep">保存</button>
+	</div>
+
+	
+	
+	<div class="deliver_time_box hidden">
+		<div class="mask"></div>
+		<div class="timer">
+			<div class="header"><span style="margin-left: 17%;">选择分类</span>  <i class="mui-pull-right">完成</i></div>
+			<div class="content">
+				<div class="day" style="height: 346.6px;">
+				
+				</div>
+				<div class="time" style="height: 346.6px;">
+							
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<script src="js/fastclick.js"></script>	
+<script src="js/mui.min.js"></script>
+<!--图片滚动-->
+<script src="js/mui.zoom.js"></script>
+<script src="js/mui.previewimage.js"></script>
+ <script src="js/mui.picker.js"></script> 
+<!--筛选用到js-->
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/work/fastStore_message_copy.js" type="text/javascript" charset="utf-8"></script>
+
+  
+
+
+</body>
+</html>

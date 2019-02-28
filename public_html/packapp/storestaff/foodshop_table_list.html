@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <section class="public">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url="back" data-closewebview="true"></div>
+            <div class="content">桌台列表</div>
+        </section>
+        
+        <section class="reserve">
+            <div class="reserve_tab" style="padding:8px 0;">
+				<div class="search">
+					<input type="text" id="searchTxt" placeholder="搜索桌台"/>
+				</div>
+                <div class="tab swi swiper-container">
+                    <ul class="swiper-wrapper" id="tableTypeBox"></ul>
+                </div>
+            </div>
+			<div id="tableBox"></div>
+			<div id="tableSearchBox">
+				<div class="lock">
+					<ul class="clr"></ul>
+				</div>
+			</div>
+        </section>
+
+        <section class="table_details">
+            <h2>餐桌预订详情</h2>
+            <div class="tab_list"><ul></ul></div>
+            <div class="del"></div>
+        </section>
+		<script id="bookListTpl" type="text/html">
+			{{# for(var i = 0, len = d.length; i < len; i++){ }}
+				<li>
+					<div class="tit">订单编号：{{ d[i].real_orderid }}</div>
+					<div class="con">
+						<dl class="clr">
+							<dd>客户姓名：{{ d[i].name }}</dd>
+							<dd class="callPhone" data-phone="{{ d[i].phone }}">客户电话：{{ d[i].phone }}</dd>
+							<dd>预  订 金：<span>￥{{ d[i].book_price_txt }}</span></dd>
+							<dd>预定时间：{{ d[i].book_time_txt }}</dd>
+						</dl>
+					</div>  
+				</li>
+			{{# } }}
+		</script>
+		<script id="tableTypeTpl" type="text/html">
+			{{# for(var i = 0, len = d.length; i < len; i++){ }}
+				<li class="swiper-slide" data-type_id="{{ d[i].id }}">{{ d[i].name }}</li>
+			{{# } }}
+		</script>
+		<script id="tableListTpl" type="text/html">
+			{{# for(var i = 0, len = d.length; i < len; i++){ }}
+				<div class="lock">
+					<ul class="clr">
+						{{# for(var j = 0, jlen = d[i].table_list.length; j < jlen; j++){ }}
+							<li>
+								<div class="lock_n">
+									<div class="lock_top">
+										<h2>{{ d[i].table_list[j].name }}</h2>
+										<div class="estate">
+											{{# if(d[i].table_list[j].status == 1){ }}
+												<div class="current uolock">当前状态：锁定</div>
+											{{# }else{ }}
+												<div class="current unlock">当前状态：解锁</div>
+											{{# } }}
+											{{# if(d[i].min_people){ }}
+											<div class="man_num">（{{ d[i].min_people }}-{{ d[i].max_people }}人）</div>
+											{{# } }}
+										</div>
+									</div>
+									<div class="lock_end clr">
+										{{# if(d[i].table_list[j].status == 1){ }}
+											<div class="dj uolock lock_table_{{ d[i].table_list[j].id }}" data-table_id="{{ d[i].table_list[j].id }}">点击解锁</div>
+										{{# }else{ }}
+											<div class="dj unlock lock_table_{{ d[i].table_list[j].id }}" data-table_id="{{ d[i].table_list[j].id }}">点击锁定</div>
+										{{# } }}
+										<div class="ck" data-table_id="{{ d[i].table_list[j].id }}">查看预订</div>
+									</div>
+								</div>
+							</li>
+						{{# } }}
+					</ul>
+				</div>
+			{{# } }}
+		</script>
+        <div class="Mask"></div>
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+        <script src="scripts/common.js"></script>
+        <script src="scripts/swiper-3.3.1.jquery.min.js"></script>
+        <script src="scripts/work/foodshop_table_list.js?t=432423"></script>
+    </body>
+</html>

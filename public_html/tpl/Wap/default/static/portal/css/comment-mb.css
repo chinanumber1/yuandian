@@ -1,0 +1,127 @@
+@charset "utf-8";
+.reply_box .return_close,.reply_tabs .tab-hd .item .s {background:url(../images/headIcon.png) no-repeat 0 0;background-size:100px auto;}
+.p_main { bottom:50px;}
+.footFixed,.reply_box{background:#fff;position:fixed;width:100%;bottom:0;left:0;z-index:99; padding:0;}
+
+.reply_box { top:0; z-index:1005; background-color:#f9f9f9;}
+.reply_box.open { display:block;}
+.reply_box .return_close{position:absolute;left:10px;top:11px;width:28px;height:24px;text-indent:-999px;overflow:hidden;background-position:-50px -177px;}
+.reply_box .cmt_txt2 { vertical-align:top; word-break:break-all; outline:0;margin:10px 0 0 0;border:0 none;font-size:14px;line-height:18px;height:200px;padding:7px; width:100%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box; border-top:1px solid #eee; background-color:#fff;overflow:auto; -webkit-overflow-scrolling:touch;-webkit-user-select:auto!important;}
+.reply_box .cmt_txt2 img { width:auto!important; display:inline!important;}
+.reply_box .rsubmit{position:absolute;right:7px;top:7px; padding:2px 10px;border:1px solid #dddddd;background-color:#ffffff; color:#666;background-position:-102px -60px;overflow:hidden;z-index:8; outline:0; font-size:14px;}
+.reply_box .title { display:block; line-height:26px; text-align:center; margin:0 auto; padding:10px 0 0 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.reply_box .reply_tips { text-align:center; font-size:12px; color:#aaa; margin-top:6px;}
+
+
+.reply_hd .btn:before,.reply_hd .share:before,.reply_hd .num:before,.reply_hd .baoming:before,.reply_hd .zan:before { background:url(../images/video_sp.png) no-repeat 0 0; background-size:70px auto;}
+
+.reply_hd { padding:0; height:40px; line-height:40px; overflow:hidden; font-size:14px; color:#999; background-color:#fff; box-shadow:0 -1px 2px rgba(0,0,0,.1);}
+
+.reply_hd ul { display:-webkit-box; display:-moz-box; display:box;}
+.reply_hd ul li { width:100%; -webkit-box-flex:1; -webkit-flex:1; flex:1; -webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box; text-align:center; position:relative;}
+
+.reply_hd ul .p20 { width:20%;}
+.reply_hd ul .p30 { width:30%;}
+.reply_hd ul .p40 { width:40%;}
+
+/*.reply_hd ul li:first-child:after { width:1px; height:20px; background-color:#444; content:' '; display:inline-block; position:absolute; right:0; top:11px;}*/
+.reply_hd .btn,.reply_hd .baoming { display:block; background-color:#ffc600; color:#fff;}
+.reply_hd .baoming { background-color:#15d2b2;}
+.reply_hd .replay_louzhu { background-color:#2fe5ce;}
+
+.reply_hd .btn:before,.reply_hd .share:before,.reply_hd .num:before,.reply_hd .zan:before,.reply_hd .baoming:before { display:inline-block; vertical-align:-7px; overflow:hidden; content:' '; width:24px; height:24px; margin-right:6px;}
+.reply_hd .share { position:static; padding:0;}
+.reply_hd .share:before { background-position:-1px -24px;}
+.reply_hd .num:before { background-position:0px -57px;}
+.reply_hd .zan:before { background-position:-40px -24px;}
+.reply_hd .btn:before { background-position:-40px -89px;}
+.reply_hd .baoming:before { background-position:-40px -56px;}
+
+.black .reply_hd { background-color:#2d2e2d;}
+.black .reply_hd .btn { color:#2b2938;}
+.black .reply_hd .btn:before { background-position:-1px -89px;}
+
+
+.reply_tabs {}
+.reply_tabs .tab-hd {}
+.reply_tabs .tab-hd .item { font-size:12px; position:relative; float:left; margin:0 15px; padding-top:40px; width:30px; text-align:center; color:#aaa;}
+.reply_tabs .tab-hd .item .s { display:block; position:absolute; top:13px; left:0; width:30px; height:30px;}
+.reply_tabs .tab-hd .current { color:#06c1ae;}
+.reply_tabs .tab-hd .item .s_1 { background-position:1px -471px;}
+.reply_tabs .tab-hd .item .s_2 { background-position:-47px -470px;}
+.reply_tabs .tab-hd .item .s_3 { background-position:0px -510px;}
+.reply_tabs .tab-hd .current .s_1 { background-position:1px -549px;}
+.reply_tabs .tab-hd .current .s_2 { background-position:-47px -548px;}
+.reply_tabs .tab-hd .current .s_3 { background-position:0px -587px;}
+
+
+ 
+.reply_tabs .face { overflow-y: scroll; -webkit-overflow-scrolling:touch; height:200px; background-color:#fff; border-top:1px solid #eee;border-bottom:1px solid #eee; margin:8px 0 0 0;}
+.reply_tabs .face .ul_0 { background:url(../images/emotion/1.png) no-repeat 0 0; background-size:100% auto;}
+.reply_tabs .face li { float:left; width:20%; text-align:center;}
+.reply_tabs .face li img { vertical-align:top; width:100%;}
+.reply_tabs .imgcon { margin-top:10px;}
+
+
+
+/* scrollbar style for webkit */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {
+  display: block;
+}
+
+::-webkit-scrollbar-button:vertical:start:increment, ::-webkit-scrollbar-button:vertical:end:decrement {
+  display: none;
+}
+
+::-webkit-scrollbar-track:vertical, ::-webkit-scrollbar-track:horizontal, ::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal, ::-webkit-scrollbar-track:vertical, ::-webkit-scrollbar-track:horizontal, ::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-track:vertical, ::-webkit-scrollbar-track:horizontal {
+  background-clip: padding-box;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+  background-clip: padding-box;
+  background-color: rgba(0, 0, 0, 0.2);
+  min-height: 28px;
+  padding-top: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb:active {
+  -webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-track:vertical, ::-webkit-scrollbar-track:horizontal, ::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
+  border-width: 0;
+}
+
+::-webkit-scrollbar-track:hover {
+  -webkit-box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-track:active {
+  -webkit-box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.14), inset -1px -1px 0 rgba(0, 0, 0, 0.07);
+  background-color: rgba(0, 0, 0, 0.05);
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>套餐管理</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/package_management.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+		<h1 class="mui-title">套餐管理</h1>
+		<a class="mui-pull-right addpackages" href="javascript:;"><i></i>添加套餐</a>
+	</header>
+	<div class="mui-content">
+
+	   <!--  <div class="mui-card">
+			<div class="mui-card-header">
+				<ul>
+					<li>128双人套餐</li>
+					<li><span>￥128</span></li>
+				</ul>
+				<i class="new_packages"></i>
+			</div>
+			<div class="mui-card-content">
+				<p><i></i>
+					<span>使用说明：</span>
+					套餐使用时间为店内正式开业时间，本店5月28号正式盛大开业,欢迎新老顾客光临。团购用户不可同时享受商家,部分菜品因时令原因有所不同，请以店内当日实际供应为准。
+				</p>
+			</div>
+			<div class="mui-card-footer mui-clearfix">
+				<a href="#" class="mui-pull-right">查看套餐菜单</a>
+			</div>
+		</div>
+
+		
+		<div class="mui-card">
+			<div class="mui-card-header">
+				<ul>
+					<li>128双人套餐</li>
+					<li><span>￥128</span></li>
+				</ul>
+				<i class="new_packages"></i>
+			</div>
+			<div class="mui-card-content">
+				<p>
+					<span>使用说明：</span>
+					套餐使用时间为店内正式开业时间。
+				</p>
+			</div>
+			<div class="mui-card-footer">
+				<a href="#" class="mui-pull-right">查看套餐菜单</a>
+			</div>
+		</div>
+		<div class="mui-card special">
+			<div class="mui-card-header">
+				<ul>
+					<li>128双人套餐</li>
+					<li><span>￥128</span></li>
+				</ul>
+				<i class="new_packages"></i>
+			</div>
+			<div class="mui-card-footer">
+				<a href="#" class="mui-pull-right">查看套餐菜单</a>
+			</div>
+		</div> -->
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="attrLists" type="text/html">	
+	{{# for(var i in d){ }}
+		 <div class="mui-card" data-id="{{ d[i].id }}">
+			<div class="mui-card-header">
+				<ul>
+					<li>{{ d[i].name }}</li>
+					<li><span>￥{{ d[i].price }}</span></li>
+				</ul>
+				<i class="new_packages"></i>
+			</div>
+			
+			
+			<div class="mui-card-footer mui-clearfix">
+				<a href="#" class="mui-pull-right">查看套餐菜单</a>
+			</div>
+		</div>
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+  	mui.init();
+  	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var store_id=$.getUrlParam('store_id');
+	function pageShowFunc(){
+		location.reload(true);
+	}
+	setTimeout(function(e){
+		window.addEventListener('pageshow', function(event) {
+		  	pageShowFunc();
+		});
+	},1000);
+	//渲染套餐列表
+	common.http('WapMerchant&a=package',{'ticket':ticket,'client':client,'store_id':store_id},function(data){
+		console.log(data);
+		laytpl(document.getElementById('attrLists').innerHTML).render(data, function(html){
+			//console.log(html);
+			$('.mui-content').html(html);
+		});
+	});
+
+
+
+
+  	mui('.mui-card-content').on('tap','p',function(e){
+  		if($(this).is('.active')){
+  			$(this).removeClass('active');
+  		}else{
+  			$(this).addClass('active')
+  		}
+  	});
+  	//点击新建套餐
+  	mui('body').on('tap','.addpackages',function(e){
+  		var id=$(this).parents('.mui-card').attr('data-id');
+  		openWindow({
+  			url:'new_package.html?store_id='+store_id+'&id=0',
+  			id:'new_package'
+  		});
+  		//window.location.href='new_package.html?store_id='+store_id+'&id=0';
+
+  	});
+
+
+  	//点击修改套餐
+  	mui('body').on('tap','.new_packages',function(e){
+  		var id=$(this).parents('.mui-card').attr('data-id');
+  		//window.location.href='new_package.html?store_id='+store_id+'&id='+id;
+  		openWindow({
+  			url:'new_package.html?store_id='+store_id+'&id='+id,
+  			id:'new_package'
+  		});
+  	});
+  	
+  	//查看套餐点击
+  	mui('.mui-content').on('tap','.mui-card-footer a.mui-pull-right',function(e){
+  		var id=$(this).parents('.mui-card').attr('data-id');
+  		//window.location.href='see_package.html?store_id='+store_id+'&id='+id;		
+  		openWindow({
+  			url:'see_package.html?store_id='+store_id+'&id='+id,
+  			id:'see_package'
+  		});
+  	});
+  	function pageShowFunc(){
+		location.reload(true);
+	}
+</script>
+</body>
+</html>

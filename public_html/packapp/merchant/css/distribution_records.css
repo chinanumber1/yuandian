@@ -1,0 +1,142 @@
+ul,ol,dl,dd,dt,p{
+	list-style: none;
+	padding: 0;margin: 0;
+}
+.hidden{
+	display: none;
+}
+body{
+	background: #EDEEF9;
+}
+
+
+/*头部样式*/
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav h1{
+	color: #fff;
+}
+.mui-bar-nav a{
+	color: #fff;
+}
+.mui-card{
+	margin: 8px 0 0 0;
+}
+
+/*start*/
+.time-axis-border{
+	width: 1px;height: 103%;
+	position: absolute;
+	top: 0;left: 5%;
+	margin-left: -0.5px;
+	background-color: #DEDEDE;
+}
+.mui-content>.time-axis:first-child{
+	margin-top: 7px;
+}
+.time-axis-dot{
+	display: inline-block;
+	width: 8%;
+	height: 182px;
+}
+.time-axis-dot span{
+	width: 10px;height: 10px;
+	border-radius:50%;
+	margin: 15px 0 10px 43.65%;
+	background-color:#DDDDDD;
+	display: block;
+}
+.record_lists{
+	display: inline-block;
+	width: 85%;
+	margin-top: 12px;
+}		
+.record_lists .date_style{
+	font-size: 14px;
+	color: #999999;
+}
+.record_lists .mui-card-header{
+	font-size: 14px;color: #FFA200;
+}
+.record_lists .mui-card-content ul{
+	padding: 15px 0 15px 15px;
+}
+
+.record_lists .mui-card-content ul li{
+	font-size: 16px;
+	color: #333333;
+	line-height: 1.5;
+}
+.record_lists .mui-card-content ul:last-child{
+		padding: 15px 0;
+}
+	
+.record_lists .mui-card-content ul li span{
+	font-size: 14px;
+	color: #AEAEAE;
+}
+.record_lists .mui-card-footer p{
+	font-size: 14px;color: #333333;
+}
+.record_lists .mui-card-footer p span.distribute_fail{
+	color: #FF7B6D;
+}
+.record_lists .mui-card-footer p span.distribute_success{
+	color: #FFA200;
+}
+@media (min-width:320px) {
+	.record_lists .mui-card-content ul:first-child{
+		margin-right: 3%;	
+	}
+
+}
+@media (min-width:360px) {
+	.record_lists .mui-card-content ul:first-child{
+		margin-right: 11%;
+	}
+}
+@media (min-width:375px) {
+	.record_lists .mui-card-content ul:first-child{
+		margin-right: 15%;
+	}
+}
+@media (min-width:384px) {
+	.record_lists .mui-card-content ul:first-child{
+		margin-right: 17%;
+	}
+}
+@media (min-width:400px) {
+	.record_lists .mui-card-content ul:first-child{
+		margin-right: 20%;
+	}
+}
+@media (min-width:410px) {
+	.record_lists .mui-card-content ul:first-child{
+		margin-right: 23%;
+	}
+}
+@media (min-width:430px) {
+	.record_lists .mui-card-content ul:first-child{
+		margin-right: 26%;
+	}
+}
+
+
+
+
+
+
+.pullup,.loading{
+	text-align: center;
+	padding:5px 0 10px 0;
+	font-size: 14px;
+	color: #999;
+}
+.loading img{
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+

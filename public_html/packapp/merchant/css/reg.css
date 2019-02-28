@@ -1,0 +1,90 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFFFFF;
+}
+.mui-bar-nav a{
+	color:#61616D ;
+}
+.mui-bar-nav h1{
+	color: #333333;
+}
+.mui-card{margin: 0;margin-top: 15px;}
+.mui-card .mui-card-header,.mui-card .mui-card-footer{
+	padding: 0;
+} 
+
+.left_style{
+	display: inline-block;
+	margin: 10px 0 10px 10px;
+	font-size: 14px;
+	color: #404040;
+	width: 22%;
+}
+input[type='text'],input[type='password'],input[type='tel']{
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 55%;
+	font-size: 15px;
+}
+
+/**/
+
+.mui-card-content{
+	border-bottom: 1px solid #F1F1F1;
+}
+.mui-card-content:last-child{
+	border-bottom: none;
+}
+
+.area p{
+	width: 100%;
+}
+
+.area{
+	display: block;
+	padding-top: 4px;
+	border-bottom: 1px solid #F1F1F1;
+}
+
+
+.area i.mui-pull-right{
+	display: inline-block;
+	width: 15px;height: 8px;
+	background: url(../images/7-6_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: 7px;
+	margin-right: 3%;
+}
+.area p b{
+	display: inline-block;
+	padding: 10px 0;
+    width: 73%;
+    font-weight: normal;
+}
+.mui-card-header:after, .mui-card-footer:before{
+	background-color: #fff;
+}
+.beizhu{
+	margin-top: 10px;
+	font-size: 12px;
+	text-align: center;
+	color: #757577;
+}
+/*注册*/
+.register{
+	widows: 90%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #FFA200;
+	border-radius: 5px;
+	margin:20px 5% 30px 5%;
+	color: #fff;
+	display: block;
+	font-size: 14px;
+}

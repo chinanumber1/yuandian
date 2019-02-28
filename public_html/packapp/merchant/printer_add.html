@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>添加打印机</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+     <link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/printer_add.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">添加打印机</h1>
+	</header>
+	<div class="mui-content">
+		<div class="content_style">
+			<div class="mui-card">
+				<div class="mui-card-content">
+					<span class="left_style">打印机名称</span>
+					<input type="text" id="name" placeholder="请输入打印机名称"/>
+				</div>
+				<div class="classP">
+					<p>
+						<span class="left_style">打印机类型</span>
+						<b id="printerClass"><span id="printerClass_text">无线打印机</span><i class="mui-pull-right"></i></b>	
+					</p>
+				</div>
+				<div class="mui-card-content clearfix" id="bettly" style="display: none;">
+					<span class="left_style">选取蓝牙设备</span>
+					<input type="tel" readonly placeholder="请选取设备"/>
+					<span class="checked1 mui-pull-right">选取</span>
+				</div>
+				<div id="alls">
+					<div id="items1">
+						<div class="mui-card-content">
+							<span class="left_style phone_ti">绑定手机号 <em></em></span>
+							<input type="tel" id="mp" placeholder="请输入绑定手机号"/>
+						</div>
+						<div class="mui-card-content">
+							<span class="left_style bang_ti" >绑定账号 <em></em></span>
+							<input type="text" id="username" placeholder="请输入绑定账号"/>
+						</div>
+					</div>
+					<div class="mui-card-content">
+						<span class="left_style zhong_ti" >终端号 <em></em></span>
+						<input type="text" id="mcode" placeholder="请输入终端号"/>
+					</div>
+					<div class="mui-card-content">
+						<span class="left_style mi_ti" >密钥 <em></em></span>
+						<input type="text" id="mkey" placeholder="请输入密钥"/>
+					</div>
+				</div>
+				
+				
+
+				<div class="mui-card-content">
+					<span class="left_style nums1" >打印份数 <em></em></span>
+					<input type="tel" id="count" placeholder="请输入打印份数" />
+				</div>
+				<div class="change" style="display: none;">
+					<p>
+						<span class="left_style">选择店铺</span>
+						<b id="showUserPicker"><span id="shop_text">请选择店铺 </span><i class="mui-pull-right"></i></b>	
+					</p>
+				</div>
+				<div class="mui-card-footer ling">
+					<span class="left_style">纸张类型</span>
+					<div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="paper" type="radio" checked="checked" value="0"/>58mm</label>
+						</div>
+						<div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="paper" type="radio" value="1"/>80mm</label>
+						</div>
+					
+				</div>
+				<div class="mui-card-footer ling">
+					<span class="left_style">字体大小</span>
+					<div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="font_size" type="radio" checked="checked" value="0"/>默认</label>
+					</div>
+					<div class="mui-input-row mui-radio mui-left">
+						<label for=""><input name="font_size" type="radio" value="1"/>中等</label>
+					</div>
+					<div class="mui-input-row mui-radio mui-left">
+						<label for=""><input name="font_size" type="radio" value="2"/>最大</label>
+					</div>
+				</div>
+				<div class="mui-card-footer ling">
+					<span class="left_style">支持图片</span>
+					<div class="mui-input-row mui-radio mui-left">
+						<label for=""><input name="pic" type="radio" checked="checked" value="0"/>不支持</label>
+					</div>
+					<div class="mui-input-row mui-radio mui-left">
+						<label for=""><input name="pic" type="radio" value="1"/>支持</label>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<span class="left_style">打印类型</span>
+					<ul>
+						<li class="mui-pull-left checkbox_change" data-paid="0"><b></b>下单成功后打印</li>
+						<li class="mui-pull-left checkbox_change" data-paid="1"><b></b>支付成功后打印</li>
+						<li class="mui-pull-left checkbox_change" data-paid="2"><b></b>验证成功后打印</li>
+						<li class="mui-pull-left checkbox_change" data-paid="3"><b></b>退款成功后打印</li>
+					</ul>
+				</div>
+				<div class="mui-card-footer" >
+					<span class="left_style change_add" data-tip_content="发起打印时都会触发主打印机，不设置时、商品设置归属打印机时才打印该商品信息。若打印机都不设置，默认第一台为主打印机。">主打印机 <em></em></span>
+					<div class="mui-input-row mui-pull-right">
+	   				    <div class="mui-switch is_main">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+				</div>
+			</div>
+		</div>
+		<a href="javascript:;" class="add" id="add_button">添加</a>
+		<input type="hidden" id="store_id" value="0"/>
+	</div>
+	<script src="js/fastclick.js"></script>
+	<script src="js/mui.min.js"></script>
+	<!--筛选用到js-->
+	<script src="js/mui.picker.js"></script> 
+	<script src="js/mui.dtpicker.js"></script>
+	<script src="js/mui.poppicker.js"></script>
+	<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/work/printer_add.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

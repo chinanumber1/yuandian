@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+        <link href="css/mobiscroll.2.13.2.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+        <section class="public">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+            <div class="content">商品销售统计</div>
+        </section>
+        <div class="h44"></div>
+
+        <section class="content">
+            <div class="check">
+                <div class="time_hour">
+                    <ul class="clr">
+                        <li>
+                            <div class="start_time">开始时间</div>
+                            <input placeholder="请输入开始时间" readonly="readonly" id="begin_time">
+                        </li>
+                        <li>
+                            <div class="start_time">结束时间</div>
+                            <input placeholder="请输入结束时间" readonly="readonly" id="end_time">
+                        </li>
+                    </ul>
+                </div>
+                <div class="query">
+                    <div class="query_true">查询</div>
+                </div>
+            </div>
+
+            <div class="tj_table">
+            </div>
+
+        </section>
+
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+        <script src="scripts/fastclick.js"></script>
+	    <script src="scripts/layer/layer.m.js"></script>
+	    <script src="scripts/common.js"></script>
+        <script src="scripts/mobiscroll.2.13.2.js"></script>
+        <script src="scripts/work/shop_goods_statistics.js"></script>
+        <script id="tableTpl" type="text/html">
+          <div class="tab">
+              <table cellpadding="0" cellspacing="0" border="0" >
+                  <tr>
+                      <th width="260" class="on">商品名</th>
+                      <th width="180">商品属性</th>
+                      <th width="88">数量</th>
+                      <th width="110">总数量</th>
+                  </tr>
+              </table>
+          </div>
+          <div class="tab_slide">
+              <table cellpadding="0" cellspacing="0" border="0">
+                  {{# for (var i in d) { }}
+                  <tr>
+                      <td width="260" class="on" {{# if (d[i].row > 1) { }}rowspan="{{d[i].row}}" {{# } }}>{{d[i].name}}</td>
+                      {{# for (var ii in d[i].list) { }}
+                          {{# if (ii > 0) { }}
+                          <tr>
+                          {{# } }}
+                      <td width="180">{{d[i].list[ii].spec}}</td>
+                      <td width="88">{{d[i].list[ii].total}}</td>
+                      {{# if (ii == 0 && d[i].row > 1) { }}
+                      <td width="110" rowspan="{{d[i].row}}">{{d[i].count}}</td>
+                      {{# } }}
+                          {{# if (ii < (d[i].row - 1)) { }}
+                          </tr>
+                          {{# } }}
+                      {{# } }}
+                      {{# if (d[i].row == 1) { }}
+                          <td width="110">{{d[i].count}}</td>
+                      {{# } }}
+                  </tr>
+                  {{# } }}
+              </table>
+          </div>
+        </script>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<title>首页</title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<script src="https://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script src="./number.js"></script>
+		<style>
+			body{background:#f5f4f9;min-height:100%;}
+			.widget_number{line-height:30px;}
+		</style>
+		<script>
+			$(function(){
+				var input1param = {};
+				input1param.obj = $('#inputNumber');
+				input1param.clickObj = 'input1Obj';
+				input1param.btnObj = 'input1Btn';
+				input1param.maxNum = 20000;
+				input1param.decimalLength = 2;
+				input1param.defaultText = '询问店员后输入';
+				input1param.defaultTextStyle = 'color:#999;font-size:12px;';
+				input1param.btnHtml = '<div style="line-height:26px;margin-top:30px;">确认<br/>下单</div>';
+				var inputHtml = $('#inputNumber .widget_number').html();
+				console.log(inputHtml);
+				input1param.btnStyle = 'background:#'+((inputHtml && inputHtml != '' && parseFloat(inputHtml) != 0) ? '1AAD19' : 'BCBCBC')+';color:white;text-align:center;';
+				inputNumber(input1param);
+				
+				var input2param = {};
+				input2param.obj = $('#inputNumber2');
+				input2param.clickObj = 'input2Obj';
+				input2param.btnObj = 'input2Btn';
+				input2param.errObj = '';
+				input2param.maxNum = 1000;
+				input2param.decimalLength = 3;
+				inputNumber(input2param);
+				
+				var input3param = {};
+				input3param.obj = $('#inputNumber3');
+				input3param.clickObj = 'input3Obj';
+				input3param.btnObj = 'input3Btn';
+				input3param.maxNum = 20000;
+				input3param.decimalLength = 2;
+				input3param.isSimple = true;
+				inputNumber(input3param);
+				
+				var input4param = {};
+				input4param.obj = $('#inputNumber4');
+				input4param.clickObj = 'input4Obj';
+				input4param.btnObj = 'input3Btn';
+				input4param.errObj = '';
+				input4param.maxNum = 20000;
+				input4param.decimalLength = 2;
+				input4param.isSimple = true;
+				inputNumber(input4param);
+			});
+			function input1Obj(val){
+				if(val != '' && parseFloat(val) != 0){
+					$('.widget_number_event_btn').css('background','#1AAD19');
+				}else{
+					$('.widget_number_event_btn').css('background','#BCBCBC');
+				}
+				return true;
+			}
+			function input1Btn(val){
+				if(val != '' && parseFloat(val) != 0){
+					alert(val);
+				}else{
+					alert('金额不正确');
+				}
+			}
+			function input2Obj(val){
+				return true;
+			}
+			function input2Btn(val){
+				alert(val);
+			}
+			function input3Obj(val){
+				return true;
+			}
+			function input3Btn(val){
+				alert(val);
+			}
+			function input4Obj(val){
+				return true;
+			}
+			function input4Btn(val){
+				alert(val);
+			}
+		</script>
+	</head>
+	<body style="margin:0;padding:0;padding-top:50px;">
+		<div id="widget_container">
+			<div style="width:80%;margin-left:10%;margin-bottom:5px;">左光标版[有错误回调提示(金额2万，小数2位)]</div>
+			<div id="inputNumber" style="width:80%;margin-left:10%;height:30px;border:1px solid #ccc;background:white;text-align:left;padding-left:10px;"></div>
+			
+			<div style="width:80%;margin-left:10%;margin-top:50px;margin-bottom:5px;">右光标版[有错误不提示(金额1千，小数3位)]</div>
+			<div id="inputNumber2" style="width:80%;margin-left:10%;height:30px;border:1px solid #ccc;background:white;text-align:right;padding-right:10px;"></div>
+			
+			<div style="width:80%;margin-left:10%;margin-top:50px;margin-bottom:5px;">左光标简约版[有错误回调提示(金额2万，小数2位)]</div>
+			<div id="inputNumber3" style="width:80%;margin-left:10%;height:30px;border:1px solid #ccc;background:white;padding-left:10px;"></div>
+			
+			<div style="width:80%;margin-left:10%;margin-top:50px;margin-bottom:5px;">右光标简约版[有错误不提示(金额1万，小数2位)]</div>
+			<div id="inputNumber4" style="width:80%;margin-left:10%;height:30px;border:1px solid #ccc;background:white;text-align:right;padding-right:10px;"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,227 @@
+.dealcard{
+}
+.dealcard dd {
+	background-color: white;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 8px 3px;
+	margin-bottom:8px;
+}
+.dealcard dd:last-child{
+	margin-bottom:0px;
+}
+.dealcard .dealcard-img {
+	width: 90px;
+    height: 60px;
+    border-radius: 2px;
+    float: left;
+    position: absolute;
+	overflow:hidden;
+}
+.dealcard .dealcard-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+.dealcard .dealcard-img .closeTip{
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    color: white;
+    background: black;
+    text-align: center;
+}
+.dealcard .dealcard-block-right {
+    margin-left: 100px;
+}
+.dealcard .brand {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+}
+.dealcard .location-right{
+	position: absolute;
+  	top: 8px;
+  	right: 4px;
+  	color:#666;
+  	font-size: 11px;
+}
+.dealcard  .title{
+	padding-left:74px;
+}
+.dealcard  .title .star{
+	vertical-align: middle;
+	margin-left: 2px;
+	position: absolute;
+    left: 0px;
+    top: 2px;
+}
+.dealcard  .title .star i{
+	width:12px;
+	height:12px;
+	display:inline-block;
+	background:url(../images/none_star.png) no-repeat;
+	background-size:100%;
+	margin-right: 2px;
+}
+.dealcard  .title .star i.full{
+	background-image:url(../images/full_star.png);
+}
+.dealcard  .title .star i.half{
+	background-image:url(../images/mid_star.png);
+}
+.dealcard  .title .star i:last-child{
+	margin-right:6px;
+}
+.dealcard  .title .location-right{
+	top:2px;
+}
+.dealcard  .price .location-right,.dealcard  .title.pick .location-right{
+	background: #06c1ae;
+    color: white;
+    padding: 0px 2px;
+    border-radius: 2px;
+    font-size: 10px;
+    top: 0px;
+	font-style:normal;
+}
+.dealcard .title,.dealcard .price{
+	position:relative;
+}
+.dealcard .title.pick{
+	margin-top:14px;
+}
+.dealcard .title span,.dealcard .price span{
+    color:#666;
+	font-size: 11px;
+}
+.dealcard .price span.delivery{
+	border-left: 1px solid #bbb;
+    padding-left: 8px;
+	margin-left: 8px;
+}
+.dealcard .coupon {
+	color:#bbb;
+	font-size:11px;
+	margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.dealcard .coupon.hasMore{
+	height: 44px;
+}
+.dealcard .coupon .more{
+	position: absolute;
+    bottom: 11px;
+	right: 2px;
+    padding-right: 12px;
+}
+.dealcard .coupon .more:after{
+	display: inline-block;
+    content: "";
+    border-bottom: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    width: 4px;
+    height: 4px;
+    -webkit-transform: rotate(315deg);
+    background-color: transparent;
+    position: absolute;
+    top: 5px;
+    right: 4px;
+}
+.dealcard .coupon.showMore .more:after{
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+	border-bottom:none;
+    border-left:none;
+	top:8px;
+}
+.dealcard .coupon.showMore{
+	height:auto;
+}
+.dealcard .coupon ul{
+	
+}
+.dealcard .coupon li{
+	position: relative;
+    padding-left: 20px;
+	line-height: 22px;
+	padding-right: 60px;
+    height: 22px;
+    overflow: hidden;
+	
+	word-break:keep-all;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.dealcard .coupon.showMore li{
+	height:auto;
+	word-break: inherit;
+    white-space: inherit;
+}
+.dealcard .coupon li em{
+	width: 16px;
+    height: 16px;
+	line-height: 16px;
+    display: inline-block;
+    background-color: red;
+    position: absolute;
+    left: 0;
+    top: 3px;
+	border-radius: 2px;
+}
+.dealcard .coupon li em:before{
+	content:'惠';
+	font-size:11px;
+	color:white;
+	margin-left: 2px;
+	font-style:normal;
+}
+em.merchant_minus{
+	background-color:#FF6655!important;
+}
+em.system_minus{
+	background-color:#5D26EA!important;
+}
+em.merchant_minus:before,em.system_minus:before{
+	font-style:normal;
+	content:'减'!important;
+}
+em.newuser{
+	background-color:#FFAA22!important;
+}
+em.system_newuser{
+	background-color:#0EC0A8!important;
+}
+em.newuser:before,em.system_newuser:before{
+	content:'首'!important;
+}
+em.merchant_delivery{
+	background-color:#6C5CB4!important;
+}
+em.merchant_delivery:before{
+	content:'送'!important;
+}
+em.merchant_discount{
+	background-color:#DD1111!important;
+}
+em.merchant_discount:before{
+	content:'折'!important;
+}
+/*.dealcard .coupon li em.merchant_invoice{
+	background-color: white;
+    border: 1px solid #7CC6FF;
+	width: 14px;
+}
+.dealcard .coupon li em.merchant_invoice:before{
+	content:'票';
+	color: #7CC6FF;
+}*/
+em.merchant_invoice{
+	background-color: #7CC6FF!important;
+}
+em.merchant_invoice:before{
+	content:'票'!important;
+}

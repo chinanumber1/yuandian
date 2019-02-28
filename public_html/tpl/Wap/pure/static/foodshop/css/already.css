@@ -1,0 +1,114 @@
+*{
+	margin: 0;
+	padding:0 ;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background: #F4F4F4;
+}
+ul,ol,dl,dd,dt{
+	list-style: none;
+}
+.ft{
+	float: left;
+}
+.rg{
+	float: right;
+}
+.after:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+/*排行榜背景图*/
+.bg_contanir {
+    width: 100%;
+    height: 11.38rem;
+    background: url(../img/5-1_02.png) center no-repeat;
+    background-size: cover;
+    /*overflow: hidden;*/
+}
+.content header {
+	padding: 10px 5% 0 5%;
+	
+}
+.content header a{
+	display: inline-block;
+	width: 0.508474rem;
+	height: 0.508474rem;
+	background: url(../img/4-2_03.png) center no-repeat;
+	background-size: contain;
+}
+.content>p{
+	text-align: center;
+	padding-bottom: 0.254237rem;
+}
+.content>p>span{
+	display: inline-block;
+	background: #A7A7A7;
+	width: 1.525423rem;
+	height: 0.508474rem;
+	line-height: 0.508474rem;
+	border-radius:0.508474rem;
+	
+}
+.content>p>span>i{
+	font-style: normal;
+	font-size: 0.220338rem;
+	color: #fff;
+}
+.rang_list {
+	width: 100%;
+    background: rgba(255,255,255,.9);
+}
+.rang_list ul{
+	    background: rgba(255,255,255,.9);
+}
+.rang_list ul li{
+	width: 100%;
+	border-bottom: 1px solid #DFDFDF;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: relative;
+    
+}
+.rang_list ul li .img_text{
+	display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0.169491rem 0 0.169491rem 5%;
+}
+.img_text img{
+	width:1.8rem;
+	height: 1rem;
+}
+.img_text dl{
+	margin-left: 0.254237rem;
+}
+.img_text dl dt{
+	font-size: 0.237288rem;
+	color: #333;
+	line-height: 1.6;
+}
+.img_text dl dd{
+	font-size: 0.203389rem;
+	color: #999999;
+}
+.no_dishes{
+	font-size: 0.271186rem;
+	color: #fff;
+	padding-top: 0.677966rem;
+}

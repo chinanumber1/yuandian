@@ -1,0 +1,126 @@
+ul,ol,li,dl,dt,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-bar-nav a.mui-pull-right{
+	line-height: 44px;
+	font-size: 14px;
+}
+.mui-bar-nav a.mui-pull-right i{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../images/6-_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+/*店员信息*/
+.mui-card .mui-card-content .mui-col-sm-2{
+	/*padding: 20px 0;*/
+	width: 25%;
+	color: #FFA200;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	border-right: 1px solid #EEEEEE;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.mui-card .mui-card-content .mui-col-sm-2 dl.acc{
+	padding: 12px 0;
+}
+.mui-card .mui-card-content .mui-col-sm-2 dl{
+	padding:20px 0;
+}
+.mui-card .mui-card-content .mui-col-sm-2 dd{
+	font-size: 14px;
+	color:#333;
+}
+.mui-card .mui-card-content .mui-col-sm-10{
+	margin-left: 10px;
+	padding: 10px 0;
+	width: 71%;
+}
+.mui-card .mui-card-content .mui-col-sm-10 li i{
+	display: inline-block;
+	width: 16px;height: 16px;
+	background: url(../images/6-_04.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.mui-card .mui-card-content .mui-col-sm-10 li b{
+	display: inline-block;
+	width: 16px;height: 16px;
+	background: url(../images/6-_06.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.mui-card .mui-card-footer{
+	padding: 0;
+}
+.mui-card-header, .mui-card-footer {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    min-height: 40px;
+    padding: 10px 15px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.mui-card .mui-card-footer p{
+	text-align: center;
+	width: 34%;
+	margin: 0;
+	color: #7A7A7A;
+	padding: 0;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+}
+.mui-card .mui-card-footer .assistant_penci i{
+	display: inline-block;
+	width: 15px;height: 12px;
+	background: url(../images/6-_09.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.mui-card .mui-card-footer .assistant_loading{
+	border-left: 1px solid #EEEEEE;
+	border-right: 1px solid #EEEEEE;
+}
+.mui-card .mui-card-footer .assistant_loading b{
+	display: inline-block;
+	width: 15px;height: 12px;
+	background: url(../images/6-_12.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.mui-card .mui-card-footer .assistant_loading b{
+	display: inline-block;
+	width: 15px;height: 12px;
+	background: url(../images/6-_12.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.mui-card .mui-card-footer .assistant_delate span{
+	display: inline-block;
+	width: 15px;height: 12px;
+	background: url(../images/6-_15_2.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}

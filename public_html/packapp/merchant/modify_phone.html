@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>修改手机</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/mofidy_password.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">修改手机</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="phone_num">
+	    	<ul>
+	    		<li><b></b></li>
+	    		<li><span>您当前的手机号为</span>&nbsp;<span id="phoneTxt"></span></li>
+	    	</ul>
+	    </div>
+	    <div class="mui-card">
+			<!--页眉，放置标题-->
+			<!--<div class="mui-card-header">页眉</div>-->
+			<!--内容区-->
+	
+			<div class="mui-card-content">
+				<ul>
+					<li class="smscode" style="display:none"><input type="tel" id="smsCode" maxlength="4" placeholder="请输入短信验证码"/>
+						<button type="button" class="mui-pull-right sendCode" tabindex="-1">获取验证码</button>
+					</li>
+
+					<li class="area phone_country" style="display:none">
+						<select name="phone_country_type" id="phone_country_type" style="margin: 0 auto;padding: 0px 0 0px 0;width: 80%;height: 40px;">
+							<option value="1" >+86 中国 China </option>
+							<option value="86" >+1 加拿大 Canada</option>
+						</select>
+						<i class="mui-pull-right phone_country" ></i>
+					</li>
+
+					<li class="area">
+					
+					
+					<input type="tel" id="new_phone" placeholder="请输入新手机" />
+					</li>
+					
+					<li class="smscode" style="display:none"><input type="tel" id="smsCode2" maxlength="4" placeholder="请输入新手机验证码" style="width: 60%;"/>
+						<button type="button" class="mui-pull-right sendCode2" tabindex="-1" style="margin-top: 5px;margin-right: 3%;border: none;background: #FFA200;color: #fff;font-size: 15px;">获取验证码</button>
+					</li>
+			
+				</ul>
+			</div>
+			<!--页脚，放置补充信息或支持的操作-->
+			<!--<div class="mui-card-footer">页脚</div>-->
+		</div>
+		<a href="javascript:;" class="confirm_modify modify_phone" >确定修改</a>
+		<div style="font-size:12px;padding-left:5%;margin-top:20px;">若手机号无法接收短信，请联系管理员手机号码</div>
+	</div>
+	<script src="js/fastclick.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/work/modify_password.js?3333" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

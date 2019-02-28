@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>店员中心</title>
+    <link href="css/order_detail.css" rel="stylesheet">
+    <script src="scripts/jquery-1.8.3.min.js"></script>
+    <script src="https://api.map.baidu.com/api?v=2.0&ak=4c1bb2055e24296bbaef36574877b4e2"></script>
+</head>
+<body style="zoom: 1;">
+<section class="public">
+    <div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+    <div class="content">订单状态</div>
+</section>
+<div class="h44"></div>
+<section class="g_details">
+    <div class="orders_list"><ul></ul></div>
+</section>
+<script src="scripts/jquery-1.8.3.min.js"></script>
+<script src="scripts/fastclick.js"></script>
+<script src="scripts/layer/layer.m.js"></script>
+<script src="scripts/common.js"></script>
+<script src="scripts/work/shop_order_log.js"></script>
+<script id="logTpl" type="text/html">
+{{# for (var i in d) { }}
+<li>
+    <div class="time">{{ d[i].dateline }}</div>
+    <div class="p18">
+        <div class="con">
+            {{# if (d[i].status == 0) { }}
+                 <h2>订单生成成功</h2>
+                 <p>订单编号：{{ d[i].real_orderid }}</p>
+            {{# } else if (d[i].status == 1) { }}
+                <h2>订单支付成功</h2>
+                <p>订单编号：{{ d[i].real_orderid }}</p>
+            {{# } else if (d[i].status == 2) { }}
+                <h2>店员接单</h2>
+                <p>店员:{{# if (d[i].name != '') { }}<strong style="color:red">【{{ d[i].name }}】</strong>{{# } }} <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a>正在准备商品</p>
+            {{# } else if (d[i].status == 3) { }}
+                <h2>{{# if (d[i].from_type == 2) { }}更换配送员{{# }else{ }} 配送员接单{{# } }}</h2> 
+                <p>配送员:{{# if (d[i].name != '') { }}<strong style="color:red">【{{ d[i].name }}】</strong>{{# } }} <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a>正在赶往店铺取货</p>
+            {{# } else if (d[i].status == 4) { }}
+                <h2>配送员取货</h2>
+                <p>配送员:{{# if (d[i].name != '') { }}<strong style="color:red">【{{ d[i].name }}】</strong>{{# } }} <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a>已取货，准备配送，请耐心等待</p>
+            {{# } else if (d[i].status == 5) { }}
+                <h2>配送员配送中</h2>
+                <p>配送员:{{# if (d[i].name != '') { }}<strong style="color:red">【{{ d[i].name }}】</strong>{{# } }} <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a>正在配送中，请耐心等待！</p>
+            {{# } else if (d[i].status == 6) { }}
+                <h2>订单已完成</h2>
+                <p>{{# if(d[i].is_pick_in_store < 2){ }} 配送员:{{# if (d[i].name != '') { }}<strong style="color:red">【{{ d[i].name }}】</strong>{{# } }} <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a>已完成配送，欢迎下次光临！{{# }else{ }}订单编号：{{ d[i].real_orderid }} {{# } }}</p>
+            {{# } else if (d[i].status == 7) { }}
+                {{# if (d[i].is_pick_in_store == 3) { }}
+                    <h2>店员已发货</h2>
+                    <p>店员:{{# if (d[i].name != '') { }}<strong style="color:red">【{{ d[i].name }}】</strong>{{# } }} <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a> 已发货给快递公司<strong style="color:red">【{{ d[i].express_name }}】</strong>，快递单号:<strong style="color:green">{{ d[i].express_number }}</strong></p>
+                {{# } else { }}
+                    <h2>店员验证消费</h2>
+                    <p>店员:{{# if (d[i].name != '') { }}<strong style="color:red">【{{ d[i].name }}】</strong>{{# } }} <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a>将订单改成已消费</p>
+                {{# } }}
+            {{# } else if (d[i].status == 8) { }}
+                <h2>完成评论</h2>
+                <p>您已完成评论，谢谢您提出宝贵意见！</p>
+            {{# } else if (d[i].status == 9) { }}
+                <h2>已完成退款</h2>
+                <p>{{# if (d[i].note == '') { }}您已完成退款{{# } else { }} {{ d[i].note }} {{# } }}</p>
+            {{# } else if (d[i].status == 10) { }}
+                <h2>已取消订单</h2>
+                <p>{{# if (d[i].note == '') { }}您已经取消订单{{# } else { }} {{ d[i].note }} {{# } }}</p>
+            {{# } else if (d[i].status == 11) { }}
+                <h2>商家分配自提点</h2>
+                <p>店员:{{# if (d[i].name != '') { }}<strong style="color:red">【{{ d[i].name }}】</strong>{{# } }} <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a>给您分配</p>
+            {{# } else if (d[i].status == 12) { }}
+                <h2>商家发货到自提点</h2>
+                <p>店员:{{# if (d[i].name != '') { }}<strong style="color:red">【{{ d[i].name }}】</strong>{{# } }} <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a>已经给您发货到配送点</p>
+            {{# } else if (d[i].status == 13) { }}
+                <h2>自提点已接货</h2>
+                <p>自提点<strong style="color:red">【{{ d[i].name }}】</strong> <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a> 已经接到您的货物了</p>
+            {{# } else if (d[i].status == 14) { }}
+                <h2>自提点已发货</h2>
+                <p>自提点<strong style="color:red">【{{ d[i].name }}】</strong> <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a> 已经给您发货了</p>
+            {{# } else if (d[i].status == 15) { }}
+                <h2>您在自提点取货</h2>
+                <p>您在自提点{{# if (d[i].name != '') { }}<strong style="color:red">【{{ d[i].name }}】</strong>{{# } }} <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a> 已经把您的货提走了！</p>
+            {{# } else if (d[i].status == 30) { }}
+                <h2>店员为您修改了价格</h2>
+                <p>店员<strong style="color:red">【{{ d[i].name }}】</strong> <a class="tel-btn" href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a> 已将订单的总价修改成{{ d[i].note }}</p>
+            {{# } else if (d[i].status == 31) { }}
+                <h2>配送员放弃配送</h2>
+                <p>{{ d[i].note }}</p>
+            {{# } }}
+            {{# if (i == 0) { }}
+            <div class="map clr">
+                <div class="pho" id="allmap"></div>
+                <div class="refresh fr"></div>
+            </div>
+            {{# } }}
+        </div>
+    </div>
+</li>
+{{# } }}
+</script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>店员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/pigcms.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<section class="public pageSliderHide">
+			<div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+			<div class="content">订单详情</div>
+		</section>
+		<section class="g_details p40">
+			<div class="commod detail_list">
+				<!--div class="top clr">
+					<h2 class="fl">商品信息</h2>
+					<div class="consum fr">消费验证</div>
+				</div>
+				<div class="commod_list">
+					<div class="img fl">
+						<img src="images/user_avatar.jpg">
+					</div>
+					<div class="content">
+						<h2>上海迪斯尼乐园单人门票</h2>
+						<div class="clr price">
+							<div class="fl">单价：150元</div>
+							<div class="fl">数量：2</div>
+						</div>
+						<div class="clr">
+							<div class="fl total">共计：￥300</div>
+							<div class="state fr">
+								<span class="ecc">已消费</span>
+								<span class="ff0">未付款</span>
+								<span class="ef6">未发货</span>
+								<span class="ecc">已付款</span>
+								<span class="fc6">待评价</span>
+								<span class="a2a">已取消</span>
+							</div>
+						</div>
+					</div>
+				</div-->
+			</div>
+
+			<div class="user detail_list">
+				<!--div class="top clr">
+					<h2 class="fl">用户信息</h2>
+				</div>
+				<div class="user_list">
+					<ul>
+						<li class="clr">
+							<span class="fl">用户ID</span>
+							<span class="fr">lirongrong516</span>
+						</li>
+						<li class="clr">
+							<span class="fl">用户名</span>
+							<span class="fr">逗比青年欢乐多</span>
+						</li>
+						<li class="clr">
+							<span class="fl">手机号</span>
+							<span class="fr blue callPhone" data-phone="13212345678">13212345678</span>
+						</li>
+					</ul>
+				</div-->
+			</div>
+
+			<div class="distri detail_list" id="distriBox">
+				<!--div class="top clr">
+					<h2 class="fl">配送信息</h2>
+				</div>
+				<div class="distri_list">
+					<ul>
+						<li class="clr address">
+							<div class="tit">
+								<div class="tit_top clr">
+									<div class="fl">收件人：吴倩</div>
+									<div class="fr blue callPhone" data-phone="18010860157 18010860157">18010860157</div>
+								</div>
+								<div class="tit_bot openMap" data-type="baidu" data-lng="117.235447" data-lat="31.826870" data-name="收件人：吴倩" data-address="黄上路和潜山路交口 华地·学府公馆东202米">
+									收货地址：安徽 合肥 蜀山区 黄上路和潜山路交口 华地·学府公馆东202米 
+								</div>
+							</div>
+						</li>
+						<li class="clr express">
+							<h2>快递信息</h2>
+							<div class="expressage clr">
+								<div class="select">
+									<select>
+										<option>申通快递</option>
+										<option>圆通快递</option>
+									</select>
+								</div>
+								<div class="input">
+									<input type="text" placeholder="点击输入快递号"/>
+								</div>
+								<div class="preser">保存</div>
+							</div>
+						</li>
+						<li class="clr express additional">
+							<h2>额外信息 <span class="modify">修改</span></h2>
+							<div class="textarea">
+								<textarea placeholder="点击进行修改信息"></textarea>
+							</div>
+						</li>
+					</ul>
+				</div-->
+			</div>
+
+            <div class="hotel detail_list"></div>
+
+            <div class="order detail_list"></div>
+
+			<div class="payment detail_list" id="paymentBox"></div>
+
+			<div class="leaving detail_list">
+				<!--div class="top clr"><h2 class="fl">买家留言</h2></div><div class="textarea"><textarea placeholder="暂无" readonly="readonly"></textarea></div-->
+			</div>
+		</section>
+
+		<section class="consum_tc">
+			<div class="consum_tc_n">
+				<div class="tc_top">消费码验证</div>
+				<div class="scroll">
+					<ul>
+						<!--li class="clr">
+							<span class="fl">05150516493538</span>
+							<span class="fr ecc">已消费</span>
+						</li>
+						<li class="clr">
+							<span class="fl">05150516493538</span>
+							<span class="fr a39">验证</span>
+						</li-->
+					</ul>
+				</div>
+
+				<div class="all">
+					<span id="allVerify">全部验证</span>
+				</div>
+
+				<div class="del"></div>
+			</div>
+		</section>
+		<div class="mask"></div>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/jroll.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/group_detail.js?t=2"></script>
+		
+		
+		<script id="passList" type="text/html">
+			{{# for(var i = 0, len = d.length; i < len; i++){ }}
+			<li class="clr">
+				<span class="fl">{{ d[i].group_pass }}</span>
+				{{# if (d[i].status == 0 ) { }}
+				<span class="fr a39" data-pass="{{ d[i].group_pass }}">验证</span>
+				{{# } else { }}
+				<span class="fr ecc">已消费</span>
+				{{# } }}
+			</li>
+			{{# } }}
+		</script>
+		<script id="goodsDetail" type="text/html">
+				<div class="top clr">
+					<h2 class="fl">商品信息</h2>
+					{{# if (d.type == 7 && d.is_pick_in_store == 1) { }}
+					<div class="consum fr" data-type="0">用户取货确认</div>
+					{{# } else if (d.type == 1 && d.tuan_type != 2 ) { }}
+					<div class="consum fr " id="consume" data-type="{{ d.pass_array }}">消费验证</div>
+					{{# } }}
+				</div>
+				<div class="commod_list">
+					<div class="img fl">
+						<img src="{{ d.pic }}">
+					</div>
+					<div class="content">
+						<h2>{{ d.s_name }}</h2>
+						<div class="clr price">
+							<div class="fl">单价：{{ d.price }}元</div>
+							<div class="fl">数量：{{ d.num}}</div>
+						</div>
+						<div class="clr">
+							<div class="fl total" style="font-size:14px">共计：￥{{ d.total_money }}</div>
+							<div class="state fr">
+								{{# if (d.type == 1) { }}
+									<span class="a2a">未消费</span>
+								{{# } else if (d.type == 2) { }}
+									<span class="ef6">未发货</span>
+								{{# } else if (d.type == 3) { }}
+									<span class="ecc">已消费</span>
+								{{# } else if (d.type == 4) { }}
+									<span class="ecc">已发货</span>
+								{{# } }}
+
+								{{# if(d.status == 1){ }}
+									<span class="ff0">已取消</span>
+								{{# }else if(d.status == 2){ }}
+									<span class="ff0">线下未支付</span>
+								{{# }else if(d.status == 3){ }}
+									<span class="ecc">已付款</span>
+								{{# }else if(d.status == 4){ }}
+									<span class="ff0">待评论</span>
+								{{# }else if(d.status == 5){ }}
+									<span class="ecc">已完成</span>
+								{{# }else if(d.status == 6){ }}
+									<span class="ff0">未付款</span>	
+								{{# } }}
+								<!-- <span class="ff0">未付款</span>
+								<span class="ef6">未发货</span>
+								<span class="ecc">已付款</span>
+								<span class="fc6">待评价</span>
+								<span class="a2a">已取消</span> -->
+							</div>
+						</div>
+					</div>
+				</div>
+		</script>
+		<script id="userDetail" type="text/html">
+		<div class="top clr">
+			<h2 class="fl">用户信息</h2>
+		</div>
+		<div class="user_list">
+			<ul>
+				<li class="clr">
+					<span class="fl">用户ID</span>
+					<span class="fr">{{ d.uid }}</span>
+				</li>
+				<li class="clr">
+					<span class="fl">用户名</span>
+					<span class="fr">{{ d.nickname }}</span>
+				</li>
+				<li class="clr">
+					<span class="fl">手机号</span>
+					<span class="fr blue callPhone" data-phone="{{ d.phone }}">{{ d.phone }}</span>
+				</li>
+			</ul>
+		</div>
+		</script>
+		<script id="addressDetail" type="text/html">
+		<div class="top clr">
+			<h2 class="fl">配送信息</h2>
+		</div>
+		<div class="distri_list">
+			<ul>
+				<li class="clr address">
+					<div class="tit">
+						<div class="tit_top clr">
+							<div class="fl">收件人：{{ d.distribution.contact_name }}</div>
+							<div class="fr blue callPhone" data-phone="{{ d.distribution.phone }}">{{ d.distribution.phone }}</div>
+						</div>
+						<div class="tit_bot openMap" data-type="baidu" data-lng="{{ d.distribution.contact_name }}" data-lat="{{ d.distribution.contact_name }}" data-name="收件人：{{ d.distribution.contact_name }}" data-address="{{ d.distribution.adress }}">
+							收货地址：{{ d.distribution.adress }}
+						</div>
+					</div>
+				</li>
+				{{# if(d.pin_info=='' || d.pin_info.status==1|| d.pin_info.status==3){ }}
+				<li class="clr express">
+					<h2>快递信息</h2>
+					<div class="expressage clr">
+						<div class="select">
+							<select>
+								{{# for(var i = 0, len = d.express_list.length; i < len; i++){ }}
+								{{# if(d.distribution.express_type == d.express_list[i].ids){ }}
+								<option value="{{ d.express_list[i].ids }}" selected>{{ d.express_list[i].name }}</option>
+								{{# }else{ }}
+								<option value="{{ d.express_list[i].ids }}" >{{ d.express_list[i].name }}</option>
+								{{# } }}
+								{{# } }}
+							</select>
+						</div>
+						<div class="input">
+							<input type="text" placeholder="点击输入快递号" value="{{ d.distribution.express_id }}"/><div class="sweep"></div>
+						</div>
+						<div class="preser">保存</div>
+					</div>
+				</li>
+				{{# }else{ }}
+				<li class="clr express">
+					<h2>快递信息</h2>
+					<div class="expressage clr">还未成团不能填写快递信息</div>
+				</li>
+				{{# } }}
+				<li class="clr express additional">
+					<h2>额外信息 <span class="modify">修改</span></h2>
+					<div class="textarea">
+						<textarea placeholder="点击进行修改信息">{{ d.distribution.merchant_remark }}</textarea>
+					</div>
+				</li>
+			</ul>
+		</div>
+		</script>
+        <script id="hotelDetail" type="text/html">
+        <div class="top clr">
+            <h2 class="fl">酒店订单详情</h2>
+        </div>
+        <div class="user_list">
+            <ul>
+                <li class="clr">
+                    <span class="fl">房间类型</span>
+                    <span class="fr">{{ d.cat_pname }} ({{ d.cat_name }})</span>
+                </li>
+                <li class="clr">
+                    <span class="fl">入住时间</span>
+                    <span class="fr">{{ d.dep_time_txt }}</span>
+                </li>
+                <li class="clr">
+                    <span class="fl">离店时间</span>
+                    <span class="fr">{{ d.end_time_txt }}</span>
+                </li>
+                <li class="clr">
+                    <span class="fl">房间数</span>
+                    <span class="fr">{{ d.num }}</span>
+                </li>
+                <li class="clr">
+                    <span class="fl">入住天数</span>
+                    <span class="fr">{{ parseInt(d.end_time-d.dep_time) }}</span>
+                </li>
+                <li class="clr">
+                    <span class="fl">价格清单</span>
+                </li>
+                {{# for (var i in d.price_list_txt) { }}
+                <li class="clr">
+                    <span class="fl">{{ d.price_list_txt[i].day }}</span>
+                    <span class="fr">{{d.price_list_txt[i].price}}元 * {{ d.num }}</span>
+                </li>
+                {{# } }}
+            </ul>
+        </div>
+        </script>
+        <script id="orderDetail" type="text/html">
+        <div class="top clr">
+            <h2 class="fl">订单信息</h2>
+        </div>
+        <div class="user_list">
+            <ul>
+                <li class="clr">
+                    <span class="fl">订单类型</span>
+                    <span class="fr">{{ d.order_type }}</span>
+                </li>
+                <li class="clr">
+                    <span class="fl">订单号</span>
+                    <span class="fr">{{ d.real_orderid }}</span>
+                </li>
+                <li class="clr">
+                    <span class="fl">下单时间</span>
+                    <span class="fr">{{ d.add_time }}</span>
+                </li>
+                {{# if ('未支付' != d.pay_time) { }}
+                <li class="clr">
+                    <span class="fl">付款时间</span>
+                    <span class="fr">{{ d.pay_time }}</span>
+                </li>
+                {{# }else{ }}
+				 <li class="clr">
+                    <span class="fl">支付状态</span>
+                    <span class="fr" style="color:red;">未支付</span>
+                </li>
+                {{# } }}
+            </ul>
+        </div>
+        </script>
+		<script id="paymentDetail" type="text/html">
+		<div class="top clr">
+			<h2 class="fl">付款方式</h2>
+		</div>
+		<div class="user_list">
+			<ul>
+				<li class="clr">
+					<span class="fl">支付方式</span>
+					<span class="fr" {{# if(d.paytypestr=='货到付款(微信端)'){ }} style="color:red;" {{# } }}>{{ d.paytypestr }}</span>
+				</li>
+				<li class="clr">
+					<span class="fl">平台余额支付</span>
+					<span class="fr">{{ d.balance_pay }}</span>
+				</li>
+				
+				<li class="clr">
+					<span class="fl">平台积分</span>
+					<span class="fr">{{ d.score_deducte }}</span>
+				</li>
+				<li class="clr">
+					<span class="fl">平台优惠券</span>
+					<span class="fr">{{ d.coupon_price }}</span>
+				</li>
+				<li class="clr">
+					<span class="fl">商家优惠券</span>
+					<span class="fr">{{ d.card_price }}</span>
+				</li>
+				<li class="clr">
+					<span class="fl">商家会员卡折扣</span>
+					<span class="fr">{{ d.card_discount }}</span>
+				</li>
+				<li class="clr">
+					<span class="fl">商家会员卡余额支付</span>
+					<span class="fr">{{ d.merchant_balance }}</span>
+				</li>
+				<li class="clr">
+					<span class="fl">在线支付金额</span>
+					<span class="fr">{{ d.payment_money }}</span>
+				</li>
+			
+			</ul>
+		</div>
+		</script>
+	</body>
+</html>

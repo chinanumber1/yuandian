@@ -1,0 +1,258 @@
+html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td {
+    margin: 0;
+    padding: 0;
+    border-spacing:0px !important;
+    outline:medium;
+    word-break:break-word;
+    border:none;
+    list-style:none;
+}
+
+/**{ font-family:"Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3",sans-serif; }*/
+
+/*flex*/
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flex-v{
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.flex-1{
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+/*A*/
+a{
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+}
+/*img*/
+img{ border:0 none; max-width: 100%; display:inline-block;width: 31.5px;height: 31.5px;}
+
+/*li*/
+ul,li{list-style-type:none;}
+/*浮动*/
+.fl{
+    float:left;
+    display:inline;
+}
+.fr{
+    float:right;
+    display:inline;
+}
+.clr:after {
+    visibility: hidden;
+    display: block;
+    content: " ";
+    clear: both;
+    height: 0;
+    line-height: 0;
+}
+.clr {
+    zoom: 1;
+}
+a{ color: #333333; }
+a:focus { -moz-outline-style: none; }
+a:focus { outline: none; }
+:focus{
+outline:0;
+}
+.hide{display:none !important;  }
+.clear{clear:both;}
+i,em{ font-style: normal;}
+h2{ font-weight: normal; }
+.blue{color:blue}
+input[type=button],input[type=submit],input[type=file],button,input{ cursor: pointer; -webkit-appearance: none; outline:0;}
+input[type="search"]{-webkit-appearance:none;} 
+input::-webkit-search-cancel-button {display: none;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+} 
+body{ padding:0px; margin:0px auto; font-size:0.28rem;  min-width: 320px; max-width: 640px; background-color: #f4f4f4; color: #232323; position: relative;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-user-select: none;overflow-x:hidden; }
+
+select{appearance:none;  -moz-appearance:none;  -webkit-appearance:none; font-size: 12px; }
+
+/*公共样式*/
+.swiper-container {margin: 0 auto; position: relative;overflow: hidden; z-index: 1;}
+.swiper-container {width: 100%; height: 100%;}
+.swiper-wrapper {position: relative;width: 100%;height: 100%;z-index: 1; display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;
+   -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    -ms-transition-property: -ms-transform;
+    transition-property: transform;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.swiper-container-vertical>.swiper-wrapper{
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+     }
+.swiper-container-autoheight, .swiper-container-autoheight .swiper-slide{ height: auto; }
+.swiper-slide {-webkit-flex-shrink: 0;-ms-flex: 0 0 auto;flex-shrink: 0;width: 100%;height: 100%;position: relative;}
+.swiper-pagination {position: absolute;z-index: 20;right: 0px;width: 100%;text-align: center;bottom: 15px;}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {margin: 0 5px;}
+.swiper-pagination-clickable .swiper-pagination-bullet {cursor: pointer;}
+.swiper-pagination-bullet {width: 8px;height: 8px;display: inline-block;border-radius: 100%;background: #cccccc;opacity: 0.8;}
+.swiper-pagination-bullet-active {opacity: 0.8;background: #ff4d45;  }
+
+#pageLoadTip {background-color: white;position: fixed;z-index: 9999;top: 0px;bottom: 0px;left: 0;width: 100%;overflow: hidden;}
+#pageLoadTip div{height: 50px;line-height: 50px;text-align: center;padding-top: 50px;background: url(../images/lottery/loading.gif) no-repeat;background-position: center top;background-size: 50px;}
+
+.motify {display: none;position: fixed;top: 50%;left: 50%;width: 250px;padding: 0;margin: -20px 0 0 -125px;z-index: 10000;background: rgba(0, 0, 0, 0.8);color: #fff;font-size: 14px;line-height: 40px;border-radius: 6px;-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);}
+.motify .motify-inner {text-align: center;word-wrap: break-word;}
+
+
+@media screen and (min-width: 320px){
+    html{
+        font-size: 42.667px; 
+    }
+}
+@media screen and (min-width: 330px){
+    html{
+        font-size: 44px; 
+    }
+}
+@media screen and (min-width: 340px){
+    html{
+        font-size: 45.33px; 
+    }
+}
+@media screen and (min-width: 350px){
+    html{
+        font-size: 46.667px; 
+    }
+}
+@media screen and (min-width: 360px){
+    html{
+        font-size: 48px; 
+    }
+}
+
+@media screen and (min-width: 375px){
+    html{
+        font-size: 50px; 
+    }
+}
+
+@media screen and (min-width: 385px){
+    html{
+        font-size: 51.33px; 
+    }
+}
+
+@media screen and (min-width: 395px){
+    html{
+        font-size: 52.667px; 
+    }
+}
+
+@media screen and (min-width: 414px){
+    html{
+        font-size: 55.2px; 
+    }
+}
+
+@media screen and (min-width: 425px){
+    html{
+        font-size: 56.667px; 
+    }
+}
+
+@media screen and (min-width: 435px){
+    html{
+        font-size: 58px; 
+    }
+}
+
+@media screen and (min-width: 445px){
+    html{
+        font-size: 69.53125px; 
+    }
+}
+
+@media screen and (min-width: 480px){
+    html{
+        font-size: 59.33px; 
+    }
+}
+
+@media screen and (min-width: 640px){
+    html{
+        font-size: 85.33px; 
+    }
+}
+
+@media screen and (min-width: 750px){
+    html{
+        font-size: 100px; 
+    }
+}
+
+
+.luck{ background: url(../images/lottery/cjt_02.jpg) top no-repeat #f0c856;; background-size:100% 10.66rem; }
+.luck_top .title{ color: #fff; text-align: center;padding: 0.4rem 1.4rem 0.35rem 1.4rem; font-size: 0.73rem;text-shadow: 3px 3px 3px #bd1008;  }
+.luck_mid{ height: 5.88rem; width: calc(100% - 0.2rem); background: #bd1008; border-radius: 0.2rem;  position: relative; left: 0.1rem; text-align: center;;}
+.luck_mid .luck_h2{ height: 0.44rem; padding: 0 0.29rem 0 0.77rem; line-height: 0.44rem; font-size: 0.26rem; display: inline-block; color: #fff; background: #9a100b; margin:0.34rem 0 0.26rem 0;  border-radius:50px; position: relative;}
+.luck_mid .luck_h2:after{ content: ''; display: block; left: 0.05rem; top: -0.19rem; background: url(../images/lottery/cjt_03.png) left center no-repeat; background-size: 0.6rem 0.66rem; position: absolute; width: 0.6rem; height: 0.66rem; }
+.luck_mid .luck_h2 i{ font-size: 0.42rem;  color: #f9df04; vertical-align: middle; position: relative; top: -0.05rem; }
+.luck_mid .dbj{ height: 4.72rem; background: url(../images/lottery/bjt_03.jpg) center no-repeat; background-size: 100% 4.72rem; position: relative; left: 0.1rem; width: calc(100% - 0.2rem); }
+.luck_mid .dbj .ul{ padding: 0.33rem 0.36rem;  }
+.luck_mid .dbj table{ position: relative; width: 100%; }
+.luck_mid .dbj td{ height: 1.30rem; border-radius: 0.2rem; background: #ffbdbd; width: 25%; border: #da0112 1px solid;  }
+.luck_mid .dbj td .img{ width: 0.74rem; height: 0.55rem; display: inline-block; vertical-align: middle;  padding-bottom: 0.12rem; }
+.luck_mid .dbj td p{ font-size: 0.2rem; line-height: 1.4; padding: 0 0.05rem; color: #990101;  }
+.luck_mid .dbj td .con{ height: 1.20rem;  background: #ffffff; border-radius: 0.2rem; position: relative;top: -0.05rem; display: table-cell; vertical-align: middle;  width:1%; }
+.luck_mid .dbj td.click{ background: #e58e01; }
+.luck_mid .dbj td.click .con{ background: url(../images/lottery/bjt_03.png) center no-repeat; background-size: 100% 1.20rem; font-size: 0.45rem; font-weight: bold; color: #f3291b; line-height: 1.2rem; display: block; width: 100%; }
+
+.luck_mid .dbj td.active{ background: #e58e01; }
+.luck_mid .dbj td.active .con{ background: #ffe400; }
+
+.luck_bot{ background: #f7b104; padding: 0.6rem 0.2rem 0.3rem 0.2rem; margin-top: 2.35rem; }
+.luck_bot .con{ border: #f29033 0.1rem solid;   position: relative; }
+.luck_bot .con .h2{ position: absolute; width: 2rem; height: 0.6rem; text-align: center; line-height: 0.6rem; font-size: 0.34rem; color: #ff3831;  border: #f29033 0.1rem solid; top: -0.4rem; left: 50%; margin-left: -1rem; background: #f7b104;  }
+.luck_bot .con .p{padding: 0.55rem 0.3rem 0.3rem 0.3rem; color: #ff3831; font-size: 0.22rem; line-height: 0.38rem;}
+
+.popup{ position: fixed; height: 6.88rem; background: url(../images/lottery/zjl.png) center no-repeat;  background-size: 100% 6.88rem; top: 50%; margin-top: -4.44rem; left: 0px; width: 100%; z-index: 99;  -webkit-animation:bounceIns 0.8s 0s ease both;-moz-animation:bounceIns 0.8s 0s ease both;  text-align: center; display: none;  }
+.mask{ position: fixed; left:0px; top: 0px; height: 100%; width: 100%;  background: rgba(0,0,0,0.8); z-index: 9; display: none; }
+
+.popup h2{ color: #fff;  font-size: 0.45rem; font-weight: bold; text-shadow: 3px 3px 3px #d22120; width: 3.60rem; line-height: 0.8rem; position: absolute; bottom: 2.85rem; left: 50%; margin-left: -1.8rem;}
+
+.popup p{ font-size: 0.28rem; color: #e8403e; line-height: 0.44rem; width: 3.60rem; position: absolute; top: 3.95rem;  left: 50%; margin-left: -1.8rem; }
+
+.popup .buton{ width: 3.18rem; height: 0.82rem; background: url(../images/lottery/tup_03.png) center no-repeat; background-size: 3.18rem 0.82rem; color: #c00e18; font-size: 0.3rem; line-height: 0.82rem; position: absolute; bottom: 0.4rem; left: 50%; margin-left: -1.59rem;  }
+
+@-webkit-keyframes bounceIns{
+0%{opacity:0;
+-webkit-transform:scale(.3)}
+50%{opacity:1;
+-webkit-transform:scale(1.05)}
+70%{-webkit-transform:scale(.9)}
+100%{-webkit-transform:scale(1)}
+}
+@-moz-keyframes bounceIns{
+0%{opacity:0;
+-moz-transform:scale(.3)}
+50%{opacity:1;
+-moz-transform:scale(1.05)}
+70%{-moz-transform:scale(.9)}
+100%{-moz-transform:scale(1)}
+}

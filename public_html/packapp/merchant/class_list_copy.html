@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>分类列表</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/class_list.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		 <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+		<h1 class="mui-title">分类列表</h1>
+		<a class="mui-pull-right open_list" data-type="0" data-id="0" href="javascript:;"><i></i> 添加分类</a>
+	</header>
+	<div class="mui-content">
+	  
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="classLists" type="text/html">
+	{{# for(var i = 0; i < d.length; i++){ }}
+		<div class="mui-card" data-id="{{ d[i].sort_id }}">    
+			<div class="mui-card-header edge_color">     
+		  		<span>{{ d[i].sort_name }}</span>     
+		  		<p>
+		  			<b class="open_list"  data-id="{{ d[i].sort_id }}" data-type="1"></b>     
+		  			<i class="delate_class" data-id="{{ d[i].sort_id }}" ></i>
+		  		</p>         
+		  	</div>    
+			<div class="mui-card-content week_discount">     
+			  	<div class="list_discount mui-row">      
+			  		<div class="mui-col-sm-4"><span><b></b> 折扣</span></div>      
+			  			<div class="mui-col-sm-8"><span>{{ d[i].sort_discount }}折</span></div>    
+			  	</div> 
+			  	{{# if(d[i].is_weekshow == '1' && d[i].week!=""){ }}
+					<div class="list_week mui-row">
+						<div class="mui-col-sm-4"><span><b></b> 星期几显示</span></div>
+						<div class="mui-col-sm-8">
+							<ul>
+								{{# var arr=d[i].week_str.split(" "); }}
+								
+								{{# for(var k = 0; k < arr.length; k++){ }}
+									<li class="mui-pull-left">{{ arr[k] }}</li>
+								{{# } }}
+							</ul>
+						</div>
+					</div>
+				{{# } }}    
+			  	         
+			</div>           
+		</div>
+		
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+mui.init();
+var ticket = common.getCache('ticket');
+var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+var shopId= $.getUrlParam('store_id');
+function pageShowFunc(){
+	location.reload(true);
+}
+setTimeout(function(e){
+	window.addEventListener('pageshow', function(event) {
+	  	pageShowFunc();
+	});
+},1000);
+common.http('WapMerchant&a=foodshopSort',{'ticket':ticket,'client':client,'store_id':shopId},function(data){
+	console.log(data);
+	if(data.length==0||data==null){
+		mui.toast('还没有分类哦,快去添加吧');
+	}else{
+		laytpl(document.getElementById('classLists').innerHTML).render(data, function(html){
+			// console.log(html);
+			$('.mui-content').html(html);
+		});
+	}
+});
+
+mui('body').on('tap','.open_list',function(e){
+	var type=$(this).data('type');
+	var sortId=$(this).data('id');
+	openWindow({
+		url:'new_category_copy.html?type='+type+'&sortId='+sortId+'&shopId='+shopId,
+		id:'new_category_copy'
+	});
+	//window.location.href='new_category_copy.html?type='+type+'&sortId='+sortId+'&shopId='+shopId;
+});
+
+//删除按钮的判断
+mui('.mui-content').on('tap','.delate_class',function(e){
+	var sort_id=$(this).data('id');
+	var me=this;
+	
+	mui.confirm('该分类一旦删除不可恢复！', function(e) {
+        if (e.index == 1) {
+        	// 删除分类调用方法
+           common.http('WapMerchant&a=foodSortDel',{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':sort_id},function(data){
+           		console.log(data);
+           		if(data.length==0){
+           			$(me).parents('.mui-card').remove();
+           			mui.toast("删除成功");
+
+           		}
+           });	
+        } 
+    });
+
+	
+});
+function pageShowFunc(){
+	location.reload(true);
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+ul,li,ol,dd,dl,dt{
+	list-style:none;
+	margin: 0;
+	padding: 0;
+}
+.mui-bar-nav{
+	background-color: #FFA200;
+}
+.mui-bar-nav h1{
+	/*font-weight: bold;*/
+	color: #fff;
+}
+.mui-bar-nav div{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	color:#FFFFFF;
+	background: url('../images/666_03.png') center no-repeat;
+	background-size: contain;
+	margin-top: 10px;
+}
+
+/**/
+.mui-content ul li{
+	margin: 30px 8% 0 8%;
+	width: 84%;
+	padding: 10px 0;
+	border-radius: 8px;
+	text-align: center;
+	font-size: 0;
+}
+
+.mui-content ul li:nth-of-type(1){
+	background: #FF7EB0;
+	 -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0);
+    -webkit-box-shadow: 0 10px 20px rgba(201, 72, 210,0.4);
+    box-shadow: 0 0 20px 1px rgba(201, 72, 210,0.4);
+}
+.mui-content ul li:nth-of-type(2){
+	background: #4AD1FF;
+	 -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0);
+    -webkit-box-shadow: 0 10px 20px rgba(42, 175, 214, 0.39);
+    box-shadow: 0 0 20px 1px rgba(42, 175, 214, 0.39);
+}
+.mui-content ul li:nth-of-type(3){
+	background: #AB90FE;
+	 -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0);
+    -webkit-box-shadow: 0 10px 20px rgba(201, 72, 210,0.4);
+    box-shadow: 0 0 20px 1px rgba(201, 72, 210,0.4);
+}
+.mui-content ul li:nth-of-type(4){
+	background: #2ECC71;
+	 -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0);
+    -webkit-box-shadow: 0 10px 20px rgba(201, 72, 210,0.4);
+    box-shadow: 0 0 20px 1px rgba(201, 72, 210,0.4);
+}
+.mui-content ul li:nth-of-type(5){
+	background: #e83232;
+	 -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0);
+    -webkit-box-shadow: 0 10px 20px rgba(201, 72, 210,0.4);
+    box-shadow: 0 0 20px 1px rgba(201, 72, 210,0.4);
+}
+.mui-content ul li span:last-child{
+	font-size: 16px;
+	color: #fff;
+}
+
+
+
+.shop_m{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background: url(../images/888_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: bottom;
+}
+ .peci{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background: url(../images/de1ws.png) center no-repeat;
+	background-size: 22px 22px;
+	vertical-align: bottom;
+}
+ .shop{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background: url(../images/1-_05.png) center no-repeat;
+	background-size: contain;
+	vertical-align: bottom;
+}
+.eat{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background: url(../images/1-_07.png) center no-repeat;
+	background-size: contain;
+	vertical-align: bottom;
+}
+.tui{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background: url(../images/tui1.png) center no-repeat;
+	background-size: 22px 22px;
+	vertical-align: bottom;
+}

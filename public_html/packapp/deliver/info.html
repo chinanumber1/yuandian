@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>配送员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/deliver.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<section class="MyEx fillBg">
+			<div class="MyEx_top">
+				<span class="bjt"></span>  
+				<!--p class="pei-name"><span id="deliver_info-name"></span><span>见习骑士 ></span></p--><!--  id="deliver_info-name" -->
+				<p class="peiEvelaue"><span class="sj" id="deliver_info-tip"></span>
+					<br>
+					<b><i id="scoreWidth"></i></b> 
+					<span class="fens" id="score"></span>
+				</p>
+				<span class="mc" id="deliver_info-store_name"></span>
+			</div>
+			<div class="MyEx_end">
+				<ul>
+					<li class="cfe">
+						<h2 id="finish_total">0</h2>
+						<p>累计完成数量</p>
+					</li>
+					<li class="c65">
+						<h2 id="total">0</h2>
+						<p>累计抢单数量</p>
+					</li>
+					<li class="c66">
+						<h2 id="distance">0</h2>
+						<p>累计公里数</p>
+					</li>
+				</ul> 
+			</div>
+			<a href="javascript:void(0);" class="Setup"></a>
+		</section>
+		<section class="bottom pageSliderHide">
+			<div class="bottom_n">
+				<ul>
+					<li class="Statistics fl">
+						<a href="tongji.html" data-url-type="openLeftWindow">统计</a>
+					</li>
+					<li class="home fl">
+						<a href="index.html" data-url-type="openLeftWindow"><i></i>首页</a>
+					</li>
+					<li class="My Myon fl">
+						<a href="javascript:void(0);">我的</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/work/common.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/info.js"></script>
+	</body>
+</html>

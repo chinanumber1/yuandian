@@ -1,0 +1,1 @@
+<div id="nav" class="mainnav_title">	<ul>			<a href="{pigcms{:U('Config/index',array('galias'=>'AccountDeposit','header'=>'AccountDeposit/header'))}">云商通</a>		<a href="{pigcms{:U('Config/index',array('galias'=>'Juhe','header'=>'AccountDeposit/juhe_header'))}"  class="on">聚合支付</a>	</ul></div>

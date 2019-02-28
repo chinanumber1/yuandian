@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+    </head>
+    <body style="background: #2ecc71;">
+        <section class="public">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+            <div class="content">创建成功</div>
+        </section>
+        <section class="success">
+            <div class="fillet">
+                <div class="suces_top">
+                    <div class="img">
+                        <img src="images/t_03.jpg" width=80%>
+                    </div>
+                    <h2></h2>
+                    <p>订单总价：<span class="ecc">￥<span id="total_price"></span></p>
+                    <p id="discount_money_dom">优惠金额：<span class="f33">￥<span id="discount_money"></span></span></p>
+                    <p>实付金额：<span class="ecc">￥<span id="pay_money"></span></span></p>
+                    <p class="c99" id="txt_info_dom">订单备注：<span id="txt_info"></span></p>
+                    <div class="line"></div>
+                </div>
+                <div class="suces_mid">
+                    <div class="bun" id="printOrder">
+                        <span>打印订单</span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="suces_bot clr">
+				<p  class="title_offline">线上支付：</p>
+                    <div class="fl user_code" id="scanQrcode">
+                        <div class="user">
+                            <img src="images/cjcgt_10.png"/>   
+                            <p>扫用户码</p>
+                        </div>
+                    </div>
+                    <div class="fr scan_code">
+                        <div class="scan">
+                            <img src="images/cjcgt_07.png"/>   
+                            <p>用户扫码</p>
+                        </div>
+                    </div>
+                </div>
+				<div class="suces_bot clr" id="offlinepay">
+				<p class="title_offline">线下支付：</p>
+				</div>
+            </div>
+            <div class="top1"></div>
+            <div class="top2"></div>
+        </section> 
+		
+        <div class="fix_ewm">
+            <img src="" id="scan_code_img"/>
+            <div class="del"></div>
+        </div>
+		 <script id="payoffline_tpl" type="text/html">
+            {{# for(var i = 0, len = d.length; i < len; i++){ }}
+				
+				 <button class="bun offlinepay_click" data-id="{{ d[i].id }}">
+                        {{ d[i].name }}
+				</button>
+            {{# } }}
+        </script>
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/cashier_success.js"></script>
+		
+    </body>
+</html>

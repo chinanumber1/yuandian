@@ -1,0 +1,35 @@
+.webuploader-container
+{
+    position: relative;
+    height: 30px;
+    width: 90px;
+}
+
+.webuploader-element-invisible
+{
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+
+.webuploader-pick
+{
+    height: 30px;
+    width: 90px;
+    background-color: #3caf59;
+    color: #ffffff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.webuploader-pick-hover
+{
+}
+
+.webuploader-pick-disable
+{
+    opacity: 0.6;
+    pointer-events:none;
+}

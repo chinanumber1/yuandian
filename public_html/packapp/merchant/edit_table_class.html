@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>编辑桌台分类</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/edit_table_class.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">编辑桌台分类</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="mui-card">
+	    	<div class="mui-card-content">
+				<span class="left_style">分类名称</span>
+				<input type="text" value="" class="name" style="width: 67%;" placeholder="请输入分类名称"/>
+			</div>
+			<div class="mui-card-content">
+				<span class="left_style">容纳最少人数</span>
+				<ul>
+					<li><input type="tel" class="min_people" placeholder="请输入容纳最少人数" /></li>
+				</ul>
+				
+			</div>
+			<div class="mui-card-content">
+				<span class="left_style">容纳最多人数</span>
+				<ul>
+					<li><input type="tel" class="max_people" placeholder=" 请输入容纳最多人数" /></li>
+				</ul>
+				
+			</div>
+			<div class="mui-card-content deposit">
+				<span class="left_style">预定金</span>
+				<input type="tel" class="deposit assd" placeholder="请输入金额" />
+				<i>元</i>
+			</div>
+			<div class="mui-card-content deposit">
+				<span class="left_style" style="position: fixed;">排号前缀</span>
+				<ul style="margin-left: 32%;">
+					<li><input type="text" class="number_prefix" value=""/></li>
+					<li><span>* 在排号时区分桌台类型(如大桌用:D,小桌用S,等,得到的排号D1、D2、S2等)</span></li>
+				</ul>
+				
+			</div>
+			<div class="mui-card-content user_time">
+				<span class="left_style" style="position: fixed;">使用时间</span>
+				<ul style="margin-left: 32%;">
+					<li><input type="tel" class="use_time" placeholder=" 请输入时间" /> <i> 分钟</i></li>
+					<li><span>* 该类型下的桌台每次使用时间大约是多长时间，如一个小时，那么下一桌大约60分钟以后才能使用</span></li>
+				</ul>		
+			</div>
+	    </div>
+	    <div style="padding-bottom: 60px;"></div>
+	    <nav class="mui-bar mui-bar-tab">
+	       <a href="javascript:;">保存</a>
+	   </nav>
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    mui.init();
+    var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var store_id=$.getUrlParam('store_id');//店铺ID
+	var typeId=$.getUrlParam('typeId');
+	common.http('WapMerchant&a=typeModify',{'ticket':ticket,'client':client,'store_id':store_id,'typeId':typeId},function(data){
+		console.log(data);
+		if(data.length!=0){
+			$('.name').val(data.name);
+			$('.min_people').val(data.min_people);
+			$('.max_people').val(data.max_people);
+			$('.deposit').val(data.deposit);
+			$('.number_prefix').val(data.number_prefix);
+			$('.use_time').val(data.use_time);
+		}
+	});
+
+	mui('.mui-bar-tab').on('tap','a',function(e){
+		var name=$('.name').val();
+		var min_people=	$('.min_people').val();
+		var max_people=	$('.max_people').val();
+		var deposit=Number($('.assd').val());
+		var number_prefix=	$('.number_prefix').val();
+		var use_time=$('.use_time').val();
+		if(deposit<0){
+			deposit=0;
+			mui.toast('金额必须大于等于0');
+		}else{
+			common.http('WapMerchant&a=typeSave',{'ticket':ticket,'client':client,'store_id':store_id,'typeId':typeId,'name':name,'min_people':min_people,'deposit':deposit,'number_prefix':number_prefix,'use_time':use_time,'max_people':max_people},function(data){
+				if(data.length==0){
+					if(typeId==0){
+						mui.toast('新建成功');
+						if(common.checkApp()){
+							setTimeout(function(){
+								if(common.checkAndroidApp()){
+														window.pigcmspackapp.closewebview(2);
+													}else{
+														common.iosFunction('closewebview/2');
+													}
+							},2000);
+						}else{
+							setTimeout(function(){
+								history.go(-1);
+								document.execCommand('Refresh');
+							},2000); 
+						}	 
+					}else{
+						mui.toast('修改成功');
+						if(common.checkApp()){
+							setTimeout(function(){
+								if(common.checkAndroidApp()){
+														window.pigcmspackapp.closewebview(2);
+													}else{
+														common.iosFunction('closewebview/2');
+													}
+							},2000);
+						}else{
+							setTimeout(function(){
+								history.go(-1);
+								document.execCommand('Refresh');
+							},2000); 
+						}	
+					}
+				}
+			});
+		}
+		
+		
+		
+	});
+	
+</script>
+</body>
+</html>

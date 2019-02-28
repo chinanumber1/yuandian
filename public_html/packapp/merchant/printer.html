@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>打印机管理</title>
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/printer.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">打印机管理</h1>
+	    <a href="javascript:;" class="mui-pull-right"><i></i>添加</a>
+	</header>
+	<div class="mui-content"></div>
+	<script id="printListTpl" type="text/html">
+		{{# for(var i = 0, len = d.length; i < len; i++){ }}
+			<div class="mui-card">
+				<div class="mui-card-content mui-clearfix">
+					<ul class="mui-pull-left">
+						<li>打印机名称: <span>{{ d[i].name }}</span></li>
+						<li>所属店铺: <span>{{ d[i].store_name }}</span></li>
+						<li>主打印机: <span>{{# if(d[i].is_main == 1){ }}是{{# }else{ }}否{{# } }}</span></li>
+						<li>打印份数: <span>{{ d[i].count }}</span></li>
+					</ul>
+					<ul class="mui-pull-right">
+						<li class="edit" print_id="{{ d[i].pigcms_id }}"><i></i> 编辑</li>
+						<li class="delate" print_id="{{ d[i].pigcms_id }}"><b></b> 删除</li>
+					</ul>
+				</div>
+			</div>
+		{{# } }}
+	</script>
+	<script src="js/fastclick.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/work/printer.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

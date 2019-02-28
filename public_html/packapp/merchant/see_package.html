@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>查看套餐</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/new_package_two.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">查看套餐</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="add_variety">
+	    	
+			
+	    </div>
+	    
+	    
+	   
+	    
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="attrLists" type="text/html">	
+	{{# for(var i in d){ }}
+		 <div class="mui-card" data-id="{{ d[i].id }}">
+	    	<div class="mui-card-content mui-clearfix">
+				<span class="left_style">可选数</span>
+				<span class="num">{{ d[i].num }}</span>
+			</div>
+			
+			<div class="mui-card-content variety">
+				
+				<table cellspacing="" cellpadding="">
+					<thead>
+						<tr>
+							<th>菜品名称</th>
+							<th>菜品价格</th>
+						
+						</tr>
+					</thead>
+					<tbody>
+					{{# if(d[i].goods_list && d[i].goods_list.length>0){ }}
+						{{#  for(var k=0; k< d[i].goods_list.length;k++  ){ }}
+							<tr data-goodsid="{{ d[i].goods_list[k].goods_id }}">
+								<td>{{ d[i].goods_list[k].name }}</td>
+								<td>{{ d[i].goods_list[k].price }}</td>
+								
+							</tr>
+						{{# } }}
+					{{# } }}
+						
+					</tbody>
+					
+				</table>
+			</div>
+	    </div>
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+  	mui.init();
+  	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var store_id=$.getUrlParam('store_id');
+	var id=$.getUrlParam('id');
+	common.http('WapMerchant&a=packageModify',{'ticket':ticket,'client':client,'store_id':store_id,'id':id},function(data){
+		console.log(data);
+		laytpl(document.getElementById('attrLists').innerHTML).render(data.goods_detail, function(html){
+			//console.log(html);
+			$('.add_variety').html(html);
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+<meta charset="utf-8" />
+<title>店员中心</title>
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name='apple-touch-fullscreen' content='yes' />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="address=no" />
+<link href="css/pigcms.css" rel="stylesheet" />
+</head>
+<body style="background: #2ecc71">
+	<section class="public pageSliderHide">
+		<div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+		<div class="content">订单列表</div>
+		<div class="found">创建订单</div>
+	</section>
+	<section class="menu p40">
+		<ul class="clr ul_list">
+			<li class="fl f27">
+			<a href="foodshop_order_list.html?status=1" data-webview="true">
+			<div class="li_n">
+				<h2 id="book_count">0</h2>
+				<p>预订中</p>
+			</div>
+			</a>
+			</li>
+			<li class="fl a66">
+			<a href="foodshop_order_list.html?status=4" data-webview="true">
+			<div class="li_n">
+				<h2 id="confirm_count">0</h2>
+				<p>待确认菜品</p>
+			</div>
+			</a>
+			</li>
+			<li class="fl bcf">
+			<a href="foodshop_order_list.html?status=2" data-webview="true">
+			<div class="li_n">
+				<h2 id="eating_count">0</h2>
+				<p>就餐中</p>
+			</div>
+			</a>
+			</li>
+			<li class="fl ff6">
+			<a href="foodshop_order_list.html?status=3" data-webview="true">
+			<div class="li_n">
+				<h2 id="pay_count">0</h2>
+				<p>已买单</p>
+			</div>
+			</a>
+			</li>
+			<li class="fl aab">
+			<a href="foodshop_order_list.html?status=5" data-webview="true">
+			<div class="li_n">
+				<h2 id="cancel_count">0</h2>
+				<p>已取消</p>
+			</div>
+			</a>
+			</li>
+			<li class="fl f62">
+			<a href="foodshop_order_list.html?status=0" data-webview="true">
+			<div class="li_n">
+				<h2 id="all_count">0</h2>
+				<p>全部</p>
+			</div>
+			</a>
+			</li>
+		</ul>
+	</section>
+	
+	<div class="Mask"></div>
+	<script src="scripts/jquery-1.8.3.min.js"></script>
+	<script src="scripts/fastclick.js"></script>
+	<script src="scripts/layer/layer.m.js"></script>
+	<script src="scripts/common.js"></script>
+	<script src="scripts/work/foodshop_create.js"></script>
+	<script>
+		$(document).ready(function(){
+		    getData();
+		    setInterval('getData()', 1000);
+	        $(".ul_list li").each(function() {
+	            $(this).height($(this).width() * 0.85)
+	        });
+		});
+		function getData()
+		{
+		    common.http('Storestaff&a=foodshop', {'noTip':true}, function(data){
+				$('#cancel_count').html(data.cancel_count);
+				$('#all_count').html(data.all_count);
+				$('#pay_count').html(data.pay_count);
+				$('#eating_count').html(data.eating_count);
+				$('#book_count').html(data.book_count);
+				$('#confirm_count').html(data.confirm_count);
+			});
+		}
+	</script>
+</body>
+</html>

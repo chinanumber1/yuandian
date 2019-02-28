@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!--html lang="zh-CN" manifest="appcache.php"-->
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>店员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/pigcms.css" rel="stylesheet"/>
+	</head>
+	<style>
+	  #printerAdd .layermcont {
+                   padding: 11px 15px !important;
+                  border-bottom: 1px solid #eee;
+                   font-size: 20px;
+            
+            }
+            .bluetooth.active, .noBluetooth.active{
+            	color:#2ecc71;
+            }
+	 </style>
+	<body>
+		<section class="page hide" id="startBg">
+			<img src="bg.png" style="height:100%;width:100%;"/>
+		</section>
+		<div class="tishi clr"><span>当前有蓝牙打印机已断开，请先确认以免耽误正常打印</span><i class="fr"></i></div>
+		<section class="page hide" id="cashierPage">
+
+			<section class="indexCashierTop clr">
+				<div class="fl left link-url" data-url="cashier_set.html" data-webview="true">
+					<div class="icon"></div>
+					<div class="text">收银</div>
+				</div>
+				<div class="fl center link-url" data-url="retail.html" data-webview="true">
+					<div class="icon"></div>
+					<div class="text">零售</div>
+				</div>
+				<div class="fl right" id="cashierScanCode">
+					<div class="icon"></div>
+					<div class="text">扫一扫</div>
+				</div>
+			</section>
+			<section class="indexCashierContanier clr">
+				<div class="fl left link-url groupBox" data-url="group_list.html" data-webview="true">
+					<div class="pos">
+						<img src="images/cashier_group.png"/>
+						<p class="groupName"></p>
+						<div class="loader hide2 group_loader"><em></em></div>
+					</div>
+				</div>
+				<div class="fl left link-url shopBox" data-url="shop.html" data-webview="true">
+					<div class="pos">
+						<img src="images/cashier_shop.png"/>
+						<p class="shopName"></p>
+						<div class="loader hide2 shop_loader"><em></em></div>
+					</div>
+				</div>
+				<div class="fl left link-url mealBox" data-url="foodshop.html" data-webview="true">
+					<div class="pos">
+						<img src="images/cashier_food.png"/>
+						<p class="mealName"></p>
+						<div class="loader hide2 meal_loader"><em></em></div>
+					</div>
+				</div>
+				<div class="fl left link-url appointBox" data-url="appoint.html" data-webview="true">
+					<div class="pos">
+						<img src="images/cashier_appoint.png"/>
+						<p class="appointName"></p>
+						<div class="loader hide2 appoint_loader"><em></em></div>
+					</div>
+				</div>
+				<div class="fl left link-url storeBox" data-url="store.html" data-webview="true">
+					<div class="pos">
+						<img src="images/cashier_buy_s.png"/>
+						<p class="storeName"></p>
+						<div class="loader hide2 store_loader"><em></em></div>
+					</div>
+				</div>
+				<div class="fl left link-url cashBox" data-url="cashier.html" data-webview="true">
+					<div class="pos">
+						<img src="images/cashier_pay_s.png"/>
+						<p class="cashName"></p>
+					</div>
+				</div>
+				<div class="fl left link-url" data-url="store_qrcode.html" data-webview="true">
+					<div class="pos">
+						<img src="images/cashier_code.png"/>
+						<p>台 卡</p>
+					</div>
+				</div>
+				<div class="fl left link-url sub_card" style="display:none;" data-url="sub_card_order_list.html" data-webview="true">
+					<div class="pos">
+						<img src="images/sub_card.png"/>
+						<p>免单</p>
+					</div>
+				</div>
+				<div class="fl left printer" style="display:none;">
+					<div class="pos">
+						<img src="images/cashier_printer.png"/>
+						<p>打印参数</p>
+					</div>
+				</div>
+				<div class="fl left printerAdd" style="display:none;">
+					<div class="pos">
+						<img src="images/cashier_printer.png"/>
+						<p>连接蓝牙打印</p>
+					</div>
+				</div>
+				<div class="fl left openShopApp " style="display: none;">
+					<div class="pos">
+						<img src="images/shop1.png"/>
+						<p>店铺管理</p>
+					</div>
+				</div>
+			
+				<div class="fl left link-url couponList" data-url="couponList.html" data-webview="true">
+					<div class="pos">
+						<img src="images/coupon.png"/>
+						<p>优惠券</p>
+					</div>
+				</div>
+				<div class="fl left link-url" data-url="setting.html" data-webview="true">
+					<div class="pos">
+						<img src="images/cashier_setting.png"/>
+						<p>设 置</p>
+					</div>
+				</div>
+			</section>
+			<section class="indexCashierFooter">
+				<span id="footer_store_name"></span> >
+				<span id="footer_staff_name"></span>	
+			</section>
+		</section>
+		<section class="page hide" id="mainPage">
+			<section class="public pageSliderHide">
+				<div class="content">店员中心</div>
+			</section>
+			<section class="group">
+				<div class="tit pageSliderHide">
+					<h2><span id="staff_name"></span> 您好，欢迎登录店员中心！</h2>
+				</div>
+				<div class="group_list">
+					<ul class="clr">
+						<li class="fl groupBox">
+							<a href="group_list.html">
+								<div class="pos">
+									<img src="images/index_03.png"/>
+									<p class="groupName"></p>
+									<div class="loader hide2 group_loader"><em></em></div>
+								</div>
+							</a>
+						</li>
+						<li class="fl shopBox">
+							<a href="shop.html">
+								<div class="pos">
+									<img src="images/index_10.png"/>
+									<p class="shopName"></p>
+									<div class="loader hide2 shop_loader"><em></em></div>
+								</div>
+							</a>
+						</li>
+						<li class="fl mealBox">
+							<a href="foodshop.html">
+								<div class="pos">
+									<img src="images/index_05.png"/>
+									<p class="mealName"></p>
+									<div class="loader hide2 meal_loader"><em></em></div>
+								</div>
+							</a>
+						</li>
+						<li class="fl appointBox">
+							<a href="appoint.html">
+								<div class="pos">
+									<img src="images/index_11.png"/>
+									<p class="appointName"></p>
+									<div class="loader hide2 appoint_loader"><em></em></div>
+								</div>
+							</a>
+						</li>
+						<li class="fl storeBox">
+							<a href="store.html">
+								<div class="pos">
+									<img src="images/index_16.png"/>
+									<p class="storeName"></p>
+									<div class="loader hide2 store_loader"><em></em></div>
+								</div>
+							</a>
+						</li>
+						<li class="fl cashBox">
+							<a href="cashier.html">
+								<div class="pos">
+									<img src="images/index_17.png"/>
+									<p class="cashName"></p>
+								</div>
+							</a>
+						</li>
+						<li class="fl ">
+							<a href="sub_card_order_list.html" >
+								<div class="pos">
+									<img src="images/freeMoney.png"/>
+									<p>免 单</p>
+								</div>
+							</a>
+						</li>
+						<li class="fl ">
+							<a href="store_qrcode.html" >
+								<div class="pos">
+									<img src="images/taika.png"/>
+									<p>台 卡</p>
+								</div>
+							</a>
+						</li>
+						<li class="fl ">
+							<a href="javascript:;"  class='openShopApp' style="display: none;">
+								<div class="pos">
+									<img src="images/shopBoss.png"/>
+									<p>店铺管理</p>
+								</div>
+							</a>
+						</li>
+						<li class="fl ">
+							<a href="setting.html" id="">
+								<div class="pos">
+									<img src="images/compare.png"/>
+									<p>设 置</p>
+								</div>
+							</a>
+						</li>
+						<li class="fl scanQrcodeBox">
+							<a href="javascript:;" id="scanQrcode">
+								<div class="pos">
+									<img src="images/index_21.png"/>
+									<p>扫 一 扫</p>
+								</div>
+							</a>
+						</li>
+					
+						<li class="fl groupBox">
+							<a href="couponList.html">
+								<div class="pos">
+									<img src="images/coupon_big.png"/>
+									<p>优 惠 券</p>
+								</div>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="javascript:;" id="loginout">
+								<div class="pos">
+									<img src="images/index_22.png"/>
+									<p>退 出</p>
+								</div>
+							</a>
+						</li>
+						<li class="fl hide" id="noScanShow"></li>
+						<li class="left icon"></li>
+						<li class="right icon"></li>
+						<li class="leftbot icon"></li>
+						<li class="rightbot icon"></li>
+					</ul>
+				</div>
+				
+			</section>
+		</section>
+		<div id='printerAdd' style='display:none'>
+					<div  class="layermbox layermbox0 layermshow" index="0" >
+					   <div class="laymshade"></div>
+					   <div class="layermmain">
+					     <div class="section" >
+					        <div class="layermchild layermanim" style='min-width: 65%;text-align:center'>
+					          <div style='margin-top:15px;margin-bottom:10px;font-size:16px'>连接蓝牙打印</div>
+					          <div style=' max-height: 184px; overflow-y: scroll;' id='kd_entry'>
+					          	
+					          </div>
+					          <div class="layermcont noBluetooth" style='font-size:16px'>暂不连接</div>
+					        </div>
+					     </div>
+					   </div>
+					</div>
+				</div>
+	<script id="cardlist" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+	   {{#  var print_mobile_code=d[i].print_mobile_code }}
+	   {{#  var type=laytpl.mobileCode(print_mobile_code) }}
+       {{# if(type){ }}
+	 	 <div class="layermcont bluetooth" data-code='{{d[i].print_bluetooth_code}}' data-mkey='{{d[i].mkey}}'>{{d[i].name}}</div>
+	   {{# } }}
+	{{# } }}
+</script>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/index.js?android=appbackmonitor"></script>
+	</body>
+</html>

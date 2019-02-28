@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+        <link href="css/mobiscroll_min.css" rel="stylesheet"/>
+         <style>
+            .p40 {
+                margin-top: 150px;
+            }
+             .imgmin{
+                 width: 20%;
+                 height: 20%;
+             }
+             .imgmax{
+                 width: 100%;
+                 height: auto;
+             }
+        </style>
+    </head>
+    <body>
+        <section class="public">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url="back" data-closewebview="true"></div>
+            <div class="content">订单详情</div>
+        </section>
+        <section class="defrayal" style="top: 44px;">
+            <div class="defrayal_n">
+            </div>
+        </section>
+        <section class="g_details p40"></section>
+        <section class="amend">
+            <div class="alter">
+                <h2>修改金额</h2>
+                <div class="del"></div>
+            </div>
+            <div class="correct">
+                <ul>
+                    <li class="clr">
+                        <div class="fl">修改金额</div>
+                        <div class="fr">
+                            <input type="number" placeholder="请输入修改金额" id="change_price"/>
+                            <input type="hidden" id="order_id" />
+                        </div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">备注</div>
+                        <div class="fr">
+                            <input type="text" placeholder="请输入您修改的理由" id="change_price_reason"/>
+                        </div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">当前值</div>
+                        <div class="fr e93" id="now_price">56.66</div>
+                    </li>
+                </ul>
+                <div class="clr button">
+                    <div class="fl recovery section_recovery" data-type="r">恢复初始价格</div>
+                    <div class="fr ensure section_ensure" data-type="c">确定修改</div>
+                </div>
+            </div>
+        </section>
+        <div class="mask"></div>
+
+        <!--div class="coping">
+            <ul>
+                <li class="top">
+                    <span>顶部</span>
+                </li>
+                <li class="key">
+                    <span>上页</span>
+                </li>
+            </ul>
+        </div-->
+
+        <div class="seek">
+            <div class="within">
+                <h2>确认消费</h2>
+                <div class="con">
+                    <div class="img">
+                        <img src="images/tct_05.jpg">   
+                    </div>
+                    <div class="tit">
+                        <p class="on">重要提示</p>
+                        <p>确认消费后，订单将设为已消费且不能恢复，请确认用户收货后再操作！</p>
+                    </div>
+                    <div class="button">
+                        <div class="clr p20">
+                            <div class="fl close div_close">点错了</div>
+                            <div class="fr ensure div_ensure" >确定消费</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="del"></div>
+        </div>
+        <section class="since"></section>
+        <div class="flat roof"></div>
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+        <script src="scripts/fastclick.js"></script>
+        <script src="scripts/layer/layer.m.js"></script>
+        <script src="scripts/common.js"></script>
+        <script src="scripts/mobiscroll.2.13.2.js"></script>
+        <script src="scripts/work/shop_order_detail.js?t=123"></script>
+        <script id="pcikTpl" type="text/html">
+        <div class="h2">分配自提点</div>
+        <div class="ul">
+            <ul>
+                {{# for (var i in d.pick_list) { }}
+                <li data-id="{{d.pick_list[i].pick_addr_id}}">
+                    <div class="tit">{{d.pick_list[i].area_info.province}} {{d.pick_list[i].area_info.city}} {{d.pick_list[i].area_info.area}}</div>
+                    <div class="p">{{d.pick_list[i].name}} [tel:{{d.pick_list[i].phone}}]</div>
+                    <div class="range">距离{{d.pick_list[i].range}}</div>
+                </li>
+                {{# } }}
+            </ul>
+        </div>
+        <div class="submit">
+            <div class="determine" data-id="{{d.order_id}}">确定</div>
+        </div>
+        <div class="del"></div>
+        </script>
+        <script id="expressTpl" type="text/html">
+        <div class="peak def">
+            <h2>快递信息</h2>
+        </div>
+        <div class="con">
+            <ul>
+                <li>
+                    <span class="fl">收货地址：</span>
+                    <div class="p70">{{d.address}}
+                        <p>配送距离{{d.distance}}km</p>
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li class="indek_li">
+                    <div class="indek">
+                        <select id="express_id">
+                            {{# for (var i in d.express_list) { }}
+                            <option value="{{d.express_list[i].id}}" {{# if (d.express_list[i].id == d.express_id) { }}selected{{# } }}>{{d.express_list[i].name}}</option>
+                            {{# } }}
+                        </select>
+                    </div>
+                    <input class="inpt_dk" placeholder="请输入快递单号" id="express_number" value="{{d.express_number}}"/>
+               </li>
+            </ul>
+            <div class="sub def express_save" data-id="{{d.order_id}}">保存</div>
+        </div>
+        <div class="del"></div>
+        </script>
+        <script id="deliverTpl" type="text/html">
+        <div class="peak">
+            {{# if (d.deliver_type == 0 || d.deliver_type ==3) { }}
+            <h2>{{ d.deliverName }}</h2>
+            {{# } else { }}
+            <h2>商家配送</h2>
+            {{# } }}
+            <p>注意：修改后超出快递费的金额由商家承担！</p>
+        </div>
+        <div class="con">
+            <ul>
+                <li>快递配送费：<em>￥{{d.freight_charge}}</em></li>
+                <li>配送方式更改为：{{# if (d.deliver_type == 0 || d.deliver_type ==3) { }}<em>{{ d.deliverName }}</em>{{# } else { }}<em>商家配送</em>{{# } }}</li>
+                <li>
+                    <span class="fl">收货地址：</span>
+                    <div class="p70">{{d.address}}
+                        <p>配送距离{{d.distance}}km</p>
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li>[{{d.time_select_1}}]的配送费：<em>￥{{d.delivery_fee}}</em></li>
+                {{# if (d.time_select_2 != 0) { }}
+                <li>[{{d.time_select_2}}]的配送费：<em>￥{{d.delivery_fee2}}</em></li>
+                {{# } }}
+                <li class="estimate">预计送达时间：<input readonly="readonly" id="demo" placeholder="请选择送达时间" value="{{d.arrive_datetime}}"/></li>
+            </ul>
+            <div class="sub" data-id="{{d.order_id}}">保存</div>
+        </div>
+        <div class="del"></div>
+        </script>
+        
+       <script id="allTpl" type="text/html">
+       <div class="infor">
+         <ul>
+	        <li class="clr first">
+	            <div class="fl book">订单信息</div>
+	            <!--div class="fr payoff">{{# if (d.order_details.paid == 0) { }}未支付{{# } else if (d.order_details.status == 4 && d.order_details.cancel_type == 7) { }}超时退款{{# } else if (d.order_details.status == 5 && d.order_details.cancel_type == 7) { }}超时取消{{# } else { }}{{d.order_details.status_str}}{{# } }}</div-->
+	        </li>
+			{{# if (d.order_details.status != 2 && d.order_details.status != 3 && d.order_details.status != 4 && d.order_details.status != 5 && d.order_details.fetch_number != 0) { }}
+	        <li class="clr">
+	            <div class="fl">取单编号</div>
+	            <div class="fr">{{d.order_details.fetch_number}}</div>
+	        </li>
+			{{# } }}
+	        <li class="clr">
+	            <div class="fl">订单编号</div>
+	            <div class="fr">{{d.order_details.real_orderid}}</div>
+	        </li>
+	        <li class="clr">
+	            <div class="fl">下单时间</div>
+	            <div class="fr">{{d.order_details.create_time}}</div>
+	        </li>
+            {{# if (d.order_details.is_pick_in_store < 2) { }}
+	        <li class="clr">
+	            <div class="fl">期望送达时间</div>
+	            <div class="fr">{{d.order_details.expect_use_time}}</div>
+	        </li>
+            {{# } }}
+	        <li class="clr">
+	            <div class="fl">订单来源</div>
+	            <div class="fr">{{d.order_details.order_from_txt}}</div>
+	        </li>
+	        <li class="clr">
+	            <div class="fl">收货人名称</div>
+	            <div class="fr">{{d.order_details.username}}</div>
+	        </li>
+	        <li class="clr">
+	            <div class="fl">收货人电话</div>
+	            <div class="fr callPhone" data-phone="{{d.order_details.userphone}}">{{d.order_details.userphone}}</div>
+	        </li>
+	        <li class="clr">
+	            <div class="fl">注册电话</div>
+	            <div class="fr callPhone" data-phone="{{d.order_details.register_phone}}">{{d.order_details.register_phone}}</div>
+	        </li>
+	        <li class="clr">
+	            <div class="fl">用户备注</div>
+	            <div class="fr" style="font-size:16px;color:#fb0303;font-weight: 700;">{{d.order_details.note}}</div>
+	        </li>
+            {{# if (d.order_details.cue_field != '') { }}
+            {{# for (var i in d.order_details.cue_field) { }}
+            <li class="clr">
+                <div class="fl">{{d.order_details.cue_field[i].title}}</div>
+                <div class="fr">{{d.order_details.cue_field[i].txt}}</div>
+            </li>
+            {{# } }}
+            {{# } }}
+         </ul>
+     </div>
+     <div class="infor">
+         <ul>
+             <li class="clr first botf1">
+                 <div class="fl modity">商品信息</div>
+             </li>
+         </ul>
+         
+            {{# for (var i in d.info){ }}
+			<dl class="kd_dd">
+			{{# if (d.info[i].name != '' && d.info[i].name != 0 && d.info[i].name != null) { }}
+			<dd class="clr"><span style="color: red">{{ d.info[i].name }}</span></dd>
+			{{# } }}
+			{{# for (var ii in d.info[i].list){ }}
+	        <dd class="clr">
+	           <div class="fl left">
+	               <h2>
+	                {{# if (d.info[i].list[ii].discount_type == 1 || d.info[i].list[ii].discount_type == 4 || d.info[i].list[ii].discount_type == 3) { }}
+	                <em class="dd1">折</em>
+	                {{# } else if (d.info[i].list[ii].discount_type == 2 || d.info[i].list[ii].discount_type == 5) { }}
+	                <em class="d40">折</em>
+	                {{# } }}
+	                {{d.info[i].list[ii].name}}</h2>
+	               {{# if (d.info[i].spec != '') { }}
+	               <p>{{d.info[i].list[ii].spec}}</p>
+	               {{# } }}
+	           </div>
+	           <div class="clr fr right">
+	               <div class="fl ride">x{{d.info[i].list[ii].num}}</div>
+	               <div class="fl del">￥{{d.info[i].list[ii].total}}</div>
+	               <div class="fl price">￥{{d.info[i].list[ii].discount_total}}</div> 
+	           </div>
+	        </dd>
+            {{# } }}
+         	</dl>
+            {{# } }}
+         <div class="mealfee">
+             <dl>
+				{{# if (d.order_details.packing_charge > 0) { }}
+                 <dd class="clr">
+                     <div class="fl">{{d.pack_alias}}</div>
+                     <div class="fr">￥{{parseFloat(d.order_details.packing_charge)}}</div>
+                 </dd>
+				{{# } }}
+				{{# if (d.order_details.freight_charge > 0) { }}
+                 <dd class="clr">
+                     <div class="fl">{{d.freight_alias}}</div>
+                     <div class="fr">￥{{parseFloat(d.order_details.freight_charge)}}</div>
+                 </dd>
+				{{# } }}
+				{{# if (d.order_details.other_money > 0) { }}
+                 <dd class="clr">
+                     <div class="fl">加价送的金额</div>
+                     <div class="fr">￥{{parseFloat(d.order_details.other_money)}}</div>
+                 </dd>
+				{{# } }}
+             </dl>
+         </div>
+         {{# if (d.discount_detail) { }}
+         <div class="reduce">
+             <dl>
+	            {{# for (var i in d.discount_detail){ }}
+	            {{# if (d.discount_detail[i].discount_type == 1) { }}
+	              <dd class="clr">
+	                  <div class="fl clr">
+	                      <em class="fl e0c">首</em>
+	                      <div class="p20">平台首单满{{parseFloat(d.discount_detail[i].money)}}元减{{parseFloat(d.discount_detail[i].minus)}}元</div>
+	                  </div>
+	                  <div class="fr ff3">-￥{{parseFloat(d.discount_detail[i].minus)}}</div>
+	              </dd>
+	          {{# } else if (d.discount_detail[i].discount_type == 2) { }}
+	          <dd class="clr">
+	              <div class="fl clr">
+	                  <em class="fl d52">减</em>
+	                  <div class="p20">平台优惠满{{parseFloat(d.discount_detail[i].money)}}元减{{parseFloat(d.discount_detail[i].minus)}}元</div>
+	              </div>
+	              <div class="fr ff3">-￥{{parseFloat(d.discount_detail[i].minus)}}</div>
+	          </dd>
+	          {{# } else if (d.discount_detail[i].discount_type == 3) { }}
+	          <dd class="clr">
+	              <div class="fl clr">
+	                  <em class="fl ffa">首</em>
+	                  <div class="p20">店铺首单满{{parseFloat(d.discount_detail[i].money)}}元减{{parseFloat(d.discount_detail[i].minus)}}元</div>
+	              </div>
+	              <div class="fr ff3">-￥{{parseFloat(d.discount_detail[i].minus)}}</div>
+	          </dd>
+	          {{# } else if (d.discount_detail[i].discount_type == 4) { }}
+	          <dd class="clr">
+	              <div class="fl clr">
+	                  <em class="fl ff6">减</em>
+	                  <div class="p20">店铺优惠满{{parseFloat(d.discount_detail[i].money)}}元减{{parseFloat(d.discount_detail[i].minus)}}元</div>
+	              </div>
+	              <div class="fr ff3">-￥{{parseFloat(d.discount_detail[i].minus)}}</div>
+	          </dd>
+	          {{# } else if (d.discount_detail[i].discount_type == 5) { }}
+	          <dd class="clr">
+	              <div class="fl clr">
+	                  <em class="fl ff0">惠</em>
+	                  <div class="p20">商品满{{parseFloat(d.discount_detail[i].money)}}元配送费减{{parseFloat(d.discount_detail[i].minus)}}元</div>
+	              </div>
+	              <div class="fr ff3">-￥{{parseFloat(d.discount_detail[i].minus)}}</div>
+	          </dd>
+	          {{# } }}
+	          {{# } }}
+             </dl>
+         </div>
+		 {{# } }}
+         <div class="answer clr">
+             <div class="fl">订单￥{{ parseFloat(d.order_details.discount_price)}} 优惠-￥{{parseFloat(d.order_details.minus_price)}}</div>
+             <div class="fr">应收总额: ￥{{parseFloat(d.order_details.go_pay_price)}}</div>
+         </div>
+         {{# if (d.order_details.change_price > 0) { }}
+         <div class="answer clr">
+             <div class="fl">修改备注: {{d.order_details.change_price_reason}}</div>
+             <div class="fr">修改后的金额:￥{{ parseFloat(d.order_details.price)}}</div>
+         </div>
+         {{# } }}
+         {{# if (d.order_details.paid == 0 && d.order_details.status == 0 && d.order_details.paid.order_from != 6 && d.is_change == 1) { }}
+         <div class="kdamend clr">
+             <div class="fr amount" data-id="{{d.order_details.order_id}}" data-price="{{d.order_details.price}}">修改价格</div>
+         </div>
+         {{# } }}
+     </div>
+       <!-- start -->
+       {{# if (d.finishRefunds) { }}
+       <div class="infor">
+           <ul>
+               <li class="clr first botf1">
+                   <div class="fl modity">已退商品</div>
+               </li>
+           </ul>
+           <dl class="kd_dd">
+               {{# for (var i in d.finishRefunds){ }}
+               <dd class="clr">
+                   <div class="fl left">
+                     <span style="color: red">  {{ d.finishRefunds[i].name }}</span>
+                   </div>
+                   <div class="clr fr right">
+                       <div class="fl">x{{d.finishRefunds[i].num}}</div>
+                       <div class="fl">￥{{d.finishRefunds[i].price}}</div>
+                       <div class="fl">{{d.finishRefunds[i].spec}}</div>
+                   </div>
+               </dd>
+               {{# } }}
+           </dl>
+
+       </div>
+       {{# } }}
+       <!-- end -->
+       <!-- start -->
+       {{# if (d.refund) { }}
+       <div class="infor">
+           <ul>
+               <li class="clr first botf1">
+                   <div class="fl modity">退货信息</div>
+               </li>
+           </ul>
+           <dl class="kd_dd">
+               <dd class="clr">退货商品</dd>
+               {{# for (var i in d.refund.goodsList){ }}
+               <dd class="clr">
+                   <div class="fl left">
+                       <span style="color: red">  {{ d.refund.goodsList[i].name }}</span>
+                   </div>
+                   <div class="clr fr right">
+                       <div class="fl">x{{d.refund.goodsList[i].num}}</div>
+                       <div class="fl">￥{{d.refund.goodsList[i].price}}</div>
+                       <div class="fl">{{d.refund.goodsList[i].spec}}</div>
+                   </div>
+               </dd>
+               {{# } }}
+               <dd class="clr">退款备注：{{d.refund.reason}}</dd>
+               <dd class="clr">退款凭据：
+                   {{# for (var imgi in d.refund.image){ }}
+                        {{# if(d.refund.image[imgi] != ""){ }}
+                            <img class="refund_img imgmin" src="{{d.refund.image[imgi]}}">
+                       {{# }else{ }}
+                            无
+                       {{# } }}
+                   {{# } }}
+               </dd>
+               <dd class="clr">退款金额：<strong style="color:red">￥{{d.refund.price}} 不含配送费、打包费、优惠金额</strong></dd>
+               <dd class="clr">退款状态：
+                   {{# for (var iii in d.refund.logList){ }}
+                   {{# if(d.refund.logList[iii].status == 0){ }}
+                   <span>商家正在审核中 理由：<strong style="color:red">{{d.refund.logList[iii].note}}</strong></span>
+                   {{# }else if(d.refund.logList[iii].status == 1){ }}
+                   <span>商家审核通过 理由：<strong style="color:red">{{d.refund.logList[iii].note}}</strong></span>
+                   {{# }else if(d.refund.logList[iii].status == 2){ }}
+                   <span>商家拒绝退货 理由：<strong style="color:red">{{d.refund.logList[iii].note}}</strong></span>
+                   {{# }else if(d.refund.logList[iii].status == 3){ }}
+                   <span>您重新申请退货 理由：<strong style="color:red">{{d.refund.logList[iii].note}}</strong></span>
+                   {{# }else if(d.refund.logList[iii].status == 4){ }}
+                   <span>您取消申请退货 理由：<strong style="color:red">{{d.refund.logList[iii].note}}</strong></span>
+                   {{# } }}
+                   {{# } }}
+               </dd>
+               <dd>退货时间：{{d.refund.logList[iii].dateline}}</dd>
+               <dd class="clr">退款操作：
+                   <button type="button" class="refund" data-type="agree" data-id="{{d.refund.order_id}}" style="border: #7558e9 1px solid;color: #7558e9;background: white;" data-refund_id="{{d.refund.id}}">同意</button>
+                   <button type="button" class="refund" data-type="disagree" data-id="{{d.refund.order_id}}" style="border: #7558e9 1px solid;color: #7558e9;background: white;" data-refund_id="{{d.refund.id}}">不同意</button>
+                   <input type="text" name="reply_content" style="height: 45px;width:400px;" placeholder="请填写原因" ></th>
+               </dd>
+
+           </dl>
+
+       </div>
+       {{# } }}
+       <!-- end -->
+	{{# if (d.order_details.order_from != 6) { }}
+     <div class="infor">
+         <ul>
+             {{# if (d.order_details.is_pick_in_store == 2) { }}
+             <li class="clr first">
+                 <div class="fl match">自提信息</div>
+             </li>
+             <li class="clr">
+                 <div class="fl">配送方式</div>
+                 <div class="fr">{{d.order_details.deliver_str}}</div>
+             </li>
+             <li class="clr">
+                 <div class="fl">自提地址</div>
+                 <div class="p90">
+                     <p>{{d.order_details.address}}</p>
+                 </div>
+             </li>
+             {{# } else { }}
+             <li class="clr first">
+                <div class="fl match">配送信息</div>
+                {{# if (d.order_details.is_pick_in_store == 3 && d.deliver_type != 5 && d.order_details.status < 2) { }}
+                    <div class="fr replace_action change_deliver" data-id="{{d.order_details.order_id}}">更换配送</div>
+                {{# } }}
+             </li>
+             <li class="clr">
+                 <div class="fl">配送方式</div>
+                 <div class="fr">{{d.order_details.deliver_str}}</div>
+             </li>
+             <li class="clr">
+                 <div class="fl">收货地址</div>
+                 <div class="p90">
+                     <p>{{d.order_details.address}}</p>
+                     <p class="site">配送距离{{d.order_details.distance}}km</p>
+                 </div>
+             </li>
+            {{# } }}
+            {{# if (d.order_details.is_pick_in_store == 3 && d.order_details.express_number != '' && d.order_details.express_name != '') { }}
+             <li class="clr">
+                 <div class="fl">{{d.order_details.express_name}}</div>
+                 <div class="fr">{{d.order_details.express_number}}</div>
+             </li>
+            {{# } }}
+            {{# if ((d.order_details.is_pick_in_store == 0 || d.order_details.is_pick_in_store == 1) && d.order_details.deliver_log_list != '') { }}
+             <li class="clr kd_li">
+                 <div class="kd_tails">配送详情</div>
+                 <dl class="kd_dl">
+                     {{# var loop_num = 0;}}
+			         {{# for (var i in d.order_details.deliver_log_list){ }}
+			         <dd>
+			            {{# if ((d.order_details.deliver_log_list.length - 1) == i) { }}
+			             <h2 class="endt">
+			            {{# } else { }}
+			             <h2>
+			            {{# } }}
+                         {{# if (d.order_details.deliver_log_list[i].status == 2) { }}
+			             配送员待接单:
+			             {{# } else if (d.order_details.deliver_log_list[i].status == 3) { }}
+			             {{# if (loop_num == 0) { }}
+			             配送员已接单：{{d.order_details.deliver_log_list[i].name}} {{# if (d.order_details.deliver_log_list[i].phone != '') { }}<a href="tel:{{d.order_details.deliver_log_list[i].phone}}">{{d.order_details.deliver_log_list[i].phone}}</a>{{# } }}
+			             {{# } else { }}
+			              更换配送员：{{d.order_details.deliver_log_list[i].name}} {{# if (d.order_details.deliver_log_list[i].phone != '') { }}<a href="tel:{{d.order_details.deliver_log_list[i].phone}}">{{d.order_details.deliver_log_list[i].phone}}</a>{{# } }}
+			             {{# } }}
+			             {{# loop_num ++;}}
+			             {{# } else if (d.order_details.deliver_log_list[i].status == 4) { }}
+			             配送员已取货：{{d.order_details.deliver_log_list[i].name}} {{# if (d.order_details.deliver_log_list[i].phone != '') { }}<a href="tel:{{d.order_details.deliver_log_list[i].phone}}">{{d.order_details.deliver_log_list[i].phone}}</a>{{# } }}
+			             {{# } else if (d.order_details.deliver_log_list[i].status == 5) { }}
+			             配送员配送中：{{d.order_details.deliver_log_list[i].name}} {{# if (d.order_details.deliver_log_list[i].phone != '') { }}<a href="tel:{{d.order_details.deliver_log_list[i].phone}}">{{d.order_details.deliver_log_list[i].phone}}</a>{{# } }}
+			             {{# } else if (d.order_details.deliver_log_list[i].status == 6) { }}
+			             配送完成：{{d.order_details.deliver_log_list[i].name}} {{# if (d.order_details.deliver_log_list[i].phone != '') { }}<a href="tel:{{d.order_details.deliver_log_list[i].phone}}">{{d.order_details.deliver_log_list[i].phone}}</a>{{# } }}
+			             {{# } }}
+			             <p>{{d.order_details.deliver_log_list[i].dateline}}</p>
+			         </dd>
+			         {{# } }}
+                     <dd class="hx"></dd>
+                 </dl>
+             </li>
+             {{# } }}
+         </ul>
+     </div>
+	{{# } }}
+
+     {{# if (d.order_details.paid == 1) { }}
+     <div class="infor">
+         <ul>
+	         <li class="clr first">
+	             <div class="fl branch">支付信息</div>
+	         </li>
+             <li class="clr">
+                 <div class="fl">支付时间</div>
+                 <div class="fr">{{d.order_details.pay_time}}</div>
+             </li>
+             <li class="clr">
+                 <div class="fl">支付方式</div>
+                 <div class="fr">{{d.order_details.pay_type_str}}</div>
+             </li>
+	         <li class="clr">
+	             <div class="fl">应收总额</div>
+	             <div class="p90">
+	                 {{# if (parseFloat(d.order_details.change_price) > 0) { }}
+	                 <p class="e2c">￥{{d.order_details.price}}</p>
+	                 <p class="kdsize">（修改前：￥{{parseFloat(d.order_details.change_price)}}，{{# if (d.order_details.change_price_reason != '') { }}备注：{{d.order_details.change_price_reason}}{{# } }}）</p>
+	                 {{# } else { }}
+	                 <p class="e2c">￥{{d.order_details.go_pay_price}}</p>
+	                {{# } }}
+	             </div>
+	         </li>
+	         {{# if (!(d.order_details.card_discount == 0 || d.order_details.card_discount == 10)) { }}
+	         <li class="clr">
+	             <div class="fl">商家会员卡折扣</div>
+	             <div class="p90">
+                    <p class="e2c">-￥{{d.order_details.minus_card_discount}}（{{d.order_details.card_discount}}折）</p>
+                    <p class="kdsize">（备注：配送费不参加折扣）</p>
+                 </div>
+	         </li>
+	         {{# } }}
+	         {{# if (parseFloat(d.order_details.coupon_price) > 0) { }}
+	         <li class="clr">
+	             <div class="fl">平台优惠券</div>
+	             <div class="fr e2c">-￥{{parseFloat(d.order_details.coupon_price)}}</div>
+	         </li>
+	         {{# } }}
+	         {{# if (parseFloat(d.order_details.card_price) > 0) { }}
+	         <li class="clr">
+	             <div class="fl">商家优惠券</div>
+	             <div class="fr e2c">-￥{{parseFloat(d.order_details.card_price)}}</div>
+	         </li>
+	         {{# } }}
+             {{# if (parseFloat(d.order_details.score_deducte) > 0) { }}
+             <li class="clr">
+                 <div class="fl">积分抵扣</div>
+                 <div class="fr e2c">-￥{{parseFloat(d.order_details.score_deducte)}}（使用{{parseFloat(d.order_details.score_used_count)}}积分）</div>
+             </li>
+             {{# } }}
+             {{# if (parseFloat(d.order_details.card_give_money) > 0) { }}
+             <li class="clr">
+                 <div class="fl">会员卡赠送余额支付</div>
+                 <div class="fr e2c">-￥{{parseFloat(d.order_details.card_give_money)}}</div>
+             </li>
+             {{# } }}
+             {{# if (parseFloat(d.order_details.merchant_balance) > 0) { }}
+             <li class="clr">
+                 <div class="fl">商家余额支付</div>
+                 <div class="fr e2c">-￥{{parseFloat(d.order_details.merchant_balance)}}</div>
+             </li>
+             {{# } }}
+             {{# if (parseFloat(d.order_details.balance_pay) > 0) { }}
+             <li class="clr">
+                 <div class="fl">平台余额支付</div>
+                 <div class="fr e2c">-￥{{parseFloat(d.order_details.balance_pay)}}</div>
+             </li>
+             {{# } }}
+             {{# if (parseFloat(d.order_details.payment_money) > 0) { }}
+             <li class="clr">
+                 <div class="fl">{{d.order_details.pay_type_str}}</div>
+                 <div class="fr e2c">-￥{{parseFloat(d.order_details.payment_money)}}</div>
+             </li>
+             {{# } }}
+         </ul>
+     </div>
+    {{# } }}
+     <div class="consume">
+         <ul class="clr">
+             {{# if (d.order_details.status == 0 && d.order_details.paid == 1) { }}
+                {{# if ((d.order_details.is_pick_in_store == 2 || d.order_details.is_pick_in_store == 1) && d.is_open_pick == 1) { }}
+                    <li class="fl kd_since"  data-id="{{d.order_details.order_id}}">分配自提点</li>
+                {{# } else if (d.order_details.order_from != 1 && d.order_details.order_from != 6 && d.order_details.is_pick_in_store != 3) { }}
+                    <li class="fl kd_rob"  data-id="{{d.order_details.order_id}}">接单</li>
+                {{# } }}
+             {{# } else if (d.order_details.status == 7 && d.order_details.paid == 1) { }}
+                <li class="fl replace send" data-id="{{d.order_details.order_id}}">发货到自提点</li>
+             {{# } }}
+             {{# if (d.order_details.is_pick_in_store == 3 && d.order_details.status != 4 && d.order_details.status != 5 && d.order_details.paid == 1) { }}
+                <li class="fl firmly express" data-id="{{d.order_details.order_id}}">发货</li>
+             {{# } else if (d.order_details.status != 2 && d.order_details.status != 3 && d.order_details.status != 4 && d.order_details.status != 5 && d.order_details.paid == 1 && d.order_details.sure) { }}
+                <li class="fl firmly sure" data-id="{{d.order_details.order_id}}">确认消费</li>
+             {{# } }}
+             {{# if (d.order_details.status != 2 && d.order_details.status != 3 && d.order_details.status != 4 && d.order_details.status != 5) { }}
+                <li class="fl firmly cancel" data-id="{{d.order_details.order_id}}">取消订单</li>
+             {{# } }}
+         </ul>
+     </div>
+     
+     </script>
+    </body>
+</html>

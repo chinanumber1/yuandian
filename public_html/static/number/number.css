@@ -1,0 +1,55 @@
+#widget_container{-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+.widget_number_input_box{position:fixed;bottom:0;left:0;width:100%;z-index:99;-webkit-user-select:none;-webkit-touch-callout:none;background:white;display:none;}
+.widget_number_input_box .widget_number_row{position:relative;}
+.widget_number_input_box .widget_number_row:before{content:'';display:block;height:1px;width:100%;background:#E5E5E5;position:absolute;-webkit-transform:scale(1,0.5);}
+.widget_number_input_box .widget_number_row:after{content:'';clear:both;display:table}
+.widget_number_input_box .widget_number_row:last-child{border-bottom:none;}
+.widget_number_input_box .widget_number_row .widget_number_col{height:56px;line-height:56px;width:25%;text-align:center;float:left;font-size:20px;font-weight:normal;position:relative;}
+.widget_number_input_box .widget_number_row .widget_number_col.w50{width:50%;}
+.widget_number_col:after{display:block;content:'';position:absolute;right:0;top:0;height:100%;width:1px;background:#E5E5E5;-webkit-transform:scale(0.5,1);}
+.widget_number_input_box .widget_number_row .widget_number_col:last-child{border-right:none;}
+.widget_number_event_back{position:fixed;right:0px;bottom:112px;height:111px;width:25%;background:white;text-align:center;}
+.widget_number_back{width:34px;height:24px;background:url(back.png) no-repeat;background-size:100%;margin-top:44px;display:inline-block;}
+.widget_number_event_btn{position:fixed;right:0px;bottom:0px;height:112px;width:25%;background:white;}
+.widget_number_gray{background:#E5E5E5;}
+.wiget_number_cursor{display:inline-block;}
+.wiget_number_show{-webkit-animation:twinkling 1s infinite ease-in-out;width:2px;background:black;height:70%;}
+.widget_number{
+	display:inline-block;
+	vertical-align:top;
+}
+.wiget_number_cursor.right{
+	margin-left:2px;
+}
+.wiget_number_cursor.left{
+	margin-left:2px;
+}
+
+@-webkit-keyframes twinkling{
+    0%{
+		opacity:0;
+    }
+    100%{
+		opacity:1;
+    }
+}
+
+.widget_number_simple .widget_number_col{
+	width:33%!important;
+}
+.widget_number_simple .widget_number_col:nth-child(2){
+	width:34%!important;
+}
+.widget_number_simple .widget_number_col.w50{
+	width:33%!important;
+}
+.widget_number_simple .widget_number_event_back{
+	width:33%!important;
+	bottom:0px;
+	height:55px;
+}
+.widget_number_simple .widget_number_event_back .widget_number_back{
+	margin-top:20px;
+	width:26px;
+	height:18px;
+}

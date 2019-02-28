@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>群发记录</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/fun_group.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+		<h1 class="mui-title">群发记录</h1>
+		<a class="mui-pull-right open_mass" href="javascript:;"><i></i> 创建群发</a>
+	</header>
+	<div class="mui-content">
+		<!--tab切换-->
+	    <div class="class_list">
+	   		<ul class="mui-clearfix">
+	    		<li class="mui-pull-left  active">
+	    			<dl>
+		    			<dt>0</dt>
+		    			<dd>已发送</dd>
+		    			<dd></dd>
+		    		</dl>
+	    		</li>
+	    		<li class="mui-pull-left ">
+	    			<dl>
+		    			<dt>0</dt>
+		    			<dd>审核中</dd>
+		    			<dd></dd>
+		    		</dl>
+	    		</li>
+	    		<li class="mui-pull-left ">
+	    			<dl>
+		    			<dt>0</dt>
+		    			<dd>被拒绝</dd>
+		    			<dd></dd>
+		    		</dl>
+	    		</li>
+	    	</ul>
+	   </div>
+	   <!--切换卡片内容-->
+	   <div class="all_funs">
+
+	   		<!-- <div class="mui-card">
+	   			<div class="mui-card-header mui-clearfix">
+	   				<span>ID: 012</span>
+	   				<i class="mui-pull-right yifasong"></i>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<h4>小猪CMS(pigcms)微外卖应用火热升级!功能更多</h4>
+	   				<span><i></i> 创建时间: 2017-07-04 10:49:23</span>
+	   				<p>据悉，微信团队已经邀请一批公众号进行 “赞赏” 功能的内侧。在赞赏页面，用户可以直接选择设置</p>
+	   				<h5>查看其它3条内容 <i></i></h5>
+	   			</div>
+	   			
+	   			<div class="mui-card-footer btn">
+	   				<button type="button">查看发送对象</button>
+	   			</div>
+	   		</div>
+	   		<div class="mui-card">
+	   			<div class="mui-card-header mui-clearfix">
+	   				<span>ID: 011</span>
+	   				<i class="mui-pull-right examine"></i>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<h4>小猪CMS(pigcms)微外卖应用火热升级!功能更多</h4>
+	   				<span><i></i> 创建时间: 2017-07-04 10:49:23</span>
+	   				<p>据悉，微信团队已经邀请一批公众号进行 “赞赏” 功能的内侧。在赞赏页面，用户可以直接选择设置</p>
+	   				<h5>查看本条内容 <i></i></h5>
+	   			</div>
+	   			<div class="mui-card-footer">
+	   				<span><i></i> 扫描商家产品获得的粉丝</span>
+	   			</div>
+	   		</div>
+
+	   		<div class="mui-card">
+	   			<div class="mui-card-header mui-clearfix">
+	   				<span>ID: 013</span>
+	   				<i class="mui-pull-right refuse"></i>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<h4>小猪CMS(pigcms)微外卖应用火热升级!功能更多</h4>
+	   				<span><i></i> 创建时间: 2017-07-04 10:49:23</span>
+	   				<p>据悉，微信团队已经邀请一批公众号进行 “赞赏” 功能的内侧。在赞赏页面，用户可以直接选择设置</p>
+	   				<h5>更多内容 <i></i></h5>
+	   			</div>
+	   			<div class="mui-card-footer">
+	   				<span><i></i> 扫描商家产品获得的粉丝</span>
+	   			</div>
+	   		</div> -->
+
+	   </div>
+	   <div class="pullup1" style="display:none;">上拉加载更多...</div>
+		<div class="loading1" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="sendLists" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+		<div class="mui-card" data-id="{{ d[i].pigcms_id }}" data-cid="{{ d[i].c_id }}" >
+   			<div class="mui-card-header mui-clearfix">
+   				<span>ID: {{ d[i].pigcms_id }}</span>
+   				{{# if(d[i].status==0){ }}
+					<i class="mui-pull-right examine"></i>
+				{{# } else if(d[i].status==1) { }}
+					<i class="mui-pull-right yifasong"></i>
+				{{# } else { }}	
+					<i class="mui-pull-right refuse"></i>
+				{{# } }}
+   			</div>
+   			<div class="mui-card-content">
+   				<h4>{{ d[i].title }}</h4>
+   				<span><i></i> 创建时间: {{ d[i].dateline }}</span>
+   				<p>{{ d[i].digest }}</p>
+   				<h5>更多内容 <i></i></h5>
+   			</div>
+   			
+				{{# if(d[i].status==1){ }}
+					<div class="mui-card-footer btn">
+		   				<button type="button">查看发送对象</button>
+		   			</div>
+				{{# } else { }}	
+					<div class="mui-card-footer">
+						<span><i></i> {{ d[i].fan_type }}</span>
+					</div>
+				{{# } }}
+   				
+   			
+   		</div>
+				
+				
+				
+		
+		
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	var ticket = common.getCache('ticket');
+		var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+		var pindex=1;
+		var status=1;//查看已发送的内容
+		function sendList(page,sts){
+			console.log(sts);
+			common.http('Merchantapp&a=custom_send_list',{'ticket':ticket,'client':client,'status':sts,'pindex':page},function(data){
+	  			console.log(data);
+	  			$('.class_list ul li:eq(0) dt').text(data.send_count);
+				$('.class_list ul li:eq(1) dt').text(data.check_count);
+				$('.class_list ul li:eq(2) dt').text(data.rej_count);
+	  			
+				if(data.log_list.length==0){
+					$('.pullup1').text('没有更多数据啦').show();
+				}else{
+					laytpl(document.getElementById('sendLists').innerHTML).render(data.log_list, function(html){
+						$('.all_funs').append(html);	
+					});
+
+					if(data.log_list.length<10){
+						$('.pullup1').text('没有更多数据啦').show();
+						$('.loading1').hide();
+					}else{
+						$('.pullup1').text('上拉加载更多').show();
+						$('.loading1').hide();
+						var flag = false;
+						$(window).scroll(function(e) {
+						    e.stopPropagation();
+						    if(flag){
+						      //数据加载中
+						      return false;
+						    }
+						    //上拉加载
+						    if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+						    	$('.pullup1').hide();
+						    	$('.loading1').show();
+						    	flag = true;
+						        pindex++;
+						      	sendList(pindex,status);
+						    }
+						});
+					}
+				}
+				
+	  		});
+		}
+		sendList(pindex,status);
+
+      	//tab切换
+      	$('.class_list ul li').click(function(e){
+      		$(this).addClass('active').siblings('li').removeClass('active');
+      		if($(this).find('dd').text()=='已发送'){
+      			status=1;
+      			pindex=1;
+      			$('.all_funs').html('');	
+      			sendList(pindex,status);
+      		}else if($(this).find('dd').text()=='审核中'){
+      			status=0;
+      			pindex=1;
+      			$('.all_funs').html('');
+      			sendList(pindex,status);
+      		}else{
+      			status=2;
+      			pindex=1;
+      			$('.all_funs').html('');
+      			sendList(pindex,status);
+      		}
+      	});
+       	//查看发送对象点击
+       	mui('.mui-content').on('tap','.btn button',function(e){
+       		var pigcms_id=$(this).parents('.mui-card').attr('data-id');
+       		window.location.href='mass_lists.html?pigcms_id='+pigcms_id;
+       		openWindow({
+       			url:'mass_lists.html?pigcms_id='+pigcms_id,
+       			id:'mass_lists'
+       		});
+       	});
+       	//创建群发点击
+       	mui('.mui-bar-nav').on('tap','.open_mass',function(e){
+       		openWindow({
+       			url:'create_mass.html',
+       			id:'create_mass'
+       		});
+       	});
+       	//查看更多内容点击
+       	mui('.mui-content').on('tap','.mui-card-content',function(e){
+       		var c_id=$(this).parents('.mui-card').attr('data-cid');
+       		//window.location.href='mass_content_lists.html?cid='+c_id;
+       		openWindow({
+       			url:'mass_content_lists.html?cid='+c_id,
+       			id:'mass_content_lists'
+       		});
+       	});
+       	function pageShowFunc(){
+			location.reload(true);
+		}
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>选择录入商品</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/commodity_management.css"/>
+    <link rel="stylesheet" type="text/css" href="css/border.css"/>
+      <link rel="stylesheet" type="text/css" href="css/imange-view.css"/>
+  <link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+  <link href="css/mui.picker.min.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" type="text/css" href="css/shop_manger_penci.css"/>
+</head>
+<style>
+    .pullup1, .loading1 {
+        text-align: center;
+        padding: 0 0 10px 0;
+        font-size: 14px;
+        color: #999;
+    }
+    body{background-color:#fff;}
+</style>
+<body>
+<header class="mui-bar mui-bar-nav mui-clearfix">
+    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+    <h1 class="mui-title">选择录入商品</h1>
+
+    <span class="mui-pull-right hidden" id="cancel">完成</span>
+    <!--<div style="clear: both;"></div>-->
+</header>
+<div class="mui-content">
+    <div class="commod">
+        <div class="search">
+            <p><i></i> <span>商品名称</span></p>
+            <!-- <div class="mui-input-row mui-search">
+                <input type="search" class="mui-input-clear" placeholder="商品名称" readonly>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="mui-content mui-row">
+        <div class="mui-col-xs-3">
+            <div id="segmentedControls" class=" mui-segmented-control-inverted mui-segmented-control-vertical">
+                <dl class="classHtml">
+                  
+                </dl>
+            </div>
+        </div>
+        <div id="segmentedControlContents" class="mui-col-xs-9">
+            <div class="all_change_show">
+                <p></p>
+                <ul class="goods_news ui-border-b">
+                   
+                </ul>    
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<!--图片滚动-->
+
+
+
+  <script src="js/mui.zoom.js"></script>
+  <script src="js/mui.previewimage.js"></script>
+  <script src="js/mui.picker.js"></script> 
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="classLeft" type="text/html">
+    {{# for(var i = 0; i < d.length; i++){ }}
+    <dd  class="first_list {{# if(i==0){ }}  active    {{# } }}" data-id='{{ d[i].sort_id }}' data-name='{{ d[i].name }}'>
+        <i><b class="mui-pull-left"></b><span>{{ d[i].name }}</span></i>
+    </dd>
+    {{# } }}
+</script>
+<script id="classRight" type="text/html">
+    {{# for(var i = 0; i < d.length; i++){ }}
+    <li class="mui-clearfix" data-goodid="{{ d[i].goods_id }}">
+                <i data-goodid="{{ d[i].goods_id }}" class=" mui-pull-right check_tiggle speed_tiggle" ><input type="radio" name="1" data-goodid="{{ d[i].goods_id }}"/></i>
+                <img class="mui-pull-left" src="{{ d[i].image }}" data-preview-src="" data-preview-group="1">
+                <sub class="floor" style="display:none;">已下架</sub>
+                <ul class="mui-pull-left">
+                  <li>{{ d[i].name }}</li>
+                  <li style='color: #000;'><sapn>编号:</sapn><span>{{ d[i].name }}</span> </li>
+                  <li><sapn>单位:</sapn><span>{{ d[i].unit }}</span> </li>
+                  <li><sapn>进价:</sapn><span>￥{{ d[i].cost_price }}</span> </li>
+                  <li><sapn>售价:</sapn><span>￥{{ d[i].price }}</span> </li>
+                </ul>
+    </li>
+    {{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+    mui.init();
+    var ticket = common.getCache('ticket');
+    var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+    var shopId= common.getCache('shopId');//店铺ID
+    var store_id= $.getUrlParam('store_id');//店铺id
+    var goods_id=$.getUrlParam('goods_id');
+    console.log(goods_id);
+    var sort_id='';//默认渲染商品ID
+    var type=0;//根据用户是否点击批量管理按钮修改样式
+    var fls=0;
+    var name='';
+    var fresh=true;
+     mui.previewImage();
+  window.onload=function(){
+      var AppView = {
+          init: function() {
+              this.initView();
+              this.initSearch();
+          },
+          initView:function(){
+              var self=this;
+              //初次加载页面渲染
+              common.http('WapMerchant&a=sysGoods',{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':sort_id},function(data){
+                  console.log(data);
+                  if(fresh){
+                       laytpl(document.getElementById('classLeft').innerHTML).render(data.sort_list, function(html){
+                      $('.classHtml').html(html);
+                  });
+                  }
+                
+                  if(name==''&&fresh){
+                    if(data.sort_list.length>0){
+                      $('.all_change_show>p').text(data.sort_list[0].name);
+                        }
+                  }
+                 if(!fresh){
+                  
+                    laytpl(document.getElementById('classRight').innerHTML).render(data.goods_list, function(html){
+                      $('.goods_news').html(html);
+                  });
+                  
+                 }
+                  if(fresh){
+                   sort_id=data.sort_list[0].sort_id;
+                   fresh=false;
+                   self.initView()
+                 }
+                 
+                  self.initContent();
+                  self.enterSearch();
+                  self.refesh()
+              });
+          },
+          initSearch: function(type) {
+              //点击搜索框
+              $('.search').on('tap',function(e){
+                  openWindow({
+                      url:'speed_search.html?store_id='+store_id+'&types=0',
+                      id:'search'
+                  });
+              });
+
+          },
+          initContent:function(){
+              //点击左侧内容
+             var self=this;
+              $(".first_list").on("click",function(){
+               $(".first_list").removeClass("active");
+               $(this).addClass("active");
+                  sort_id=$(this).attr("data-id");
+                  name=$(this).attr("data-name");
+                  $('.goods_news').html("");
+                   $('.all_change_show>p').text(name);
+                  self.initView()
+                 // mui.toast('加载成功');
+              })
+          },
+          enterSearch:function(){
+              //点击右侧单选框
+              $(".goods_news input").on('click',function(){
+                   $(".speed_tiggle").removeClass("active");
+                  $(this).parent().addClass("active");
+                  goods_id=$(this).attr("data-goodid");
+                  setTimeout(
+                          openWindow({
+                              url:'add_goods.html?store_id='+store_id+'&goods_id='+goods_id+'&types=0',
+                              id:'add_goods'
+                          })
+                          ,6000)
+
+              })
+          },
+          refesh:function(){
+
+          }
+      };
+      AppView.init();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.mui-bar-nav{
+	background-color: #FFA200;
+}
+.mui-bar-nav h1{
+	color: #fff;
+}
+.mui-bar-nav a{
+	color:#FFFFFF;
+}
+/**/
+.mui-slider-indicator{
+	background: #FFFFFF;
+}
+
+.header_style{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 40px;
+	background: #fff;
+	font-size: 14px;
+}
+.shaixuan{
+	margin-bottom:8px!important;
+}
+.results{
+	background:white;
+	margin-bottom: 10px;
+	font-size: 14px;
+	padding:8px 10px;
+}
+.results .results_color{
+	color:#FF532A;
+}
+.header_style>ul{
+	width: 100%;
+	height: 40px;
+	border-bottom: 1px solid #F5F5F5;
+}
+.header_style li.active ul li{
+	border-bottom: 2px solid #FFA200;
+	margin-top: -2px;
+	color: #FFA200;
+}
+.header_style li.mui-pull-left{
+	width: 33.3%;
+	text-align: center;
+	line-height: 40px;
+}
+
+/*筛选*/
+.mui-card-header{    padding: 10px 0 0 4%;width: 96%;}
+.mui-card-header>ul{
+	width: 100%;
+}
+.mui-card {margin: 0;margin-bottom: 15px;}
+.shaixuan .mui-card-content .mui-col-sm-6 {
+    width: 33.3%;
+    text-align: center;
+    padding: 7px 0 0 0;
+}
+.shaixuan .mui-card-content .mui-col-sm-6 i{
+	display: inline-block;
+	width: 6px;height: 3px;
+	background: url(../images/4-_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	/*margin-left: 5px;*/
+	margin-top: -7px;
+}
+.shaixuan  p{
+	margin-bottom:5px!important;
+	line-height: 1.2;
+}
+.shaixuan  span{
+	display:inline-block;
+	width: 70%;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.rating .mui-card-header span{
+	font-size: 14px;
+}
+.rating .mui-card-header .mui-media-body p .five_pointed{
+	display: inline-block;
+	width: 11px;height: 10px;
+	background: url(../images/4-_10.png) center no-repeat;
+	background-size: contain;
+	margin-right: 3px;
+}
+.rating .mui-card-header .mui-media-body p .one_pointed{
+	display: inline-block;
+	width: 11px;height: 10px;
+	background: url(../images/4-_24.png) center no-repeat;
+	background-size: contain;
+	margin-right: 3px;
+}
+.rating .mui-card-header .mui-media-body .mui-pull-left p{margin-top: -2px;}
+.rating .mui-card-header .mui-media-body .open_ansower{
+	width: 40%;
+}
+.open_ansower>div{
+	width: 100%;
+}
+.rating .mui-card-header .mui-media-body .mui-pull-right a{
+	border: none;
+	font-size: 13px;
+	background: #FFA200;
+	color:#FFFFFF;
+	padding:4px 14px;
+	border-radius:3px;
+}
+.rating .mui-card-header .mui-media-body .mui-pull-right p{
+	font-size: 12px;
+	text-align:right;
+}
+.rating .mui-card-content{
+	margin-left: 58px;
+	padding: 6px 0 6px 0;
+}
+
+.rating .mui-card-content h5{
+	color: #808080;
+	line-height: 17px;
+}
+.rating .mui-card-content p b{
+	display: inline-block;
+	width: 13px;height: 13px;
+	background: url(../images/4-_15.png) center no-repeat;
+	background-size: contain;
+	margin-right: 5px;
+	vertical-align: baseline;
+}
+.rating .mui-card-content p {
+	color: #FFC25F;
+	font-size: 12px;
+}
+.rating .mui-card-content .mui-scroll-wrapper .mui-scroll{
+	width: 575px;
+	height: 70px;
+}
+.rating .mui-card-footer{margin-top: 10px;}
+.rating .mui-card-content .mui-scroll-wrapper .mui-scroll img{
+	width: 67px;
+	height: 67px;
+	margin-right: 5px;
+	margin-top:18px;
+	/*padding-bottom: 10px;*/
+	
+}
+
+.mui-scroll-wrapper {
+    position: relative;
+    z-index: 2;
+    top: -18px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 88px;
+}
+
+/*footer*/
+.rating .rating-footer{
+	margin: 0;
+	padding: 0;
+	padding-left: 58px;
+	background: #F8F8F8;
+	margin-top: 10px;
+}
+
+.rating .rating-footer p{
+	margin-bottom: 0;
+}
+.rating .rating-footer p span{
+	display: inline-block;
+	margin-top: 10px;
+	color: #FF532A;
+}
+.rating .rating-footer p i{
+	font-style: normal;
+	font-size: 12px;
+	margin-right:5%;
+	display: inline-block;
+	margin-top: 10px;
+	
+}
+.rating .rating-footer div{
+	font-size: 13px;
+	color: #999999;
+	padding-bottom: 10px;
+}
+
+/*底部*/
+.mui-bar-tab .shop-home{
+	display: inline-block;
+	width: 22px;
+	height: 20.5px;
+	background: url(../images/1-_36.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+
+.mui-tab-item span{
+	font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mui-bar-tab .shop-plus{
+	display: inline-block;
+	width: 27px;
+	height: 20.5px;
+	background: url(../images/1-_38.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-bar-tab .shop-take{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/1-_41.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-bar-tab .shop-my{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/1-_43.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-active span{
+	color:#FFA200;
+}
+.mui-active .shop-home{
+	display: inline-block;
+	width: 22px;
+	height: 20.5px;
+	background: url(../images/6-7_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-active .shop-plus{
+	display: inline-block;
+	width: 27px;
+	height: 20.5px;
+	background: url(../images/34-1_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-active .shop-my{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/33-1.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-bar-tab {
+	background: #FFFFFF;
+}
+.mui-active .shop-take{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/6-23_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+/*媒体查询*/
+/*@media (min-width:320px) {
+	.rating .mui-card-header .mui-media-body .mui-pull-right {
+	    text-align: right;
+	    margin-left: 70px;
+	}
+}
+@media (min-width:360px) {
+	.rating .mui-card-header .mui-media-body .mui-pull-right {
+	    text-align: right;
+	    margin-left: 118px;
+	}
+}
+@media (min-width:410px) {
+	.rating .mui-card-header .mui-media-body .mui-pull-right {
+	    text-align: right;
+	    margin-left: 158px;
+	}
+}*/
+
+
+/*下拉刷新样式*/
+.pullup1,.loading1{
+	text-align: center;
+	padding:0 0 10px 0;
+	font-size: 14px;
+	color: #999;
+}
+.loading1 img{
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+
+
+/*店铺总评分*/
+.usats{
+    width: 100%;
+    background: #fff;
+    padding: 15px 0;
+    margin: 10px 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.itemLeft{
+    width: 70%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0 4%;
+}
+.itemLeft h2{
+    font-size: 30px;
+    color: #FF532A;
+    padding: 0;
+    margin: 0;
+    margin: 0 5%;
+}
+.itemLeft ul li:last-child{
+    font-size: 14px;
+    color: #999;
+}
+.itemLeft ul li.fen{
+    font-size: 0;
+        height: 25px;
+}
+.itemLeft ul li.fen span{
+    display: inline-block;
+    width: 125px;
+    height: 25px;
+    background: url(../images/fu1.png) left  repeat;
+    background-size:25px 25px; 
+    text-align: left;
+}
+.itemLeft ul li.fen span  b{
+    display: inline-block;
+    width: 0px;
+    height: 25px;
+    background: url(../images/fu3.png) left repeat;
+    background-size:25px 25px; 
+}
+.itemRight{
+    width: 29.5%;
+    text-align: center;
+    border-left: 1px solid #f1f1f1;
+    text-align: center;
+}
+.itemRight ul li:first-child{
+    font-size: 25px;
+    color: #333;
+        width: 100%;
+    text-align: center;
+}
+.itemRight ul li:last-child{
+    font-size: 16px;
+    color: #333;
+        width: 100%;
+    text-align: center;
+}
+.usats ul li{
+    border:none;
+    width: 100%;
+    text-align: left;
+}

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>收入记录</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+     <link rel="stylesheet" type="text/css" href="css/app.css" />
+	<link href="css/mui.picker.css" rel="stylesheet" />
+	<link href="css/mui.picker.min.css" rel="stylesheet" />
+	<link href="css/mui.poppicker.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/record.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">收入记录</h1>
+	    <a href="javascript:;" class="mui-pull-right"></a>
+	</header>
+	<div class="mui-content">
+		<div class="record_money">
+			<div class="mui-row mui-clearfix">
+			    <div class="mui-col-sm-6 left_show">
+			    	<p><span class="jin" id="jin">今日收入&nbsp;&nbsp;(元)</span><span id="shai" class="shai" style="display:none;">当前筛选收入&nbsp;&nbsp;(元)</span></p>
+			    	<h3 id="moneys">￥0.00</h3>
+			    	<p>总收入<span class="left_money">0</span></p>
+			    </div>
+			 
+			    <div class="mui-col-sm-6 right_show">
+			    	<p><span id="jin1" class="jin">今日订单数</span><span id="shai1" class="shai" style="display:none;">当前筛选订单数</span></p>
+			    	<h3 id="counts">0</h3>
+			    	<p>总订单数<span class="right_count">0</span></p>
+			    </div>
+			</div>
+		</div>
+		<!--报表统计-->
+		<div class="mui-card report" style="margin: 10px 0;">
+			<!--页眉，放置标题-->
+			<!--<div class="mui-card-header" style="justify-content: baseline;">
+				<i></i><span>报表统计</span>
+			</div>-->
+			<!--内容区-->
+			<div class="mui-card-content mui-clearfix">
+				<div class="mui-row">
+				    <div class="mui-col-sm-6" id='showUserPicker'>
+				    	<span id="tuan_buy"><span id="tuanding">全部订单</span> <i></i></span>
+				    </div>
+				    <div class="mui-col-sm-6" id='showUserPicker1'>
+				    	<p  style="color: #919191;border-left: 1px solid #f1f1f1;"><span id="all_shop"><span id="change_shop">请选择所有店铺</span></span> <i></i></a>
+						<!--<div id='userResult' class="ui-alert"></div>-->
+				    </div>
+				</div>
+				
+			</div>
+			<!--页脚，放置补充信息或支持的操作-->
+			<div class="mui-card-footer">
+				<div class="mui-row" style="width: 100%;">
+				        <div class="mui-col-sm-6 begin_date">
+				            <li class="" >
+				            	<i></i>
+								<span id="begin_date">请选择开始日期</span>
+								<b></b>
+				            </li>
+				        </div>
+				        <div class="mui-col-sm-6 end_date">
+				            <li class="" >
+				            	<i></i>
+								<span id="end_date">请选择结束日期</span>
+								<b></b>
+				            </li>
+				        </div>
+			    </div>
+			</div>
+		</div>
+		<!--筛选后内容-->
+		<div class="cards" id="cards">
+			
+			
+		</div>
+		<!-- 上拉刷新 -->
+		<div class="pullup" style="display:none;">上拉加载更多...</div>
+		<div class="loading" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.picker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="cardlist" type="text/html">
+	{{# for(var i = 0, len = d.income_list.length; i < len; i++){ }}
+		<div class="mui-card" data-id="{{d.income_list[i].id}}">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header">
+					<span>{{d.income_list[i].store_name}}</span>
+
+					<a>{{d.income_list[i].type_name}}</a>
+
+					<p>{{d.income_list[i].money}}</p>
+				</div>
+				<!--内容区-->
+				<div class="mui-card-content show_content mui-clearfix">
+				</div>
+				<div class="mui-card-footer show">
+			       <span>描述:&nbsp;{{d.income_list[i].desc}}</span>
+			       <i class="mui-pull-right up_down"></i>
+				</div>
+			</div>
+	{{# } }}
+</script>
+<script id="content_list" type="text/html">
+	{{# for(var i = 0, len = d.income_info.length; i < len; i++){ }}
+		{{#  if(d.income_info[i].name!="描述"){ }}
+			{{# if(d.income_info[i].value!=null){}}
+				<div class="mui-pull-left" style="width: 50%;">
+					<p>{{d.income_info[i].name}}:{{d.income_info[i].value}}</p>
+				</div>
+			{{# } else { }}
+				<div class="mui-pull-left" style="width: 50%;">
+					<p>{{d.income_info[i].name}}:无</p>
+				</div>
+			{{# } }}
+		{{# } }}
+		
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+	var ticket = common.getCache('ticket');
+	//console.log(ticket);
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var be_date='';
+	var enddate='';
+	var stor_list=[];
+	var type_list=[];
+	var type_index='all';
+	var store_index='';
+	var page=1;
+	var zuiShi='';
+	var ctuan=common.getCache('ctuan');
+	$('.ctuan').text(ctuan);
+	function p(s) {
+	    return s < 10 ? '0' + s: s;
+	}
+
+	//获取当前时间
+	var myDate = new Date();
+	//获取当前年
+	var year=myDate.getFullYear();
+	//获取当前月
+	var month=myDate.getMonth()+1;
+	//获取当前日
+	var date=myDate.getDate(); 
+	var now=year+'-'+p(month)+"-"+p(date);
+	//console.log(now);
+	$('#begin_date').text(now);
+	$('#end_date').text(now);
+
+	now=replaceAll(now);
+	zuiShi=now+'-'+now;
+	be_date=now;
+	enddate=now;
+	function selectChange(lists){
+		stor_list=[];
+		$.each(lists,function(i,val){
+			var goods_id_list ={'value':'','text':''};
+			goods_id_list.text=val.name;
+			goods_id_list.value=val.store_id;
+			stor_list.push(goods_id_list);
+		});
+	}
+	function replaceAll(str){
+		if(str!=null)
+		str = str.replace(/-/g,"/")
+		return str;
+	}
+	function changeAllshou(){
+		console.log(zuiShi);
+		common.http('Merchantapp&a=get_income_list',{'ticket':ticket,'client':client,'page':page,'type':type_index,'store_id':store_index,'period':zuiShi},function(data){
+			console.log(data);
+			//console.log(data.income_list.length);
+			$('.left_show .left_money').text(data.all_money);
+			$('.left_show h3').text('￥'+data.today_money);
+			$('.right_show .right_count').text(data.all_count);
+			$('.right_show h3').text(data.today_count);
+			console.log(data.income_list.length);
+			if(data.income_list.length==0){
+				$('.pullup').html('没有更多数据啦');
+				$('.loading').hide();
+				$('.pullup').show();
+
+			}else{
+				data.income_list.length<20&&$('.pullup').html('没有更多数据啦');
+				$('.loading').hide();
+				$('.pullup').show();
+				laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+					$('.cards').append(html);
+					$('.loading').hide();
+					$('.pullup').show();
+				});
+				if(data.income_list.length>19){
+				 var flag = false;
+					 // 上拉加载和下拉刷新
+					 $(window).scroll(function(e) {
+					 	e.stopPropagation();
+		                //上拉加载
+		                 if(flag){
+					      //数据加载中
+					      return false;
+					    }
+		                if ($(document).scrollTop() == $(document).height() - $(window).height()) {
+		                	$('.pullup').hide();
+		                	$('.loading').show();
+		                	flag = true;
+		                    page++;
+		                    changeAllshou();
+		                    //$('.pullup').show();
+		                	//$('.loading').hide();
+		                }
+		            });
+				}
+				
+			}
+			
+		});
+	}
+	// 页面初次加载
+	changeAllshou();
+	//选择店铺
+	common.http('Merchantapp&a=merchant_money_info', {'ticket':ticket,'client':client,'type':'group'}, function(data){
+		//console.log(data);
+		selectChange(data.store_list);
+		$('.open_income div h3').text('￥'+data.today_money);
+		$('#todayordercount').text(data.today_count);
+		$('.my_balance div h3').text('￥'+data.merchant_money);
+		
+	});
+	//团购订单
+	common.http('Merchantapp&a=index', {'ticket':ticket,'client':client}, function(data){
+		console.log(data);
+		$.each(data.type_name,function(i,val){
+			var types_lists ={'value':'','text':''};
+			types_lists.text=val.name+"订单";
+			types_lists.value=val.type;
+			type_list.push(types_lists);
+
+		});
+		type_list.unshift({'text':'全部订单','value':'all'});
+	});
+      	mui.init();
+      	//点击二维码进入二维码页面
+		mui('.mui-bar-nav').on('tap', 'a.mui-pull-right', function(e) {
+			openWindow({
+				url:'qr_code.html',
+				id:'qr_code'
+			});
+		});
+      	//筛选
+      	  	(function($, doc) {
+				$.init();
+				// 团购订单
+				mui('.mui-content').on('tap','#showUserPicker',function(e){
+					/**
+					 * 获取对象属性的值
+					 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+					 * @param {Object} obj 对象
+					 * @param {String} param 属性名
+					 */
+					var _getParam = function(obj, param) {
+						return obj[param] || '';
+					};
+					//普通示例
+					var userPicker = new $.PopPicker();
+					userPicker.setData(type_list);
+					userPicker.pickers[0].setSelectedValue(type_index);
+					var userResult = doc.getElementById('userResult');
+					userPicker.show(function(items) {
+						$('#tuanding')[0].innerText= items[0].text;
+						var type=items[0].value;
+						type_index=items[0].value;
+						page=1;
+						common.http('Merchantapp&a=merchant_money_info', {'ticket':ticket,'client':client,'type':type}, function(data){
+							//console.log(data);
+							selectChange(data.store_list);
+							// $('.open_income div h3').text('￥'+data.today_money);
+							// $('#todayordercount').text(data.today_count);
+							// $('.my_balance div h3').text('￥'+data.merchant_money);
+							
+						});
+						zuiShi=be_date+'-'+enddate;
+						if(zuiShi=='-'){
+							zuiShi='';
+						}
+
+						// common.http('Merchantapp&a=get_income_list',{'ticket':ticket,'client':client,'type':type,'page':page,'period':zuiShi,'store_id':store_index},function(data){
+						// 	console.log(data);
+						// 	document.getElementById('moneys').innerText='￥'+data.today_money;
+						// 	document.getElementById('counts').innerText=data.today_count;
+			
+						// 	document.getElementsByClassName('jin')[0].style.display="none";
+						// 	document.getElementsByClassName('shai')[0].style.display="inline-block";
+						// 	document.getElementsByClassName('jin')[1].style.display ="none";
+						// 	document.getElementsByClassName('shai')[1].style.display="inline-block";
+						// 	page=1;
+						// 	document.getElementById('cards').innerHTML='';
+						// 	laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+						// 		document.getElementById('cards').innerHTML=html;
+						// 	});
+						// });
+						 document.getElementById('cards').innerHTML='';
+						changeAllshou();
+						document.getElementById('jin').style.display="none";
+						document.getElementById('shai').style.display="block";
+						document.getElementById('jin1').style.display="none";
+						document.getElementById('shai1').style.display="block";
+						
+					});
+				});	
+				// 所有店铺
+				mui('.mui-content').on('tap','#showUserPicker1',function(e){
+					var _getParam = function(obj, param) {
+						return obj[param] || '';
+					};
+					//普通示例
+					var userPicker = new $.PopPicker();
+					userPicker.setData(stor_list);
+					userPicker.pickers[0].setSelectedValue(store_index);
+					var userResult = doc.getElementById('userResult');
+					userPicker.show(function(items) {
+						$('#change_shop')[0].innerText= items[0].text;
+						var store_id=items[0].value;
+						store_index=items[0].value;
+						page=1;
+						zuiShi=be_date+'-'+enddate;
+						if(zuiShi=='-'){
+							zuiShi='';
+						}
+						// common.http('Merchantapp&a=get_income_list',{'ticket':ticket,'client':client,'store_id':store_id,'type':type_index,'page':page,'period':zuiShi},function(data){
+						// 	console.log(data);
+						// 	document.getElementById('moneys').innerText='￥'+data.today_money;
+						// 	document.getElementById('counts').innerText=data.today_count;
+						// 	document.getElementsByClassName('jin')[0].style.display="none";
+						// 	document.getElementsByClassName('shai')[0].style.display="inline-block";
+						// 	document.getElementsByClassName('jin')[1].style.display ="none";
+						// 	document.getElementsByClassName('shai')[1].style.display="inline-block";
+						// 	page=1;
+						// 	document.getElementById('cards').innerHTML='';
+						// 	laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+						// 		document.getElementById('cards').innerHTML=html;
+						// 	});
+						// });
+						 document.getElementById('cards').innerHTML='';
+						changeAllshou();
+						document.getElementById('jin').style.display="none";
+						document.getElementById('shai').style.display="block";
+						document.getElementById('jin1').style.display="none";
+						document.getElementById('shai1').style.display="block";
+					});
+				});
+
+				// 两类时间选择
+				$('.begin_date')[0].addEventListener('tap',function(){
+					var timeValue=document.getElementById('begin_date').innerText;
+					var optionsJson = '{"type":"date","beginYear":2014,"beginMonth":5,"beginDay":1,"endYear":2018}';
+					var options = JSON.parse(optionsJson);
+					var id = this.getAttribute('id');
+					var picker = new $.DtPicker(options);
+					picker.setSelectedValue(timeValue);
+					picker.show(function(rs) {
+						$('#begin_date')[0].innerText = rs.text;
+						be_date=replaceAll(rs.text);
+						picker.dispose();
+						if(enddate==''){
+							mui.toast('请选择结束日期');
+						}else{
+							page=1;
+							zuiShi=be_date+'-'+enddate;
+							console.log(zuiShi);
+							// common.http('Merchantapp&a=get_income_list',{'ticket':ticket,'client':client,'period':be_date+'-'+enddate,'type':type_index,'store_id':store_index,'page':page},function(data){
+							// 	console.log(data);
+							// 	document.getElementById('moneys').innerText='￥'+data.today_money;
+							// 	document.getElementById('counts').innerText=data.today_count;
+							// 	document.getElementsByClassName('jin')[0].style.display="none";
+							// 	document.getElementsByClassName('shai')[0].style.display="inline-block";
+							// 	document.getElementsByClassName('jin')[1].style.display ="none";
+							// 	document.getElementsByClassName('shai')[1].style.display="inline-block";
+							// 	document.getElementById('cards').innerHTML='';
+							// 	laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+							// 		document.getElementById('cards').innerHTML=html;
+							// 	});
+							// });
+							 document.getElementById('cards').innerHTML='';
+							changeAllshou();
+							document.getElementById('jin').style.display="none";
+						document.getElementById('shai').style.display="block";
+						document.getElementById('jin1').style.display="none";
+						document.getElementById('shai1').style.display="block";
+						}
+
+						
+					});
+				});
+				$('.end_date')[0].addEventListener('tap',function(){
+					var timeValue=document.getElementById('end_date').innerText;
+					var optionsJson = '{"type":"date","beginYear":2014,"endYear":2018}';
+					var options = JSON.parse(optionsJson);
+					var id = this.getAttribute('id');
+					var picker = new $.DtPicker(options);
+					picker.setSelectedValue(timeValue);
+					picker.show(function(rs) {
+						$('#end_date')[0].innerText = rs.text;
+						picker.dispose();
+						//var start_date=replaceAll($('#begin_date').text());
+						 enddate=replaceAll(rs.text);
+						 if(be_date==''){
+						 	mui.toast('请选择开始日期');
+						 }else{
+						 	page=1;
+						 	zuiShi=be_date+'-'+enddate;
+							// common.http('Merchantapp&a=get_income_list',{'ticket':ticket,'client':client,'period':be_date+'-'+enddate,'type':type_index,'store_id':store_index,'page':page},function(data){
+							// 	console.log(data);
+							// 	document.getElementById('moneys').innerText='￥'+data.today_money;
+							// 	document.getElementById('counts').innerText=data.today_count;
+							// 	document.getElementsByClassName('jin')[0].style.display="none";
+							// 	document.getElementsByClassName('shai')[0].style.display="inline-block";
+							// 	document.getElementsByClassName('jin')[1].style.display ="none";
+							// 	document.getElementsByClassName('shai')[1].style.display="inline-block";
+							// 	document.getElementById('cards').innerHTML='';
+							// 	laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+							// 		document.getElementById('cards').innerHTML=html;
+							// 	});
+							// });
+							 document.getElementById('cards').innerHTML='';
+							changeAllshou();
+							document.getElementById('jin').style.display="none";
+						document.getElementById('shai').style.display="block";
+						document.getElementById('jin1').style.display="none";
+						document.getElementById('shai1').style.display="block";
+						 }
+						
+						
+					});
+				});
+			})(mui, document);
+
+			//控制显示隐藏
+			mui('.mui-content').on('click','.show',function(e){
+				var id=$(this).parents('.mui-card').data('id');
+				var me=this;
+				if($(this).is('.active')){
+					$(this).removeClass('active');
+					$(this).prev('.show_content').hide();
+				}else{
+					common.http('Merchantapp&a=income_info',{'ticket':ticket,'client':client,'id':id},function(data){
+						console.log(data);
+						laytpl(document.getElementById('content_list').innerHTML).render(data, function(html){
+							$(me).prev('.show_content').html(html);
+						});
+					});
+					$(this).addClass('active');
+					$(this).prev('.show_content').show();
+				}
+			});
+			
+
+
+
+
+</script>
+</body>
+</html>

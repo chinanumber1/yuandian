@@ -1,0 +1,67 @@
+html, body {
+  min-height: 100%;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html, body {
+  height: 100%;
+  overflow-x:hidden;
+}
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+ul,ol{list-style:none;}
+a{text-decoration:none;color:#9F9F9F;}
+body, button, input, select, textarea {
+  font: 16px/1.5 tahoma,arial,sans-serif;
+}
+body {
+  background: #F4F4F4;
+}
+body {
+  color: #333;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+.lt{
+	float:left;
+}
+.rg{float:right;}
+.lt:after,.rg:after,ul{
+	content:" ";
+	display:block;
+	clear:both;
+}
+/*头部样式*/
+header{
+  height:50px;
+  background:#fff;
+}
+header ul{line-height:50px;}
+header ul li{width: 30%;text-align:center;}
+header ul li:first-child{text-align:left; position:relative;}
+header ul li:nth-child(2){margin-left:5%;}
+header ul li:first-child i{
+  display:inline-block;
+  width:32px;height:32px;
+  background:url('../img/return.png') center no-repeat;
+  position:absolute;
+  top:10px;
+}
+header ul li:first-child span{margin-left:32px;}
+
+header ul li.rg{text-align:right;margin-right:5%;}
+/*文本框*/
+.remark textarea{width:90%;margin-left:5%;margin-top: 15px;
+  background:#fff;
+  border:none;
+  resize:none
+}
+.remark textarea:placeholder{
+  margin:5px 0 0 5px;
+}

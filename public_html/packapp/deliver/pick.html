@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>配送员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/deliver.css?t=11" rel="stylesheet"/>
+		<style>
+			.Navigation li.send.on{border-bottom:#ef4c79 2px solid;color:#ef4c79;}
+			.Navigation li.my.on{border-bottom:#19caad 2px solid;color:#19caad;}
+            .acc span{
+                position: relative;
+                top:-39px;
+            }
+            .f14.c9.acc{
+                height: 55px;
+                padding-top: 5px;
+            }
+            .acc img{
+                width:50px;
+                height: 50px;
+                margin:0 3px    ;
+            }
+            .mask1{
+                position: fixed;
+                z-index: 1000;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, .8);
+                 
+            }
+            .add{
+                display: table;
+                font-family: Helvetica, arial, sans-serif;
+                pointer-events: none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .hidden{
+                display: none;
+            }
+             .section {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+            }
+		</style>
+	</head>
+	<body>
+		<section id="fixed_top">
+			<section class="public pageSliderHide">
+				<div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+				<div class="content">处理中订单</div>
+			</section>		
+			<div class="h44"></div>
+        </section>
+		<section class="Navigation">
+			<ul class="clr">
+				<li data-type="pick" class="pick">待取货 <span class="count">(<em id="pick_count">0</em>)</span></li>
+				<li data-type="send" class="send">待配送 <span class="count">(<em id="send_count">0</em>)</span></li>
+				<li data-type="my" class="my">配送中 <span class="count">(<em id="my_count">0</em>)</span></li>
+			</ul>
+		</section>
+		<div class="nav_end clr" id="container">
+			<div class="scroller Dgrab" id="scroller">
+				<div id="pick_list"></div>
+			</div>
+		</div>
+		<script id="replyListBoxTpl" type="text/html">
+			{{# for(var i = 0, len = d.length; i < len; i++){ }}
+			<section class="robbed supply_{{ d[i].supply_id }}" data-id="{{ d[i].supply_id }}">
+				<div class="Online c9 p10 f14 go_detail" data-spid="{{ d[i].supply_id }}" data-status="{{ d[i].status }}" style="cursor: pointer;">
+					{{# if(parseInt(d[i].fetch_number) > 0){ }}
+						<span>取单编号: {{ d[i].fetch_number }}</span>
+					{{# } else { }}
+						<span>订单编号: {{ d[i].real_orderid }}</span>
+					{{# } }}
+					{{# if(d[i].pay_method == 1){ }}
+						<a href="javascript:;" class="fr cd p10">在线支付</a>
+					{{# } else { }}
+						<a href="javascript:;" class="fr cd p10 on">货到付款</a>
+					{{# } }}
+				</div>
+    {{# if (d[i].item == 3) { }}
+	<div class="Title m10 go_detail" data-spid="{{ d[i].supply_id }}" data-status="{{ d[i].status }}">
+        {{# if (d[i].server_type == 1) { }}
+        <p class="f14 c9">商品类型：{{ d[i].goods_name }}</p>
+        <p class="f14 c9">商品重量：{{ d[i].goods_weight }}千克</p>
+        <p class="f14 c9">商品价格：{{ d[i].goods_price }}</p>
+        {{# if (d[i].image.length > 0) { }}
+        <p class="f14 c9 acc" style="height:auto;margin-right:0px;"><span>商品图片:</span>
+			{{# for (var im in d[i].image) { }}
+			<img class="img_click" src="{{ d[i].image[im] }}" alt="" >
+			{{# } }}
+   		</p>
+        {{# } }}
+        <div class="leaflets">帮送</div>
+        {{# } else { }}
+        <p class="f14 c9">商品名称：{{ d[i].goods_name }}</p>
+        <p class="f14 c9">商品估价：{{ d[i].goods_price }}元</p>
+        {{# if (d[i].image.length > 0) { }}
+        <p class="f14 c9 acc" style="height:auto;margin-right:0px;"><span>商品图片:</span> 
+         	{{# for (var im in d[i].image) { }}
+        	<img class="img_click" src="{{ d[i].image[im] }}" alt="" >
+            {{# } }}
+   		</p>
+        {{# } }}
+        <div class="leaflets">帮买</div>
+        {{# } }}
+	</div>
+	<div class="delivery m10">
+        {{# if (d[i].from_site != '') { }}
+			<p class="f14 c6 on openMap clearfix" data-name="{{ d[i].store_name }}" data-address="{{ d[i].from_site }}" data-type="baidu" data-baidu_lng="{{ d[i].from_lnt }}" data-baidu_lat="{{ d[i].from_lat }}">
+				<span class="fl">取</span>
+				<em class="fl">{{ d[i].from_site }}</em>
+			</p>
+        {{# } }}
+		<p class="f14 c6 on1 openMap clearfix" data-name="{{ d[i].name }}" data-address="{{ d[i].aim_site }}" data-type="baidu" data-baidu_lng="{{ d[i].aim_lnt }}" data-baidu_lat="{{ d[i].aim_lat }}">
+			<span class="fl">送</span>
+			<em class="fl">{{ d[i].aim_site }}</em>
+			<i class="cd f14 fl">查看路线</i>
+		</p>
+	</div>
+	<div class="Namelist p10 f14">
+		<h2 class="f15 c3">{{ d[i].name }} <span class="c6"><a href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a></span></h2>
+        {{# if (d[i].server_type == 1) { }}
+		<p class="c9">取货时间：{{ d[i].server_time }}</p>
+        {{# } else { }}
+        <p class="c9">期望{{ d[i].server_time }}分钟内能送达</p>
+        {{# } }}
+		<p class="red">额外小费：<i>{{ parseFloat(d[i].tip_price) }}</i>元</p>
+		<p class="red">{{# if (parseInt(d[i].distance) > 0) { }}配送距离{{ d[i].distance }}公里，{{# } }}配送费{{ d[i].freight_charge }}元</p>
+	</div>
+    {{# } else { }}
+				<div class="Title m10 go_detail" data-spid="{{ d[i].supply_id }}" data-status="{{ d[i].status }}">
+					<h2 class="f16 c3">{{ d[i].store_name }}</h2>
+					<p class="f14 c9">期望送达：{{ d[i].appoint_time }}</p>
+
+					{{# if(d[i].order_from == 1){ }}
+						<div class="leaflets" style="top:0">饿了么</div>
+					{{# } else if (d[i].order_from == 2) { }}
+						<div class="leaflets"  style="top:0">美团</div>
+					{{# } }}
+					{{# if(d[i].get_type == 1){ }}
+						<div class="leaflets">系统派单</div>
+					{{# } }}
+				</div>
+				<div class="delivery m10">
+					<p class="f14 c6 on openMap clearfix" data-name="[店铺] {{ d[i].store_name }}" data-address="{{ d[i].from_site }}" data-type="baidu" data-baidu_lng="{{ d[i].from_lnt }}" data-baidu_lat="{{ d[i].from_lat }}">
+						<span class="fl">取</span>
+						<em class="fl">{{ d[i].from_site }}</em>
+					</p>
+					<p class="f14 c6 on1 openMap clearfix" data-name="[用户] {{ d[i].name }}" data-address="{{ d[i].aim_site }}" data-type="baidu" data-baidu_lng="{{ d[i].aim_lnt }}" data-baidu_lat="{{ d[i].aim_lat }}">
+						<span class="fl">送</span>
+						<em class="fl">{{ d[i].aim_site }}</em>
+						<i class="cd f14 fl">地图查看</i>
+					</p>
+				</div>
+				<div class="Namelist p10 f14 go_detail" data-spid="{{ d[i].supply_id }}" data-status="{{ d[i].status }}">
+					<h2 class="f15 c3">{{ d[i].name }} <span class="c6"><a href="tel:{{ d[i].phone }}">{{ d[i].phone }}</a></span></h2>
+					<p class="c9">下单时间：{{ d[i].order_time }}</p>
+					<p class="red">应收现金：<i>{{ d[i].deliver_cash }}</i>元</p>
+					<p class="red">配送距离{{ d[i].distance }}公里，配送费{{ d[i].freight_charge }}元</p>
+				</div>
+				{{# } }}
+				<div class="sign_bottom">
+					{{# if(d[0].now_tab == 'pick'){ }}
+						<a href="javascript:void(0);" class="Pick" data-spid="{{ d[i].supply_id }}">取货</a>
+					{{# }else if(d[0].now_tab == 'send'){ }}
+						<a href="javascript:void(0);" class="Dis" data-spid="{{ d[i].supply_id }}">配送</a>
+					{{# }else{ }}
+						<a href="javascript:void(0);" class="service" data-spid="{{ d[i].supply_id }}">送达</a>
+					{{# } }}
+				</div>
+	
+			</section>
+			{{# } }}
+		</script>
+		<div class="mask1 hidden img_close">
+			<div class="add">
+				<div class="section">
+					<img class="img_close" src="" alt="" style="width: 100%;">
+				</div>
+			</div>
+		</div>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/work/common.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/pick.js"></script>
+        <script>
+        $('body').off('click','.img_click').on('click','.img_click',function(e){
+              e.stopPropagation();
+              var sic=$(this).prop('src');
+              $('.mask1').removeClass('hidden');
+              $('.mask1 img').prop('src',sic);
+              $('.img_close').click(function(e){
+                  $('.mask1').addClass('hidden');
+              });
+        });
+        </script>
+	</body>
+</html>

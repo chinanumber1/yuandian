@@ -1,0 +1,18 @@
+body{ background: #f0eff5; font-family: "微软雅黑";}
+.dealcard{ margin-bottom: .5rem; padding: 0;}
+.dealcard .dealcard-block-right{ float:left}
+.dealcard dd{padding:1rem}
+.dealcard .brand{ color:#32c8a2; }
+.dealcard .title{ color:#666;font-size:14px;font-weight:200; height:auto; display:block}
+.dealcard .price{ color:#999}
+.dealcard-block-end-right{ float:right; height: 84px;}
+.dealcard-block-end-right a{ color:#32c8a2; border:1px solid #32c8a2; padding: .5rem; border-radius: 4px; line-height: 84px;}
+.dealcard dd:last-child{ border-bottom: 1px solid #ddd; border-top: 1px solid #ddd;}
+.dealcard .dealcard-img img{margin-left:0;width: auto;border-radius:50%}
+.dealcard .dealcard-img {
+    width: 91px;
+    height: 84px;
+    border-radius: 2px;
+    float: left;
+    overflow: hidden;
+}

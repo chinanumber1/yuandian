@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>店员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/pigcms.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<section class="signin" style="height:2000px;">
+			<div class="land_pos">
+				<div class="land">
+					<div class="logo">
+						<img src="images/logo.png"/>
+					</div>
+					<div class="clerk">
+						<div class="clr clerk_input">
+							<div class="fl pos number"></div>
+							<div class="input">
+								<input type="text" placeholder="请输入您的店员账号" id="account" autocomplete="off"/>
+							</div>
+						</div>
+						<div class="clr clerk_input">
+							<div class="fl pos password"></div>
+							<div class="input">
+								<input type="password" placeholder="请输入您的店员密码" id="passwd" autocomplete="off"/>
+							</div>
+						</div>
+					</div>
+					<div class="sign_bun">登 录</div>
+					<div class="remember clr" style="display:none;">
+						<div class="fl"> 
+							<input type="checkbox" id="checkbox_c1" class="chk" checked="checked"/>
+							<label for="checkbox_c1"></label>
+						</div>
+						<div class="fl">记住密码</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/login.js?android=appbackmonitor"></script>
+	</body>
+</html>

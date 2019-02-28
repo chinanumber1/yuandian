@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+<meta charset="utf-8" />
+<title>店员中心</title>
+<meta name="viewport"
+	content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name='apple-touch-fullscreen' content='yes' />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="address=no" />
+<link href="css/pigcms.css" rel="stylesheet" />
+</head>
+<body>
+	<section class="public">
+		<div class="return link-url" data-url-type="openLeftWindow" data-url="back" data-closewebview="true"></div>
+		<div class="content">待确认菜品</div>
+		<div class="found">创建订单</div>
+	</section>
+
+	<section class="reserve stay">
+		<div class="reserve_tab">
+			<form id="searchForm" method="post">
+			<!--div class="search">
+				<input placeholder="搜索预订人、手机号码" id="find_value">
+			</div-->
+			  <div class="cable cable_kd">
+					<div class="input">
+                        <input type="text" id="find_value" name="fv" placeholder="请输入搜索内容" />
+                    </div>
+					<div class="select" style="right:25px;">
+							<select name="ft" id="searchType" style="height:32px">
+								<option value="dh">用户电话</option>
+								<option value="xm">用户姓名</option>
+								<option value="zt">桌台名称</option>
+							</select>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="entry">
+			<ul></ul>
+		</div>
+	</section>
+
+	<div class="cease">
+		<div class="within">
+			<div class="cease_top clr">
+				<h2 class="fl">已点菜品</h2>
+				<!--div class="fl notice">暂未通知上菜</div-->
+			</div>
+			<div class="surface">
+				<ul></ul>
+			</div>
+			<div class="tol_price clr">
+				<div class="fl">共12份</div>
+				<div class="fr price">总计：<span>￥488</span></div>
+				<div class="fr go">去确认</div>
+			</div>
+		</div>
+		<div class="del"></div>
+	</div>
+
+	<div class="seek book">
+		<div class="within">
+			<h2>取消订单</h2>
+			<div class="con">
+				<div class="img">
+					<img src="images/tct_03.jpg">
+				</div>
+				<div class="tit">
+					<p class="on">重要提示</p>
+					<p>确定取消预订之前，请及时联系顾客哦！</p>
+				</div>
+				<div class="button">
+					<div class="clr p20">
+						<input type="hidden" id="order_id" />
+						<div class="fl close shut">关闭</div>
+						<div class="fr ensure shut">确定取消</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="del shut"></div>
+	</div>
+
+	<div class="seek prints">
+		<div class="within">
+			<h2>打印菜单</h2>
+			<div class="con">
+				<div class="img">
+					<img src="images/tct_04.jpg">
+				</div>
+				<div class="tit">
+					<p>
+						打印订单，只会打印订单中的已点菜品。而且只会使用主打印机进行打印，一般适用于用户买单确定，<span class="red">确定打印？</span>
+					</p>
+				</div>
+				<div class="button">
+					<div class="clr p20">
+						<div class="fl close shut">关闭</div>
+						<div class="fr ensure shut">确定打印</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="del shut"></div>
+	</div>
+
+	<div class="mask"></div>
+	<div class="Mask"></div>
+	<script src="scripts/jquery-1.8.3.min.js"></script>
+	<script src="scripts/fastclick.js"></script>
+	<script src="scripts/layer/layer.m.js"></script>
+	<script src="scripts/common.js"></script>
+	<script src="scripts/JRoll.js"></script>
+	<script src="scripts/work/foodshop_create.js"></script>
+	<script src="scripts/work/foodshop_order_list.js"></script>
+	<!--  canc check  -->
+	<script id="listTpl" type="text/html">
+	{{# for (var i = 0, len = d.length; i < len; i++){ }}
+	<li id="li_{{ d[i].order_id }}">
+		{{# if(d[i].status == 3 || d[i].status == 4) { }}
+		<div class="top check clr">
+		{{# }else if(d[i].status == 5) { }}
+		<div class="top canc clr">
+		{{# }else { }}
+		<div class="top pitch clr">
+		{{# } }}
+			<div class="fl">预订时间：{{ d[i].book_time_packapp }}</div>
+			{{# if(d[i].status < 3 && status != 2) { }}
+			<!--div class="fr cancel" data-order_id="{{ d[i].order_id }}">取消订单</div-->
+			{{# } }}
+		</div>
+		<div class="con">
+			<div class="con_top">
+				<h2>预订人: {{ d[i].name }} {{ d[i].phone }}</h2>
+				<p>
+					已付定金：<span class="red">￥{{ d[i].book_price }}</span>
+				</p>
+				<p>预定餐位：{{ d[i].table_type_name }} {{ d[i].table_name }} {{ d[i].min_max }}</p>
+				<p>就餐人数：{{ d[i].book_num }}人</p>
+				<p>下单时间：{{ d[i].date }}</p>
+				{{# if (d[i].order_from == 0) { }}
+				<p>订单来源：在线预订</p>
+				{{# } else if (d[i].order_from == 1) { }}
+				<p>订单来源：扫桌台码预订</p>
+				{{# } else if (d[i].order_from == 2) { }}
+				<p>订单来源：店员下单</p>
+				{{# } }}
+			</div>
+			<div class="remark">
+				<span class="fl">备注：</span>
+				<div class="p30 ">{{ d[i].note }}</div>
+			</div>
+		</div>
+		{{# if (d[i].info != null || d[i].info_temp != null) { }}
+		<div class="already">
+			<div class="pro">
+				<h2>已点菜品：</h2>
+				<div class="pro_list">
+					<dl>
+						{{# var cnt = 0, totalPrice = d[i].totalPrice, loop_cnt = 1, is_sure = 0; }}
+						{{# if (d[i].info_temp != null) { }}
+						{{# for (var ii = 0, lenI = d[i].info_temp.length; ii < lenI; ii++){ }}
+						{{# if (loop_cnt < 3) { }}
+						{{# is_sure = 1; }}
+						<dd>
+							<span class="w4">{{ d[i].info_temp[ii].name }}</span>
+							<span class="w1"><em class="stay">待确认</em></span>
+							<span class="w2">x{{ d[i].info_temp[ii].num }}</span>
+							<span class="w3">￥{{ d[i].info_temp[ii].price }}</span>
+						</dd>
+						{{# } }}
+						{{# loop_cnt ++; }}
+						{{# cnt += d[i].info_temp[ii].num; }}
+							{{# if(d[i].info_temp[ii].fid == 0){ }}
+								{{# totalPrice += d[i].info_temp[ii].num * d[i].info_temp[ii].price; }}
+							{{# } }}
+						{{# } }}
+						{{# } }}
+                        {{# if (d[i].info != null) { }}
+                        {{# for (var ii = 0, lenI = d[i].info.length; ii < lenI; ii++){ }}
+                        {{# if (loop_cnt < 3) { }}
+                        <dd>
+                            <span class="w4">{{ d[i].info[ii].name }}</span>
+                            <span class="w1"><em class="end">已确认</em></span>
+                            <span class="w2">x{{ d[i].info[ii].num }}</span>
+                            <span class="w3">￥{{ d[i].info[ii].price }}</span>
+                        </dd>
+                        {{# } }}
+                        {{# loop_cnt ++; }}
+                        {{# cnt += d[i].info[ii].num; }}
+                        {{# } }}
+                        {{# } }}
+					</dl>
+					{{# if (loop_cnt > 2) { }}
+					<div class="more" data-order_id="{{ d[i].order_id }}"></div>
+					{{# } else if (is_sure == 1) { }}
+					<a class="go" href="foodshop_menu.html?order_id={{ d[i].order_id }}&isShow=1">去确认</a>
+					{{# } }}
+				</div>
+				<div class="total clr">
+					<div class="fl">共{{ cnt }}份</div>
+					<div class="fr">
+						总计：<span class="price">￥{{totalPrice}}</span>
+					</div>
+				</div>
+				{{# if(d[i].status == 3 || d[i].status == 4) { }}
+				<div class="totals clr">
+					<div class="fl">{{ d[i].pay_type }}</div>
+					<div class="fr">实付金额：<span class="price">￥{{ d[i].price }}</span></div>
+				</div>
+				{{# } }}
+			</div>
+		</div>
+        {{# } }}
+		{{# if(d[i].status < 3) { }}
+		<div class="click">
+			<dl>
+				<dd class="food link-url" data-url="foodshop_menu.html?order_id={{ d[i].order_id }}&isShow=0">
+					<span>点菜</span>
+				</dd>
+				<dd class="edit" data-order_id="{{ d[i].order_id }}">
+					<span>编辑订单</span>
+				</dd>
+				<dd class="print" data-order_id="{{ d[i].order_id }}">
+					<span>打印菜单</span>
+				</dd>
+				<dd class="sett link-url" data-url="cashier_set.html?business_type=foodshop&business_id={{ d[i].order_id }}">
+					<span>结算</span>
+				</dd>
+			</dl>
+		</div>
+		{{# } else { }}
+			
+		<div class="click">
+			<dl>
+				<dd class="print" data-order_id="{{ d[i].order_id }}">
+					<span>打印菜单</span>
+				</dd>
+			</dl>
+		</div>
+		{{# } }}
+	</li>
+	{{# } }}
+	</script>
+	
+	<script id="orderDetailTpl" type="text/html">
+	{{# if(d.package_list != null) { }} 
+	{{# for (var i in d.package_list){ }}
+	<li>
+		<div class="flex">
+			<div class="w5">
+				<h2>{{d.package_list[i].name}}</h2>
+			</div>
+			<div class="w1">
+				<em class="end">已确认</em>
+			</div>
+			<div class="w3">x{{d.package_list[i].num}}</div>
+			<div class="w4">￥{{d.package_list[i].price}}</div>
+		</div>
+		<div class="sheath">
+			<dl>
+				{{# for (var ii in d.package_list[i].list){ }}
+				<dd>
+					<div class="w5">{{d.package_list[i].list[ii].name}}</div>
+					<div class="w1"></div>
+					<div class="w3">x{{d.package_list[i].list[ii].num}}</div>
+					<div class="w4">￥{{d.package_list[i].list[ii].price}}</div>
+				</dd>
+				{{# } }}
+			</dl>
+		</div>
+	</li>
+	{{# } }}
+	{{# } }}
+	{{# if(d.goods_list != null) { }} 
+	{{# for (var i = 0, len = d.goods_list.length; i < len; i++){ }}
+	<li>
+		<div class="flex">
+			<div class="w5">
+				<h2>{{d.goods_list[i].name}}</h2>
+				{{# if (d.goods_list[i].spec != null) { }}
+				<p>{{d.goods_list[i].spec}}</p>
+				{{# } }}
+			</div>
+			<div class="w1">
+				<em class="end">已确认</em>
+			</div>
+			<div class="w3">x{{d.goods_list[i].num}}</div>
+			<div class="w4">￥{{d.goods_list[i].price}}</div>
+		</div>
+	</li>
+	{{# } }}
+	{{# } }}
+	{{# if(d.temp_list != null) { }} 
+	{{# for (var i = 0, len = d.temp_list.length; i < len; i++){ }}
+	<li>
+		<div class="flex">
+			<div class="w5">
+				<h2>{{d.temp_list[i].name}}</h2>
+				{{# if (d.temp_list[i].spec != null) { }}
+				<p>{{d.temp_list[i].spec}}</p>
+				{{# } }}
+			</div>
+			<div class="w1">
+				<em class="stay">待确认</em>
+			</div>
+			<div class="w3">x{{d.temp_list[i].num}}</div>
+			<div class="w4">￥{{d.temp_list[i].price}}</div>
+		</div>
+	</li>
+	{{# } }}
+	{{# } }}
+	</script>
+</body>
+</html>

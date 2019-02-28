@@ -1,0 +1,45 @@
+body {
+	background: #EAEAEB;
+	font-family: "arial, helvetica, sans-serif";
+}
+
+#container section {
+	margin: .5rem;
+	background: #fff;
+	border-radius: 10px;
+}
+
+#container section div.title {
+	text-align: center;
+	font-size: 16px;
+	height: 3rem;
+	line-height: 3rem;
+}
+
+#container section div.cat_list {
+	height: auto;
+}
+
+#container section div.cat_list ul {
+	overflow: hidden;
+    padding-bottom: 15px;
+}
+
+#container section div.cat_list ul li {
+	float: left;
+	display: block;
+	width: 33%;
+    margin-top: 12px;
+}
+
+#container section div.cat_list ul li img {
+	margin: 0 auto;
+	display: block;
+	width:2.0rem;
+	height: 2.0rem;
+}
+
+#container section div.cat_list ul li p {
+	text-align: center;
+    margin-top: 12px;
+}

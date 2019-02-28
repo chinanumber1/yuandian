@@ -1,0 +1,272 @@
+html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td {
+	margin: 0;
+	padding: 0;
+	border-spacing:0px !important;
+	outline:medium;
+	word-break:break-word;
+	border:none;
+	list-style:none;
+}
+
+*{ font-family:"微软雅黑","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3",sans-serif; }
+/*A*/
+a{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:none;
+}
+/*img*/
+img{ border:0 none; max-width: 100% }
+}
+/*li*/
+ul,li{list-style-type:none;}
+/*浮动*/
+.fl{
+	float:left;
+	display:inline;
+}
+.fr{
+	float:right;
+	display:inline;
+}
+.clr:after {
+	visibility: hidden;
+	display: block;
+	content: " ";
+	clear: both;
+	height: 0;
+	line-height: 0;
+}
+.clr {
+	zoom: 1;
+}
+a{ color: #333333; }
+a:focus { -moz-outline-style: none; }
+a:focus { outline: none; }
+.hide{display:none;}
+.clear{clear:both;}
+/*公共样式*/
+
+html{ color: #333333; }
+body{ padding:0px; margin:0px auto; font-size:14px;  background-color: #f4f4f4; position: relative; }
+
+i,em{ font-style:normal; }
+h2{ font-weight: normal; }
+
+.swiper-container {margin: 0 auto; position: relative;overflow: hidden; z-index: 1;}
+.swiper-container {width: 100%; height: 100%;}
+.swiper-wrapper {position: relative;width: 100%;height: 100%;z-index: 1; display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;
+   -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    -ms-transition-property: -ms-transform;
+    transition-property: transform;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.swiper-container-vertical>.swiper-wrapper{
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+     }
+
+.swiper-slide {-webkit-flex-shrink: 0;-ms-flex: 0 0 auto;flex-shrink: 0;width: 100%;height: 100%;position: relative;}
+.swiper-pagination {position: absolute;z-index: 20;right: 0px;width: 100%;text-align: center;bottom: 15px;}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {margin: 0 5px;}
+.swiper-pagination-clickable .swiper-pagination-bullet {cursor: pointer;}
+.swiper-pagination-bullet {width: 8px;height: 8px;display: inline-block;border-radius: 100%;background: #cccccc;opacity: 0.8;}
+.swiper-pagination-bullet-active {opacity: 0.8;background: #ff4d45;  }
+
+/*首页*/
+.Coupon .hd{
+	line-height: 45px;
+	background: #fff;
+	position: fixed;
+	top: 0px; 
+	left: 0px;
+	width: 94%;
+	padding: 0 3%;
+	height: 45px;
+}
+.Coupon .hd .swiper-slide{
+	text-align: center;
+}
+.Coupon .slideBox{
+	margin-top: 45px;
+}
+.Coupon .hd .active-nav{
+	color: #ff5277;
+	border-bottom: #ff5277 1px solid;
+	height: 44px;	
+}
+.Coupon .end_ul dd{
+	padding:10px 10px 0 10px;
+	position: relative;
+	overflow: hidden;
+}
+.Coupon .Coupon_top{ 
+	position: relative;
+	color: #fff;
+	border-radius: 10px 10px 0 0;
+	background: url(../images/yhq_10.png) left bottom #ff5277; background-repeat: repeat-x; background-size: 12px;
+}
+.Coupon .Coupon_top .fl em{
+	font-family: "Arial";
+	font-size: 40px; 
+	font-weight: bold;
+}
+.Coupon .Coupon_top .fl{
+	font-size: 16px;
+	height: 90px;
+	width: 134px;
+}
+.Coupon .Coupon_top .fr{
+	position: absolute;
+	right:0px;
+	left: 134px;
+	margin:10px 0;
+	padding-left: 20px;
+	border-left: #fff 1px dashed;
+	
+}
+.Coupon .Coupon_top .fr h2{
+	font-size: 18px;
+	line-height: 24px;
+	margin-bottom: 5px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+.Coupon .Coupon_top .fr p{
+	font-size: 12px;
+	line-height: 20px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+@media(max-width:320px){
+  .Coupon .Coupon_top  .fl{ width: 102px; }
+  .Coupon .Coupon_top .fl em{ font-size: 25px; }
+  .Coupon .Coupon_top .fr{ left: 102px; }
+}
+.Coupon .Coupon_end{
+	background-color: #fff;
+	line-height: 35px;
+	border-radius: 0 0 10px 10px;
+	font-size: 12px;
+	padding: 0 10px;
+	color: #666;
+	position: relative;
+}
+.Coupon .Coupon_end em{
+	line-height: 20px;
+	border-radius: 10px;
+	padding:0 5px;
+	border: #ff5277 1px solid;
+	color: #ff5277;
+	font-size: 13px;
+	position: absolute;
+	right: 10px;
+	top: 5px;
+}
+.Coupon span.several{ display: block; position: absolute; top: 7px; right: 4px; width: 35px; height: 35px;  transform:rotate(50deg); line-height: 35px; text-align: center; font-size: 12px; color: #ff5277; z-index: 99 }
+.Coupon i.bj{ background:url(../images/xhqt_03.png) center no-repeat; background-size: 35px;  display: block; position: absolute; top: 10px; right: 10px; width: 35px; height: 35px; }
+.Coupon .more{    padding: 100px 10px; }
+.Coupon .more a{ display: block; width: 100%; background: #fff; border:#999999 1px solid; border-radius: 5px; line-height: 40px;  text-align: center; }
+.Coupon .more a span{ background: url(../images/gdhjt_03.png) center no-repeat; background-size: 20px 15px; display: inline-block; width: 20px; height: 15px; margin-left: 5px; margin-top: 10px; }
+.Coupon .Expired .Coupon_top{  background: url(../images/yhq_10.png) left bottom #b9b9b9; background-repeat: repeat-x; background-size: 12px; }
+.Coupon .Expired i.bj{ background: url(../images/hist_03.png) center no-repeat; background-size: 35px; }
+.Coupon .Expired span.several { color:#9f9f9f;}
+.Coupon .overdue{ text-align: center; font-size: 14px; color: #999999; background: url(../images/hxt_03.jpg) left center; background-repeat: repeat-x; padding: 100px 0; margin: 0px 10px;  }
+.Coupon .overdue span{ background: #f4f4f4; padding: 0px 20px; }
+.Coupon .Use .Coupon_top{  background: url(../images/yhq_10.png) left bottom #fe935d; background-repeat: repeat-x; background-size: 12px; }
+.Coupon .Use i.bj{ background: url(../images/yhjti_03.png) center no-repeat; background-size: 35px;  }
+.Coupon .Use span.several { color:#e06b30;}
+
+/*会员卡*/
+.Membership{ background: #fff; margin-bottom: 8px; }
+.Mcard{ padding: 10px 20px; }
+.Mcard dl{ border-radius: 10px; padding: 5% 15px 10% 15px; background: -webkit-linear-gradient(top, #fe6299 35%,#f3527b 100%); color: #fff; box-shadow: 0px 5px 20px 3px #d5d5d5;}
+.Mcard dl .Mcard_top .fl img{ width: 28px; height: 28px; border:#fff 1px solid;  border-radius: 100%; float: left; margin-right: 10px;}
+.Mcard dl .Mcard_top .fl span{ font-size: 16px;  line-height: 30px; }
+.Mcard dl .Mcard_top .fr img{ width: 20px; height: 20px; border: #fff 3px solid; }
+.Mcard dl .Mcard_end{ line-height: 24px; margin-top: 15%; }
+.Mcard dl .Mcard_end .fl{ font-size: 24px; font-family: "Arial"; }
+.Mlist{ padding: 3% 0; }
+.Mlist ul{ display: -webkit-box; }
+.Mlist ul li{  text-align: center;flex: 1;display: block;-webkit-box-flex: 1;box-flex: 1;-webkit-flex: 1; width: 33%; background: url(../images/hdt_03.jpg) right center no-repeat; background-size:1px 35px }
+.Mlist ul li:last-child{ background:none }
+.Mlist ul li h2{ font-family: "Hiragino Sans GB"; font-size: 16px; color: #7e8699; line-height: 24px; }
+.Mlist ul li p{ font-family: "Hiragino Sans GB";  color: #666666;  font-size: 16px; line-height: 20px; }
+.Mlist ul li i{ width: 13px; height: 13px; display: inline-block; margin-right: 5px; }
+.Mlist ul li:nth-child(1) i{ background: url(../images/hyk1.png) center  no-repeat; background-size: 12px; }
+.Mlist ul li:nth-child(2) i{ background: url(../images/hyk2.png) center  no-repeat; background-size: 12px; }
+.Mlist ul li:nth-child(3) i{ background: url(../images/hyk3.png) center  no-repeat; background-size: 12px; }
+.Mlist_end li{ float: left; width: 33.3%; text-align: center;   box-sizing:border-box;-moz-box-sizing:border-box; /* Firefox */-webkit-box-sizing:border-box; /* Safari */border-bottom: #ececec 1px solid; border-right: #ececec 1px solid;}
+.Mlist_end li:nth-child(3n){ border-right: none; }
+.Mlist_end li img{ width: 24px; height: 23px; }
+.Mlist_end li p{ line-height: 30px; color: #666666; }
+.Mlist_end li a{ display: block; padding: 20% 0;  height: 53px;}
+
+
+/*领劵*/
+.Coupons .bd .swiper-slide{ padding-bottom: 100px; float: left; display: none; }
+.Coupons .hd{ position: fixed; background: #fff;  white-space:nowrap; top: 0px; left:0px; height: 45px;   }
+.Coupons .hd .swiper-slide{ display: inline-block;font-size: 16px;  line-height: 45px; height: 45px; text-align: center; }
+.Coupons .hd .active-nav{ color: #ff5277; border-bottom: #ff5277 2px solid;  height: 43px;  }
+.Coupons .slideBox{ margin-top: 45px; }
+.Coupons .end_ul dd{ padding: 10px 10px 0 10px; }
+.Coupons .end_ul dd a{ display: block; overflow: hidden; position: relative; border-radius: 8px; border-bottom: #ececec 1px solid; }
+.Coupons .end_ul dd .left{   width: 100%; background: #fff; background-size: 3px 133px;}
+.Coupons .end_ul dd .left .top{ padding: 13px 8px 12px 8px; border-bottom: #ececec 1px dashed; }
+.Coupons .Receive .top img.fl{ width: 60px; height: 60px; border-radius: 10px; }
+.Coupons .Receive .top .p60{ padding-left: 70px; height: 60px; color: #ff5277; }
+.Coupons .Receive .top .p60 h2{font-size: 14px; line-height: 24px; position: relative; height: 24px;}
+.Coupons .Receive .top .p60 h2 i{ font-size: 20px; font-weight: bold;  }
+.Coupons .Receive .top .p60 p{ font-size: 12px; line-height: 18px; }
+.Coupons .Receive .end{ padding: 6px 8px 5px 8px; }
+.Coupons .Receive .end p{ font-size: 12px; line-height: 18px; color: #666666;}
+.Coupons .right{padding-left: 3px; position: absolute; width: 90px; height: 133px;  text-align: center;background: url(../images/lqzxt_04.jpg) left center no-repeat #ff5277; background-size: 6px 133px;  top: 0px; right: 0px; }
+.Coupons .right .collar{  font-size: 12px; text-align: center; line-height: 18px; width: 60px;  border-radius: 20px; background: #fff; border: #d54362 2px solid; color: #ff5277 ; display: inline-block;  margin-top: 95px; }
+.Coupons .right .rob{ color: #fff;  }
+
+/*圆角滚动条*/
+.circle{ width:60px; height:60px; position:absolute; border-radius:100%; background:#fff; top:50%; margin-top: -45px;  left: 50%; margin-left: -30px; }
+.pie_right,.pie_left{ width:60px; height:60px; position:absolute; top:0px; left:0px;}
+.circle .bf_right,.circle .bf_left{ width:60px; height:60px; background:#b63853; border-radius:100%; position:absolute; top:0px; left:0px;-webkit-transform:rotate(0deg); display:block;}
+.pie_right,.circle .bf_right{ clip:rect(0,auto,auto,30px); }
+.pie_left,.circle .bf_left{ clip:rect(0,30px,auto,0);  }
+.mask1{ width:44px; height:44px; border-radius:100%; left:8px; top:8px; background:#ff5277;position:absolute; text-align:center; line-height:14px; font-size:12px; color: #fff; }
+.mask1 p{ margin-top: 8px; }
+/*.mask1 p.zs{position: absolute;left: -18px;top: 5px;min-width: 80px;background-color: #ff5277;line-height: 18px;}*/
+.Already{ position: absolute; left: -10px; top: -5px; background: url(../images/lqzxt_17.png); width: 92px; height: 90px; background-size: 92px 90px; }
+.Alreadyon{ background: url(../images/lqzxt_18.png);  background-size: 92px 90px; }
+.Coupons .rightAl{ background: url(../images/img_03.jpg) left center no-repeat #f74949; background-size: 6px 133px;}
+.Coupons .rightAl .collar{ border: #ca3e3e 2px solid;  background: #ffec00; }
+.Coupons h2.Al{ color: #f74949; }
+
+.Coupons .rightEnd{ background: url(../images/img_06.jpg) left center no-repeat #42b6ff; background-size: 6px 133px;}
+.Coupons .rightEnd .collar{ border: #3794cf 2px solid;  background: #fff; color: #42b6ff; }
+.Coupons h2.End{ color: #42b6ff; }
+
+.Coupon .Coupon_top .fltop{  padding-left: 15px; line-height: 30px; padding-top: 18px; }
+.Coupon .Coupon_top .flend{ font-size: 12px; text-align: center; }
+.Coupon .Coupon_end .Coupon_x{ 	border-bottom: #dddddd 1px dashed;  }
+.Coupon_sm{ color: #999999;line-height: 30px;  font-size: 12px; background: #fff; position: relative;z-index: 999 }
+.Coupon_sm span:after{ display:inline-block;content: "";border-top: 1px solid #cccccc;border-left: 1px solid #cccccc;width: 8px;height: 8px;background-color: transparent;position: relative;margin-left: 4px; -webkit-transform: rotate(45deg); top: 3px; transition: all 0.5s; }
+.Coupon_text{ color: #686868; line-height: 20px;  transition: all 0.5s; padding-bottom: 10px;  max-height: 100px;}
+.Coupon_sm .overflow{ height: 0px; padding: 0px; overflow: hidden;  }
+.Coupon_sm span.on:after{-webkit-transform: rotate(225deg);  top: -2px;  }
+.Coupon_smon{  padding: 0 8px; border-radius: 8px; }
+.Coupons .Receive .top .p60 h2 span{ float: left; height: 24px;display: block; }
+.Coupons .Receive .top .p60 h2 .Buytext{  font-size: 12px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis; position: absolute; margin-left: 5px;  }
+.Coupons .end_ul dd a .newuser{ background: url(../images/xyht_03.png) left center no-repeat; width: 35px; height: 35px; background-size: 35px;  top: 0px; left: 0px; position: absolute; }
+
+

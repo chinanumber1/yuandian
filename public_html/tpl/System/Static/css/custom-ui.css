@@ -1,0 +1,885 @@
+.app-preview {
+    position: relative;
+    float: left;
+    width: 350px;
+    border: 1px solid #e5e5e5;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.3);
+    border-radius: 18px;
+	padding-bottom: 40px;
+    min-height: 600px;
+}
+.app-preview .app-header {
+    height: 70px;
+    background: url(img/iphone_head.png) no-repeat center center;
+}
+.app-preview .app-entry {
+    width: 320px;
+    margin: 0 auto;
+    border: 1px solid #c5c5c5;
+    background: #f9f9f9;
+    /* height:568px; */
+    min-height:568px;
+/* 	overflow-y:auto;
+	overflow-x:hidden; */
+	position:relative;
+}
+.app-preview .app-field {
+    /* background-color: #f9f9f9 !important; */
+}
+.app-preview .app-field {
+    position: relative;
+    -webkit-user-select: none;
+}
+.app-preview .app-field .custom-image-swiper{
+	cursor:pointer;
+}
+.app-preview .app-field .custom-image-swiper:hover:after{
+	background:rgba(0,0,0,0.3);
+	position:relative;
+	
+}
+.app-preview .app-config .app-field {
+    cursor: pointer;
+    background-color: transparent;
+}
+.app-preview .app-config .app-field.editing {
+    background-color: transparent;
+}
+.app-preview .app-config .app-field h1 {
+    padding: 18px 60px 0 60px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    background: url(img/titlebar.png) no-repeat;
+    margin: 0;
+}
+.app-preview .app-config .app-field h1 span {
+    display: inline-block;
+    height: 46px;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: bold;
+}
+.app-design .app-sidebar {
+    position: relative;
+    float: left;
+    width: 470px;
+    margin-left: 20px;
+    padding-bottom: 20px;
+    font-size: 14px;
+}
+.app-design .app-sidebar .arrow, .app-design .app-sidebar .arrow:after {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 8px 10px 8px 0;
+    border-color: transparent #d1d1d1 transparent transparent;
+    position: absolute;
+    left: -10px;
+    top: 19px;
+}
+.app-design .app-sidebar .arrow:after {
+    content: "";
+    border-right-color: #f8f8f8;
+    left: 1px;
+    top: -8px;
+}
+.app-design .app-sidebar .app-sidebar-inner {
+    padding: 12px 4px;
+    min-height: 28px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
+}
+.app-design .form-horizontal {
+    width: 458px;
+}
+.form-horizontal .control-group {
+    margin-bottom: 10px;
+}
+.form-horizontal .control-group:before, .form-horizontal .control-group:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+.form-horizontal .control-label {
+    float: left;
+    width: 160px;
+    padding-top: 5px;
+    text-align: right;
+}
+.form-horizontal .control-label {
+    width: 120px;
+    font-size: 14px;
+    line-height: 18px;
+}
+.app-design .app-sidebar .control-label {
+    width: 87px;
+    cursor: default;
+}
+.form-horizontal em.required {
+    font-size: 16px;
+    color: #f00;
+    vertical-align: middle;
+}
+em.required, sup.required {
+    color: #f00 !important;
+}
+.app-design .app-sidebar .required {
+    margin-right: 2px;
+    vertical-align: middle;
+    padding: 0px;
+}
+.form-horizontal .controls {
+    margin-left: 130px;
+    word-break: break-all;
+}
+.app-design .app-sidebar .controls {
+    margin-left: 93px;
+}
+.app-design input[type="text"],.app-design input[type="color"]{
+	display: inline-block;
+    height: 20px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555555;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    width: 206px;
+}
+.app-design input[type="text"],.app-design input[type="color"]{
+	display: inline-block;
+    height: 20px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    line-height: 20px;
+    color: #555555;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+	background-color: #ffffff;
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+	font-size: 12px;
+}
+.app-design input[type="text"].input-xxlarge {
+    width: 285px;
+}
+.app-design .app-sidebar .control-group:last-of-type {
+    margin-bottom: 0;
+}
+.webuploader-element-invisible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px,1px,1px,1px);
+}
+.app-design .addProductBtn ,.app-design .addCouponBtn {
+	margin-top:20px;
+	cursor:pointer;
+	margin-bottom: 20px;
+	background-repeat:no-repeat;
+	height:50px;
+	background-position:50% 0;
+}
+.app-design .addProductBtn {
+	background-image:url(img/custom-add-shop.png);
+}
+.app-design .addCouponBtn {
+	background-image:url(img/custom-add-coupon.png);
+}
+
+.app-design .product_dealcard{
+	background-color:white;
+    padding: 8px 3px;
+    border-bottom: 1px solid #f1f1f1;
+	line-height:1.5
+}
+.app-design .productRow{
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+.app-design .product_dealcard .dealcard-img {
+    width: 90px;
+    height: 60px;
+    border-radius: 2px;
+    float: left;
+    position: absolute;
+    overflow: hidden;
+}
+.app-design .product_dealcard .dealcard-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+.app-design .product_dealcard .dealcard-block-right {
+    margin-left: 100px;
+}
+.app-design .product_dealcard .brand {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+}
+.app-design .product_dealcard .location-right {
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    color: #666;
+    font-size: 11px;
+}
+.app-design .product_dealcard .title {
+    padding-left: 74px;
+}
+.app-design .product_dealcard .title, .app-design .product_dealcard .price {
+    position: relative;
+}
+.app-design .product_dealcard .title span, .app-design .product_dealcard .price span {
+    color: #666;
+    font-size: 11px;
+}
+.app-design .product_dealcard .title .star {
+    vertical-align: middle;
+    margin-left: 2px;
+    position: absolute;
+    left: 0px;
+    top: 3px;
+}
+.app-design .product_dealcard .title .star i {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: url(img/none_star.png) no-repeat;
+    background-size: 100%;
+    margin-right: 2px;
+}
+.app-design .product_dealcard .title .star i.full {
+    background-image: url(img/full_star.png);
+}
+.app-design .product_dealcard .title .star i.half {
+    background-image: url(img/mid_star.png);
+}
+.app-design .product_dealcard .location-right {
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    color: #666;
+    font-size: 11px;
+}
+.app-design .product_dealcard .title .location-right {
+    top: 2px;
+}
+.app-design .product_dealcard .price span.delivery {
+    border-left: 1px solid #bbb;
+    padding-left: 8px;
+    margin-left: 8px;
+}
+.app-design .product_dealcard .price .location-right, .app-design .product_dealcard .title.pick .location-right {
+    background: #06c1ae;
+    color: white;
+    padding: 0px 2px;
+    border-radius: 2px;
+    font-size: 10px;
+    top: 4px;
+}
+.app-design .product_dealcard .coupon {
+    color: #bbb;
+    font-size: 11px;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.app-design .product_dealcard .coupon li {
+    position: relative;
+    padding-left: 20px;
+    line-height: 22px;
+    padding-right: 60px;
+    height: 22px;
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.app-design .product_dealcard .coupon  li em {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    display: inline-block;
+    background-color: #DD1111!important;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    border-radius: 2px;
+}
+.app-design .product_dealcard .coupon  li em:before {
+    content: '惠';
+    font-size: 11px;
+    color: white;
+    margin-left: 2px;
+}
+.app-design .app-preview .actions {
+    position: absolute;
+    display: none;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    /* width: 317px; */
+    width: 320px;
+    border: 2px dashed rgba(255,0,0,0.5);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 2;
+}
+.app-design .app-preview .actions .actions-wrap {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+}
+.app-design .app-preview .productRow.last-child .actions .actions-wrap {
+    position: absolute;
+	bottom:auto;
+    top: 3px;
+    right: 2px;
+}
+.app-design .app-preview .app-field:hover .actions {
+    display: inline-block;
+}
+.app-design .app-preview .actions span {
+    display: inline-block;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    padding: 0 5px;
+    margin-left: 1px;
+    font-size: 12px;
+	cursor:pointer;
+}
+.ui-popover {
+    position: absolute;
+    z-index: 1010;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 6px rgba(0,0,0,0.4);
+    box-shadow: 0px 1px 6px rgba(0,0,0,0.4);
+}
+.ui-popover.left-top, .ui-popover.left-center, .ui-popover.left-bottom {
+    margin-left: -10px;
+}
+.ui-popover .ui-popover-inner {
+    position: relative;
+    background: #fff;
+    border-radius: 2px;
+    padding: 10px 20px;
+    z-index: 2;
+}
+.pull-left {
+    float: left;
+}
+.center, .text-center {
+    text-align: center;
+}
+.pull-right {
+    float: right;
+}
+.zent-btn {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #333;
+    background: #fff;
+    border: 1px solid #bbb;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+	text-decoration:none;
+}
+.zent-btn:hover{
+	text-decoration:none;
+}
+.zent-btn-small {
+    height: 26px;
+    line-height: 24px;
+    padding: 0 5px;
+}
+.zent-btn-primary {
+    color: #fff;
+    background: #3283fa;
+    border-color: #3283fa;
+}
+.zent-btn:link, .zent-btn:visited, .zent-btn:focus {
+    color: #333;
+}
+.zent-btn-primary:link, .zent-btn-primary:visited, .zent-btn-primary:focus {
+    color: #fff;
+}
+.zent-btn+.zent-btn {
+    margin-left: 10px;
+}
+.clearfix:after, .clearfix:before {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+.clearfix:after{
+    clear: both;
+}
+::-webkit-scrollbar {
+    width:3px;
+    height: 8px;
+    background-color:#f6f8f8;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background-color:rgba(45, 41, 41, 0.5);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.ui-popover .arrow {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    z-index: 1;
+}
+.ui-popover.left-top .arrow, .ui-popover.left-center .arrow, .ui-popover.left-bottom .arrow {
+    right: 0;
+    -webkit-transform: rotate(45deg) translateX(50%);
+    -moz-transform: rotate(45deg) translateX(50%);
+    -ms-transform: rotate(45deg) translateX(50%);
+    transform: rotate(45deg) translateX(50%);
+    -webkit-transform-origin: 100% 50%;
+    -moz-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+}
+.ui-popover.left-center .arrow {
+    top: 50%;
+    -webkit-transform: rotate(45deg) translateX(50%) translateY(-50%);
+    -moz-transform: rotate(45deg) translateX(50%) translateY(-50%);
+    -ms-transform: rotate(45deg) translateX(50%) translateY(-50%);
+    transform: rotate(45deg) translateX(50%) translateY(-50%);
+    -webkit-transform-origin: 100% 0;
+    -moz-transform-origin: 100% 0;
+    -ms-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+}
+.ui-popover.right-top, .ui-popover.right-center, .ui-popover.right-bottom {
+    margin-left: 10px;
+}
+.ui-popover.right-center .arrow {
+    top: 50%;
+    -webkit-transform: rotate(45deg) translateX(-50%) translateY(-50%);
+    -moz-transform: rotate(45deg) translateX(-50%) translateY(-50%);
+    -ms-transform: rotate(45deg) translateX(-50%) translateY(-50%);
+    transform: rotate(45deg) translateX(-50%) translateY(-50%);
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.app-fields.addProductBox.fixed{
+	position:fixed;
+	bottom:0px;
+    width: 320px;
+	z-index: 3;
+	height:91px;
+}
+.app-fields.addProductBox.fixed .app-field{
+    background: rgba(0,0,0,0.6) !important;
+}
+.app-fields.addProductBox.fixed .app-field .addProductBtn{
+    margin-top:0px;
+    margin-bottom:0px;
+	padding-top:15px;
+    padding-bottom:15px;
+	color:white;
+}
+
+.addCategoryBtn{
+	height:50px;
+	background:white;
+	cursor:pointer;
+    position: relative;
+}
+
+.addCategoryBtn .right{
+    position: absolute;
+    top: 0;
+    right: 17px;
+    color: white;
+    font-size: 26px;
+    line-height: 50px;
+	width: 24px;
+    right: 0px;
+    background: rgba(0,0,0,0.3);
+    text-align: center;
+}
+.addCategoryBtn  li{
+	height:50px;
+	line-height:50px;
+	width:100%;
+	text-align:center;
+	overflow:hidden;
+	float:left;
+}
+.addCategoryBtn.col-2  li{
+	width:50%;
+}
+.addCategoryBtn.col-3  li{
+	width:33%;
+}
+.addCategoryBtn.col-4  li{
+	width:25%;
+}
+.addCategoryBtn.col-5  li{
+	width:20%;
+}
+
+
+.addCategoryBtn  li.curr{
+    background: #f98100;
+    color: #FFF;
+}
+
+.btn {
+    padding: 4px 12px;
+    margin-bottom: 0;
+    color: #333;
+    vertical-align: top;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+	font-size: 12px;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+.coupon_list{
+	margin:0 2%;
+}
+.couponRow{
+	float: left;
+    width: 32%;
+	position:relative;
+    margin-right:2%;
+    position: relative;
+    background: url(img/coupon_on1.png) no-repeat;
+    background-size: 100% auto;
+    color: #FFF;
+}
+.couponRow .delete{
+	height: 100%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+    background: rgba(0,0,0,0.5);
+	display:none;
+}
+.couponRow:hover{
+	color:white;
+}
+.couponRow:hover .delete{
+	display:block;
+}
+.couponRow:nth-child(3n){margin-right:0%;}
+.couponRow .coupon_name {
+    width: 14px;
+    line-height:13px;
+    font-size: 10px;
+	height:39px;
+	overflow:hidden;
+    margin: 6px 0 0 6px;
+    display: table;
+}
+.couponRow .coupon_name span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.couponRow .coupon_monery {
+    font-size: 15px;
+    margin: 6px 0 0 14px;
+    position: relative;
+    font-weight: bold;
+}
+.couponRow .coupon_monery::before {
+    content: '￥';
+    font-size:14px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    top:1px;
+}
+.couponRow .coupon_use {
+    display: block;
+    width: 62px;
+    font-size: 10px;
+    margin:5px 0 0 8px;
+    text-align: center;
+}
+.oneline {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.app-design .app-sidebar a:hover{
+	text-decoration:none;
+}
+.app-design .app-sidebar .options {
+    margin: 0 10px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+}
+.app-design .app-sidebar .options a.add-option {
+    display: block;
+    line-height: 45px;
+    padding: 0 10px;
+	color: #07d;
+}
+.app-design .icon-add {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url(img/icon-add.png);
+    background-repeat: no-repeat;
+    background-position: 0;
+    vertical-align: middle;
+}
+
+.app-design .app-sidebar .control-group:last-child{
+    margin-bottom: 0;
+}
+
+.app-design .app-sidebar .choice {
+    position: relative;
+    border: 1px solid #e5e5e5;
+    margin: 10px 10px 0 10px;
+    padding: 14px;
+    background: #fff;
+    zoom: 1;
+}
+.app-design .app-sidebar .actions {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+.app-design .app-sidebar .choice .actions {
+    display: none;
+}
+.app-design .app-sidebar .choice:hover .actions { display: block; }
+
+.close-modal {
+    position: absolute;
+    z-index: 2;
+    top: -9px;
+    right: -9px;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 18px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(153, 153, 153, 0.6);
+    border-radius: 10px;
+}
+.close-modal:hover {
+    color: #fff;
+    background: #000000;
+}
+.app-design .app-sidebar .actions .close-modal {
+    position: static;
+    display: inline-block;
+    margin-right: 5px;
+}
+.app-design .app-sidebar .actions .close-modal:last-of-type {
+    margin-right: 0;
+}
+
+
+.app-design .app-actions {
+    /* position: fixed; */
+    width: 850px;
+    padding-top: 20px;
+    clear: both;
+    text-align: center;
+    z-index: 999;
+}
+.app-design .app-actions .form-actions {
+    padding: 10px;
+    margin: 0;
+    background: rgba(0,0,0,0.5);
+}
+.form-actions .btn {
+    margin-right: 6px;
+}
+
+/*列表页样式*/
+#listHeader{
+	top:0;
+	height: 50px;
+    background-color: #06c1ae;
+    display: -webkit-box;
+
+    width: 100%;
+    z-index: 21;
+}
+#locationBtn{
+	background:none;
+	color:white;
+	margin: 0 auto;
+	padding: 0 28px;
+    height: 28px;
+    line-height: 28px;
+    margin-top: 11px;
+	border-radius: 30px;
+	font-size: 12px;
+	position: relative;
+    display: block;
+}
+#locationBtn .location{
+	height: 10px;
+    width: 10px;
+    border: 1px white solid;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+	position: absolute;
+    top: 8px;
+    left: 9px;
+}
+#locationBtn .location:before {
+    content: '';
+	width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+#locationBtn .go{
+	position: absolute;
+    top: 7px;
+    right: 10px;
+}
+#locationBtn .go:before{
+	content:''; height:6px; width:6px; display:block; border:1px solid white; border-left-width:0; border-top-width:0; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); position:absolute; top:3px; right:3px;
+}
+.fixedRoundBg{
+	top:0px;
+	background-color:#06c1ae!important;
+}
+.fixedRoundBg #locationBtn{
+	background:none!important;
+}
+.roundBg #locationBtn{
+	background-color:rgba(0,0,0,0.4);
+}
+#pageList .fixedRoundBg #searchBtn:before{
+	background:none!important;
+}
+.listBackBtn{
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.listBackBtn div{
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    top: 17px;
+    left: 5px;
+}
+.listBackBtn div:after {
+    display: block;
+    content: "";
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    width: 8px;
+    height: 8px;
+    -webkit-transform: rotate(315deg);
+    background-color: transparent;
+    position: absolute;
+    top: 3px;
+    left: 19px;
+}
+
+.listSearchBtn{
+	position: absolute;
+    width: 50px;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+#pageList .roundBg #searchBtn:before,#pageList .roundBg #listBackBtn:before{
+	content: "";
+    display: block;
+    position: absolute;
+	background-color:rgba(0,0,0,0.4);
+	width: 28px;
+    height: 28px;
+	border-radius:100%;
+	top: 10px;
+    left: 12px;
+}
+.listSearchBtn div{
+	height:20px;
+    position: absolute;
+    width: 20px;
+    top: 17px;
+    right: 10px;
+}
+.listSearchBtn div:before, .listSearchBtn div:after{
+	content:''; height:10px; display:block; position:absolute; top:0; left:0; 
+}
+
+.listSearchBtn div:before{
+	width:10px; border:1px white solid; border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;
+}
+
+.listSearchBtn div:after{
+	width:1px; background:white; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); top:10px; left:11px;    height: 4px;
+}

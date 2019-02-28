@@ -1,0 +1,72 @@
+
+.dealcard{overflow-y:auto}
+.dealcard dl{  background-color: #fff; border-top: #eeeeee 1px solid;border-bottom: #eeeeee 1px solid; margin-bottom: 8px; }
+.dealcard dt{ padding: 0px 2px 0 6px; border-bottom: #e4e4e4 1px solid; }
+.dealcard dt .navLtop {  height: 20px;  padding: 17px 0 12px 0;}
+.dealcard dt h2{ font-size: 17px; font-weight: normal; line-height: 22px; }
+.dealcard dt .navLtop_right span{ display: inline-block; font-size: 12px; color: #fff; width: 17px; height: 17px; border-radius: 3px; text-align: center; line-height: 17px; }
+.dealcard dt .navLtop_right span.ln{ background-color: #00cccc; }
+.dealcard dt .navLtop_right span.zi{ background-color: #9933cc; }
+.dealcard dt .navLtop_right span.lv{ background-color: #29c7a2; }
+
+
+.dealcard dt .navLBt{ height: 18px;  line-height: 18px; padding-bottom: 15px; }
+
+
+.dealcard dt .navLBt .distance{ color: #666666; }
+
+
+.dealcard dd.navlink{ border-bottom: #e4e4e4 1px solid; line-height: 41px;  color: #666666;padding: 0 10px 0 15px; }
+.dealcard dd.navlink a{ display: block; }
+.dealcard dd.navlink .link_Pay{  height: 22px; display: inline-block;  border: #29c7a2 1px solid; border-radius: 100px; line-height: 22px; font-size: 12px; color: #29c7a2; background: url(../images/cyt_17.png) 10px 5px no-repeat; padding: 0 8px; padding-left: 25px; background-size: 13px; }
+.dealcard dd.navlink .link_jt{ display: inline-block; width: 5px; height: 40px;  background: url(../images/sylj_03.png) left center no-repeat;  background-size: 5px; }
+
+@media screen and (max-width: 320px) {
+   .dealcard dd.navlink{ font-size: 12px;  }
+} 
+.dealcard dd.Menulink{ padding: 13px 0 13px 0px; border-bottom: #e4e4e4 1px solid;  margin-left: 15px; }
+.dealcard dd.Menulink:last-child{border-bottom:none;}
+.dealcard dd.Menulink .Menulink_img{ width: 80px; height: 63px; float: left; position: relative; }
+.dealcard dd.Menulink .Menulink_img img{ width: 80px; height: 63px;  }
+.dealcard dd.Menulink .Menulink_img .MenuGroup{background: url(../images/cyt_21.png) left center no-repeat; background-size: 37px ; position: absolute;  display: block; width: 37px; height: 37px; top: 0px; left: 0px;}
+.dealcard dd.Menulink .Menulink_img .PinGroup{background: url(../images/pin.png) left center no-repeat; background-size: 37px ; position: absolute;  display: block; width: 37px; height: 37px; top: 0px; left: 0px;}
+.dealcard dd.Menulink .Menulink_right{ padding-left: 90px;  padding-right: 10px; position: relative;}
+.dealcard dd.Menulink .Menulink_right h2{ font-weight: normal; font-size: 16px; padding-top: 5px; height: 20px; line-height: 20px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis;margin:0px;}
+.dealcard dd.Menulink .MenuPrice { line-height: 24px; height: 24px; padding-top: 13px; color: #666666; }
+.dealcard dd.Menulink .MenuPrice span{ display: inline-block; }
+.dealcard dd.Menulink .MenuPrice .PriceF{ color: #f24b49; }
+.dealcard dd.Menulink .MenuPrice .PriceF em,.dealcard dd.Menulink .MenuPrice .PriceF i{ font-style: normal; }
+.dealcard dd.Menulink .MenuPrice .PriceF em{ font-size: 20px; }
+.dealcard dd.Menulink .MenuPrice .PriceF i{font-size: 13px;}
+.dealcard dd.Menulink .MenuPrice .PriceS{ position: absolute; right: 10px; bottom: 0px; height: 22px;}
+
+.dealcard dl.on dt .navLtop_right span{ background: #cccccc; }
+.dealcard dl.on dt h2{ color: #999999; }
+
+
+.atar_Show{background:url(../images/tt_09.png); width:80px; height:12px; overflow: hidden;  position:relative; float:left; background-size: 16px }
+.atar_Show p{ background:url(../images/tt_07.png);left:0; height:12px; background-size: 16px}
+
+.fl1{
+	
+	display:inline;
+}
+.fl{
+	float:left;
+	display:inline;
+}
+.fr{
+	float:right;
+	display:inline;
+}
+.clr:after {
+	visibility: hidden;
+	display: block;
+	content: " ";
+	clear: both;
+	height: 0;
+	line-height: 0;
+}
+.clr {
+	zoom: 1;
+}

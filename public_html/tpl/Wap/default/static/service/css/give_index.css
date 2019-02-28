@@ -1,0 +1,562 @@
+html, body {
+  min-height: 100%;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html, body {
+  height: 100%;
+  overflow-x:hidden;
+}
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+ul,ol{list-style:none;}
+a{text-decoration:none;color:#9F9F9F;}
+body, button, input, select, textarea {
+  font: 16px/1.5 tahoma,arial,sans-serif;
+}
+body {
+  background: #F4F4F4;
+}
+body {
+  color: #333;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+.lt{
+	float:left;
+}
+.rg{float:right;}
+.lt:after,.rg:after{
+	content:" ";
+	display:block;
+	clear:both;
+}
+/*头部样式*/
+.buy_header{background-color:#EFEFEF;height:40px;line-height:40px;}
+.buy_header span{
+	display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/return.png) center no-repeat;
+    margin-left: 5%;
+    vertical-align: middle;
+}
+.buy_header b{
+	margin-left:31%;
+}
+/*物品分类 重量 物品价值*/
+.give_class,.give_sender,.give_addressee{
+	/*padding: 0 15px 0 79px;
+    margin: 0 0 0 15px;
+    height: 44px;
+    border-top: 1px solid #f0f0f0;
+    position: relative;*/
+    background:#fff;
+}
+.give_goods,.give_weight,.give_value,.give_sender,.give_addressee{
+    padding: 0 15px 0 79px;
+    margin: 0 0 0 15px;
+    height: 44px;
+    border-top: 1px solid #f0f0f0;
+    position: relative;
+}
+.order-timefield-label{
+	padding-top: 15px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    font-size: 16px;
+    line-height: 17px;
+}
+.order-timefield-span{
+    float: right;
+    padding-top: 15px;
+    /*color: #348bed;*/
+    font-size: 16px;
+    line-height: 17px;
+    margin-right: 4%;
+}
+.give_goods i{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background:url('../images/enter1.png') center no-repeat;
+	background-size: 100%;
+	position:absolute;
+	top:15px;
+	left:93%;
+}
+.give_weight i,.give_value i,.give_sender i,.give_addressee i{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background:url('../images/enter1.png') center no-repeat;
+	background-size:100%;
+	position:absolute;
+	top:16px;
+	left:93%;
+}
+.give_weight,.give_value{
+	color: #333;
+}
+
+/*发，收*/
+
+.give_sender,.give_addressee{
+	margin: 0;
+}
+.give_sender{margin-top:15px;}
+.give_sender label,.give_addressee label{
+	margin-left:15px;
+	font-size:13px;
+	color: #62D083;
+	padding:3px;
+	border:1px solid #62D083;
+	border-radius:50%;    line-height: 14px;
+    margin-top: 12px;font-weight:bold;
+}
+.give_addressee label{
+	border:1px solid #FB5A50;color:#FB5A50;
+}
+/*收 发字体样式*/
+.give_sender .order-timefield-span,.give_addressee .order-timefield-span{
+	color:#A5A5A5;
+	font-size:14px;margin-right:10%;
+}
+/*取件时间*/
+.order-timefield{
+	background:#fff;
+	 margin: 0;
+	margin-top:15px;
+	padding: 0 15px 0 79px;
+   
+    height: 44px;
+    border-top: 1px solid #f0f0f0;
+    position: relative;
+}
+.order-timefield label{margin-left:15px;}
+.order-timefield span i{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background:url('../images/enter1.png') center no-repeat;
+	background-size:100%;
+	position:absolute;
+	top:16px;
+	left:93%;
+}
+
+/*配送费样式*/
+.order-region {
+    border-top: 1px solid #f0f0f0;
+    margin-top: 15px;
+    background: #fff;
+    font-size: 14px;
+    padding: 0 15px 0 79px;
+    margin:0;
+    height: 44px;
+    border-top: 1px solid #f0f0f0;
+    position: relative;
+}
+.order-region label{margin-left:15px;}
+.order-region span i{
+	display:inline-block;
+	width:16px;height:16px;
+	background:url('../images/feedback.png') center no-repeat;
+	background-size: contain;
+}
+/*我要加小费样式*/
+.buy_tip{
+	background:#FFF;
+	/*border-bottom: 1px solid #f0f0f0;*/
+	margin-top:15px;
+}
+.buy_tip div{
+	padding-top:15px;
+	margin-left:15px;
+	height:52px;
+}
+.buy_tip div span{
+	font-size:12px;
+	border:1px solid #06c1ae;
+	color:#06c1ae;
+	padding:2px;
+	border-radius:1.5px;
+	position:relative;
+	margin-left:20%;
+}
+/*.buy_tip div span i{
+	display:inline-block;
+	width:20px;height:20px;
+	background:url('../images/kuo2.png') center no-repeat;
+	background-size:100%;
+	position:absolute;
+	top:-3px;
+	left:93%;
+}*/
+.add_money{
+	background: #06c1ae;
+}
+.buy_tip div a{
+	display:inline-block;
+	height:30px;
+	width:50px;
+	border-radius:20px;
+	/*background:#FECF49;*/
+	margin-right:3%;
+	font-size: 0;
+}
+dl.list .dd-padding, dl.list dt, dl.list dd>.react {
+    padding: 0.28rem 1.2rem;
+}
+dl.list .dd-padding, dl.list dt, dl.list dd>.react {
+    padding: 0.28rem 1.2rem;
+}
+.kv-line {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    margin: 1.2rem 0;
+    font-size: 14px;
+}
+.buy_tip div a i{
+	display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin: 2px;
+}
+.remove_money{
+	background:#ccc;
+	position:relative;
+}
+.remove_money i{
+	position:absolute;
+	right:38%;
+}
+/**/
+.buy_tip p{margin-left:15px; width:100%;margin-bottom:15px;}
+.buy_tip p button{
+	margin:10px 0;
+	margin-right:10px;
+	padding:5px 9px;
+	font-size:13px;
+	background:#fff;border-radius:3px;
+	border:1px solid #ccc;
+}
+.money_tip{
+	margin-top:10px;
+	margin-left:15px;
+	border-bottom:1px solid #06c1ae;
+}
+.money_tip input{border:none;}
+.buy_tip .buy_active{
+	border-color: #06c1ae;
+	color:#06c1ae;
+}
+/*备注样式*/
+.order-region_beizhu {
+    border-top: 1px solid #f0f0f0;
+    background: #fff;
+    font-size: 14px;
+}
+.order-field {
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0 15px 0 60px;
+    height: 44px;
+    font-size: 14px;
+    position: relative;
+    line-height:18px;
+}
+.order-label {
+    /*padding-top: 15px;*/
+    /*top: 0;*/
+    left: 15px;
+    position: absolute;
+    font-size: 14px;
+}
+.order-input {
+    border: 0;
+    padding: 5px;
+    width: 100%;
+    height: 42px;
+    font-size: 14px;
+    text-align: right;
+    line-height: 42px;
+}
+.order-field i{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background:url('../images/enter1.png') center no-repeat;
+	background-size:100%;
+	position:absolute;
+	top:18px;
+	left:96%;
+}
+/*底部样式*/
+.order-btn-field {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #e0e0e0;
+    background-color: #fff;
+    /*margin-top:20px;*/
+}
+.order-btn {
+    float: right;
+    width: 110px;
+    height: 50px;
+    font-size: 16px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.combtn {
+    background: #CCCCCC;
+    color: #fff;
+    border:none;
+}
+.order-total-field {
+    height: 50px;
+    line-height: 50px;
+    color: #2f2f2f;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.order-total {
+    /*color: #fb4e44;
+    font-size: 21px;*/
+    font-style: normal;
+    vertical-align: sub;
+    display:inline-block;
+    margin-right:10px;
+    width:16px;height: 16px;
+    background:url('../images/feedback.png') center no-repeat;
+
+}
+.order-benefit {
+    display: block;
+    margin-left: 15px;
+    height: 50px;
+    line-height: 50px;
+    color: #2f2f2f;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*下拉框弹层样式*/
+.mask {
+    position: absolute;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+}
+.receive_time_dialog {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background: #fff;
+}
+.receive_time_top {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    overflow: hidden;
+    font-size: 14px;
+}
+.receive_date_wrap {
+    overflow: hidden;
+    max-height: 220px;
+    width: 30%;
+    text-align: center;
+    background: #f5f5f5;
+}
+.receive_date_list li.hvr {
+    background: #fff;
+    border-color: #f3f3f3;
+}
+.receive_time_wrap {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    overflow:scroll;
+    max-height: 220px;
+}
+.receive_date_list li{line-height:48px;}
+.receive_time_list li.hvr {
+    position: relative;
+    color: #348bed;
+    line-height:48px;
+}
+.receive_time_list li{
+    height: 48px;
+    padding: 0 35px 0 15px;
+    border-bottom: 1px solid #fff;
+}
+.receive_date_list li {
+    height: 48px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+
+.receive_time_bottom {/*取消按钮*/
+    font-size: 16px;
+    text-align: center;
+    border-top: 1px solid #e4e4e4;
+    padding:17px 0;
+}
+.bg{
+	background:#06C1AE;
+	color:#fff;
+}
+
+/*配送费详情*/
+.delivery_fee_details{
+	color:#fff;
+	position:fixed;
+	top:50%;
+	z-index:10000;
+	width: 100%;
+	height:100%;
+    left: 0%;
+    margin-top: -200px;
+}
+.delivery_fee_details h4{
+	text-align:center;
+	font-size: 14px;
+}
+.delivery_fee_details .fee_money{
+	text-align:center;
+}
+.delivery_fee_details .fee_money b{
+	font-size:35px;
+	font-weight:normal;
+	margin-right: 10px;
+}
+.delivery_fee_details .fee_details{
+	text-align:left;font-size:15px;
+	margin-left: 30%
+}
+.delivery_fee_details .fee_details b{
+	margin-right: 10%;
+    font-weight: normal;
+}
+.fee_error {
+	display:block;
+	width:32px;
+	height:32px;
+	color:#fff;
+	background:url('../images/cuo2.png') center no-repeat;
+	position:absolute;
+	z-index:100000;
+	left:43%;
+	bottom:31%;
+
+}
+@media (min-width:320px) { 
+	html, body {
+	  height: 116%;
+	  overflow-x:hidden;
+	  /*min-height:620px;*/
+	}
+	.give_sender .order-timefield-span,.give_addressee .order-timefield-span{
+		color:#A5A5A5;
+		font-size:12px;margin-right:10%;/*margin-bottom:-14px;*/
+	}
+	.buy_tip div span i{background-size:105%;top:-1px;.buy_tip div span i}
+	.buy_tip div span{
+		margin-left:5%;
+	}	
+}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px){
+/* style */
+	html, body {
+	  height: 116%;
+	  overflow-x:hidden;
+	  /*min-height:620px;*/
+	}
+}
+/* 判断iphone4-iphone4s *//* 横屏竖屏判断方法与ipad一样 */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px){
+/* style */
+	html, body {
+	  height: 119%;
+	  overflow-x:hidden;
+	  /*min-height:620px;*/
+	}
+}
+@media (min-width:360px) {
+	html, body {
+	  height: 112%;
+	  overflow-x:hidden;
+	  min-height: 0;
+	}
+}
+@media (min-width:375px) { 
+	html, body {
+	  height: 112%;
+	  overflow-x:hidden;
+	   min-height: 0;
+	}
+	.buy_tip p button {
+	    padding: 8px 13px;
+	    
+	}
+
+	.buy_tip div span {
+	    margin-left: 20%;
+	}
+
+}
+@media (min-width:384px) {
+	html, body {
+	  height: 113%;
+	  overflow-x:hidden;
+	   min-height: 0;
+	}
+}
+@media (min-width:410px) {
+	html, body {
+	  height: 104%;
+	  overflow-x:hidden;
+	   min-height: 0;
+	}
+	.buy_tip p button {
+	    padding: 11px 20px;
+	    
+	}
+	.buy_tip div span {
+	    margin-left: 24%;
+	}
+
+}
+@media (min-width:435px) {
+	html, body {
+	  height: 100%;
+	  overflow-x:hidden;
+	   min-height: 0;
+	}
+} 

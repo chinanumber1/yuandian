@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>商品搜索</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/search.css"/>
+    <link rel="stylesheet" type="text/css" href="css/border.css"/>
+</head>
+<style>
+    .speed_tiggle{
+        display: inline-block;
+        position:relative;
+        width: 45px;
+        height: 64px;
+        background: url(./images/16-_06.png) center no-repeat;
+        background-size: 20px 20px;
+        /* margin: 19px 0 0 6px; */
+    }
+    .speed_tiggle.actived{
+       
+        display: inline-block;
+        position:relative;
+        width: 45px;
+        height: 64px;
+       background:url(./images/16-_03.png) center no-repeat;
+        background-size: 20px 20px;
+    }
+    .speed_tiggle input{
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        left: 11px;
+        bottom: 21px;
+        z-index: 10;
+        opacity: 0;
+    }
+    .goods_news{padding:0px 10px 0px 10px }
+    .goods_news img{border:1px solid #eee}
+    .goods_news>li {
+        padding: 9px 0px 9px 0px;
+    }
+</style>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+    <h1 class="mui-title">
+        <i></i>
+        <input type="search" class="mui-input-clear" id="keywords" placeholder="商品名称"/>
+    </h1>
+</header>
+<div class="mui-content">
+    <ul class="goods_news">
+        
+    
+    </ul>
+</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="add" type="text/html">
+    {{# for(var i = 0; i < d.length; i++){ }}
+      <li style=" display: flex;" class="ui-border-b">
+            <div style="width: 80px;height: 60px;"><img src="{{ d[i].image }}"></div>
+            <div style="font-size: 12px; padding-left: 16px;flex:1">
+                <div>{{ d[i].name }}</div>
+                <div>编号:{{ d[i].number }}</div>
+                <div>单位:{{ d[i].unit }}</div>
+                <div>进价:￥{{ d[i].cost_price }}</div>
+                <div>售价:￥{{ d[i].price }}</div>
+            </div>
+            <div >
+                <i  class="speed_tiggle"><input type="radio" name="1" data-goodid="{{ d[i].goods_id }}"></i>
+            </div>
+        </li>
+
+    {{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+    mui.init();
+    var ticket = common.getCache('ticket');
+    var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+      var shopId= common.getCache('shopId');//店铺ID
+    var store_id= $.getUrlParam('store_id');//店铺id
+    var goods_id=$.getUrlParam('goods_id');
+    var types=$.getUrlParam('types');
+    console.log(shopId,store_id,goods_id)
+    $('#keywords').val('');
+    mui.init({
+    swipeBack:true //启用右滑关闭功能
+   });
+     window.onload=function(){
+          var AppView = {
+                init:function(){
+                   this.initView();
+                   
+                },
+                initView:function(){
+                    var self=this;
+                     var bind_name = 'input';
+                    if (navigator.userAgent.indexOf("MSIE") != -1){ bind_name = 'propertychange' }
+                   $('#keywords').bind(bind_name, function(){
+                      var content=$.trim($('#keywords').val());
+                           if(content!=''){
+                                   common.http('WapMerchant&a=sysGoods',{'ticket':ticket,'client':client,'keyword':content},function(data){
+                                    $('.goods_news').html('');
+                                   if(data.goods_list.length>0){
+                                    laytpl(document.getElementById('add').innerHTML).render(data.goods_list, function(html){
+                                    $('.goods_news').html(html);
+                                   self.initSearch();
+                                  console.log(data);
+                                   });
+                                }
+
+                              });
+                           }
+                   }) 
+
+
+
+
+
+                  
+
+
+                     
+                },
+                initSearch:function(){
+                    //点击右侧单选框
+                 $(".speed_tiggle input").on('click',function(){
+                   $(".speed_tiggle").removeClass("actived");
+                  $(this).parent().addClass("actived");
+                    goods_id=$(this).attr("data-goodid") 
+                  setTimeout(
+                          openWindow({
+                             url:'add_goods.html?store_id='+store_id+'&goods_id='+goods_id+'&types=0',
+                              id:'search'
+                          })
+                          ,6000)
+   
+                    })
+                }
+          };
+           AppView.init();
+     }
+</script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+body{
+	    overflow-x: hidden;
+}
+.mui-bar-nav{
+	background-color: #FF532A;
+}
+.mui-bar-nav h1{
+	color: #fff;
+}
+.mui-bar-nav a.mui-pull-right{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	color:#FFFFFF;
+	background: url('../images/666_03.png') center no-repeat;
+	background-size: contain;
+	margin-top: 10px;
+}
+.mui-bar-nav a{color: #FFFFFF;}
+/*背景图*/
+.record_money{
+	width: 100%;
+	height: 125px;
+	background: url(../images/2-_02.png) center no-repeat;
+	background-size: cover;
+	margin-bottom: 10px;
+}
+.record_money .mui-row,.record_money .mui-row p{
+	color: #FFFFFF;
+}
+
+.record_money .mui-row .mui-col-sm-6{
+	text-align: center;
+	width: 40%;
+    margin: 20px 5%;
+}
+.record_money .mui-row p{
+	font-size: 12px;margin: 0;
+}
+/*筛选*/
+.mui-card-content .mui-col-sm-6{
+	width: 50%;
+	text-align: center;
+	padding: 10px 0 0 0;
+}
+#tuanding,#change_shop{
+	    display: inline-block;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#showUserPicker1 p{
+	margin:0;
+}
+.mui-card-content .mui-col-sm-6:first-child span{color: #FFA200;}
+.mui-card-content .mui-col-sm-6 i{
+	display: inline-block;
+	width: 8px;height: 5px;
+	background: url(../images/1-_31.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	    margin-left: 5px;
+	    margin-top: -13px;
+}
+
+/*时间选择器*/
+.mui-card-footer .mui-row .mui-col-sm-6{
+	list-style: none;
+	background: #EEEEEE;
+	padding: 5px 0;
+    width: 48%;
+}
+.mui-card-footer .mui-row .mui-col-sm-6:last-child{
+	margin-left: 4%;
+}
+.mui-card-footer .mui-row .mui-col-sm-6 span{
+	display: inline-block;
+	font-size: 12px;
+	
+}
+
+.mui-card-footer .mui-row .mui-col-sm-6 li i{
+	display: inline-block;
+	margin: 0 5px;
+	width: 15px;height: 15px;
+	background: url(../images/1-_28.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+}
+
+.mui-card-footer .mui-row .mui-col-sm-6  li b{
+	display: inline-block;
+	width: 8px;height: 5px;
+	background: url(../images/1-_31.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	
+    margin-right: 5px;
+    float: right;
+    margin-top: 8px;
+}
+/*媒体查询*/
+@media (min-width:320px) {
+	.mui-card-content .mui-row .mui-col-sm-6 .border {
+		border-right: 1px solid #CCCCCC;
+		padding: 0px 28px;
+	}		
+	.border-right {
+	    padding: 0 29px;
+	    margin-top: 20px;
+	}
+	
+	.lover .mui-row .mui-col-sm-6 b {
+	    display: inline-block;
+	    width: 38%;
+	}
+	
+	/*.mui-card-footer .mui-row .mui-col-sm-6  li b{
+		margin-left: 10px;
+	}*/
+	
+}
+/*筛选*/
+.cards .mui-card p{
+	    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.cards .mui-card .mui-card-header{padding: 0;margin-left: 5px;}
+.cards .mui-card .mui-card-header span{
+	font-size: 14px;
+}
+.cards .mui-card .mui-card-header>span{
+	display: inline-block;
+	width: 40%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.cards .mui-card .mui-card-header a{
+	font-size: 12px;
+	color: #333;
+	margin-right: 5px;
+}
+.cards .mui-card .mui-card-header p{
+	color: #51C332;
+	margin-right: 2%;
+}
+.show_content{
+	display: none;
+}
+.conwidth{
+	width: 50%!important;
+}
+.cards .mui-card-content .mui-col-sm-6 p,.cards .mui-card-footer p{
+	margin: 0;
+	text-align: left;
+}
+.cards .mui-card-footer p{
+	margin-left: 5px;
+}
+
+.cards .mui-card-footer{
+	padding: 0;
+	margin-left: 5px;
+}
+.mui-card-footer.active{
+	padding: 15px 0;
+}
+.cards .mui-card-footer span{
+	font-size: 12px;
+	color:#999999 ;
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	display:-webkit-box; 
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:1; 
+}
+.mui-card-footer.active span{
+	font-size: 12px;
+	color:#999999 ;
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	display:-webkit-box; 
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:5; 
+}
+.cards .mui-card-footer .up_down{
+	display: inline-block;
+	width: 20px;height: 5px;
+	background: url(../images/2-3_03.png) center no-repeat;
+	background-size: contain;
+	margin: 0 3px;
+	
+}
+.cards .mui-card-footer.active .up_down{
+	display: inline-block;
+	width: 20px;height: 5px;
+	background: url(../images/2-2_03.png) center no-repeat;
+	background-size: contain;
+	margin: 0 3px;	
+}
+
+.pullup,.loading{
+	text-align: center;
+	padding:0 0 10px 0;
+	font-size: 14px;
+	color: #999;
+}
+.loading img{
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}

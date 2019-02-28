@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>银行卡</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/add_bank.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back"></div>
+		<h1 class="mui-title">添加银行卡</h1>
+	</header>
+	<div class="mui-content">
+		<div class="mui-card">
+			<div class="mui-card-header">
+				<span class="left_style">开户账号</span>
+				<input type="tel" name="" id="account" value="" placeholder="请输入开户账号" />
+			</div>
+			<div class="mui-card-header">
+				<span class="left_style">开户名</span>
+				<input type="text" name="" id="name" value="" placeholder="请输入开户名" />
+			</div>
+			<div class="mui-card-header">
+				<span class="left_style">所在银行</span>
+				<input type="text" name="" id="bank" value="" placeholder="请输入所在银行" />
+			</div>
+			<div class="mui-card-header">
+				<span class="left_style">是否默认</span>
+				<div class="mui-input-row">
+   				    <div class="mui-switch mui-active is_default">
+   				        <div class="mui-switch-handle"></div>
+   				    </div>
+   				</div>
+			</div>
+		</div>
+		<div class="sign">提交</div>
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js?android=appbackmonitor" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    mui.init();
+    var client=common.getCache('client');
+    var bank_id='';//银行卡ID
+    var status=$.getUrlParam('status');
+    if(status==0){
+    	$('.mui-title').text('添加银行卡');
+    	bank_id='';
+    }else{
+    	bank_id=$.getUrlParam('bank_id');
+    	$('.mui-title').text('修改银行卡');
+    	common.http('Merchantapp&a=bank_account_info',{'client':client,'bank_id':bank_id},function(data){
+    		console.log(data);
+    		$('#name').val(data.bank.account_name);
+	    	$('#account').val(data.bank.account);
+	    	$('#bank').val(data.bank.remark);
+	    	data.bank.is_default==1?$('.is_default').addClass('mui-active'):$('.is_default').removeClass('mui-active');
+    	});
+    }
+    $('input').val('');
+    $('#account').blur(function(e){
+    	var nums=$(this).val();
+    	if(nums==''){
+    		mui.toast('请填写开户账号');
+    	}else{
+    		common.http('WapMerchant&a=get_bank_name',{'client':client,'card_number':nums},function(data){
+	    		console.log(data);
+	    		$('#bank').val(data.bank_name);
+	    	});
+    	}
+    	
+    });
+    $('.sign').click(function(e){
+    	var name=$('#name').val();
+    	var account=$('#account').val();
+    	var remark=$('#bank').val();
+    	var is_default=$('.is_default').is('.mui-active')?1:0;
+    	if(account==''){
+    		mui.toast('请填写开户账号');
+    	}else{
+    		if(name==''){
+	    		mui.toast('请填写开户名');
+	    	}else{
+	    		if(remark==''){
+	    			mui.toast('请填写开户账号所在银行');
+	    		}else{
+	    			common.http('Merchantapp&a=create_bank_account',{'client':client,'account_name':name,'account':account,'remark':remark,'is_default':is_default,'bank_id':bank_id},function(data){
+	    				console.log(data);
+	    				mui.toast(data.msg);
+						if(common.checkApp()){
+							setTimeout(function(){
+								if(common.checkAndroidApp()){
+									window.pigcmspackapp.closewebview(2);
+								}else{
+									common.iosFunction('closewebview/2');
+								}
+							},2000);
+						}else{
+							setTimeout(function(){
+								history.go(-1);
+								document.execCommand('Refresh');
+							},2000); 
+						}	
+	    			});
+	    		}
+	    	}
+    	}
+    });
+</script>
+</body>
+</html>

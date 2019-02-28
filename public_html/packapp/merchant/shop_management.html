@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>店铺管理</title>
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/shop_management.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+			<h1 class="mui-title">店铺管理</h1>
+			<a class="mui-pull-right addShop" href="javascript:;" ><i></i>添加店铺</a>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-control-item mui-active allshopAll" href="#item1mobile" data-wid="tab-top-subpage-1.html">
+							<li>0</li>
+							<li>全部</li>	
+						</ul>
+						<ul class="mui-control-item shop_normal" href="#item2mobile" data-wid="tab-top-subpage-2.html">
+							<li>0</li>
+							<li>正常</li>
+						</ul>
+						<ul class="mui-control-item shenhe_list" href="#item3mobile" data-wid="tab-top-subpage-4.html">
+							<li>0</li>
+							<li>待审核</li>
+						</ul>
+						<ul class="mui-control-item closelist" href="#item4mobile" data-wid="tab-top-subpage-4.html">
+							<li>0</li>
+							<li>关闭</li>
+						</ul>
+						
+				</div>
+
+			</div>
+			<div class="all_shop_lists">
+		
+				
+
+			</div>
+			<div class="pullup1" style="display:none;">上拉加载更多...</div>
+			<div class="loading1" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+			
+		</div>
+		<script src="js/fastclick.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 所有店铺内容模板 -->
+		<script id="cardlist" type="text/html">
+			{{# for(var i = 0, len = d.data.length; i < len; i++){ }}
+			
+				<div class="mui-card" data-id="{{d.data[i].store_id}}" data-status="{{ d.data[i].status }}">
+					<div class="mui-card-header">
+						<h4>{{d.data[i].name}}</h4>
+						{{# if(d.data[i].status==1){ }}<span class="normal">正常</span>{{# } }}
+						{{# if(d.data[i].status==2){ }}<span class="wait_examine">待审核</span>{{# } }}
+						{{# if(d.data[i].status==0){ }}<span class="wait_close">关闭</span>{{# } }}
+					</div>
+					<div class="mui-card-content">
+						<ul>
+							<li><i></i><span>{{d.data[i].phone}}</span></li>
+							<li><b></b><span>{{d.data[i].adress}}</span></li>
+						</ul>
+					</div>
+					{{# if(d.data[i].status!=2){ }}
+
+						<div class="mui-card-footer">
+							<button type="button" class="btn_mange"><i></i> 店员管理</button>
+							{{# if(d.data[i].status==1){ }}
+							<button type="button" class="btn_penci">编辑</button>
+							<button type="button" class="btn_close">关闭</button>
+							{{# } else { }}
+									<button type="button" class="btn_open">开启</button>
+								
+								
+							{{# } }}
+							
+						</div>
+					{{# } else { }}
+						<div class="mui-card-footer mui-clearfix" style="display:block;border-top:1px solid #f1f1f1;">
+							<button type="button" class="btn_penci mui-pull-right">编辑</button>
+						</div>
+					{{# } }}
+				</div>
+		
+			{{# } }}
+		</script>
+		<!-- 正常店铺渲染 -->
+		<script id="normalshop_list" type="text/html">
+			{{# for(var i = 0, len = d.data.length; i < len; i++){ }}
+				{{# if(d.data[i].status==1){ }}
+				<div class="mui-card" data-id="{{d.data[i].store_id}}" data-status="{{ d.data[i].status }}">
+					<div class="mui-card-header">
+						<h4>{{d.data[i].name}}</h4>
+						<span class="normal">正常</span>
+					</div>
+					<div class="mui-card-content">
+						<ul>
+							<li><i></i><span>{{d.data[i].phone}}</span></li>
+							<li><b></b><span>{{d.data[i].adress}}</span></li>
+						</ul>
+					</div>
+					<div class="mui-card-footer">
+						<button type="button" class="btn_mange"><i></i> 店员管理</button>
+						{{# if(d.data[i].status==1){ }}
+						<button type="button" class="btn_penci">编辑</button>
+						<button type="button" class="btn_close">关闭</button>
+						{{# } }}
+						
+					</div>
+				</div>
+				{{# } }}
+		
+			{{# } }}
+		</script>
+		<!-- 待审核渲染店铺列表 -->
+		<script id="wait_examine_list" type="text/html">
+			{{# for(var i = 0, len = d.data.length; i < len; i++){ }}
+				{{# if(d.data[i].status==2){ }}
+				<div class="mui-card" data-id="{{d.data[i].store_id}}" data-status="{{ d.data[i].status }}">
+					<div class="mui-card-header">
+						<h4>{{d.data[i].name}}</h4>
+						<span class="wait_examine">待审核</span>
+					</div>
+					<div class="mui-card-content">
+						<ul>
+							<li><i></i><span>{{d.data[i].phone}}</span></li>
+							<li><b></b><span>{{d.data[i].adress}}</span></li>
+						</ul>
+					</div>
+					<div class="mui-card-footer">
+						<button type="button" class="btn_mange"><i></i> 店员管理</button>
+						{{# if(d.data[i].status==2){ }}
+						<button type="button" class="btn_open">开启</button>
+						{{# } }}
+						
+					</div>
+				</div>
+				{{# } }}
+			{{# } }}
+		</script>
+		<!-- 关闭模板渲染 -->
+		<script id="closeshop_list" type="text/html">
+			{{# for(var i = 0, len = d.data.length; i < len; i++){ }}
+				{{# if(d.data[i].status==0){ }}
+				<div class="mui-card" data-id="{{d.data[i].store_id}}" data-status="{{ d.data[i].status }}">
+					<div class="mui-card-header">
+						<h4>{{d.data[i].name}}</h4>
+						<span class="wait_close">关闭</span>
+					</div>
+					<div class="mui-card-content">
+						<ul>
+							<li><i></i><span>{{d.data[i].phone}}</span></li>
+							<li><b></b><span>{{d.data[i].adress}}</span></li>
+						</ul>
+					</div>
+					<div class="mui-card-footer">
+						<button type="button" class="btn_mange"><i></i> 店员管理</button>
+						{{# if(d.data[i].status==0){ }}
+						<button type="button" class="btn_open">开启</button>
+						{{# } }}
+						
+					</div>
+				</div>
+				{{# } }}
+			{{# } }}
+		</script>
+		
+		
+		
+		
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			var ticket = common.getCache('ticket');
+			var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+			var forms1=common.getCache('forms1');
+			var store_idAll=common.getCache('store_idAll');
+			var page=1;
+			var status1="-1";
+			// 渲染所有店铺内容
+			// 默认进页面渲染店铺列表
+			var forms=common.getCache('forms');
+			if(forms){
+				$('.addShop').hide();
+			}else{
+				$('.addShop').show();
+			}
+			openShop('-1',1);
+			function allshop_list(){
+				common.http('Merchantapp&a=store_list',{'ticket':ticket,'client':client,'store_id':store_idAll},function(data){
+					//console.log(data);
+					laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+						$('.all_shop_lists').html(html);
+					});
+					var all_num=parseFloat(data.normal)+parseFloat(data.close)+parseFloat(data.verify);
+					$('#sliderSegmentedControl ul:eq(0) li:eq(0)').text(data.all);
+					$('#sliderSegmentedControl ul:eq(1) li:eq(0)').text(data.normal);
+					$('#sliderSegmentedControl ul:eq(2) li:eq(0)').text(data.verify);
+					$('#sliderSegmentedControl ul:eq(3) li:eq(0)').text(data.close);
+				});
+			}
+			function openShop(status,page){
+				console.log(status);
+				common.http('Merchantapp&a=store_list',{'ticket':ticket,'client':client,'status':status,'pindex':page,'store_id':store_idAll},function(data){
+					console.log(data);
+					var all_num=parseFloat(data.normal)+parseFloat(data.close)+parseFloat(data.verify);
+					$('#sliderSegmentedControl ul:eq(0) li:eq(0)').text(data.all);
+					$('#sliderSegmentedControl ul:eq(1) li:eq(0)').text(data.normal);
+					$('#sliderSegmentedControl ul:eq(2) li:eq(0)').text(data.verify);
+					$('#sliderSegmentedControl ul:eq(3) li:eq(0)').text(data.close);
+					
+					if(data.data.length==0){
+						$('.pullup1').html('没有更多数据啦');
+						$('.loading1').hide();
+						$('.pullup1').show();
+					}else{
+						data.data.length<=9&&$('.pullup1').html('没有更多数据啦');
+						$('.loading1').hide();
+						$('.pullup1').show();
+						laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+							$('.all_shop_lists').append(html);
+						});
+						if(data.data.length>9){
+							var flag = false;
+							$(window).scroll(function(e) {
+							    e.stopPropagation();
+							    if(flag){
+							      //数据加载中
+							      return false;
+							    }
+							     if ($(document).scrollTop() <= 0) {
+							        return false;
+							     }
+							    
+							    //上拉加载
+							    if ($(document).scrollTop() == $(document).height() - $(window).height()) {
+							    	$('.pullup1').hide();
+							    	$('.loading1').show();
+							    	flag = true;
+							        page++;
+							      	openShop(status1,page);
+							    }
+							});
+						}
+						
+					}
+					
+					
+					
+				});
+			}
+			
+			// 全部点击
+			mui('.mui-content').on('tap','.allshopAll',function(e){
+				// allshop_list();
+				page=1;
+				$('.all_shop_lists').html('');
+				openShop('-1',page);
+			});
+			// 正常点击
+			mui('.mui-content').on('tap','.shop_normal',function(e){
+				page=1;
+				$('.all_shop_lists').html('');
+				status1=1;
+				openShop(status1,page);
+				// common.http('Merchantapp&a=store_list',{'ticket':ticket,'client':client,'status':1},function(data){
+				// 	laytpl(document.getElementById('normalshop_list').innerHTML).render(data, function(html){
+				// 		$('.all_shop_lists').html(html);
+				// 	});
+				// });
+			});
+			// 待审核点击
+			mui('.mui-content').on('tap','.shenhe_list',function(e){
+				page=1;
+				$('.all_shop_lists').html('');
+				status1=2;
+				openShop(status1,page);
+				// common.http('Merchantapp&a=store_list',{'ticket':ticket,'client':client,'status':2},function(data){
+				// 	laytpl(document.getElementById('wait_examine_list').innerHTML).render(data, function(html){
+				// 		$('.all_shop_lists').html(html);
+				// 	});
+				// });
+
+			});
+			// 关闭点击
+			mui('.mui-content').on('tap','.closelist',function(e){
+				page=1;
+				$('.all_shop_lists').html('');status1=0;
+				openShop(status1,page);
+				// common.http('Merchantapp&a=store_list',{'ticket':ticket,'client':client,'status':0},function(data){
+				// 	console.log(data);
+				// 	laytpl(document.getElementById('closeshop_list').innerHTML).render(data, function(html){
+				// 		$('.all_shop_lists').html(html);
+				// 	});
+				// });
+			});
+
+
+			// 关闭按钮点击
+			mui('.mui-content').on('tap','.btn_close',function(e){
+				var store_id=$(this).parents('.mui-card').data('id');
+				common.http('Merchantapp&a=store_status',{'ticket':ticket,'client':client,'store_id':store_id,'status':0},function(data){
+					if($('.allshopAll').is('.mui-active')){
+						
+						allshop_list();	
+					}else if($('.shop_normal').is('.mui-active')){
+						common.http('Merchantapp&a=store_list',{'ticket':ticket,'client':client,'status':1},function(data){
+							laytpl(document.getElementById('normalshop_list').innerHTML).render(data, function(html){
+								$('.all_shop_lists').html(html);
+								$('#sliderSegmentedControl ul:eq(1) li:eq(0)').text(data.normal);
+								$('#sliderSegmentedControl ul:eq(2) li:eq(0)').text(data.verify);
+								$('#sliderSegmentedControl ul:eq(3) li:eq(0)').text(data.close);
+
+							});
+						})	
+					}
+					
+				});
+			});
+			// 开启按钮点击
+			mui('.mui-content').on('tap','.btn_open',function(e){
+				var store_id=$(this).parents('.mui-card').data('id');
+				common.http('Merchantapp&a=store_status',{'ticket':ticket,'client':client,'store_id':store_id,'status':1},function(data){
+					if($('.allshopAll').is('.mui-active')){
+						allshop_list();	
+					}else if($('.closelist').is('.mui-active')){
+
+
+						
+						common.http('Merchantapp&a=store_list',{'ticket':ticket,'client':client,'status':0},function(data){
+							laytpl(document.getElementById('closeshop_list').innerHTML).render(data, function(html){
+								$('.all_shop_lists').html(html);
+							});
+							var all_num=parseFloat(data.normal)+parseFloat(data.close)+parseFloat(data.verify);
+							$('#sliderSegmentedControl ul:eq(0) li:eq(0)').text(all_num);
+							$('#sliderSegmentedControl ul:eq(1) li:eq(0)').text(data.normal);
+							$('#sliderSegmentedControl ul:eq(2) li:eq(0)').text(data.verify);
+							$('#sliderSegmentedControl ul:eq(3) li:eq(0)').text(data.close);
+						});
+					}else if($('.shenhe_list').is('.mui-active')){
+
+
+						
+						common.http('Merchantapp&a=store_list',{'ticket':ticket,'client':client,'status':2},function(data){
+							laytpl(document.getElementById('wait_examine_list').innerHTML).render(data, function(html){
+								$('.all_shop_lists').html(html);
+							});
+							var all_num=parseFloat(data.normal)+parseFloat(data.close)+parseFloat(data.verify);
+							$('#sliderSegmentedControl ul:eq(0) li:eq(0)').text(all_num);
+							$('#sliderSegmentedControl ul:eq(1) li:eq(0)').text(data.normal);
+							$('#sliderSegmentedControl ul:eq(2) li:eq(0)').text(data.verify);
+							$('#sliderSegmentedControl ul:eq(3) li:eq(0)').text(data.close);
+						});
+					}
+				});
+				
+			});
+			mui('.mui-content').on('tap','.btn_mange',function(e){
+				var id=$(this).parents('.mui-card').attr('data-id');
+				openWindow({
+					url:'shop_assistant.html?store_id='+id,
+					id:'shop_assistant'
+				});
+			});
+			mui('.mui-content').on('tap','.btn_penci',function(e){
+				var store_id=$(this).parents('.mui-card').data('id');
+				var status=$(this).parents('.mui-card').attr('data-status');
+				openWindow({
+					url:'shop_manger_penci.html?store_id='+store_id+'&status='+status,
+					id:'shop_manger_penci'
+				});
+			});
+			//添加店铺
+			mui('.mui-bar-nav').on('tap','a.mui-pull-right',function(e){
+				openWindow({
+					url:'shop_manger_penci.html?store_id=0&status=2&type=0',
+					id:'shop_manger_penci'
+				});
+			});
+			function pageShowFunc(){
+				location.reload(true);
+			}
+
+
+			
+		</script>
+	</body>
+
+</html>

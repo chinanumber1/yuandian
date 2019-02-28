@@ -1,0 +1,86 @@
+/* 
+* @Author: Administrator
+* @Date:   2016-10-13 17:23:30
+* @Last Modified by:   Administrator
+* @Last Modified time: 2016-11-02 15:07:17
+*/
+.seo{
+  background:#f7f7f7;
+}
+.seo .line-title{
+  height:2.946524784rem;
+  line-height:2.946524784rem;
+  margin:0 1.262796336rem;
+}
+.seo .line-title:before{
+  border-top: 0.084186422rem dotted #b7b7b7;
+}
+.seo .line-title .line-title-txt{
+  color:#717171;
+  font-size:0.964776401rem;
+  padding:0 0.715584591rem;
+  background: #f7f7f7;
+}
+.seo-list .seo-li{
+  margin-top:0.926050647rem;
+  background: #ffffff;
+}
+.seo-list .seo-li:first-child{
+  margin-top:0;
+}
+.seo-li .l-title{
+  padding:1.05233028rem 1.262796336rem;
+  border-bottom: 1px solid #e8e8e8;
+  line-height:1.0523302rem;
+}
+.l-title-con{
+  padding:0 0.420932112rem;
+  /*border-left: 0.252559267rem solid #ff8500;*/
+}
+.l-title-con .l-left{
+  color:#06c1ae;
+  font-size:1.05233028rem;
+  font-weight: bold;
+}
+.l-title-con .l-left .ico-arrow{
+  width:0.715584591rem;
+  height:0.715584591rem;
+ /* background:url(../images/basic/ico_arrow.png) 0 0 no-repeat;*/
+ /*content: "";*/
+    border: .35625rem solid #000;
+    /*border-top-width: .125rem;*/
+    /*border-bottom-width: .125rem;*/
+    border-color: transparent transparent transparent #06c1ae;
+  margin-left:0.378838901rem;
+ 
+}
+.seo-publish{
+  float:right;
+  color:#969696;
+  font-size:0.876801589rem;
+}
+.seo-publish .ico-edit{
+  width:1.010237069rem;
+  height:1.010237069rem;
+  background:url(../images/basic/ico_edit_01.png) 0 0 no-repeat;
+  background-size:100% 100%;
+  margin:-0.23rem 0.378838901rem 0 0;
+}
+.l-seo-con{
+  padding:1.010237069rem 1.262796336rem 1.094423491rem;
+}
+.l-seo-con .l-classify{
+  margin-left:-4%;
+}
+.l-seo-con .l-classify a{
+  float:left;
+  width:22%;
+  text-align: center;
+  line-height:2.77815194rem;
+  color:#4b4b4b;
+  font-size: 0.876801589rem;
+  margin-left:3%;
+}
+.l-classify a.hot-blue{
+  color:#01b4fe;
+}

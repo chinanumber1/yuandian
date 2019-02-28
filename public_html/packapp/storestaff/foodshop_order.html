@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+<meta charset="utf-8" />
+<title>店员中心</title>
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name='apple-touch-fullscreen' content='yes' />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="address=no" />
+<link href="css/pigcms.css" rel="stylesheet" />
+</head>
+<body>
+	<section class="public"></section>
+
+	<section class="foodleft">
+		<div class="foodnav">
+			<ul></ul>
+		</div>
+	</section>
+
+	<section class="foodright"></section>
+
+	<section class="Tcancel TcancelT"></section>
+
+	<section class="Tcancel setmenu"></section>
+
+	<section class="Cart">
+		<div class="Cart_top clr">
+			<h2>购物车</h2>
+			<span>清空</span>
+		</div>
+		<div class="Cart_list">
+			<ul></ul>
+		</div>
+	</section>
+
+	<section class="floor clr">
+		<div class="trolley"></div>
+		<div class="qty">0</div>
+		<div class="prix">
+			￥<i id="total_price">0</i>
+		</div>
+		<a href="javascript:void(0);" class="next">保存购物车</a>
+	</section>
+
+	<section class="al_point">
+		<div class="point_n">
+			<h2>0</h2>
+			<p>已点</p>
+		</div>
+	</section>
+
+	<div class="cease spot">
+		<div class="within">
+			<div class="cease_top clr">
+				<h2 class="fl">已点菜品(8)</h2>
+			</div>
+			<div class="dishes">
+				<ul></ul>
+			</div>
+			<div class="tol_price">
+				<div class="tol_n"></div>
+			</div>
+		</div>
+		<div class="del"></div>
+	</div>
+
+	<div class="Mask"></div>
+	<div class="Maskcat"></div>
+	<div class="Maskmenu"></div>
+	<script src="scripts/jquery-1.8.3.min.js"></script>
+	<script src="scripts/fastclick.js"></script>
+	<script src="scripts/layer/layer.m.js"></script>
+	<script src="scripts/common.js"></script>
+	<script src="scripts/iscroll.js"></script>
+	<script src="scripts/work/foodshop_menu.js"></script>
+	
+	<script id="listTpl" type="text/html">
+	{{# for (var i in d){ }}
+		<dl class="foodright-{{d[i].sort_id}}" data-cat_id="{{d[i].sort_id}}">
+			<dt>{{d[i].sort_name}}</dt>
+			{{# for (var ii in d[i].goods_list){ }}
+			{{# if (d[i].goods_list[ii].goods_id == 0) { }}
+			<dd class="food_{{d[i].goods_list[ii].id}}">
+				<div class="package">
+					<div class="tit">
+						<h2>{{d[i].goods_list[ii].name}}</h2>
+						<div class="con">{{d[i].goods_list[ii].note}}</div>
+					</div>
+					<div class="packagePrice clr">
+						<i class="fl">￥</i> <span class="fl">{{d[i].goods_list[ii].price}}<em>/份</em></span>
+					</div>
+					<div class="packageAddsub">
+						<span class="packageSpeci" data-id="{{d[i].goods_list[ii].id}}">选菜品</span>
+					</div>
+				</div>
+			</dd>
+			{{# } else { }}
+			{{# datas.push(d[i].goods_list[ii]) }}
+			<dd class="food_{{d[i].goods_list[ii].goods_id}}">
+				<div class="foodr_img">
+					<img src="{{d[i].goods_list[ii].pic_arr[0].url.image}}">
+				</div>
+				<div class="food_right">
+					<h2>{{d[i].goods_list[ii].name}}</h2>
+					<div class="MenuPrice clr">
+						<i class="fl">￥</i> <span class="fl">{{d[i].goods_list[ii].price}}<em>/{{d[i].goods_list[ii].unit}}</em></span>
+					</div>
+					<div class="Addsub">
+						{{# if(d[i].goods_list[ii].is_properties == 1){ }}
+						<span class="Speci" data-id="{{d[i].goods_list[ii].goods_id}}">选规格</span>
+						{{# }else{ }}
+						<a href="javascript:void(0)" class="jian" data-price="{{d[i].goods_list[ii].price}}" data-id="{{d[i].goods_list[ii].goods_id}}" data-index="{{d[i].goods_list[ii].goods_id}}" data-name="{{d[i].goods_list[ii].name}}"></a>
+						<input type="text" value="0" readOnly="true" class="num" />
+						<a href="javascript:void(0)" class="jia" data-price="{{d[i].goods_list[ii].price}}" data-id="{{d[i].goods_list[ii].goods_id}}" data-index="{{d[i].goods_list[ii].goods_id}}" data-name="{{d[i].goods_list[ii].name}}"></a>
+						{{# } }}
+					</div>
+				</div>
+			</dd>
+			{{# } }}
+			{{# } }}
+		</dl>
+	{{# } }}
+	</script>
+	
+	<script id="goodsDetalTpl" type="text/html">
+		<div class="TcancelT_top clr">
+			<div class="TcancelT_topL">
+				<h2>{{d.name}}</h2>
+				<span><i>￥</i>{{d.price}}</span>
+			</div>
+			<a href="javascript:void(0)" class="gb"></a>
+		</div>
+		<div class="TcancelT_zh">
+			<div class="TcancelT_n">
+				{{# if (d.spec_list != '') { }}
+				{{# for(var s in d.spec_list) { }}
+				<div class="TcancelT_list">
+					<h2>{{d.spec_list[s].name}}</h2>
+					<div class="fications" data-id="{{d.spec_list[s].id}}" data-num="1" data-name="{{d.spec_list[s].name}}" data-type="spec">
+						<ul class="clr" >
+							<?php foreach ($spec_r['list'] as $srow) {?>
+							{{# for(var cs in d.spec_list[s].list) { }}
+							<li data-id="{{d.spec_list[s].list[cs].id}}" data-name="{{d.spec_list[s].list[cs].name}}" data-type="spec" data-goods_id="{{d.goods_id}}">{{d.spec_list[s].list[cs].name}}</li>
+							{{# } }}
+						</ul>
+					</div>
+				</div>
+				{{# } }}
+				{{# } }}
+				{{# if (d.properties_list != '') { }}
+				{{# for(var p in d.properties_list) { }}
+				<div class="TcancelT_list">
+					<h2>{{d.properties_list[p].name}}</h2>
+					<div class="fications" data-id="{{d.properties_list[p].id}}" data-name="{{d.properties_list[p].name}}" data-num="{{d.properties_list[p].num}}" data-type="properties">
+						<ul class="clr" >
+							{{# for (var pv in d.properties_list[p].val) { }}
+							<li data-id="{{pv}}" data-name="{{d.properties_list[p].val[pv]}}" data-type="properties" data-goods_id="{{d.goods_id}}">{{d.properties_list[p].val[pv]}}</li>
+							{{# } }}
+						</ul>
+					</div>
+				</div>
+				{{# } }}
+				{{# } }}
+			</div>
+		</div>
+		<div class="Selected">
+			已选：<span></span>
+		</div>
+		<div class="join" data-goods_id="{{d.goods_id}}" data-name="{{d.name}}" data-price="{{d.price}}">
+			<input type="button" value="加入菜单">
+		</div>
+	</script>
+	<script id="cartsTpl" type="text/html">
+	{{# for (var i in d) { }}
+	<li>
+		<div class="img fl">
+			<img src="{{d[i].image}}">
+		</div>
+		<div class="con">
+			<div class="tit">
+				<h2>{{d[i].name}}</h2>
+				{{# if(d[i].spec != ''){ }}
+				<p>（{{d[i].spec}}）</p>
+				{{# } }}
+			</div>
+			<div class="price clr">
+				<i class="fl">￥</i> <span class="fl">{{d[i].price}}<em>/{{d[i].unit}}</em></span>
+			</div>
+		</div>
+		<div class="Addsub cart_goods">
+			{{# if (d[i].is_must == 1) { }}
+			<input type="text" value="{{d[i].num}}" readonly="true" class="num">
+			{{# } else { }}
+			<a href="javascript:void(0)" class="jian" data-id="{{d[i].id}}"></a>
+			<input type="text" value="{{d[i].num}}" readonly="true" class="num">
+			<a href="javascript:void(0)" class="jia" data-id="{{d[i].id}}"></a>
+			{{# } }}
+		</div>
+	</li>
+	{{# } }}
+	</script>
+	
+	<script id="groupDetailTpl" type="text/html">
+	<div class="TcancelT_top clr">
+		<div class="TcancelT_topL">
+			<h2>{{d.name}}</h2>
+			<span class="clr"> <i class="fl">￥</i> <em class="fl">{{d.price}}</em>
+			</span>
+		</div>
+		<a href="javascript:void(0)" class="gb"></a>
+	</div>
+	<div class="setmenu_list">
+		<dl>
+			{{# for (var i in d.goods_detail) { }}
+			<dd>
+				<div class="condition fl"><span>{{d.goods_detail[i].goods_list.length}}选{{d.goods_detail[i].num}}</span></div>
+				<div class="set_list">
+					<ul data-num="{{d.goods_detail[i].num}}">
+						{{# for (var ii in d.goods_detail[i].goods_list) { }}
+						{{# if (d.goods_detail[i].num == 1 && ii == 0) { }}
+						<li class="on" data-goods_id="{{d.goods_detail[i].goods_list[ii].goods_id}}" data-price="{{d.goods_detail[i].goods_list[ii].price}}" data-name="{{d.goods_detail[i].goods_list[ii].name}}">
+							<h2>{{d.goods_detail[i].goods_list[ii].name}}</h2>
+						</li>
+						{{# } else { }}
+						<li data-goods_id="{{d.goods_detail[i].goods_list[ii].goods_id}}" data-price="{{d.goods_detail[i].goods_list[ii].price}}" data-name="{{d.goods_detail[i].goods_list[ii].name}}">
+							<h2>{{d.goods_detail[i].goods_list[ii].name}}</h2>
+						</li>
+						{{# } }}
+						{{# } }}
+					</ul>
+				</div>
+			</dd>
+			{{# } }}
+		</dl>
+	</div>
+	<div class="join" data-id="{{d.id}}">
+		<input type="submit" value="加入菜单" >
+	</div>
+	</script>	
+		
+</body>
+</html>

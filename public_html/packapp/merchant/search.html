@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>商品搜索</title>
+	<link href="css/mui.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="css/search.css"/>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+	<div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	<h1 class="mui-title">
+		<i></i>
+		<input type="search" class="mui-input-clear" id="keywords" placeholder="商品名称"/>
+	</h1>
+</header>
+<div class="mui-content">
+	<ul class="goods_news">
+		<!-- <li class="mui-clearfix">
+
+            <img class="mui-pull-left" src="images/13-_22.png">
+            <ul class="mui-pull-left">
+                <li>无蔗糖风味酸牛奶100ml</li>
+                <li><sapn>原始库存2000 月售58</sapn></li>
+                <li><b>￥6</b> <span>当前库存1800</span></li>
+            </ul>
+            <div class="mui-media-body hide_btn">
+                <button type="button" class="goods_modify">修改</button>
+                <button type="button" class="goods_off">下架</button>
+                <button type="button" class="goods_size">规格</button>
+            </div>
+        </li>
+        <li  class="mui-clearfix">
+
+            <img class="mui-pull-left" src="images/13-_22.png">
+            <ul class="mui-pull-left">
+                <li>无蔗糖风味酸牛奶100ml</li>
+                <li><sapn>原始库存2000 月售58</sapn></li>
+                <li><b>￥6</b> <span>当前库存1800</span></li>
+            </ul>
+            <div style="clear: both;"></div>
+            <div class="mui-media-body hide_btn">
+                <button type="button" class="goods_modify">修改</button>
+                <button type="button" class="goods_off">下架</button>
+                <button type="button" class="goods_size">规格</button>
+            </div>
+        </li>
+        <li  class="mui-clearfix">
+
+            <img class="mui-pull-left" src="images/13-_22.png">
+            <ul class="mui-pull-left">
+                <li>无蔗糖风味酸牛奶100ml</li>
+                <li><sapn>原始库存2000 月售58</sapn></li>
+                <li><b>￥6</b> <span>当前库存1800</span></li>
+            </ul>
+            <div style="clear: both;"></div>
+            <div class="mui-media-body hide_btn">
+                <button type="button" class="goods_modify">修改</button>
+                <button type="button" class="goods_off">下架</button>
+                <button type="button" class="goods_size">规格</button>
+            </div>
+        </li>
+        <li  class="mui-clearfix">
+
+            <img class="mui-pull-left" src="images/13-_22.png">
+            <ul class="mui-pull-left">
+                <li>无蔗糖风味酸牛奶100ml</li>
+                <li><sapn>原始库存2000 月售58</sapn></li>
+                <li><b>￥6</b> <span>当前库存1800</span></li>
+            </ul>
+            <div style="clear: both;"></div>
+            <div class="mui-media-body hide_btn">
+                <button type="button" class="goods_modify">修改</button>
+                <button type="button" class="goods_off">下架</button>
+                <button type="button" class="goods_size">规格</button>
+            </div>
+        </li>
+        <li  class="mui-clearfix">
+
+            <img class="mui-pull-left" src="images/13-_22.png">
+            <ul class="mui-pull-left">
+                <li>无蔗糖风味酸牛奶100ml</li>
+                <li><sapn>原始库存2000 月售58</sapn></li>
+                <li><b>￥6</b> <span>当前库存1800</span></li>
+            </ul>
+            <div style="clear: both;"></div>
+            <div class="mui-media-body hide_btn">
+                <button type="button" class="goods_modify">修改</button>
+                <button type="button" class="goods_off">下架</button>
+                <button type="button" class="goods_size">规格</button>
+            </div>
+        </li>
+        <li  class="mui-clearfix">
+
+            <img class="mui-pull-left" src="images/13-_22.png">
+            <ul class="mui-pull-left">
+                <li>无蔗糖风味酸牛奶100ml</li>
+                <li><sapn>原始库存2000 月售58</sapn></li>
+                <li><b>￥6</b> <span>当前库存1800</span></li>
+            </ul>
+            <div class="mui-media-body hide_btn">
+                <button type="button" class="goods_modify">修改</button>
+                <button type="button" class="goods_off">下架</button>
+                <button type="button" class="goods_size">规格</button>
+            </div>
+        </li> -->
+	</ul>
+</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="add" type="text/html">
+	{{# for(var i = 0; i < d.length; i++){ }}
+	<li class="mui-clearfix" data-goodid="{{ d[i].goods_id }}">
+		<img class="mui-pull-left" src="{{ d[i].pic_arr[0].url }}">
+
+		{{# if( d[i].status==0 ){ }}
+		<sub class="floor">已下架</sub>
+		{{# } else { }}
+		<sub class="floor" style="display:none;">已下架</sub>
+		{{# } }}
+		<ul class="mui-pull-left">
+			<li>{{ d[i].name}}</li>
+			<li>
+				{{# if( d[i].stock_num == -1 ){ }}
+				<sapn>无限量库存</sapn>
+				{{# } else { }}
+				<sapn>原始库存{{ d[i].original_stock }}</sapn>
+				{{# } }}
+				<span>月售{{ d[i].sell_count }}</span>
+			</li>
+			<li><b>￥{{ d[i].price }}</b> <span>当前库存{{ d[i].stock_num }}</span></li>
+		</ul>
+
+		<div class="mui-media-body hide_btn">
+			<button data-goodid="{{ d[i].goods_id }}" type="button" class="goods_modify">修改</button>
+			{{# if( d[i].status==0 ){ }}
+			<button data-goodid="{{ d[i].goods_id }}" type="button" class="goods_off">上架</button>
+			{{# } else { }}
+			<button data-goodid="{{ d[i].goods_id }}" type="button" class="goods_off">下架</button>
+			{{# } }}
+			<button data-goodid="{{ d[i].goods_id }}" type="button" class="goods_size">规格</button>
+		</div>
+
+	</li>
+
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+	// <!-- <img class="mui-pull-left" src="{{ d.product_list[i].pic_arr[0].url.s_image }}"> -->
+	mui.init();
+	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var store_id=$.getUrlParam('data');
+	$('#keywords').val('');
+	$('#keywords').keyup(function(e){
+		var val=$(this).val();
+		if(val!=''){
+			common.http('WapMerchant&a=searchGoods',{'ticket':ticket,'client':client,'store_id':store_id,'keyword':val},function(data){
+				if(data!=null){
+					laytpl(document.getElementById('add').innerHTML).render(data, function(html){
+						$('.goods_news').html(html);
+						console.log(data);
+					});
+				}
+
+			});
+		}else{
+			$('.goods_news').html('');
+		}
+
+	});
+	$('body').off('click','.mui-input-clear').on('click','.mui-input-clear',function(e){
+		e.stopPropagation();
+		var val=$(this).val();
+		if(val==''){
+			$('.goods_news').html('');
+		}
+	});
+	//点击修改
+	mui('.mui-content').on('tap','.goods_modify',function(e){
+		common.setCache('addType',1);
+		var id=$(this).attr('data-goodid');
+		//common.setCache('goods_id',id);
+		openWindow({
+			url:'add_goods.html?store_id='+store_id+'&goods_id='+id,
+			id:'add_goods'
+		});
+	});
+	//点击规格
+	mui('.mui-content').on('tap','.goods_size',function(e){
+		var id=$(this).attr('data-goodid');
+		common.setCache('goods_id',id);
+		openWindow({
+			url:'goods_size.html',
+			id:'goods_size'
+		});
+	});
+	//商品上下架点击
+	$('.mui-content').unbind('click','.goods_off').on('click','.goods_off',function(e){
+		e.stopPropagation();
+		var goods_ids=$(this).attr('data-goodid');
+		var me=this;
+		if($(this).text()=="上架"){
+			common.http('WapMerchant&a=updateGoodsStatus',{'ticket':ticket,'client':client,'store_id':store_id,'goods_ids':goods_ids,'status':1},function(data){
+				mui.toast('上架成功');
+				$(me).parents('li.mui-clearfix').find('.floor').hide();
+				$(me).text('下架');
+			});
+		}else{
+
+			common.http('WapMerchant&a=updateGoodsStatus',{'ticket':ticket,'client':client,'store_id':store_id,'goods_ids':goods_ids,'status':0},function(data){
+				mui.toast('下架成功');
+				$(me).parents('li.mui-clearfix').find('.floor').show();
+				$(me).text('上架');
+			});
+
+		}
+		// return false;
+	});
+</script>
+</body>
+</html>

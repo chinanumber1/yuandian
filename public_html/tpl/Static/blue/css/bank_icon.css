@@ -1,0 +1,135 @@
+.bank_icbc020000,.bank50,.bank52,.bank53,.bank_icbc,.bank86,.bank801,.bank816,.bank901,.bank43{
+    background-position: 0 -33px
+}
+
+.bank_icbc030000,.bank02 ,.bank802,.bank902,.bank34,.bank46,.bank_abc{
+    background-position: 0 -66px
+}
+
+.bank_icbc040000, .bank56,.bank03,.bank87,.bank811,.bank903,.bank817,.bank_ceb0,.bank_ceb1,.bank_ceb2,.bank49{
+    background-position: 0 -99px
+}
+
+.bank_icbc050000,.bank59,.bank_ccb ,.bank803,.bank904,.bank35,.bank31{
+    background-position: 0 -132px
+}
+
+.bank03010000,.bank61,.bank62,.bank63,.bank64,.bank_comm,.bank25,.bank26,.bank27,.bank805 ,.bank824,.bank905{
+    background-position: 0 -165px
+}
+
+.bank_icbc000000,.bank_icbc009998,.bank_icbc009999,.bank_psbc,.bank827 {
+    background-position: 0 -198px
+}
+
+.bank03020000,.bank63020000,.bank70,.bank_citic,.bank90,.bank807,.bank820,.bank908{
+    background-position: 0 -231px
+}
+
+.bank03030000,.bank63030000,.bank79,.bank_ceb,.bank28,.bank810 ,.bank819,.bank909,.bank44{
+    background-position: 0 -264px
+}
+
+.bank03040000,.bank03040001 ,.bank63040000,.bank_hxb{
+    background-position: 0 -297px
+}
+
+/** update - by 0808**/
+.bank03050000,.bank03059998, .bank71,.bank_cmbc,.bank808,.bank907,.bank33,.bank32 {
+    background-position: 0 -295px
+}
+
+.bank03060000,.bank77,.bank_cgb,.bank815,.bank911,.bank45{
+    background-position: 0 -328px
+}
+
+/*.bank03070000 {*/
+/*background-position: 0 -396px*/
+/*}*/
+
+.bank03080000,.bank63080000,.bank03080010,.bank65,.bank67,.bank68,.bank_cmb,.bank88,.bank89,.bank806,.bank906,.bank825,.bank48{
+    background-position: 0 -360px
+}
+
+.bank03090000,.bank_cib,.bank91,.bank913,.bank94,.bank828 {
+    background-position: 0 -393px
+}
+
+
+
+.bank03100000,.bank73,.bank74,.bank75,.bank_spdb,.bank92,.bank29,.bank812,.bank818,.bank910,.bank19 {
+    background-position: 0 -425px
+}
+
+.bank_ccb105840,.bank_ccb100000,.bank_comm105840,.bank_psbc105840,.bank_pingan,.bank16,.bank30,.bank813,.bank823,.bank912{
+    background-position: 0 -460px
+}
+
+/*.bank03170000 {*/
+/*background-position: 0 -594px*/
+/*}*/
+
+.bank_ccb031000 ,.bank03131000,.bank64031000,.bank13,.bank919{
+    background-position: 0 -493px
+}
+
+.bank_ccb012900,.bank_ccb012902,.bank_ccb010000,.bank83,.bank_bos,.bank38 {
+    background-position: 0 -525px
+}
+
+
+
+
+/*杭州银行*/
+.bank85,.bank721{ background-position:0 -635px;}
+/*上海农商银行*/
+.bank20,.bank93{ background-position:0 -603px;}
+
+/*中国银行大额*/
+.bank_boc{ background-position:0 -564px;}
+/*中国建设银行大额*/
+.bank57{ background-position:0 -676px;}
+/*招商银行大额*/
+.bank69{ background-position:0 -742px;}
+/*中国工商银行大额*/
+.bank51{ background-position:0 -808px;}
+
+/*中国建设银行储蓄卡*/
+.bank60{ background-position:0 -709px;}
+/*招商银行储蓄卡*/
+.bank66,.bank39{ background-position:0 -775px;}
+/*中国工商银行储蓄卡*/
+.bank54,.bank40{ background-position:0 -842px;}
+/*中国农业银行储蓄卡*/
+.bank55,.bank37{ background-position:0 -875px;}
+/*广发银行储蓄卡*/
+.bank78,.bank41{ background-position:0 -908px;}
+/*中国民生银行储蓄卡*/
+.bank72{ background-position:0 -940px;}
+/*东亚银行储蓄卡*/
+.bank82{ background-position:0 -973px;}
+/*中国光大银行储蓄卡*/
+.bank80,.bank42{ background-position:0 -1007px;}
+/*华夏银行储蓄卡*/
+.bank_hxb,.bank23,.bank809,.bank914{ background-position:0 -1040px;}
+/*中国邮政储蓄银行储蓄卡*/
+.bank81,.bank36{ background-position:0 -1072px;}
+/*浦发银行储蓄卡*/
+.bank76{ background-position:0 -1105px;}
+
+/*建设银行信用卡*/
+.bank58{ background-position:0 -1138px;}
+
+.bank_hxb181000, .bank_hxb181001,.bank21{ background-position:0 -1178px;}
+
+.bank809{background-position:0 -1250px;}
+.bank814,.bank821{background-position:0 -1218px;}
+
+.bank915{background-position:0 -1285px;}
+.bank916{background-position:0 -1320px;}
+.bank917{background-position:0 -1355px;}
+.bank918{background-position:0 -1396px;}
+
+.bank95,.bank826{background-position:0 -1435px;}
+
+.bank722{background-position:0 -1465px;}

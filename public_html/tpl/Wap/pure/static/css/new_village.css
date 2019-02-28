@@ -1,0 +1,1232 @@
+@charset "utf-8";
+body {
+	background-color: #EAEAEB;
+}
+
+header {
+	height: 50px;
+	background: url(../images/my_bg.png) no-repeat center left;
+	color: white;
+	line-height: 50px;
+	text-align: center;
+	position: relative;
+	font-size: 16px;
+}
+
+header #backBtn {
+	position: absolute;
+	width: 50px;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+header #plus {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	float: right;
+}
+
+header #plus img {
+	width: 28px;
+	height: 28px;
+}
+
+header #backBtn:after {
+	display: block;
+	content: "";
+	border-top: 2px solid white;
+	border-left: 2px solid white;
+	width: 12px;
+	height: 12px;
+	-webkit-transform: rotate(315deg);
+	background-color: transparent;
+	position: absolute;
+	top: 19px;
+	left: 19px;
+}
+
+.fl {
+	float: left
+}
+
+.fr {
+	float: right
+}
+
+.searchBar {
+	border-top: 2px solid #06c1ae;
+	height: 50px;
+	border-bottom: 1px solid #edebeb;
+	padding-right: 50px;
+	position: relative;
+	display: -webkit-box;
+	background-color: white;
+}
+
+.searchBar .searchBox {
+	border: 1px solid #E1E1E1;
+	height: 36px;
+	margin-top: 7px;
+	margin-left: 6px;
+	border-radius: 5px;
+	width: 100%;
+}
+
+.searchBar .searchBox input {
+	background: url(../img/search/search.png) no-repeat;
+	background-size: 16px;
+	background-position: 10px 10px;
+	padding: 2px 0 2px 30px;
+	height: 36px;
+	line-height: 36px;
+	border: none;
+	width: 100%;
+	outline: 0;
+	font-size: 16px;
+}
+
+.searchBar .voiceBtn {
+	position: absolute;
+	right: 0px;
+	top: 7px;
+	width: 40px;
+	height: 36px;
+	background: url(../img/search/voice.png) no-repeat;
+	background-size: 12px 19px;
+	background-position: 14px 8px;
+}
+
+.searchBar.wap {
+	padding-right: 15px;
+}
+
+.searchBar.wap .voiceBtn {
+	display: none;
+}
+
+.villageBox {
+	border-top: 1px solid #edebeb;
+	border-bottom: 1px solid #edebeb;
+	margin-bottom: 10px;
+}
+
+.villageBox .headBox {
+	color: #666;
+	height: 38px;
+	line-height: 38px;
+	padding-left: 8px;
+	font-size: 14px;
+	border-bottom: 1px solid #edebeb;
+	font-weight: bold;
+	background-color: white;
+}
+
+.newsBox .headBox,
+.bbsBox .headBox {
+	background: #f5f5f5;
+	background: -moz-linear-gradient(top, rgba(249, 249, 249, .98), rgba(245, 245, 245, .98) 100%);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(249, 249, 249, .98)), to(rgba(245, 245, 245, .98)));
+}
+
+.newsBox .headBox .right,
+.bbsBox .headBox .right,
+.group .headBox .right,
+.meal .headBox .right,
+.appoint .headBox .right {
+	float: right;
+	padding-right: 14px;
+	position: relative;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.newsBox .headBox .right:after,
+.bbsBox .headBox .right:after,
+.group .headBox .right:after,
+.meal .headBox .right:after,
+.appoint .headBox .right:after {
+	display: block;
+	content: "";
+	border-top: 1px solid #BFBFBF;
+	border-left: 1px solid #BFBFBF;
+	width: 6px;
+	height: 6px;
+	-webkit-transform: rotate(135deg);
+	background-color: transparent;
+	position: absolute;
+	top: 20px;
+	right: 8px;
+	margin-top: -5px;
+}
+
+.newsBox dd .right {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	color: #999;
+	font-size: 12px;
+}
+
+.villageBox dl {
+	background-color: white;
+}
+
+.villageBox dd {
+	overflow: hidden;
+	position: relative;
+	border-bottom: 1px solid #f1f1f1;
+	padding: 8px;
+	background-color: white;
+}
+
+.newsListBox dd {
+	padding: 12px 8px;
+}
+
+.newsListBox dd .right {
+	top: 12px;
+}
+
+.villageBox .brand {
+	font-size: 16px;
+	line-height: 24px;
+	color: #333;
+	margin-bottom: 4px;
+}
+
+.villageBox .brand .location-right {
+	position: absolute;
+	top: 8px;
+	right: 4px;
+	color: #999;
+	font-size: 12px;
+}
+
+.villageBox .title {
+	color: #999;
+	max-height: 32px;
+	line-height: 16px;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+
+.noMore {
+	height: 40px;
+	line-height: 40px;
+	background-color: #f4f4f4;
+	border-top: 0;
+	text-align: center;
+	margin-bottom: 11px!important;
+	color: #999;
+	border-bottom: 0;
+}
+
+.noMoreDiv {
+	height: 40px;
+	line-height: 40px;
+	background-color: #f4f4f4;
+	border-top: 0;
+	text-align: center;
+	margin-bottom: 11px!important;
+	color: #999;
+	border-bottom: 0;
+}
+
+#bindVillageBox {
+	margin-bottom: 10px;
+}
+
+.swiper-container,
+.swiper-wrapper,
+.swiper-slide {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-container {
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 1;
+}
+
+.swiper-slide {
+	float: left;
+}
+
+.swiper-pagination {
+	position: absolute;
+	z-index: 20;
+	left: 0px;
+	width: 100%;
+	text-align: center;
+	bottom: 4px;
+}
+
+.swiper-pagination-switch {
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	border-radius: 8px;
+	background: black;
+	margin-right: 5px;
+	opacity: 0.14;
+	cursor: pointer;
+}
+
+.swiper-active-switch {
+	background: #06c1ae;
+	opacity: 1;
+}
+
+.slider {
+	height: 206px;
+	background-color: white;
+	border-bottom: 1px solid #edebeb;
+	margin-bottom: 10px;
+}
+
+.slider .headBox {
+	color: #666;
+	height: 38px;
+	line-height: 38px;
+	padding-left: 8px;
+	font-size: 14px;
+	border-bottom: 1px solid #edebeb;
+	font-weight: bold;
+	background: #f5f5f5;
+	background: -moz-linear-gradient(top, rgba(249, 249, 249, .98), rgba(245, 245, 245, .98) 100%);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(249, 249, 249, .98)), to(rgba(245, 245, 245, .98)));
+}
+
+.icon-list .icon {
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+
+.icon-list .icon> a {
+	padding-top: 12px;
+	display: block;
+}
+
+.icon-list .icon-circle {
+	display: block;
+	margin: auto;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	color: white;
+	margin-bottom: 3px;
+}
+
+.icon-list .icon-circle img {
+	width: 100%;
+	height: 100%;
+}
+
+.icon-list .icon-desc {
+	text-align: center;
+	color: #999;
+}
+
+.slider .swiper-container {
+	height: 168px;
+}
+
+.group,
+.meal,
+.appoint {
+	border-bottom: 1px solid #edebeb;
+	margin-bottom: 10px;
+}
+
+.group .headBox,
+.meal .headBox,
+.appoint .headBox {
+	color: #666;
+	height: 38px;
+	line-height: 38px;
+	padding-left: 8px;
+	font-size: 14px;
+	border-bottom: 1px solid #edebeb;
+	font-weight: bold;
+	background: #f5f5f5;
+	background: -moz-linear-gradient(top, rgba(249, 249, 249, .98), rgba(245, 245, 245, .98) 100%);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(249, 249, 249, .98)), to(rgba(245, 245, 245, .98)));
+}
+
+.swiper-wrapper {
+	position: relative;
+	width: 100%;
+	z-index: 1;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	-o-transition-property: -o-transform;
+	-ms-transition-property: -ms-transform;
+	transition-property: transform;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.villageBox .headBox.newsheader {
+	height: 48px;
+	line-height: 48px;
+}
+
+.newsheader li {
+	float: left;
+	text-align: center;
+	white-space: nowrap;
+	padding: 0 10px;
+	min-width: 58px;
+	font-weight: normal;
+	width: auto;
+	height: auto;
+}
+
+.newsheader li.on {
+	color: #007aff;
+	border-bottom: 2px solid #007aff;
+	line-height: 46px;
+}
+
+.loadMoreList {
+	border-top: 0;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	text-indent: -10000px;
+	background: #f4f4f4 url(../img/loadingMore.gif) no-repeat;
+	background-position: center;
+	padding-bottom: 7px;
+}
+
+.query_div {
+	height: 70px;
+	width: 70px;
+	margin: 30px auto 0;
+	background-color: white;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.query_div.property_ico {
+	background-image: url(../images/house/property.png);
+}
+
+.query_div.water_ico {
+	background-image: url(../images/house/water.png);
+}
+
+.query_div.electric_ico {
+	background-image: url(../images/house/electric.png);
+}
+
+.query_div.gas_ico {
+	background-image: url(../images/house/gas.png);
+}
+
+.query_div.park_ico {
+	background-image: url(../images/house/park.png);
+}
+
+.query_div.custom_ico {
+	background-image: url(../images/house/custom.png);
+}
+
+.area_tips {
+	width: 85%;
+	margin: 15px auto 0;
+	height: 50px;
+	line-height: 50px;
+	background-color: #F7F6FB;
+	border-radius: 5px;
+	padding-left: 15px;
+	color: #888888;
+	overflow: hidden;
+	font-size: 1rem;
+}
+
+.area_input {
+	width: 85%;
+	margin: 30px auto 0;
+	height: 50px;
+	line-height: 50px;
+	background-color: white;
+	border-radius: 5px;
+	color: #888888;
+	overflow: hidden;
+	padding-left: 15px;
+	position: relative;
+}
+
+.area_input .recharge_txt,
+.area_input .bind_family_txt {
+	height: 50px;
+	border: none;
+	width: 100%;
+	outline: 0;
+	font-size: 1rem;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+}
+
+.area_input .nametip {
+	position: absolute;
+	right: 15px;
+	top: 0;
+	font-size: 1rem;
+}
+
+.area_btn {
+	width: 85%;
+	margin: 20px auto 0;
+	height: 50px;
+	line-height: 50px;
+	background-color: #04BE02;
+	border-radius: 5px;
+	padding-left: 15px;
+	color: #888888;
+	overflow: hidden;
+}
+
+.area_btn #recharge_btn,
+.area_btn #submit_btn {
+	background-color: transparent;
+	height: 50px;
+	border: 0;
+	width: 100%;
+	outline: 0;
+	font-size: 1.2rem;
+	color: white;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+}
+
+.yesLightIcon {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: #06c1ae;
+}
+
+.yesLightIcon:after {
+	display: block;
+	content: "";
+	border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+	width: 4px;
+	height: 8px;
+	-webkit-transform: rotate(-135deg);
+	background-color: transparent;
+	margin-left: 7px;
+	margin-top: 3px;
+}
+
+.village_my nav {
+	border-bottom: 1px solid #DADADC;
+	margin-bottom: 15px;
+	padding-left: 15px;
+	background-color: white;
+}
+
+.village_my nav.my_top {
+	padding-left: 0;
+}
+
+.village_my section.myinfo {
+	height: 30px;
+	line-height: 30px
+}
+
+.village_my section.myinfo div {
+	width: 33.3%;
+	float: left;
+}
+
+.village_my section.myinfo div span {
+	color: #00c4ac;
+	font-weight: bold;
+	margin-left: 10px;
+	float: initial
+}
+
+.village_my nav section {
+	padding: 10px 8px 10px 0px;
+	color: black;
+	border-bottom: 1px solid #DADADC;
+	height: 24px;
+	position: relative;
+}
+
+.village_my nav section.myInfoSection {
+	border-bottom: none
+}
+
+.village_my nav section:last-child {
+	border-bottom: none;
+}
+
+.village_my nav section.myInfoSection {
+	height: 60px;
+	padding: 10px 8px 10px 0px;
+}
+
+.village_my nav section img {
+	width: 26px;
+	height: 26px;
+	float: left;
+}
+
+.village_my nav section span {
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	color: white;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+}
+
+.village_my nav section.myInfoSection span {
+	width: auto;
+	float: none;
+	font-size: 14px;
+}
+
+.village_my nav section.myInfoSection img {
+	height: 60px;
+	width: 60px;
+	float: left;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.village_my nav section.myInfoSection h2 {
+	font-size: 18px;
+	color: black;
+	position: relative;
+	padding-right: 70px;
+	height: 24px;
+	line-height: 24px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-top: 4px;
+	margin: 0;
+	font-weight: normal;
+}
+
+.village_my nav section p {
+	display: inline-block;
+	padding-left: 15px;
+	line-height: 26px;
+}
+
+.village_my nav section.myInfoSection p {
+	padding: 0px;
+	color: black;
+	height: 22px;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	word-break: break-all;
+}
+
+.village_my nav section:after {
+	content: '';
+	position: absolute;
+	width: 7px;
+	height: 7px;
+	border-top: 1px solid #828282;
+	border-right: 1px solid #828282;
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	top: 18px;
+	right: 18px;
+}
+
+.village_my nav section.myInfoSection:after {
+	border: none;
+}
+
+.village_my nav.me_pay section em {
+	float: right;
+	color: #666;
+	font-style: normal;
+	margin-left: 10px;
+	font-size: 12px;
+	margin-right: 30px;
+	margin-top: 4px;
+}
+
+.village_my nav.order_list section {
+	height: auto;
+}
+
+.village_my nav.order_list section img {
+	width: 50px;
+	height: 50px;
+	float: left;
+}
+
+.village_my nav.order_list section:after {
+	border: none;
+}
+
+.village_my nav.order_list section p {
+	float: none;
+	display: block;
+	padding-left: 60px;
+}
+
+.village_my nav.order_list section p.money {
+	font-size: 12px;
+}
+
+.village_my nav.order_list section p span {
+	float: none;
+	font-size: 12px;
+	color: #666;
+}
+
+.village_my nav.order_list section p em {
+	color: #666;
+	font-style: normal;
+	float: right;
+}
+
+.village_repair section {
+	margin-top: 10px;
+	background-color: white;
+}
+
+.village_repair textarea {
+	border: none;
+	font-size: 16px;
+	height: 80px;
+	padding: 5px 10px;
+	width: 100%;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	resize: none;
+	vertical-align: middle;
+	outline: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.village_repair #uploadNum {
+	text-align: center;
+	line-height: 40px;
+	color: #737373;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.upload_list .upload_action,
+.upload_list .upload_item {
+	width: 25%;
+	float: left;
+	position: relative;
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	border: solid 5px #fff;
+	-webkit-box-sizing: border-box;
+	overflow: hidden;
+}
+
+.upload_list .upload_action img {
+	display: block;
+	width: 100%;
+	border: 0;
+}
+
+.upload_box .upload_action #fileImage {
+	opacity: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.upload_box .upload_list .upload_item .upload_delete {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	background: url(../img/upimg_x.png) no-repeat;
+	background-size: cover;
+}
+
+.upload_box .upload_item img {
+	max-width: 100%;
+	max-height: 100%;
+	display: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	content: '.';
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+	display: block;
+	clear: both;
+}
+
+.phoneBox {
+	margin-bottom: 6px;
+}
+
+.phoneBox:last-child {
+	margin-bottom: 0px;
+}
+
+.phoneBox dl {
+	padding: 0px 10px;
+}
+
+.phoneBox dd {
+	padding: 8px 0px;
+}
+
+.phoneBox dd span {
+	color: #999;
+	font-size: 12px;
+}
+
+.phoneBox dd:after {
+	display: block;
+	content: "";
+	border-top: 1px solid #BFBFBF;
+	border-left: 1px solid #BFBFBF;
+	width: 8px;
+	height: 8px;
+	-webkit-transform: rotate(135deg);
+	background-color: transparent;
+	position: absolute;
+	top: 30px;
+	right: 8px;
+	margin-top: -5px;
+}
+
+.bbsBox .articleImg {
+	position: absolute;
+	width: 91px;
+	height: 54px;
+	overflow: hidden;
+	border-radius: 3px;
+}
+
+.bbsBox .first .articleImg {
+	position: static;
+	height: 120px;
+	width: 50%;
+	float: left
+}
+
+.bbsBox .articleImg img {
+	width: 91px;
+	height: 54px;
+}
+
+.bbsBox .first .articleImg img {
+	height: 120px;
+	width: 100%;
+}
+
+.bbsBox .articleTxt {
+	margin-left: 100px;
+	padding-top: 6px;
+}
+
+.bbsBox .first .articleTxt {
+	margin-left: 0px;
+	float: left;
+	width: 50%
+}
+
+.bbsBox .articleTxt .artileTitle {
+	height: 22px;
+	overflow: hidden;
+	margin-bottom: 6px;
+}
+
+.bbsBox .first .articleTxt .artileTitle {
+	margin-bottom: 0px;
+	padding-left: 5px
+}
+
+.bbsBox .articleTxt .artileDesc {
+	color: #999;
+}
+
+.bbsBox .articleTxt .artileDesc .left {
+	float: left;
+}
+
+.bbsBox .articleTxt .artileDesc .right {
+	float: right;
+}
+
+.bbsBox .first .articleTxt .artileDesc .left {
+	float: left;
+	position: absolute;
+	bottom: 5px;
+	padding-left: 5px
+}
+
+.bbsBox .first .articleTxt .artileDesc .right {
+	float: right;
+	position: absolute;
+	bottom: 5px;
+	right: 5px
+}
+
+.bbsBox .articleTxt .artileDesc .right .up {
+	display: inline-block;
+	padding-left: 20px;
+	background: url(../img/zan2.png) no-repeat;
+	background-size: 16px;
+	background-position: 0px;
+}
+
+.bbsBox .articleTxt .artileDesc .right .comment {
+	margin-left: 6px;
+	display: inline-block;
+	padding-left: 20px;
+	background: url(../img/pinglun2.png) no-repeat;
+	background-size: 16px;
+	background-position: 0px;
+}
+
+.hotServiceBox dd {
+	width: 50%;
+	float: left;
+	border-right: 1px solid #f1f1f1;
+	box-sizing: border-box;
+	padding-left: 10px;
+}
+
+.hotServiceBox dd .img {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	float: left;
+}
+
+.hotServiceBox dd .img img {
+	width: 100%;
+	height: 100%;
+}
+
+.hotServiceBox dd .text {
+	float: left;
+	line-height: 50px;
+	margin-left: 6px;
+}
+
+.serviceBox {
+	margin-bottom: 6px;
+}
+
+.serviceBox:last-child {
+	margin-bottom: 0px;
+}
+
+.serviceBox .headBox {
+	font-weight: normal;
+}
+
+.serviceBox dd {
+	width: 25%;
+	float: left;
+	padding: 12px 0;
+	text-align: center;
+	border-right: 1px solid #f1f1f1;
+	box-sizing: border-box;
+}
+
+.serviceBox dd .img {
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.serviceBox dd .img img {
+	width: 100%;
+	height: 100%;
+}
+
+.serviceBox dd .text {
+	font-size: 12px;
+}
+
+.no-deals {
+	text-align: center;
+	margin-top: 50px;
+	width: 100%;
+}
+
+.serviceListBox {}
+
+.serviceListBox dl {
+	padding: 0px 8px;
+	background-color: white;
+}
+
+.serviceListBox dl dd {
+	overflow: hidden;
+	position: relative;
+	border-bottom: 1px solid #f1f1f1;
+	padding: 8px 0;
+}
+
+.serviceListBox .imgbox {
+	width: 50px;
+	height: 50px;
+	border-radius: 2px;
+	float: left;
+	position: absolute;
+}
+
+.serviceListBox .imgbox img {
+	width: 100%;
+	height: 100%;
+	border-radius: 2px;
+}
+
+.serviceListBox .block-right {
+	margin-left: 60px;
+	min-height: 50px;
+	position: relative;
+}
+
+.serviceListBox .block-right .brand {
+	font-size: 16px;
+	line-height: 24px;
+	color: #333;
+}
+
+.serviceListBox .block-right .desc {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.serviceListBox .block-right .desc .phone {
+	display: inline-block;
+	margin-left: 3px;
+	border: 1px solid #f58300;
+	color: #f58300;
+	padding: 2px 4px;
+	border-radius: 2px;
+	font-size: 12px;
+	line-height: 12px;
+}
+
+.serviceListBox .block-right .desc .see_nav {
+	display: inline-block;
+	margin-left: 3px;
+	border: 1px solid #06c1ae;
+	color: #06c1ae;
+	padding: 8px 12px;
+	border-radius: 2px;
+	font-size: 12px;
+	line-height: 12px;
+}
+
+.serviceListBox .block-right .desc .line-right {
+	position: absolute;
+	bottom: 10px;
+	right: 4px;
+	color: #999;
+	font-size: 12px;
+}
+
+.village_my nav section.myinfo:after {
+	border: none
+}
+
+.my_top {
+	background: url(../images/my_bg.png) center left;
+	height: 8rem;
+}
+
+.my-account {
+	color: #333;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.account-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+}
+
+.my-account>img {
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 0;
+}
+
+.my-account .user-info {
+	font-size: 14px;
+	color: #666;
+	display: block;
+	float: left;
+	margin: 2.2rem 0 0 .5rem;
+}
+
+.my-account .user-info p {
+	height: 1.3rem;
+	line-height: 1.3rem;
+}
+
+.my-account .umoney {
+	color: #fff;
+	margin-bottom: 0.06em;
+}
+
+.my-account .avatar_box {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 100%;
+	overflow: hidden;
+	float: left;
+	margin: 1.5rem 0 0 .5rem;
+}
+
+.my-account .avater {
+	width: 100%;
+	height: 100%;
+}
+
+.my-account .user-info p.uname {
+	color: #fff
+}
+
+.my-account .user-info p.uname span {
+	position: relative;
+	top: 2px;
+}
+
+.setting {
+	float: right;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
+
+.setting img {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.village_my .person-info div {
+	width: 33.3%;
+	height: 2rem;
+}
+
+.village_my .person-info div p {
+	display: inherit;
+}
+
+.village_my nav section.person-info {
+	position: static;
+	height: 3rem;
+	text-align: center;
+}
+
+.cat-top {
+	background: url(../images/more_bg.png) no-repeat center left;
+	background-size:100% 100%;
+	height: 10rem;
+	width: 100%;
+}
+
+.cat-top2 {
+	background: url(../images/more_bg2.png) no-repeat center left;
+	background-size:100% 100%;
+	height: 10rem;
+	width: 100%;
+}
+
+.cat-top p{ text-align: center; color: #fff; height: 3rem; line-height: 3rem; font-size: 16px;}
+.cat-content {
+	background: #fff;
+}
+
+.cat-content ul {
+	overflow: hidden;
+}
+
+.cat-content ul li {
+	display: block;
+	float: left;
+	width: 49.8%;
+	line-height: 3rem;
+	padding-top: .5rem;
+}
+
+.cat-content ul li:nth-child(odd){
+	border-right:1px solid #F5F5F5;
+	border-bottom:1px solid #F5F5F5
+}
+
+.cat-content ul li:nth-child(even){
+	border-bottom:1px solid #F5F5F5
+}
+
+.cat-content ul li p {
+	text-align: center;
+}
+
+.cat-content ul li img {
+	width: 2rem;
+	height: 2rem;
+	display: block;
+	margin: 0 auto;
+}

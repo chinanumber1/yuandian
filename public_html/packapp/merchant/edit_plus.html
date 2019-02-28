@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>编辑会员卡</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.cxcolor.css">
+    <link rel="stylesheet" type="text/css" href="css/edit_plus.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">编辑会员卡</h1>
+	</header>
+	<div class="mui-content">
+	   <div class="class_list">
+	   		<ul>
+	    		<li class="mui-pull-left class_basic active">基本信息</li>
+	    		<li class="mui-pull-left class_synchro ">同步微信卡包</li>
+	    	</ul>
+	   </div>
+	   <!--基本信息-->
+	   <div class="basic_information " >
+	   		<div class="mui-card">
+	   			<div class="mui-card-header">
+	   				<span class="left_style">启用会员卡</span>
+	   				<div class="mui-input-row">
+	   				    <div class="mui-switch mui-active qiyong1">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<span class="left_style height_style">系统背景图</span>
+	   				<ul>
+	   					<li class="change" id="pluscard_bg"><b><span>请选择系统内置背景图</span> <i class="mui-pull-right"></i></b></li>
+	   					<li><p ><img id="bg_imgShow" src="images/35-_03.png" alt="" /><span class="cardColor">6537 1998</span></p></li>
+	   					<li><span>* 背景图宽540px高320px,图片类型png,大小不超过1MB</span></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<span class="left_style up_style">上传背景图</span>
+	   				<ul>
+	   					<li>
+	   						<ul class="upload_style">
+						    	<li class="up_img">
+									<img src="images/17-8_03.png" alt="">
+									<input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" id="fileImage" name="imgFile">
+							    </li>
+					    	</ul>
+	   					</li>
+	   					<li><span>* 同时选择系统背景图和上传背景图,优先使用上传背景图</span></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<span class="left_style">卡号字体颜色</span>
+	   				<ul class="card_color">
+	   					<li><input  type="text" name="" minlength="4" maxlength="7" id="color_d" value="#FFFFFF" readonly style="backgroundColor:#fff"/></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<span class="left_style discount_style">会员卡折数</span>
+	   				<ul class="card_discount">
+	   					<li><input  type="text" name=""  placeholder="请填写一个优惠值数字"/> <span> 折</span></li>
+	   					<li>* 请填写0到10的数字,0相当于不打折,比如95折填写9.5即可</li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-header">
+	   				<span class="left_style">用户自助领卡</span>
+	   				<div class="mui-input-row">
+	   				    <div class="mui-switch mui-active zizhu1">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+	   			</div>
+	   			<div class="mui-card-header">
+	   				<span class="left_style">支持实体卡</span>
+	   				<div class="mui-input-row">
+	   				    <div class="mui-switch zhichi1">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+	   			</div>
+	   			<div class="mui-card-header">
+	   				<span class="left_style">扫码自动领卡</span>
+	   				<div class="mui-input-row">
+	   				    <div class="mui-switch mui-active saoma1">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+	   			</div>
+	   			<div class="mui-card-header">
+	   				<span class="left_style">消费自动领卡</span>
+	   				<div class="mui-input-row">
+	   				    <div class="mui-switch mui-active xiaofei1">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+	   			</div>
+	   		</div>
+	   		<!--余额/充值-->
+	   		<h5>余额 / 充值</h5>
+	   		<div class="mui-card mui-card-style">
+	   			<div class="mui-card-content">
+	   				<span class="left_style chujin">会员卡初始金额 <i></i></span>
+	   				<ul class="card_moeny">
+	   					<li><input  class="chushi1" type="text" name=""  placeholder="请输入初始金额" /></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content" style='display:flex'>
+	   				<span class="left_style money_style" style='width: 46%;'>充值返现金额 <i></i></span>
+	   				<div class="back_now">        
+	   				 	<ul>     
+	   				 		<li>
+	   				 			<span>充值&nbsp;</span>
+	   				 			<input type="tel" placeholder="请输入金额" name=""  value="0"><span> 元</span>
+	   				 			<i class="charge_add"></i> <i class="charge_reduce" style="display: none;"></i>
+	   				 		</li>     
+	   				 		<li>
+	   				 			<span>&nbsp;&nbsp; 返 &nbsp;</span>
+	   				 			<input type="tel" name=""  placeholder="请输入金额" value="0"><span> 元</span>
+	   				 		</li>     
+	   				 		<li class="size">
+	   				 			<span>&nbsp;&nbsp; 返 &nbsp;</span>
+	   				 			<input type="tel" name=""  placeholder="请输入积分值" value=""> <span class="jif">积分</span>
+	   				 		</li>    
+	   				 	</ul>       
+	   				 </div>
+	   				
+	   			</div>
+
+	   			<div class="mui-card-content">
+	   				<span class="left_style jinjian">充值金额建议 <i></i></span>
+	   				<ul class="card_moeny">
+	   					<li><input  class="jianyi" type="text" name=""  placeholder="请输入金额" /></li>
+	   				</ul>
+	   			</div>
+	   		</div>
+	   		<!--<span class="jif"></span>-->
+	   		<h5><span class="jif">积分</span></h5>
+	   		<div class="mui-card mui-card-style">
+	   			<div class="mui-card-content">
+	   				<span class="left_style">会员卡初始<span class="jif">积分</span></span>
+	   				<ul class="card_moeny">
+	   					<li><input class="chuji" type="text" name=""  placeholder="请输入金额" /></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<span class="left_style">消费获得<span class="jif">积分</span></span>
+	   				<ul class="">
+	   					<li class="jishi"><i class="active add"> <b><sub></sub></b>  是</i> 
+							<i class="add"><b><sub></sub></b> 否</i> </li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<span class="left_style">消费一元获得<span class="jif">积分</span></span>
+	   				<ul class="card_moeny">
+	   					<li><input class="xiaoyi1" type="text" name=""  placeholder="请输入积分值" /></li>
+	   				</ul>
+	   			</div>
+	   		</div>
+	   		<!--优惠券-->
+	   		<h5>优惠券</h5>
+	   		<div class="mui-card mui-card-style">
+	   			<div class="mui-card-header">
+	   				<span class="left_style">自动领优惠券</span>
+	   				<div class="mui-input-row">
+	   				    <div class="mui-switch mui-active auto_get_coupon">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+	   			</div>
+	   			<div class="mui-card-header">
+	   				<span class="left_style">消费自动领优惠券</span>
+	   				<div class="mui-input-row">
+	   				    <div class="mui-switch mui-active weixin_send">
+	   				        <div class="mui-switch-handle"></div>
+	   				    </div>
+	   				</div>
+	   			</div>
+	   		</div>
+	   		<!--使用说明-->
+	   		<h5>使用说明</h5>
+	   		<div class="mui-card mui-card-style">
+	   			<div class="mui-card-content user_style">
+	   				<span class="texcrol_style">充值说明</span>
+	   				<textarea name="" rows="3" cols="4"  class=" recharge_des" placeholder="请输入充值说明">充值100返20,充值200返50,充值500返150</textarea>
+	   			</div>
+	   			<div class="mui-card-content user_style">
+	   				<span class="texcrol_style"><span class="jif">积分</span>说明</span>
+	   				<textarea name="" rows="3" cols="4"  class="score_des" placeholder="请输入积分说明"></textarea>
+	   			</div>
+	   			<div class="mui-card-content user_style">
+	   				<span class="texcrol_style">会员卡说明</span>
+	   				<textarea name="" rows="3" cols="4" class="info" placeholder="请输入会员卡说明"></textarea>
+	   			</div>
+	   		</div>
+	   </div>
+	   <!--同步微信卡包-->
+	   <div class="synchro_weixin hidden">
+	   		<h5>基本信息</h5>
+	   		<div class="mui-card mui-card-style">
+	   			<div class="mui-card-content">
+	   				<span class="left_style">会员卡名称</span>
+	   				<ul class="card_moeny">
+	   					<li><input  class="wx_title" type="text" name=""  placeholder="请输入名称,9个汉字以内" /></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<span class="left_style">会员卡提醒</span>
+	   				<ul class="card_moeny">
+	   					<li><input class="wx_notice"  type="text" name=""  placeholder="请输入提醒内容,16个汉字以内" /></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<span class="left_style">会员卡颜色</span>
+	   				<ul class="card_color" id="cardColor">
+	   					<li><span background="Color010">#63b359</span></li>
+	   				</ul>
+	   			</div>
+	   		</div>
+	   		<div class="mui-card">
+	   			<div class="mui-card-content">
+	   				<span class="left_style">中间按钮标题</span>
+	   				<ul class="card_moeny">
+	   					<li><input  type="text" name="" class="wx_center_title" placeholder="请输入按钮名称,6个汉字以内" /></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content">
+	   				<span class="left_style">中间按钮副标题</span>
+	   				<ul class="card_moeny">
+	   					<li><input  type="text" class="wx_center_sub_title" placeholder="请输入按钮名称,8个汉字以内" /></li>
+	   				</ul>
+	   			</div>
+	   			<div class="mui-card-content btn_sytle">
+	   				<span class="left_style">中间按钮链接</span>
+	   				<ul class="">
+	   					<li><input  type="text" class="wx_center_url" placeholder="请选择或输入按钮链接" /></li>
+	   					<li><button type="button" class="form_libirly">从功能库选择</button></li>
+	   				</ul>
+	   			</div>
+	   		</div>
+	   		<!--横向可滑动-->
+	   		<div class="mui-card">
+	   			<div class="mui-card-content sroll_style">
+	   				<div class="mui-scroll-wrapper">
+					    <div class="mui-scroll mui-clearfix">
+					    		<div class="mui-pull-left active">自定义类目1(选填)</div>
+					    		<div class="mui-pull-left">自定义类目2(选填)</div>
+					    		<div class="mui-pull-left">自定义类目3(选填)</div>
+					    		<div class="mui-pull-left">自定义类目4(选填)</div>
+					    </div>
+					</div>
+	   			</div>
+	   			<div class="customLists">
+	   				<div class="item_list item1">
+		   				<div class="mui-card-content sroll_next">
+			   				<span class="left_style">自定义类目1</span>
+			   				<ul class="card_moeny">
+			   					<li><input class="item_list1" type="text" name=""  max="5" placeholder="请输入按钮名称,5个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content">
+			   				<span class="left_style">提示语</span>
+			   				<ul class="card_moeny">
+			   					<li><input  class="item_list2"  type="text" name=""  max="6" placeholder="请输入按钮名称,6个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content btn_sytle">
+			   				<span class="left_style">自定义跳转链接</span>
+			   				<ul class="">
+			   					<li><input  class="item_list3"  type="text"  placeholder="请选择或输入按钮链接" /></li>
+			   					<li><button type="button" class="form_libirly">从功能库选择</button></li>
+			   				</ul>
+			   			</div>
+		   			</div>
+		   			<div class="item_list hidden item2">
+		   				<div class="mui-card-content sroll_next">
+			   				<span class="left_style">自定义类目2</span>
+			   				<ul class="card_moeny">
+			   					<li><input class="item_list1" type="text" name=""  max="5" placeholder="请输入按钮名称,5个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content">
+			   				<span class="left_style">提示语</span>
+			   				<ul class="card_moeny">
+			   					<li><input  class="item_list2"  type="text" name=""  max="6" placeholder="请输入按钮名称,6个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content btn_sytle">
+			   				<span class="left_style">自定义跳转链接</span>
+			   				<ul class="">
+			   					<li><input  class="item_list3"  type="text"  placeholder="请选择或输入按钮链接" /></li>
+			   					<li><button type="button" class="form_libirly">从功能库选择</button></li>
+			   				</ul>
+			   			</div>
+		   			</div>
+		   			<div class="item_list hidden item3" >
+		   				<div class="mui-card-content sroll_next">
+			   				<span class="left_style">自定义类目3</span>
+			   				<ul class="card_moeny">
+			   					<li><input class="item_list1" type="text" name=""  max="5" placeholder="请输入按钮名称,5个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content">
+			   				<span class="left_style">提示语</span>
+			   				<ul class="card_moeny">
+			   					<li><input  class="item_list2"  type="text" name=""  max="6" placeholder="请输入按钮名称,6个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content btn_sytle">
+			   				<span class="left_style">自定义跳转链接</span>
+			   				<ul class="">
+			   					<li><input  class="item_list3"  type="text"  placeholder="请选择或输入按钮链接" /></li>
+			   					<li><button type="button" class="form_libirly">从功能库选择</button></li>
+			   				</ul>
+			   			</div>
+		   			</div>
+		   			<div class="item_list hidden item4">
+		   				<div class="mui-card-content sroll_next">
+			   				<span class="left_style">自定义类目4</span>
+			   				<ul class="card_moeny">
+			   					<li><input class="item_list1" type="text" name=""  max="5" placeholder="请输入按钮名称,5个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content">
+			   				<span class="left_style">提示语</span>
+			   				<ul class="card_moeny">
+			   					<li><input  class="item_list2"  type="text" name=""  max="6" placeholder="请输入按钮名称,6个汉字以内" /></li>
+			   				</ul>
+			   			</div>
+			   			<div class="mui-card-content btn_sytle">
+			   				<span class="left_style">自定义跳转链接</span>
+			   				<ul class="">
+			   					<li><input  class="item_list3"  type="text"  placeholder="请选择或输入按钮链接" /></li>
+			   					<li><button type="button" class="form_libirly">从功能库选择</button></li>
+			   				</ul>
+			   			</div>
+		   			</div>
+	   			</div>
+	   			
+	   			
+	   		</div>
+	   		<!--特权说明-->
+	   		<div class="mui-card">
+	   			<div class="mui-card-content user_style">
+	   				<span class="texcrol_style">特权说明</span>
+	   				<textarea class="prerogative" rows="3" cols="4"  placeholder="请输入说明" ></textarea>
+	   			</div>
+	   		</div>
+	   		<!--商家服务类型-->
+	   		<div class="mui-card">
+	   			<div class="mui-card-content radio_change" id="radio_change">
+	   				<span class="left_style">商家服务类型</span>
+	   				<ul class="">
+	   					<li ><i class="active add_service waimai1" data-val="BIZ_SERVICE_DELIVER"> <b><sub></sub></b> 外卖服务</i> </li>
+	   					<li><i class=" add_service chewei1" data-val="BIZ_SERVICE_FREE_PARK"> <b><sub></sub></b> 停车位</i> </li>
+	   					<li><i class="active add_service chongwu1" data-val="BIZ_SERVICE_WITH_PET"> <b><sub></sub></b> 可带宠物</i> </li>
+	   					<li><i class=" add_service wifi1" data-val="BIZ_SERVICE_FREE_WIFI"> <b><sub></sub></b> 免费wifi</i> </li>
+	   				</ul>
+	   			</div>
+	   		</div>
+	   		<h5>卡卷图文 (图片大小1MB)</h5>
+	   		<div class="add_img_text">
+		   		
+	   		</div>
+	   		<div class="add_text_img">+增加图文信息</div>
+	   </div>
+	   <div style="padding-bottom: 60px;"></div>
+	</div>
+	<nav class="mui-bar mui-bar-tab">
+	   <a href="javascript:;">保存<span style="font-size:12px; display: none;">（保存的同时将同步微信会员卡）</span></a>
+
+	</nav>
+	
+	<!--点击从功能库选择弹层-->
+	<div id="middlePopover1" class="mui-popover fun_library">
+		<p class="mui-clearfix"><span>插入链接或关键词</span> <i class="mui-pull-right"></i></p>
+		<div class="prompt">
+			
+			<b></b>
+			<span>使用方法: 点击 “选中” 直接返回对应的模块外链接代码,或者点击 “详细” 选择具体的内容外链</span>
+		</div>
+		<h5><span>请选择模块</span></h5>
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<ul class="fun_details">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--详细弹层-->
+	<div id="" class="last_ceng hidden">
+		<p class="mui-clearfix"><!-- <b class="mui-pull-left close_floor"></b> --><span>餐饮列表</span> <i class="close_floor mui-pull-right"></i></p>
+		<div class="prompt">
+			
+			<b></b>
+			<span>点击对应内容后面的 “选中” 即可</span>
+		</div>
+		<div class="mui-scroll-wrapper sroll_up">
+			<div class="mui-scroll">
+				<ul class="details_list">
+					
+				</ul>
+				<div class="pullup" style="display:none;">上拉加载更多...</div>
+				<div class="loading" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="bg hidden close_floor"></div>
+	<div id="middlePopover6" class="mui-popover fun_library">
+		<p class="mui-clearfix"><span>选取会员卡颜色</span> <i class="mui-pull-right"></i></p>
+		<dl>
+			<dd></dd>
+		</dl>
+		
+	</div>
+	
+<script src="js/fastclick.js"></script>	
+<script src="js/mui.min.js"></script>
+<script src="js/mui.zoom.js"></script>
+ <script src="js/mui.picker.js"></script> 
+ <script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.cxcolor.js" charset="utf-8" type="text/javascript"></script>
+<!--渲染充值列表数据 -->
+
+<script id="recode_lists" type="text/html">
+	{{# for(var i = 0, len = d.data.recharge_rule.length; i < len; i++){ }}
+		{{# if(i==0){ }}
+			
+				<li><span>充值&nbsp;</span><input  type="tel" placeholder="请输入金额" name="" id="" value="{{d.data.recharge_rule[i].count }}" /><span> 元</span> <i class="charge_add"></i> <i class="charge_reduce" style="display: none;"></i></li>
+				<li><span>&nbsp;&nbsp; 返 &nbsp;</span><input  type="tel" name="" id="" placeholder="请输入金额" value="{{d.data.recharge_rule[i].back_money }}"/><span> 元</span></li>
+				<li class="size"><span >&nbsp;&nbsp; 返 &nbsp;</span><input  type="tel" name="" id="" placeholder="请输入积分值" value="{{ d.data.recharge_rule[i].back_score}}"/><span> <span class="jif">积分</span></span></li>
+			
+	 	{{# } else { }}
+			
+				<li><span>充值&nbsp;</span><input  type="tel" placeholder="请输入金额" name="" id="" value="{{d.data.recharge_rule[i].count }}" /><span> 元</span><i class="charge_add" style="display: none;"></i>  <i class="charge_reduce"></i></li>
+				<li><span>&nbsp;&nbsp; 返 &nbsp;</span><input  type="tel" name="" id="" placeholder="请输入金额" value="{{d.data.recharge_rule[i].back_money }}" /><span> 元</span></li>
+				<li class="size"><span >&nbsp;&nbsp; 返 &nbsp;</span><input  type="tel" name="" id="" placeholder="请输入积分值" value="{{d.data.recharge_rule[i].back_score }}" /><span> <span class="jif">积分</span></span></li>
+			
+	 	{{# } }}
+	{{# } }}
+</script>
+<!-- 图文信息渲染 -->
+<script id="cardimg_text" type="text/html">
+	{{# for(var i = 0, len = d.data.wx_param.text_image_list.length; i < len; i++){ }}
+		<div class="mui-card">
+   			<div class="mui-card-header">
+   				<span class="left_style">图文消息{{i+1}}</span>
+   			</div>
+   			<div class="mui-card-content text_describe">
+   				<ul>
+				    <li class="up_img1">
+						<img src='{{d.data.wx_param.text_image_list[i].image_url}}' alt="" />
+						<input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" id="fileImage{{i+1}}" class="fileImage" name="imgFile">
+					</li>
+			    </ul>
+			    
+			    <textarea name="" rows="3" cols="4" placeholder="请输入详细描述">{{d.data.wx_param.text_image_list[i].text}}</textarea>
+			    <div class="delate_describle">
+			    	<button type="button" >删除</button>
+			    </div>	
+   			</div>
+   		</div>
+
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+		var sysc_weixin = 0;
+		var jif=common.getCache('jif');
+		var colors='6537 1998';
+        var mycolor=$("#color_d").cxColor();
+		$('.jif').text(jif);
+      	mui.init();
+      	var ticket = common.getCache('ticket');
+		//console.log(ticket);
+		var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+  		mui('.mui-scroll-wrapper').scroll({
+		    deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006 
+		});
+		mui('.sroll_style').scroll({
+		   	scrollY:false,
+			scrollX:true,
+			deceleration:0.0005
+		});
+		$('.add').click(function(e){
+			$(this).addClass('active').siblings().removeClass('active');
+		});
+
+		$('.user_style textarea').on('focus',function(e){
+			$(this).addClass('active');
+
+		});
+		$('.user_style textarea').on('blur',function(e){
+			$(this).removeClass('active');
+			
+		});
+
+
+
+
+
+      	var ticket = common.getCache('ticket');
+		var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+		var bgimg_list=[];//
+		//var type_list=[];//
+		var pindex=1;
+		function selectChange(lists){
+			$.each(lists,function(i,val){
+				var goods_id_list ={'value':'','text':''};
+				goods_id_list.text=i+1;
+				goods_id_list.value=val;
+				bgimg_list.push(goods_id_list);
+			});
+		}
+		//头部tab切换 
+		mui('.mui-content').on('tap','.class_list li',function(e){
+			$(this).addClass('active').siblings('li').removeClass('active');
+			if($('.class_basic').is('.active')){
+				$('.basic_information').removeClass('hidden').siblings('.synchro_weixin').addClass('hidden');
+				$('.mui-bar-tab a span').hide();
+				sysc_weixin = 0;
+			}else{
+				$('.synchro_weixin').removeClass('hidden').siblings('.basic_information').addClass('hidden');
+				$('.mui-bar-tab a span').show();
+				sysc_weixin = 1;
+			}
+		});
+		//充值返现金额增加点击
+		mui('.mui-content').on('tap','.charge_add',function(e){
+			var length=$('.back_now ul').length;
+			
+			if(length>=5){
+				$('.back_now ul:eq(0) .charge_add').hide();
+				$('.back_now ul:eq(0) .charge_reduce').show();
+			}else{
+				$('.back_now ul:eq(0) .charge_add').show();
+				// $('.back_now ul .charge_reduce').hide();
+				var str='<ul><li><span>充值&nbsp;</span><input  type="tel" name="" id="" value="" placeholder="请输入金额"/><span> 元</span><i class="charge_add" style="display: none;"></i>  <i class="charge_reduce"></i></li><li><span>&nbsp;&nbsp; 返 &nbsp;</span><input  type="tel" name="" id="" placeholder="请输入金额" /><span> 元</span></li><li class="size"><span >&nbsp;&nbsp; 返 &nbsp;</span><input  type="tel" name="" id="" placeholder="请输入积分值" /><span> <span class="jif">'+jif+'</span></span></li></ul>';
+				$('.back_now').append(str);
+				length++;
+				if(length>=5){
+					$('.back_now ul:eq(0) .charge_add').hide();
+					$('.back_now ul:eq(0) .charge_reduce').show();
+				}
+			}
+		});
+		// 充值返现减少点击
+		mui('.mui-content').on('tap','.charge_reduce',function(e){
+			var length=$('.back_now ul').length;
+			//console.log(length);
+			if(length>1){
+				$(this).parents('ul').remove();
+			}
+			$('.back_now ul:eq(0) .charge_add').show();
+			$('.back_now ul:eq(0) .charge_reduce').hide();
+		});
+		
+		// 将所有input框数据清空
+		$('input').val('');
+		$('textarea').val('');
+		$('.up_img1 img,.up_img img').attr('src','images/17-8_03.png');
+		$('#bg_imgShow').attr('src','images/35-_03.png');
+		var card_color='';
+		// 渲染下拉框接口
+		common.http('Merchantapp&a=get_card_new_config',{'ticket':ticket,'client':client},function(data){
+			console.log(data);
+			selectChange(data.bg_list);
+			var see_bg=data.bg_list;
+			// data.wx_server.BIZ_SERVICE_DELIVER=="外卖服务"?$('.waimai1').addClass('active'):$('.waimai1').removeClass('active');
+			// data.wx_server.BIZ_SERVICE_FREE_PARK=="停车位"?$('.chewei1').addClass('active'):$('.chewei1').removeClass('active');
+			// data.wx_server.BIZ_SERVICE_WITH_PET=="可带宠物"?$('.chongwu1').addClass('active'):$('.chongwu1').removeClass('active');
+			// data.wx_server.BIZ_SERVICE_FREE_WIFI=="免费wifi"?$('.wifi1').addClass('active'):$('.wifi1').removeClass('active');
+			card_color=data.color_list;
+		
+			// 初次进入页面渲染数据 两个接口	
+			common.http('Merchantapp&a=card_detail',{'ticket':ticket,'client':client},function(data){
+				console.log(data);
+				//var arr=eval('('+data.data.recharge_rule+')');
+				//console.log(arr);
+				data.data.status==0?$('.qiyong1').removeClass('mui-active'):$('.qiyong1').addClass('mui-active');
+				data.data.bg!=""&&$('#bg_imgShow').attr('src',data.data.bg);//会员卡背景图
+				data.data.bg!=""&&$('#bg_imgShow').attr('data-src',data.data.bg);//会员卡背景图
+				$.each(see_bg,function(i,val){
+					if(val==data.data.bg){
+						$('#pluscard_bg b span').text(i+1).css('color','#333');
+					}
+				});
+				if(data.data.numbercolor!=""){
+					  $('.cardColor').html(colors);
+                   $('.cardColor').css('color',data.data.numbercolor);
+                    $('.card_color input').val(data.data.numbercolor).css("backgroundColor",data.data.numbercolor);
+				}
+			
+
+				$('.card_discount input').val(data.data.discount);//会员卡折数
+				data.data.self_get==0?$('.zizhu1').removeClass('mui-active'):$('.zizhu1').addClass('mui-active');
+				data.data.is_physical_card==0?$('.zhichi1').removeClass('mui-active'):$('.zhichi1').addClass('mui-active');
+				data.data.auto_get==0?$('.saoma1').removeClass('mui-active'):$('.saoma1').addClass('mui-active');
+				data.data.auto_get_buy==0?$('.xiaofei1').removeClass('mui-active'):$('.xiaofei1').addClass('mui-active');
+				$('.chushi1').val(data.data.begin_money);
+				// 渲染充值返现信息列表
+				if(data.data.recharge_rule){
+					laytpl(document.getElementById('recode_lists').innerHTML).render(data, function(html){
+						$('.back_now ul').html(html);
+					});
+				}
+			
+
+				$('.jianyi').val(data.data.recharge_suggest);
+				$('.chuji').val(data.data.begin_score);
+				if(data.data.support_score=="0"){
+					$('.jishi>i:eq(1)').addClass('active').siblings('i').removeClass('active');
+				}else{
+					$('.jishi>i:eq(0)').addClass('active').siblings('i').removeClass('active');
+				}
+				
+				$('.xiaoyi1').val(data.data.support_score);
+				data.data.auto_get_coupon==0?$('.auto_get_coupon').removeClass('mui-active'):$('.auto_get_coupon').addClass('mui-active');
+				data.data.weixin_send==0?$('.weixin_send').removeClass('mui-active'):$('.weixin_send').addClass('mui-active');
+				$('.recharge_des').val(data.data.recharge_des);
+				$('.score_des').val(data.data.score_des);
+				$('.info').val(data.data.info);
+				// 同步微信卡包
+				$('.wx_title').val(data.data.wx_param.title);
+				$('.wx_notice').val(data.data.wx_param.notice);
+				$.each(card_color,function(i,val){
+					if(i==data.data.wx_param.color){
+						$('#cardColor li span').text(val);
+						$('#cardColor li span').attr('background',i);
+						$('#cardColor li span').css('background',val);
+					}
+				});
+				// data.data.wx_param.color!=""&&$('.synchro_weixin .card_color input').val(data.data.wx_param.color);
+				$('.wx_center_title').val(data.data.wx_param.center_title);
+				$('.wx_center_sub_title').val(data.data.wx_param.center_sub_title);
+				$('.wx_center_url').val(data.data.wx_param.center_url);
+
+				$('.item1 .item_list1').val(data.data.wx_param.custom_url_name);
+				$('.item1 .item_list2').val(data.data.wx_param.custom_url_sub_title);
+				$('.item1 .item_list3').val(data.data.wx_param.custom_url);
+
+				$('.item2 .item_list1').val(data.data.wx_param.custom_cell1_name);
+				$('.item2 .item_list2').val(data.data.wx_param.custom_cell1_tips);
+				$('.item2 .item_list3').val(data.data.wx_param.custom_cell1_url);
+
+				$('.item3 .item_list1').val(data.data.wx_param.custom_cell2_name);
+				$('.item3 .item_list2').val(data.data.wx_param.custom_cell2_tips);
+				$('.item3 .item_list3').val(data.data.wx_param.custom_cell2_url);
+
+				$('.item4 .item_list1').val(data.data.wx_param.promotion_url_name);
+				$('.item4 .item_list2').val(data.data.wx_param.promotion_url_sub_title);
+				$('.item4 .item_list3').val(data.data.wx_param.promotion_url);
+				$('.prerogative').val(data.data.wx_param.prerogative);
+				if(data.data.wx_param.business_service!=undefined){
+					$.each($('#radio_change ul li'),function(i,val){
+						var me=this;
+						if($.inArray($(me).find('i').attr('data-val').toString(),data.data.wx_param.business_service)>=0){
+							$(me).find('i').addClass('active');
+						}else{
+							$(me).find('i').removeClass('active');
+						}
+						me=null;
+					});
+				}
+				
+				// 渲染图文信息列表
+				if(data.data.wx_param.text_image_list!=null){
+					laytpl(document.getElementById('cardimg_text').innerHTML).render(data, function(html){
+						$('.add_img_text').html(html);
+					});
+				}
+				
+			});
+		});
+		// 保存按钮点击
+		mui('.mui-bar.mui-bar-tab').on('tap','a',function(e){
+			// 基本信息
+			var status, bg, numbercolor, discount, self_get, is_physical_card, auto_get, auto_get_buy, begin_money, recharge_suggest, begin_score ,support_score_select, support_score, auto_get_coupon, weixin_send, recharge_des, score_des, info,wx_background_pic_url ;
+			status=$('.qiyong1').is('.mui-active')?1:0;
+			bg=$('#bg_imgShow').attr('src');
+			//bg_num=$('#pluscard_bg').text();
+			wx_background_pic_url =$('#bg_imgShow').attr('data-src');
+			numbercolor=$('.basic_information .card_color input').val();//会员卡字体颜色
+			discount=$('.card_discount input').val();//会员卡折数
+			self_get=$('.zizhu1').is('.mui-active')?1:0;
+			is_physical_card=$('.zhichi1').is('.mui-active')?1:0;
+			auto_get=$('.saoma1').is('.mui-active')?1:0;
+			auto_get_buy=$('.xiaofei1').is('.mui-active')?1:0;
+			begin_money=$('.chushi1').val();
+			var recharge_rule=[];
+			for(var k=0;k<$('.back_now ul').length;k++){
+				var chong_back={'count':'','back_money':'','back_score':''};
+				chong_back.count=$('.back_now ul:eq('+k+') li:eq(0) input').val();
+				chong_back.back_money=$('.back_now ul:eq('+k+') li:eq(1) input').val();
+				chong_back.back_score=$('.back_now ul:eq('+k+') li:eq(2) input').val();
+				recharge_rule.push(chong_back);
+			}
+			console.log(recharge_rule);
+			recharge_suggest=$('.jianyi').val();
+			begin_score=$('.chuji').val();
+			support_score=$('.xiaoyi1').val();
+			support_score_select=$('.jishi i:eq(0)').is('.active')?1:0;
+			auto_get_coupon=$('.auto_get_coupon').is('.mui-active')?1:0;
+			weixin_send=$('.weixin_send').is('.mui-active')?1:0;
+			recharge_des=$('.recharge_des').val();
+			score_des=$('.score_des').val();
+			info=$('.info').val();
+			// 同步微信卡包
+			var title, notice,color, center_title, center_sub_title, center_url, custom_url_name,custom_url_sub_title,custom_url,custom_cell1_name,custom_cell1_tips,custom_cell1_url,custom_cell2_name,custom_cell2_tips,custom_cell2_url,promotion_url_name,promotion_url_sub_title,promotion_url,wx_prerogative;
+			title=$('.wx_title').val();
+			notice=$('.wx_notice').val();
+			color=$('#cardColor li span').attr('background');
+			center_title=$('.wx_center_title').val();
+			center_sub_title=$('.wx_center_sub_title').val();
+			center_url=$('.wx_center_url').val();
+			custom_url_name=$('.item1 .item_list1').val();
+			custom_url_sub_title=$('.item1 .item_list2').val();
+			custom_url=$('.item1 .item_list3').val();
+			custom_cell1_name=$('.item2 .item_list1').val();
+			custom_cell1_tips=$('.item2 .item_list2').val();
+			custom_cell1_url=$('.item2 .item_list3').val();
+			custom_cell2_name=$('.item3 .item_list1').val();
+			custom_cell2_tips=$('.item3 .item_list2').val();
+			custom_cell2_url=$('.item3 .item_list3').val();
+			promotion_url_name=$('.item4 .item_list1').val();
+			promotion_url_sub_title=$('.item4 .item_list2').val();
+			promotion_url=$('.item4 .item_list3').val();
+			wx_prerogative=$('.prerogative').val();
+			var text_image_list=[];
+			var business_service=[];
+			$.each($('.radio_change ul li'),function(i,val){
+				if($('.radio_change ul li:eq('+i+') i').is('.active')){
+					var data_val=$('.radio_change ul li:eq('+i+') i').data('val');
+					business_service.push(data_val);
+				}
+				
+			});
+			$.each($('.add_img_text .mui-card'),function(i,val){
+				var img_texts={'image_url':'','text':''};
+				img_texts.image_url=$('.add_img_text .mui-card:eq('+i+') .up_img1 img').attr('data-src');
+				img_texts.text=$('.add_img_text .mui-card:eq('+i+') textarea').val();
+				text_image_list.push(img_texts);
+			});
+			if(discount!=''){
+				common.http('Merchantapp&a=card_edit',{'ticket':ticket,'client':client,'status':status,'bg': bg,'numbercolor':numbercolor,"discount": discount,'self_get':self_get, 'is_physical_card':is_physical_card,'auto_get':auto_get,'auto_get_buy':auto_get_buy,"begin_money":begin_money,'recharge_rule':recharge_rule,'recharge_suggest':recharge_suggest,'begin_score':begin_score ,'support_score_select':support_score_select,'support_score': support_score,'auto_get_coupon': auto_get_coupon,'weixin_send': weixin_send,'recharge_des': recharge_des,'score_des':score_des,'info': info,'wx_title': title,'wx_notice':
+				 notice,'wx_color':color,'wx_center_title':center_title,'wx_center_sub_title':center_sub_title,'wx_center_url': center_url,'wx_custom_url_name': custom_url_name,'wx_custom_url_sub_title':custom_url_sub_title,'wx_custom_url':custom_url,'wx_custom_cell1_name':custom_cell1_name,'wx_custom_cell1_tips': custom_cell1_tips,'wx_custom_cell1_url': custom_cell1_url,'wx_custom_cell2_name': custom_cell2_name,'wx_custom_cell2_tips': custom_cell2_tips,'wx_custom_cell2_url':custom_cell2_url,'wx_promotion_url_name': promotion_url_name,'wx_promotion_url_sub_title':promotion_url_sub_title,'wx_promotion_url': promotion_url,'wx_prerogative': wx_prerogative,'wx_text_image_list':text_image_list,'wx_business_service':business_service,'wx_background_pic_url':wx_background_pic_url,'sysc_weixin':sysc_weixin},function(data){
+					console.log(data);
+					mui.toast(data.msg);
+				});
+			}else{
+				mui.toast('会员卡折数必填');		
+			}
+			
+		});
+		
+
+		$('#cardColor span').click(function(e){
+			
+			var me=this;
+			mask.show();
+			mui('#middlePopover6').popover('show');
+			var strs='';
+			$.each(card_color,function(i,val){
+				strs+='<dd data-key='+i+' style="background:'+val+'">'+val+'</dd>';
+			});
+			$('#middlePopover6 dl').html(strs);
+			$('#middlePopover6 dd').click(function(e){
+				$(me).text($(this).text());
+				$(me).attr('background',$(this).attr('data-key'));
+				$(me).css('background',$(this).text());
+				mask.close();
+			mui('#middlePopover6').popover('hide');
+			});
+			$('#middlePopover6 p i').click(function(e){
+				mask.close();
+				mui('#middlePopover6').popover('hide');
+			});
+		});
+
+
+		//筛选
+		(function($, doc) {
+			$.init();
+			
+			mui('.mui-content').on('tap','#pluscard_bg',function(e) {
+				//普通示例
+				var userPicker = new $.PopPicker();
+				userPicker.setData(bgimg_list);
+				var that=this;
+				userPicker.show(function(items) {
+					that.children[0].children[0].innerHTML = items[0].text;
+					that.children[0].children[0].style.color="#333333";
+					var this_value=items[0].value;
+					//bg_num=items[0].text;
+					document.getElementById('bg_imgShow').src=this_value;
+					document.getElementById('bg_imgShow').setAttribute("data-src",this_value);
+				}, false);
+			
+			});
+			
+		})(mui, document);
+		// 上传图片
+		 function imgUpload(id,sts){
+	        var fullPath=window.document.location.href;  
+	        var pathName=window.document.location.pathname;  
+	        var pos=fullPath.indexOf(pathName);  
+	        var localhostPath=fullPath.substring(0,pos);  
+	        var post_url = localhostPath+'/appapi.php?c=Merchantapp&a=up_img';
+            $.ajaxFileUpload({
+                url:post_url,
+                secureuri:false,
+                fileElementId:id,
+                dataType: 'json', 
+                type: 'post',
+                data : {'wxcard_img' : 1},
+                success: function(data, status){  
+                	console.log(data);
+                	sts==0&&$('#bg_imgShow').attr('src',data.result.root_img);
+                	sts==0&&$('#bg_imgShow').attr('data-src',data.result.url);
+                	sts==1&&$('#'+id).parent().find('img').attr('src',data.result.root_img);
+                	sts==1&&$('#'+id).parent().find('img').attr('data-src',data.result.url);
+                },
+                error: function(data, status, e){ 
+                    alert(e);
+                }
+            }); 
+        }
+		$('.up_img').off('change','input').on('change','input',function(e){
+			var id=$(this).attr('id');
+			imgUpload(id,0);
+			//console.log(111);
+		});
+		// 图文信息上传图片
+		$('body').off('change','.up_img1 input').on('change','.up_img1 input',function(e){
+			var id=$(this).attr('id');
+			imgUpload(id,1);
+		});
+		//卡号颜色修改
+        $("#color_d").bind("change",function(){
+           // title.css("color",this.value);
+			$(this).val(this.value);
+            $('.cardColor').html(colors);
+            $(".cardColor").css('color',this.value);
+        });
+
+		// 各种说明样式修改
+      	mui('.mui-card-style').on('blur','textarea',function(e){
+      		alert(1);
+      		if($(this).val()!=''){
+      			$(this).addClass('active');
+      		}else{
+      			$(this).removeClass('active');
+      		}
+      	});
+      	
+      	//自定义类名点击
+      	mui('.mui-content').on('tap','.mui-scroll div',function(e){
+      		var index=$(this).index();
+      		$(this).addClass('active').siblings('div').removeClass('active');
+      		$('.customLists .item_list:eq('+index+')').removeClass('hidden').siblings('.item_list').addClass('hidden');
+      	});
+      	
+      	
+      	//单选框多选点击
+      	mui('.mui-content').on('tap','.add_service',function(e){
+      		$(this).is('.active')?$(this).removeClass('active'):$(this).addClass('active');
+      	});
+      	//图文信息删除点击
+      	mui('.mui-content').on('tap','.delate_describle button',function(e){
+      		$(this).parents('.mui-card').remove();
+      	});
+      	//增加图文信息
+      	mui('.mui-content').on('tap','.add_text_img',function(e){
+      		var len=$('.add_img_text .mui-card').length+1;
+      		var  text='<div class="mui-card"><div class="mui-card-header"><span class="left_style">图文消息'+len+'</span></div><div class="mui-card-content text_describe"><ul><li class="up_img1"><img src="images/17-8_03.png" alt="" /><input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" id="fileImage'+len+'" class="fileImage" name="imgFile"></li></ul><textarea name="" rows="3" cols="4" placeholder="请输入详细描述"></textarea><div class="delate_describle"><button type="button" >删除</button></div></div></div>';
+      		$('.add_img_text').append(text);
+      	});
+      	
+      	//弹层区域
+      	var mask = mui.createMask();
+      
+function scrollDetail(url,page,pid){
+	common.http('MerchantLink&a='+url,{'ticket':ticket,'client':client,'pindex':page,'pid':pid},function(data){
+		console.log(data);
+		var sum='';
+		if(data.data.length>0){
+			for(var i=0;i<data.data.length;i++){
+				if(data.data[i].sub==0){
+					console.log(data.data[i].linkcode);
+					if(data.data[i].linkurl!=""){
+						sum+='<li><span>'+data.data[i].name+'</span><a class="mui-pull-right active selected" href="javascript:;"  data-url='+data.data[i].linkurl+'>选中</a></li>';
+					}else{
+						sum+='<li><span>'+data.data[i].name+'</span><a class="mui-pull-right active selected" href="javascript:;"  data-url='+data.data[i].linkcode+'>选中</a></li>';
+					}
+					
+				}else{
+					if(data.data[i].linkurl!=""){
+						sum+='<li><span>'+data.data[i].name+'</span><a class="mui-pull-right detailed" href="javascript:;" data-pid='+data.data[i].pid+' data-val='+data.data[i].module+' data-url='+data.data[i].linkurl+'>详细</a></li>';
+					}else{
+						sum+='<li><span>'+data.data[i].name+'</span><a class="mui-pull-right detailed" href="javascript:;" data-pid='+data.data[i].pid+' data-val='+data.data[i].module+' data-url='+data.data[i].linkcode+'>详细</a></li>';
+					}
+					
+				}
+			}
+			$('.details_list').append(sum);
+			$('.loading').hide();
+			$('.pullup').show();
+			if(data.data.length<10){$('.pullup').html('没有更多数据啦');}
+		}else{
+			$('.pullup').html('没有更多数据啦');
+			$('.loading').hide();
+			$('.pullup').show();
+		}
+		
+	});
+}
+
+
+
+/*点击从功能库选择*/
+mui('.mui-content').on('tap','.form_libirly',function(e){
+	document.activeElement.blur();
+	var me=this;
+	//功能库第一次选择	
+	common.http('MerchantLink&a=insert',{'ticket':ticket,'client':client},function(data){
+		//console.log(data);
+		var str='';
+		for(var i=0;i<data.modules.length;i++){
+			if(data.modules[i].sub==0){
+				if(data.modules[i].linkurl!=""){
+					str+='<li><span>'+data.modules[i].name+'</span><a class="mui-pull-right active selected" href="javascript:;" data-pid='+data.modules[i].pid+'  data-url='+data.modules[i].linkurl+'>选中</a></li>';
+				}else{
+					str+='<li><span>'+data.modules[i].name+'</span><a class="mui-pull-right active selected" href="javascript:;" data-pid='+data.modules[i].pid+'  data-url='+data.modules[i].linkcode+'>选中</a></li>';
+				}
+				
+			}else{
+				if(data.modules[i].linkurl!=""){
+					str+='<li><span>'+data.modules[i].name+'</span><a class="mui-pull-right detailed" href="javascript:;" data-val='+data.modules[i].module+' data-url='+data.modules[i].linkurl+'>详细</a></li>';
+				}else{
+					str+='<li><span>'+data.modules[i].name+'</span><a class="mui-pull-right detailed" href="javascript:;" data-val='+data.modules[i].module+' data-url='+data.modules[i].linkcode+'>详细</a></li>';
+				}
+				// str+='<li><span>'+data.modules[i].name+'</span><a class="mui-pull-right detailed" href="javascript:;" data-val='+data.modules[i].module+' data-url='+data.modules[i].linkcode+'>详细</a></li>';
+			}
+		}
+		$('.fun_details').html(str);
+	});
+	mask.show();
+	mui('#middlePopover1').popover('show');
+
+	//点击详细
+	$('body').off('click','.detailed').on('click','.detailed',function(e){
+		var detail_url=$(this).data('val');
+		var pid=$(this).data('pid');
+		$('.details_list').html('');
+		pindex=1;
+		scrollDetail(detail_url,pindex,pid);
+		$('.bg').removeClass('hidden');
+		$('.last_ceng').removeClass('hidden');
+
+
+		// 上拉加载
+		if($('.details_list').height()>$('.sroll_up').height()){
+			$('.sroll_up').scroll(function(e){
+				if($('.sroll_up').scrollTop()>=  $('.details_list').height() - $('.sroll_up').height()){
+					$('.pullup').hide();
+	            	$('.loading').show();
+	                pindex++;
+	                scrollDetail(detail_url,pindex,pid);
+				}
+			});
+		}
+		
+
+	});
+	// 点击选中
+	$('body').off('click','.selected').on('click','.selected',function(e){
+		
+		var url_href=$(this).data('url');
+		$(me).parents('.mui-card-content').find('input').val(url_href);
+		$('.bg').addClass('hidden');
+		$('.last_ceng').addClass('hidden');
+		mask.close();
+		mui('#middlePopover1').popover('hide');
+	});
+
+	//bg背景层点击,返回按钮，关闭按钮点击
+	mui('body').on('tap','.close_floor',function(e){
+		$('.bg').addClass('hidden');
+		$('.last_ceng').addClass('hidden');
+	});
+	//mask 弹层点击  关闭按钮点击
+	mui('.mui-popover').on('tap','p i.mui-pull-right',function(e){
+		mask.close();
+		mui('#middlePopover1').popover('hide');
+
+	});
+	mui('body').on('tap','.mui-backdrop',function(e){
+		mask.close();
+		mui('#middlePopover1').popover('hide');
+		mask.close();
+			mui('#middlePopover6').popover('hide');
+	});
+});
+      
+
+
+
+
+
+
+
+
+
+     // 小红点提示语
+     mui('.mui-content').on('tap','.money_style',function(e){
+     	mui.alert('用户每在线充值一笔达到金额即赠送的金额与'+jif+'，最多可添加5种充值类型', '充值返现金额 ');
+     });
+  	mui('.mui-content').on('tap','.chujin',function(e){
+     	mui.alert('(领会员卡时自动向该卡赠送金额)');
+     });
+  	mui('.mui-content').on('tap','.jinjian',function(e){
+     	mui.alert('(用户可以在充值页面快速点击按钮充值该建议金额。英文逗号隔开，如 10, 20, 30 )');
+     });
+</script>
+</body>
+</html>

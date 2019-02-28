@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>会员分组</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+	<link rel="stylesheet" type="text/css" href="css/plus_grouping.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">会员分组</h1>
+	    <span class="mui-pull-right open_list" data-type="0" data-id="0"><i></i>添加分组</span>
+	</header>
+	<div class="mui-content">
+		<div class="all_pluszu">
+			
+		</div>
+	   
+	</div>
+	
+	
+	<!--编辑分组弹层-->
+	<div id="middlePopover" class="mui-popover plus_penci">
+		<p><span>编辑分组</span><i class="mui-pull-right"></i></p>
+		<ul>
+			<li class="mui-clearfix"><span>分组名称</span> <input  style="width: 48%;" type="text" name=""  value="贵宾会员"  class="mui-pull-right name namess" placeholder="请输入分组名称"/></li>
+			<li class="mui-clearfix"><span>分组注释</span> <input style="width: 48%;" type="text" name="" id="" placeholder="请输入注释内容"  class="mui-pull-right"/></li>
+		</ul>
+		<a href="javascript:;">确定</a>
+	</div>
+	<!--查看用户分组弹层-->
+	<div id="middlePopover1" class="mui-popover see_user">
+		<p><span>查看详情</span><i class="mui-pull-right"></i></p>
+		<div class="mui-scroll-wrapper sroll_up">
+			<div class="mui-scroll">
+				<table border="" cellspacing="" cellpadding="">
+					<thead>
+						<tr>
+							<th>会员名称</th>
+							<th>会员卡卡号</th>
+							<th>会员手机号</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>A-微信营销@品牌推广</td>
+							<td>12345688</td>
+							<td>15055177788</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="pullup" style="display: none;">上拉加载更多...</div>
+				<div class="loading" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+			</div>
+		
+		
+		</div>
+	</div>
+	<!-- 查看用户所有详情 -->
+	<div id="des_detial" class="see_user hidden ">
+		<p><span>查看详情</span><i class="mui-pull-right"></i></p>
+		<h5>会员卡信息</h5>
+		<div class="mui-card">
+			<div class="mui-card-content">
+				<span class="left_style">实体卡号</span>
+				<ul>
+					<li><input class="card_num" type="number"  placeholder="请输入实体卡号"/></li>
+				</ul>
+			</div>
+			<div class="mui-card-content">
+				<span class="left_style">实体卡领取时间</span>
+				<ul>
+					<li class="time">2017-06-09 11:38:29</li>
+				</ul>
+			</div>
+			<div class="mui-card-content">
+				<span class="left_style">用户分组</span> 
+				<ul id="class_change"><li><span id="user_class" data-user="1" style="color: rgb(51, 51, 51);">请选择分组</span><b class="mui-pull-right"></b></li></ul>
+			</div>
+			<div class="mui-card-content">
+				<span class="left_style">会员卡状态</span> 
+				<ul id="card_status"><li><span id="card_status_text">请选择状态</span><b class="mui-pull-right"></b></li></ul>
+			</div>
+			<div class="mui-card-content integral">
+				<span class="left_style">余额</span>
+				<ul>
+					<li>当前余额￥<b class="money">2</b></li>
+					<li><span id="balance" class="groups"><i id="balance_text">请选择</i> <b class="mui-pull-right"></b></span><input type="number" name="" id="" value=""  placeholder="请输入金额"/> 元</li>
+				</ul>
+			</div>
+			<div class="mui-card-content integral">
+				<span class="left_style">积分</span>
+				<ul>
+					<li>当前积分 <b class="score">351</b></li>
+					<li><span id="integral" class="groups"><i id="integral_text">请选择</i> <b class="mui-pull-right"></b></span><input type="number" name="" id="" value=""  placeholder="请输入积分"/> 分</li>
+				</ul>
+			</div>
+		</div>
+		<div class="bottom">
+			<a href="javascript:void(0);" class="cancel">取消</a>
+			<a href="javascript:void(0);" class="determine">确定</a>
+		</div>
+	</div>
+	<div class="bg hidden close_floor"></div>
+	<div id="bg1"></div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/mui.zoom.js"></script>
+<script src="js/mui.picker.js"></script> 
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/mui.previewimage.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/work/plus_grouping.js" type="text/javascript" charset="utf-8"></script>
+<script id="cardlist" type="text/html">
+	{{# for(var i = 0, len = d.group_list.length; i < len; i++){ }}
+		<div class="mui-card" data-id='{{ d.group_list[i].id }}'>
+		    	<div class="mui-card-header">
+		    		<span>分组ID: {{ d.group_list[i].id }}</span>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<ul class="mui-clearfix">
+		    			<li class="mui-pull-left">
+		    				<dl>
+		    					<dt class="plus_name">{{ d.group_list[i].name }}</dt>
+		    					<dd>分组名称</dd>
+		    				</dl>
+		    			</li>
+		    			<li class="mui-pull-left">
+		    				<dl>
+		    					<dt>{{ d.group_list[i].user_count }}</dt>
+		    					<dd>分组用户数量</dd>
+		    				</dl>
+		    			</li>
+		    		</ul>
+		    		<div class="group_comment">
+		    			<span>分组注释:</span>
+		    			<!--此id必须添加不能重复-->
+		    			<b  class="groups"><span>{{ d.group_list[i].des }}</span></b>
+		    		</div>
+		    	</div>
+		    	<div class="mui-card-footer">
+		    		<span class="group_penci"><i></i> 编辑</span>
+		    		<span class="see_fen"><b></b> 查看用户分组</span>
+		    	</div>
+		    </div>
+	{{# } }}
+</script>
+</body>
+</html>

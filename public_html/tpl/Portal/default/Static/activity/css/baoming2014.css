@@ -1,0 +1,38 @@
+@charset "utf-8";
+.po_re { position:relative; z-index:1; *zoom:1;}
+.hdb {}
+.hdbt { padding:0 45px 0 18px; position:relative; *zoom:1;}
+.hdbc_2 { position:absolute; top:13px; right:12px; cursor:pointer;}
+.hdbt strong { color:#333;font-size:20px; font-weight:bold; float:left; padding-top:12px;}
+.hdbt span { display:inline-block; *display:inline; *zoom:1; padding-left:10px; padding-top:19px; font-size:14px; color:#bbb;}
+.content { padding:10px 0 10px 54px;}
+.hdbc {	font-size:14px; padding:5px 0; overflow:hidden; *zoom:1; line-height:36px;}
+.hdbc span { color: #bbb;}
+
+.sp_a { margin-top:15px; display:block; color:#333; font-size:16px; font-weight:bold;}
+.sp_a span { font-weight:normal; color:#aaa; font-size:12px;}
+.sp_a .tips img { vertical-align:-3px;}
+.hdbc .sp_b,.hdbc .sp_c,.hdbc .sp_d { float:left;}
+.hdbc .sp_b,.hdbc .sp_d { display:inline; margin-right:10px;} 
+.hdbc .sp_b select { border:1px solid #ddd; padding:2px 6px; margin:0;}
+.hdbc .sp_c { line-height:44px;}
+.hdbc .sp_c img { vertical-align:-2px;}
+.hdbc .s { display:block; width:6px; height:6px; position:absolute; right:10px; top:19px; background-color:#f60; border-radius:6px;}
+.hdbc .s2 { display:block; position:absolute; left:8px; top:4px; color:#999; text-decoration:none; text-align:right; width:42px;}
+.abc {width:76px;float:left;}
+.abc span {	color: #999790;}
+.hdbc em {	color: #FF0000;	font-style: normal;} 
+.input0,.input1 { padding:10px; height:22px;line-height:22px;width:470px;border:1px solid #e5e9ed; vertical-align: middle; outline:0;}
+.input1 { padding:10px 22px 10px 52px; width:165px;}
+.text {	height: 54px;width:370px;border: 1px solid #ddd; padding:2px 6px; border-radius:4px;}
+.text11 {height: 120px;	width: 398px;	border: 1px solid #b9cde3; outline:0;}
+
+.hdbtn { margin-top:20px;}
+.submit { cursor:pointer; display:block; width:492px; vertical-align:top; padding:5px 25px; background-color:#f98787; border:1px solid #f98787; color:#fff; font-size:18px; outline:none;}
+.xieyibtn { margin-top:15px; text-align:center; font-size:14px; width:492px;}
+.xieyibtn input { vertical-align:-3px;}
+
+.xieyi { font-size:14px; position:absolute; z-index:99; bottom:95px; left:50%; margin-left:-215px; width:400px; height:200px; padding:15px; border:1px solid #ccc; background-color:#fff;}
+.xieyi .hd { font-weight:bold; padding:0 0 8px; margin:0;}
+.xieyi .close {display:block; margin:10px auto 0; width:120px; text-align:center; padding:5px 0; background-color:#f50; border-bottom:1px solid #f30; color:#fff; text-decoration:none;}
+.blue_font { color:#36c;}.blue_font:hover { color:#d00;}

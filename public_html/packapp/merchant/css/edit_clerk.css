@@ -1,0 +1,110 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-card{margin: 0;margin-top: 15px;}
+.mui-card .mui-card-header,.mui-card .mui-card-footer{
+	padding: 0;
+} 
+
+.left_style{
+	display: inline-block;
+	margin: 10px 0 10px 10px;
+	font-size: 14px;
+	color: #404040;
+	width: 24%;
+}
+.left_style i{
+	display: inline-block;
+	width: 12px;height: 12px;
+	background: url(../images/12-_03.png) center no-repeat;
+	background-size: contain;
+	
+}
+input[type='text'],input[type='password'],input[type="tel"]{
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 69%;
+	font-size: 15px;
+}
+/*第一块*/
+.content_style .mui-card .mui-card-content{
+    border-bottom: 1px solid #f1f1f1;
+    margin-left: 5px;
+    padding: 5px 0;
+}
+/*第二块*/
+.shop_class .mui-card-header,.shop_class .mui-card-footer{
+	display: block;
+	padding-top: 4px;
+}
+
+
+.shop_class i.mui-pull-right{
+	display: inline-block;
+	width: 15px;height: 8px;
+	background: url(../images/7-6_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: 7px;
+	margin-right: 3%;
+}
+.shop_class p b{
+	display: inline-block;
+	padding: 10px 0;
+    width: 72%;
+        font-weight: normal;
+}
+
+.shop_class .mui-card-content .left_style{
+	width: 43%;
+}
+.shop_class .mui-card-content i{
+	font-style: normal;
+	display: inline-block;
+	width: 25%;
+	height: 25px;
+	font-size: 15px;
+}
+.shop_class .mui-card-content  i b{
+	display: inline-block;
+	width: 20px;height: 20px;
+	border: 1px solid #CCCCCC;
+	border-radius:50% ;
+	vertical-align:bottom;margin-right: 5px;
+}
+.shop_class .mui-card-content i.active b{
+	border-color: #FFA200;
+}
+.shop_class .mui-card-content  i.active b sub{
+	background: #FFA200;
+}
+
+.shop_class .mui-card-content i b sub{
+	display: inline-block;
+	width: 12px;height: 12px;
+	border-radius:50% ;
+	background: #CCCCCC;
+	margin-left: 3px;
+    margin-bottom: 5px;
+}
+
+/*保存*/
+.mui-bar-tab a{
+	/*margin-top: 10px;*/
+	display: block;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #FFA200;
+	color: #FFFFFF;
+	font-size: 15px;
+}

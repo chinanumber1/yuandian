@@ -1,0 +1,196 @@
+*{
+	margin: 0;
+	padding:0 ;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background: #F5F5F5;
+}
+ul,ol,dl,dd,dt{
+	list-style: none;
+}
+.ft{
+	float: left;
+}
+.rg{
+	float: right;
+}
+.after:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+/*优惠通道*/
+.parent1{
+	margin: 0.254237rem 3% 0 3%	;
+	background: -webkit-linear-gradient(to top right,rgba(255,100,151, 0.8), rgba(255,153,117, 0.8));
+	background: -o-linear-gradient(to top right,rgba(255,100,151, 0.8), rgba(255,153,117, 0.8));
+	background: -moz-linear-gradient(to top right,rgba(255,100,151, 0.8), rgba(255,153,117, 0.8));
+	background: linear-gradient(to top right,rgba(255,100,151, 0.8), rgba(255,153,117, 0.8));
+	border-radius: 5px;
+}
+.parent1 .way_content,.parent2 .integral{
+	margin:0rem 3% 0 3%	;
+}
+.parent1 .way_content .way_right,.parent2 .integral_right{
+	padding: 0.554237rem 0 0 0;
+}
+.parent1 .way_content>p{
+	padding: 0.454237rem 3% 0 3%;
+}
+.mask .way_content{
+	background: -webkit-linear-gradient(to top right,rgba(255,100,151, 0.8), rgba(255,153,117, 0.8));
+	background: -o-linear-gradient(to top right,rgba(255,100,151, 0.8), rgba(255,153,117, 0.8));
+	background: -moz-linear-gradient(to top right,rgba(255,100,151, 0.8), rgba(255,153,117, 0.8));
+	background: linear-gradient(to top right,rgba(255,100,151, 0.8), rgba(255,153,117, 0.8));
+	border-radius: 5px;
+}
+.way_content,.integral{
+	width: 94%;
+	margin: 0.254237rem 3%;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+	
+}
+.way_content>p{
+	padding: 0.254237rem 3%;
+}
+.way_content>p>i{
+	display: inline-block;
+	width: 1.271186rem;
+	height: 1.271186rem;
+	background: url(../img/x1_06.png) center no-repeat;
+	background-size: contain;
+}
+.way_right,.integral_right{
+	width: 76%;
+	padding: 0.554237rem 0;
+	color: #fff;	
+}
+.change{
+	margin-right: 3%;
+}
+
+.way_right .change.active span{
+	display: inline-block;
+	width: 0.533898rem;
+	height: 0.533898rem;
+	background: url(../img/x1_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: -20px;
+}
+.way_right .change span{
+	display: inline-block;
+	width: 0.533898rem;
+	height: 0.533898rem;
+	background: url(../img/x1_10.png) center no-repeat;
+	background-size: contain;
+	margin-top: -15px;
+}
+.way_right h2,.integral_right h2{
+	font-size: 0.38983rem;
+	color: #fff;
+	padding-left: 0;
+}
+.way_right p.font_style,.integral_right p.font_style{
+	font-size:0.271186rem;
+	/*margin-top: 0.135593rem;*/
+	margin-right: 4%;
+}
+/*积分通道*/
+.parent2{
+	margin: 0.254237rem 3% 0 3%	;
+	background: -webkit-linear-gradient(to top right,rgba(63,189,255, 0.8), rgba(47,206,255, 0.8));
+	background: -o-linear-gradient(to top right,rgba(63,189,255, 0.8), rgba(47,206,255, 0.8));
+	background: -moz-linear-gradient(to top right,rgba(63,189,255, 0.8), rgba(47,206,255, 0.8));
+	background: linear-gradient(to top right,rgba(63,189,255, 0.8), rgba(47,206,255, 0.8));
+	border-radius: 5px;
+}
+.parent2 .way_content{
+	margin:0rem 3% 0 3%	;
+}
+.parent2 .integral>p{
+	padding: 0.454237rem 3% 0 3%;
+}
+.mask .integral{
+	background: -webkit-linear-gradient(to top right,rgba(63,189,255, 0.8), rgba(47,206,255, 0.8));
+	background: -o-linear-gradient(to top right,rgba(63,189,255, 0.8), rgba(47,206,255, 0.8));
+	background: -moz-linear-gradient(to top right,rgba(63,189,255, 0.8), rgba(47,206,255, 0.8));
+	background: linear-gradient(to top right,rgba(63,189,255, 0.8), rgba(47,206,255, 0.8));
+	border-radius: 5px;
+}
+.integral>p{
+	padding: 0.254237rem 3%;
+}
+.integral>p>i{
+	display: inline-block;
+	width: 1.271186rem;
+	height: 1.271186rem;
+	background: url(../img/x1_11.png) center no-repeat;
+	background-size: contain;
+}
+.integral .change span{
+	display: inline-block;
+	width: 0.533898rem;
+	height: 0.533898rem;
+	background: url(../img/x1_10.png) center no-repeat;
+	background-size: contain;
+	margin-top: -15px;
+}
+.integral .change.active span{
+	display: inline-block;
+	width: 0.533898rem;
+	height: 0.533898rem;
+	background: url(../img/x2_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: -20px;
+}
+/*弹层样式*/
+.mask{
+	position: fixed;
+	top: 0;
+	left:0;
+	bottom:0;
+	right: 0;
+	z-index: 998;
+	background-color: rgba(0, 0,0, .6);
+	display: none;
+}
+.mask .content{
+	position: fixed;
+    top: 50%;
+    margin-top: -190px;
+    background-color: #fff;
+}
+.mask .content .content_header{
+	padding: 10px 0;
+	width: 100%;
+	border:1px solid #f1f1f1;
+}
+.mask .content .content_header p{
+	text-align: center;
+	font-size: 0.35983rem;
+	color: #404040;
+	font-weight: 700;
+}
+.mask .content .content_header p span{
+	font-size: 0.291186rem;
+	font-weight: normal;
+	color: #8E8F90;
+}
+.xiugai{
+	font-size: 0.34983rem;
+	color: #fff;
+	padding:0 3% 10px 0;
+}
+.no_change{
+	padding-bottom: 0.474576rem;
+}

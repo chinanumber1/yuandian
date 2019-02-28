@@ -1,0 +1,160 @@
+@charset "utf-8";
+header {
+    height: 50px;
+    background-color: #06c1ae;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+	position:relative;
+	font-size:16px;
+}
+header #backBtn{
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+header #backBtn:after {
+    display: block;
+    content: "";
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    width: 12px;
+    height: 12px;
+    -webkit-transform: rotate(315deg);
+    background-color: transparent;
+    position: absolute;
+    top: 19px;
+    left: 19px;
+}
+.searchBar{
+	height:50px;
+	border-bottom: 1px solid #edebeb;
+	padding-right:50px;
+	position: relative;
+  	display: -webkit-box;
+  	background-color: white;
+}
+
+.searchBar .searchBox{
+	border:1px solid #E1E1E1;
+	height:36px;
+	margin-top:7px;
+	margin-left:6px;
+	border-radius: 5px;
+	width: 100%;
+}
+.searchBar .searchBox input{
+	background: url(../img/search/search.png) no-repeat;
+	background-size:16px;
+	background-position: 10px 10px;
+	padding:2px 0 2px 30px;
+	height:36px;
+	line-height:36px;
+	border:none;
+	width:100%;
+	outline:0;
+	font-size:16px;
+}
+.searchBar .voiceBtn{
+	position: absolute;
+	right: 0px;
+	top: 7px;
+	width: 40px;
+	height: 36px;
+	background: url(../img/search/voice.png) no-repeat;
+	background-size: 12px 19px;
+	background-position: 14px 8px;
+}
+.searchBar.wap {
+	padding-right:15px;
+}
+.searchBar.wap  .voiceBtn{
+	display:none;
+} 
+#container{
+	top:107px;
+}
+.villageBox{
+	border-top: 1px solid #edebeb;
+}
+.villageBox .headBox {
+    color: #666;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 8px;
+    font-size: 14px;
+    border-bottom: 1px solid #edebeb;
+    font-weight: bold;
+	background-color: white;
+}
+.villageBox dl {
+    /* background-color: white; */
+}
+.villageBox dd {
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 8px;
+	background-color:white;
+}
+.villageBox .brand {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+	margin-bottom:4px;
+}
+.villageBox .brand .location-right{
+	position: absolute;
+  	top: 8px;
+  	right: 4px;
+  	color:#999;
+  	font-size: 12px;
+}
+.villageBox .title {
+    color: #999;
+    max-height: 32px;
+    line-height: 16px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.villageBox .noMore{
+	height: 40px;
+    line-height: 40px;
+    background-color: #f4f4f4;
+    border-top: 0;
+	text-align:center;
+	margin-bottom: 11px!important;
+	color: #999;
+	border-bottom:0;
+}
+.noMoreDiv{
+	height: 40px;
+    line-height: 40px;
+    background-color: #f4f4f4;
+    border-top: 0;
+	text-align:center;
+	margin-bottom: 11px!important;
+	color: #999;
+	border-bottom:0;
+}
+#bindVillageBox{
+	margin-bottom:10px;
+}
+
+.loadMoreList{
+	border-top: 0;
+	height: 40px;
+    line-height: 40px;
+	text-align:center;
+	text-indent: -10000px;
+	background:#f4f4f4 url(../img/loadingMore.gif) no-repeat!important;
+	background-position: center!important;
+	padding-bottom:7px;
+}

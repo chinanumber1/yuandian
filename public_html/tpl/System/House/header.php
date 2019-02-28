@@ -1,0 +1,1 @@
+<div id="nav" class="mainnav_title">	<ul>		<a href="{pigcms{:U('Config/index',array('galias'=>'house','header'=>'House/header'))}" class="on">社区配置</a>	</ul></div>

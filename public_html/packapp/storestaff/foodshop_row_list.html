@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+<meta charset="utf-8" />
+<title>店员中心</title>
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name='apple-touch-fullscreen' content='yes' />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="address=no" />
+<link href="css/pigcms.css" rel="stylesheet" />
+</head>
+<body>
+	<section class="public">
+		<div class="return link-url" data-url-type="openLeftWindow" data-url="back" data-closewebview="true"></div>
+		<div class="content">排号列表</div>
+		<!--div class="record">历史记录</div-->
+	</section>
+
+	<section class="cut">
+		<div class="cut_top"></div>
+		<div class="cut_tab swiper-container">
+			<ul class="clr swiper-wrapper"></ul>
+		</div>
+	</section>
+
+	<section class="take"></section>
+
+	<section class="setup creator">
+		<div class="setup_n">
+			<h2>选座就餐</h2>
+			<ul>
+				<li class="clr classify">
+					<div class="fl">桌台分类</div>
+					<div class="fr select">
+					</div>
+				</li>
+				<li class="clr number">
+					<div class="fl">用餐人数</div>
+					<div class="fr">
+						<input type="text" placeholder="请输入就餐人数" id="num">
+					</div>
+				</li>
+			</ul>
+			<div class="sub">
+				<input type="button" value="确定" id="queue_save">
+			</div>
+			<div class="del"></div>
+		</div>
+	</section>
+	<div class="Mask"></div>
+	<script src="scripts/jquery-1.8.3.min.js"></script>
+	<script src="scripts/fastclick.js"></script>
+	<script src="scripts/layer/layer.m.js"></script>
+	<script src="scripts/common.js"></script>
+	<script src="scripts/swiper-3.3.1.jquery.min.js"></script>
+	<script src="scripts/work/foodshop_row_list.js"></script>
+	
+	<script id="topSwiperTpl" type="text/html">
+	{{# for (var i in d) { }}
+	<li class="swiper-slide {{# if (i == 0) { }}on {{# } }}" data-id="{{d[i].id}}">
+		<h2>{{d[i].name}}</h2>
+		<p>{{d[i].min_people}}-{{d[i].max_people}}人</p>
+	</li>
+	{{# } }}
+	</script>
+
+
+	<script id="queueDetailTpl" type="text/html">
+	<div class="yell">
+		<div class="yell_n">现场取号</div>
+	</div>
+	<div class="howl">
+		<ul class="clr">
+			{{# if (d.now_number != '') { }}
+			<li class="current">
+				<div class="tacell">
+					<h2>{{d.now_number}}</h2>
+					<p>
+						就餐人数 <span>{{d.now_use_num}}</span>
+					</p>
+					<div class="now">
+						{{# if (d.now_queue_from == 0) { }}
+						<span>在线取号</span>
+						{{# } else { }}
+						<span>现场取号</span>
+						{{# } }}
+					</div>
+				</div>
+			</li>
+			{{# } }}
+			{{# if (d.next_number != '') { }}
+			<li class="next">
+				<div class="tacell">
+					<h2>{{d.next_number}}</h2>
+					<p>
+						就餐人数 <span>{{d.next_use_num}}</span>
+					</p>
+					<div class="now">
+						{{# if (d.next_queue_from == 0) { }}
+						<span>在线取号</span>
+						{{# } else { }}
+						<span>现场取号</span>
+						{{# } }}
+					</div>
+				</div>
+			</li>
+			{{# } }}
+		</ul>
+		{{# if (d.wait > 0) { }}
+		<div class="etc">
+			<span>当前等待桌数<em>{{d.wait}}</em>桌
+			</span>
+		</div>
+		{{# } }}
+	</div>
+	{{# if (d.now_number != '') { }}
+	<div class="clickbot">
+		<div class="jump" data-tid="{{d.id}}">
+			<span>跳号</span>
+		</div>
+		<div class="call" data-tid="{{d.id}}">
+			<span>叫号</span>
+		</div>
+	</div>
+	{{# } }}
+	</script>
+</body>
+</html>

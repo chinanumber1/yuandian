@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+        <section class="public pageSliderHide">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+            <div class="content">添加商品</div>
+        </section>
+        
+        <section class="hunt">
+            <div class="hunt_input">
+                <div class="c_input">
+                    <input type="search" class="sp_sear" />
+                    <div class="clean"><div></div></div>
+                </div>
+                <div class="hunt_scan"></div>
+                <div class="hunt_remove">取消</div>
+            </div>
+        </section>
+
+        <section class="foodleft sp_foodleft">
+            <div class="foodnav">
+                <ul></ul>
+            </div>
+        </section>
+
+        <section class="foodright sp_foodright"></section>
+
+        <section class="Cart">
+            <div class="Cart_top clr">
+                <h2>购物车</h2>
+                <span>清空</span>
+            </div>
+            <div class="Cart_list">
+                <ul></ul>
+            </div>
+        </section>
+
+        <section class="floor clr">
+            <div class="trolley"></div>
+            <div class="qty">0</div>
+            <div class="prix">￥<i>0</i></div>
+            <a href="javascript:void(0)" class="next">保存</a>
+        </section>
+
+        <section class="sp_foodright foods_list">
+            <dl></dl>
+        </section>
+
+        <section class="seek empty">
+            <div class="within">
+                <h2>清空购物车</h2>
+                <div class="con">
+                    <div class="img">
+                        <img src="images/tct_06.jpg">   
+                    </div>
+                    <div class="tit">
+                        <p class="on">重要提示</p>
+                        <p class="p" style="text-align: center; line-height: 30px;"><span class="red">确定清空购物车？</span></p>
+                    </div>
+                    <div class="button">
+                        <div class="clr p20">
+                            <div class="fl close">取消</div>
+                            <div class="fr ensure">清空</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="del"></div>
+        </section>
+        <div class="mask"></div>
+        <div class="Maskcat"></div>
+		<script id="listSearchTpl" type="text/html">
+			{{# for (var i in d){ }}
+				<dd data-goods_id="{{ d[i].goods_id }}">
+					<div class="food_right" style="padding:0;">
+						<h2>{{ d[i].name }}</h2>
+						<div class="surplus">{{# if(d[i].stock_num != -1){ }}剩余{{ d[i].stock_num }}{{# }else{ }}无限{{# } }}</div>
+						<div class="MenuPrice clr">
+							<i class="fl">￥</i>
+							<span class="fl">{{ d[i].price }}<em>/{{ d[i].unit }}</em></span>
+						</div>
+					</div>
+				</dd>
+			{{# } }}
+		</script>
+		<script id="listCartTpl" type="text/html">
+			{{# for (var i in d){ }}
+				<li class="clr food_{{ d[i].goods_id }}">
+					<div class="Clist_left">
+						<h2>{{ d[i].name }}</h2>
+					</div>
+					<div class="Clist_right">
+						<div class="MenuPrice clr">
+							<i class="fl">￥</i>
+							<span class="fl">{{ d[i].price }}</span>
+						</div>
+						<div class="Addsub">
+							<a href="javascript:void(0)" class="jian cart_jian" id="jian" data-goods_id="{{ d[i].goods_id }}"></a>
+							<input type="text" value="{{ d[i].count }}" readonly="true" class="num"/>
+							<a href="javascript:void(0)" class="jia" data-goods_id="{{ d[i].goods_id }}"></a>
+						</div>
+					</div>
+				</li>
+			{{# } }}
+		</script>
+        <script id="listCatTpl" type="text/html">
+			{{# var ii = 0; for (var i in d){ }}
+				<li class="foodleft-{{ d[i].sort_id }}"><a href="javascript:void(0)" data-cat_id="{{ d[i].sort_id }}" class="{{ ii == 0 ? 'on' : '' }}">{{ d[i].sort_name }}</a></li>
+			{{# ii++;} }}
+		</script>
+		<script id="listProductTpl" type="text/html">
+			{{# for (var i in d){ }}
+				<dl class="foodright-{{ d[i].sort_id }}" data-cat_id="{{ d[i].sort_id }}">
+					<dt>{{ d[i].sort_name }}</dt>
+					{{# for (var k in d[i].goods_list){ }}
+						<dd class="food_{{ d[i].goods_list[k].goods_id }}">
+							<!--div class="foodr_img">
+								<img src="images/user_avatar.jpg"/>
+							</div-->
+							<div class="food_right {{ d[i].goods_list[k].stock_num == 0 ? 'on' : '' }}" style="padding-left:0px;">
+								<h2>{{ d[i].goods_list[k].name }}</h2>
+								<div class="surplus">{{# if(d[i].goods_list[k].stock_num != -1){ }} 剩余{{ d[i].goods_list[k].stock_num }} {{# }else{ }} 不限 {{# } }}</div>
+								<div class="MenuPrice clr">
+									<i class="fl">￥</i>
+									<span class="fl">{{ d[i].goods_list[k].price }}<em>/{{ d[i].goods_list[k].unit }}</em></span>
+								</div>
+								<div class="Addsub">
+									{{# if(d[i].goods_list[k].stock_num != 0){ }}
+										<a href="javascript:void(0)" class="jian" data-goods_id="{{ d[i].goods_list[k].goods_id }}"></a>
+										<input type="text" value="0" readOnly="true" class="num"/>
+										<a href="javascript:void(0)" class="jia" data-goods_id="{{ d[i].goods_list[k].goods_id }}"></a>
+									{{# }else{ }}
+										<i>已售完</i>
+									{{# } }}
+								</div>
+							</div>
+						</dd>
+					{{# } }}
+				</dl>
+			{{# } }}
+		</script>
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/commodity.js"></script>
+    </body>
+</html>

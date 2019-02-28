@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+    <head>
+        <meta charset="utf-8"/>
+        <title>店员中心</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+        <meta http-equiv="pragma" content="no-cache"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name='apple-touch-fullscreen' content='yes'/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <link href="css/pigcms.css" rel="stylesheet"/>
+        <link href="css/mobiscroll.2.13.2.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+        <section class="public">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url=""></div>
+            <div class="content">快店订单</div>
+            <div class="census">
+                <div class="sus_popup"></div>
+                <div class="sus_url">
+                    <a href="#" class="retail">线下零售</a>
+                    <a href="#" class="statistics">商品销售统计</a>
+                </div>
+            </div>
+        </section>
+        <div class="h44"></div>
+
+        <div class="remind">您有部分商品库存小于10，请<span class="rem_see">点击查看！</span><div class="del"></div></div>
+        
+        <section class="h130">
+            <div class="cable">
+                <div class="cable_n cable_kd">
+                    <div class="input">
+                        <input type="text"  placeholder="请输入搜索内容" />
+                    </div>
+                    <div class="select">
+                        <select>
+                            <option>消费密码</option>
+                            <option>快递单号</option>
+                            <option>订单ID</option>
+                            <option>团购ID</option>
+                            <option>用户ID</option>
+                            <option>用户昵称</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="fix">
+                <div class="dropdown">
+                    <div class="drop_select">
+                        <div class="pos">
+                            <select>
+                                <option>订单来源</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="drop_select">
+                        <div class="pos">
+                            <select>
+                                <option>订单状态</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="drop_select">
+                        <div class="pos">
+                            <select>
+                                <option>支付方式</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="kd_time clr">
+                    <div class="pos fl">
+                        <input type="text" value="2017-02-10" readonly="readonly" id="demo" />
+                    </div>
+                    <div class="pos fr">
+                        <input type="text" placeholder="请选择时间" readonly="readonly" id="demo1"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="store">
+            <div class="entry kd_entry">
+                <ul>
+                    <li>
+                        <div class="top clr">
+                            <div class="fl">下单时间：2017-01-23 11:22:20</div>
+                            <div class="fr cancel">未支付</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预 订 人：王华先生  <a  href="tel:15055104342" class="pho">15055104342</a></h2>
+                                <p>配送方式：快递配送</p>
+                                <p>收货地址：蜀山区怀宁路与南二环交口白天鹅商务中心A座白天鹅商务中心A座</p>
+                                <p>订单总价：<span class="red">￥56.66</span></p>
+                                <p>应收总额：<span class="red">￥56</span><em class="xgh">（修改前：56.66，备注：凑个整数抹个零吧）</em></p>
+                                <div class="modify">修改价格</div>
+                            </div>
+                            <div class="remark">
+                                <div class="source">订单来源：商城</div>
+                                <div class="overtime">超时已取消</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top clr">
+                            <div class="fl">下单时间：2017-01-23 11:22:20</div>
+                            <div class="fr cancel">已支付</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预 订 人：王华先生  <a  href="tel:15055104342" class="pho">15055104342</a></h2>
+                                <p>配送方式：快递配送</p>
+                                <p>配送地址：蜀山区怀宁路与南二环交口白天鹅商务中心A座白天鹅商务中心A座</p>
+                                <p>订单总价：<span class="red">￥56.66 余额支付（移动端）</span></p>
+                                <p>应收总额：<span class="red">￥56</span></p>
+                                <!-- <div class="modify">修改价格</div> -->
+                            </div>
+                            <div class="remark">
+                                <div class="source">订单来源：线下购买</div>
+                                <!-- <div class="overtime">未支付</div> -->
+                                <!-- <div class="overtime kd_stay">待发货</div> -->
+                                <!-- <div class="overtime kd_cons">已消费</div> -->
+                                <!-- <div class="overtime kd_order">已接单</div> -->
+                                <!-- <div class="overtime kd_distri">配送中</div> -->
+                                <!-- <div class="overtime kd_rob">抢单</div> -->
+                                <!-- <div class="overtime kd_since">分配自提点</div> -->
+                                <div class="overtime kd_hair">已发货到自提</div>
+                                
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top clr">
+                            <div class="fl">下单时间：2017-01-23 11:22:20</div>
+                            <div class="fr cancel">未支付</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预 订 人：王华先生  <a  href="tel:15055104342" class="pho">15055104342</a></h2>
+                                <p>配送方式：快递配送</p>
+                                <p>收货地址：蜀山区怀宁路与南二环交口白天鹅商务中心A座白天鹅商务中心A座</p>
+                                <p>订单总价：<span class="red">￥56.66</span></p>
+                                <p>应收总额：<span class="red">￥56</span><em class="xgh">（修改前：56.66，备注：凑个整数抹个零吧）</em></p>
+                                <div class="modify">修改价格</div>
+                            </div>
+                            <div class="remark">
+                                <div class="source">订单来源：快店</div>
+                                <div class="overtime">用户已取消</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top clr">
+                            <div class="fl">下单时间：2017-01-23 11:22:20</div>
+                            <div class="fr cancel">未支付</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预 订 人：王华先生  <a  href="tel:15055104342" class="pho">15055104342</a></h2>
+                                <p>配送方式：快递配送</p>
+                                <p>收货地址：蜀山区怀宁路与南二环交口白天鹅商务中心A座白天鹅商务中心A座</p>
+                                <p>订单总价：<span class="red">￥56.66</span></p>
+                                <p>应收总额：<span class="red">￥56</span><em class="xgh">（修改前：56.66，备注：凑个整数抹个零吧）</em></p>
+                                <div class="modify">修改价格</div>
+                            </div>
+                            <div class="remark">
+                                <div class="source">订单来源：快店</div>
+                                <div class="overtime">用户已取消</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top clr">
+                            <div class="fl">下单时间：2017-01-23 11:22:20</div>
+                            <div class="fr cancel">未支付</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预 订 人：王华先生  <a  href="tel:15055104342" class="pho">15055104342</a></h2>
+                                <p>配送方式：快递配送</p>
+                                <p>收货地址：蜀山区怀宁路与南二环交口白天鹅商务中心A座白天鹅商务中心A座</p>
+                                <p>订单总价：<span class="red">￥56.66</span></p>
+                                <p>应收总额：<span class="red">￥56</span><em class="xgh">（修改前：56.66，备注：凑个整数抹个零吧）</em></p>
+                                <div class="modify">修改价格</div>
+                            </div>
+                            <div class="remark">
+                                <div class="source">订单来源：快店</div>
+                                <div class="overtime">用户已取消</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top clr">
+                            <div class="fl">下单时间：2017-01-23 11:22:20</div>
+                            <div class="fr cancel">未支付</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预 订 人：王华先生  <a  href="tel:15055104342" class="pho">15055104342</a></h2>
+                                <p>配送方式：快递配送</p>
+                                <p>收货地址：蜀山区怀宁路与南二环交口白天鹅商务中心A座白天鹅商务中心A座</p>
+                                <p>订单总价：<span class="red">￥56.66</span></p>
+                                <p>应收总额：<span class="red">￥56</span><em class="xgh">（修改前：56.66，备注：凑个整数抹个零吧）</em></p>
+                                <div class="modify">修改价格</div>
+                            </div>
+                            <div class="remark">
+                                <div class="source">订单来源：快店</div>
+                                <div class="overtime">用户已取消</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top clr">
+                            <div class="fl">下单时间：2017-01-23 11:22:20</div>
+                            <div class="fr cancel">未支付</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预 订 人：王华先生  <a  href="tel:15055104342" class="pho">15055104342</a></h2>
+                                <p>配送方式：快递配送</p>
+                                <p>收货地址：蜀山区怀宁路与南二环交口白天鹅商务中心A座白天鹅商务中心A座</p>
+                                <p>订单总价：<span class="red">￥56.66</span></p>
+                                <p>应收总额：<span class="red">￥56</span><em class="xgh">（修改前：56.66，备注：凑个整数抹个零吧）</em></p>
+                                <div class="modify">修改价格</div>
+                            </div>
+                            <div class="remark">
+                                <div class="source">订单来源：快店</div>
+                                <div class="overtime">用户已取消</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top clr">
+                            <div class="fl">下单时间：2017-01-23 11:22:20</div>
+                            <div class="fr cancel">未支付</div>
+                        </div>
+                        <div class="con">
+                            <div class="con_top">
+                                <h2>预 订 人：王华先生  <a  href="tel:15055104342" class="pho">15055104342</a></h2>
+                                <p>配送方式：快递配送</p>
+                                <p>收货地址：蜀山区怀宁路与南二环交口白天鹅商务中心A座白天鹅商务中心A座</p>
+                                <p>订单总价：<span class="red">￥56.66</span></p>
+                                <p>应收总额：<span class="red">￥56</span><em class="xgh">（修改前：56.66，备注：凑个整数抹个零吧）</em></p>
+                                <div class="modify">修改价格</div>
+                            </div>
+                            <div class="remark">
+                                <div class="source">订单来源：快店</div>
+                                <div class="overtime kd_since">分配自提点</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="amend">
+            <div class="alter">
+                <h2>修改金额</h2>
+                <div class="del"></div>
+            </div>
+            <div class="correct">
+                <ul>
+                    <li class="clr">
+                        <div class="fl">修改金额</div>
+                        <div class="fr">
+                            <input type="number" placeholder="请输入修改金额" />
+                        </div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">备注</div>
+                        <div class="fr">
+                            <input type="text" placeholder="请输入备注，限定8字以内" />
+                        </div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">当前值</div>
+                        <div class="fr e93">56.66</div>
+                    </li>
+                </ul>
+                <div class="clr button">
+                    <div class="fl recovery">恢复初始价格</div>
+                    <div class="fr ensure">确定修改</div>
+                </div>
+            </div>
+        </section>
+        <div class="mask"></div>
+
+        <section class="since">
+            <div class="h2">分配自提点</div>
+            <div class="ul">
+                <ul>
+                    <li class="on">
+                        <div class="tit">安徽省 合肥市 政务区</div>
+                        <div class="p">怀宁路和南二环交口白天鹅国际商务中心B座3楼</div>
+                        <div class="range">距离2.3km</div>
+                    </li>
+                    <li>
+                        <div class="tit">安徽省 合肥市 政务区</div>
+                        <div class="p">怀宁路和南二环交口白天鹅国际商务中心B座3楼</div>
+                        <div class="range">距离2.3km</div>
+                    </li>
+                    <li>
+                        <div class="tit">安徽省 合肥市 政务区</div>
+                        <div class="p">怀宁路和南二环交口白天鹅国际商务中心B座3楼</div>
+                        <div class="range">距离2.3km</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="submit">
+                <div class="determine">确定</div>
+            </div>
+            <div class="del"></div>     
+        </section>
+
+        <section class="stock">
+            <div class="h2">库存报警商品列表（12）</div>
+            <div class="ul">
+                <ul>
+                    <li>
+                        <div class="tit">
+                            <span class="fl">商品编号：</span>
+                            <div class="p65">6922711074757</div>
+                        </div>
+                        <div class="bot">
+                            <div class="name">
+                                <span class="fl">商品名称：</span>
+                                <div class="p65">黄焖那个几米饭饭</div>
+                            </div>
+                            <div class="name">
+                                <span class="fl">商品价格：</span>
+                                <div class="p65 clr">
+                                    <div class="fl f86">￥20</div>
+                                    <div class="fr f86">剩余库存：9</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tit">
+                            <span class="fl">商品编号：</span>
+                            <div class="p65">6922711074757</div>
+                        </div>
+                        <div class="bot">
+                            <div class="name">
+                                <span class="fl">商品名称：</span>
+                                <div class="p65">黄焖那个几米饭饭</div>
+                            </div>
+                            <div class="name">
+                                <span class="fl">商品价格：</span>
+                                <div class="p65 clr">
+                                    <div class="fl f86">￥20</div>
+                                    <div class="fr f86">剩余库存：9</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tit">
+                            <span class="fl">商品编号：</span>
+                            <div class="p65">6922711074757</div>
+                        </div>
+                        <div class="bot">
+                            <div class="name">
+                                <span class="fl">商品名称：</span>
+                                <div class="p65">黄焖那个几米饭饭</div>
+                            </div>
+                            <div class="name">
+                                <span class="fl">商品价格：</span>
+                                <div class="p65 clr">
+                                    <div class="fl f86">￥20</div>
+                                    <div class="fr f86">剩余库存：9</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tit">
+                            <span class="fl">商品编号：</span>
+                            <div class="p65">6922711074757</div>
+                        </div>
+                        <div class="bot">
+                            <div class="name">
+                                <span class="fl">商品名称：</span>
+                                <div class="p65">黄焖那个几米饭饭</div>
+                            </div>
+                            <div class="name">
+                                <span class="fl">商品价格：</span>
+                                <div class="p65 clr">
+                                    <div class="fl f86">￥20</div>
+                                    <div class="fr f86">剩余库存：9</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tit">
+                            <span class="fl">商品编号：</span>
+                            <div class="p65">6922711074757</div>
+                        </div>
+                        <div class="bot">
+                            <div class="name">
+                                <span class="fl">商品名称：</span>
+                                <div class="p65">黄焖那个几米饭饭</div>
+                            </div>
+                            <div class="name">
+                                <span class="fl">商品价格：</span>
+                                <div class="p65 clr">
+                                    <div class="fl f86">￥20</div>
+                                    <div class="fr f86">剩余库存：9</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="del"></div>
+            <div class="report">
+                <span>如需导出报表，请到电脑版店员中心操作</span>
+            </div>
+        </section>
+
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+        <script src="scripts/common.js"></script>
+        <script src="scripts/iscroll.js"></script>
+        <script src="scripts/mobiscroll.2.13.2.js"></script>
+    </body>
+</html>
+
+    <script>
+        //插件日历
+            $(function () {
+                var currYear = new Date().getFullYear();
+                var opt = {  
+                    'dateYMD': {
+                        preset: 'date',
+                        dateFormat: 'yyyy-mm-dd',
+                        theme: 'android-ics light', //皮肤样式
+                        display: 'modal',           //显示方式
+                        mode: 'scroller',           //日期选择模式
+                        showNow: true,
+                        nowText: "今天",
+                        startYear: currYear,    //开始年份
+                        endYear: currYear + 1, //结束年份
+                        // minDate: new Date(),    //只能选择
+                    },'select': {
+                        preset: 'select'
+                    }
+                } 
+                $('#demo').scroller($.extend(opt['dateYMD'],opt['default']));
+                $('#demo1').scroller($.extend(opt['dateYMD'],opt['default']));
+            });
+
+        //修改金额
+            $(".modify").click(function(){
+                $(".mask,.amend").show();
+            })
+            $(".mask").height($(window).height());
+            $(".mask,.amend .del").click(function(){
+                $(".mask,.amend").hide();
+            })
+
+        
+        // 自提
+            var myScroll = new IScroll('.since .ul',{ click: true}); 
+            $(".since,.stock").each(function(){
+               $(this).css("margin-top",-$(this).height()/2) 
+            });
+
+            $(".kd_since").click(function(){
+                $(".since,.mask").show();
+                myScroll.refresh();  
+            });
+
+            $(".since li").click(function(){
+                $(this).addClass("on").siblings().removeClass("on");
+            });
+
+            $(".mask,.since .del").click(function(){
+               $(".mask,.since").hide(); 
+            })
+
+       // 头部     
+        $(document).click(function(event){
+            $('.sus_url').hide();
+        })
+
+        $(".sus_popup").click(function(){
+            event.stopPropagation();
+            $(".sus_url").is(":hidden") ? $(".sus_url").show() : $(".sus_url").hide();
+        })
+        
+        $(".remind .del").click(function(){
+            $(".remind").hide();
+            each();
+        })
+
+        function each(){
+            $(".kd_entry").each(function(){
+                if($(".remind").is(":hidden")){
+                    $(this).css({"height":$(window).height()-172,"overflow-y":"auto","-webkit-overflow-scrolling":"touch"});
+                }else{
+                    $(this).css({"height":$(window).height()-212,"overflow-y":"auto","-webkit-overflow-scrolling":"touch"}); 
+                }
+                
+            })
+        }
+        each();
+        
+        // 库存报警
+            var myScroll2 = new IScroll('.stock .ul',{ click: true}); 
+            $(".rem_see").click(function(){
+                $(".mask,.stock").show();
+                myScroll2.refresh();  
+            })
+    
+            $(".mask,.stock .del").click(function(){
+                $(".mask,.stock").hide();
+            })
+        
+
+
+    </script>
+
+

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>添加商品</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/imange-view.css"/>
+	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/add_goods.css"/>
+    <style type="text/css">
+    		.mui-scroll{
+				width: 100%;
+				height: 52px;
+			}
+			img{width:85px; height: 53px;}
+			/*开关通用样式*/
+			.mui-switch.mui-active {
+			    border-color: #FFA200;
+			    background-color: #FFA200;
+			}
+			.mui-switch{
+				background: #f0f0f0;
+				margin-right: 5px;
+			}
+			.mui-switch:before {
+				font-size: 13px;
+				position: absolute;
+				top: 3px;
+				right: 11px;
+				content: '关闭';
+				text-transform: uppercase;
+				color: #999;
+			}
+
+			.mui-switch.mui-active:before {
+				right: auto;
+				left: 10px;
+				content: '开启';
+				color: #fff
+			}
+			.mui-card-header.acds:after{height: 0;}
+			.mui-card-header.acds{
+				border-top:1px solid #f1f1f1;
+			}
+			.shop_docuont .mui-card-content{
+				border: none;
+				border-top:1px solid #f1f1f1;	
+				height: 84px;
+			}
+			.shop_docuont .mui-card-content ul.rido_change li:last-child{
+				border-bottom:none;
+			}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">添加商品</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="shop_introduce">
+	    	<div class="mui-card">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header">
+					<span class="left_style">商品编码</span>
+					<input type="number" name="" class="number" value="" style="width: 69%;" placeholder="请输入商品条形码"/>
+				<!-- 	<i class="mui-pull-right" id="scanQRCode1"></i> -->
+				</div>
+				<!--内容区-->
+				<div class="mui-card-content">
+					<span class="left_style">商品名称</span>
+					<input type="text" name="" class="name" value="" placeholder="请输入商品名称"/>
+					<!--<i class="mui-pull-right"></i>-->
+				</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">
+					<span class="mui-pull-left left_style open_photo">商品图片 <i></i></span>
+					<!--<ul class="mui-pull-right">
+						<li>首张将作为列表页图片展示，最多上传5张照片。同一张照片不能选择(侧重文字模板的图片宽度建议为900px,高度建议为500px;侧重图片尺寸建议为:大于等于600px*600px的正方形)</li>
+						<!<li>图片建议宽度700px,高420px。</li>-->
+					<!--</ul>-->
+					<div class="mui-scroll-wrapper">
+					    <div class="mui-scroll showImg">
+					    		<div class="mui-pull-left uload">
+					    			<ul>
+						    			<li class="up_img">
+									    	<img src="images/17-8_03.png" alt="" />
+									    	<input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" 	id="fileImage" name="file">
+							    		</li>
+					    			</ul>
+					    		</div>
+					    	   
+					    </div>
+					    
+					</div>
+				</div>
+			</div>
+	    </div>
+	    <div class="shop_docuont">
+	    	<div class="mui-card">
+			
+				<!--内容区-->
+				
+				
+				<div class="mui-card-header acds">
+					<span class="left_style">商品状态</span>
+					<div class="mui-switch mui-active status">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-header acds">
+					<span class="left_style">是否必点</span>
+					<div class="mui-switch mui-active is_must">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-header acds">
+					<span class="left_style">是否推荐</span>
+					<div class="mui-switch mui-active is_hot">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<p>
+						<span class="left_style">商品分类</span>
+						<b id="showUserPicker" class="mui-clearfix"><span id="goods_class">请选择商品分类</span> <i class="mui-pull-right"></i></b>
+					</p>
+				</div>
+				<div class="mui-card-footer">
+					<span class="left_style">商品原价</span>
+					<input class="fill_width old_price" type="number"  value="" placeholder="请输入商品原价"/>					
+				</div>
+				<div class="mui-card-footer">
+					<span class="left_style">商品售价</span>
+					<input class="fill_width price" type="number" value="" placeholder="请输入商品售价"/>					
+				</div>
+
+				<div class="mui-card-footer">
+					<p>
+						<span class="left_style">库存更新类型</span>
+						<b id="showStockType" class="mui-clearfix" style="font-size: 14px; color: #404040; font-weight: normal;  padding: 15px 0; line-height: 1;"><span id="update_stock_type">请选择库存更新类型</span> <i class="mui-pull-right"></i></b>
+					</p>
+				</div>
+				<div class="mui-card-footer">
+					<span class="left_style original_stock_tip">原始库存 <i></i></span>
+					<input class="fill_width original_stock" type="number"  value="" placeholder="请输入原始库存"/>					
+				</div>
+				<div class="mui-card-footer ">
+					<span class="left_style stock_num_tip">当前库存 <i></i></span>
+					<input class="fill_width stock_num" type="number" value="" placeholder="请输入当前库存"/>					
+				</div>
+
+				<div class="mui-card-footer">
+					<span class="left_style">商品排序</span>
+					<input class="fill_width sort" type="tel" name="" value="0" placeholder="请输入商品排序"/>
+				</div>
+				<!-- <div class="mui-card-footer">
+					<span class="left_style">打包费</span>
+					<input class="fill_width packing_charge" type="number" name=""  value="" placeholder="请输入商品价格"/>
+				</div> -->
+				<div class="mui-card-footer">
+					<span class="left_style">商品单位</span>
+					<input class="fill_width unit" type="text"  value="" placeholder="如份、斤、个"/>
+				</div>
+				<div class="mui-card-footer guishu" style="line-height:1.2; display:none;">
+					<p>
+						<span class="left_style">归属打印机</span>
+						<b id="ptink" class="mui-clearfix"><span id="ptink_text">请选择主打印机</span> <i class="mui-pull-right"></i></b>
+					</p>
+				</div>
+				<div class="mui-card-footer" style="line-height:1.2;">
+					<p>
+						<span class="left_style">标签分类</span>
+						<b id="label" class="mui-clearfix"><span id="label_text">请选择标签</span> <i class="mui-pull-right"></i></b>
+					</p>
+				</div>
+			</div>
+	    </div>
+	    <div style="padding-bottom: 60px;">
+	    	
+	    </div>
+	   <nav class="mui-bar mui-bar-tab">
+	       <a href="javascript:;">保存</a>
+	   </nav>
+	</div>
+	
+
+	
+<script src="js/fastclick.js"></script>	
+<script src="js/mui.min.js"></script>
+	<!--图片滚动-->
+<script src="js/mui.zoom.js"></script>
+<script src="js/mui.previewimage.js"></script>
+ <script src="js/mui.picker.js"></script> 
+<!--筛选用到js-->
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+mui.init();
+var ticket = common.getCache('ticket');
+var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+var store_id=$.getUrlParam('store_id');//店铺id
+var addType=$.getUrlParam('addType');
+var goodsClass=[];//选择商品分类数组
+var print_list=[];//主打印机
+var label_list=[];//标签分类\
+var goods_index='',prink_index='',label_index='',stock_type_index='';
+var goods_id=$.getUrlParam('goods_id');
+var pic_lens=1;
+var updateStockType=[];//选择库存类型数组
+
+function selects(gList,pList,label,stock_type_list){
+	$.each(gList,function(i,val){
+		var temp={'value':val.sort_id,'text':val.sort_name};
+		goodsClass.push(temp);
+	});
+	if(pList.length!=0){
+		$.each(pList,function(i,val){
+			var temp={'value':val.pigcms_id,'text':val.name};
+			print_list.push(temp);
+		});
+	}
+	if(label!=null && label.length>0){
+		$.each(label,function(i,val){
+			var temp={'value':val.id,'text':val.name};
+			label_list.push(temp);
+		});
+	}
+	if(stock_type_list!=null && stock_type_list.length>0){
+		$.each(stock_type_list,function(i,val){
+			var temp={'value':val.id,'text':val.name};
+			updateStockType.push(temp);
+		});
+	}
+	
+}
+
+
+$('#goods_class').attr('data-id',0);
+if (addType==0) {
+	$('input').val('');
+	goods_id=0;
+	pic_lens=0;
+	//调用修改方法渲染数据
+	common.http('WapMerchant&a=foodModify',{'ticket':ticket,'client':client,'store_id':store_id},function(data){
+		console.log(data);
+		// var arrs=[];
+		if(data.print_list.length==0){
+			//mui.toast('还没有归属打印机哦,先去添加吧');
+			$('.guishu').hide();
+			selects(data.sort_list,[],data.labels,data.stock_type_list);
+		}else{
+			$('.guishu').show();
+			selects(data.sort_list,data.print_list,data.labels,data.stock_type_list);
+		}
+
+		
+		
+		
+	});
+	//保存按钮点击
+	mui('.mui-bar-tab').on('tap','a',function(e){
+		var number=$('.number').val();//商品编码
+		var name=$('.name').val();//商家名称
+		var pic=[];//商家图片
+		$.each($('.showImg .delate_photo'),function(i,val){
+			pic.push($(this).attr('data-url'));
+		});
+		var status=$('.status').is('.mui-active')?1:0;
+		var is_must=$('.is_must').is('.mui-active')?1:0;
+		var is_hot=$('.is_hot').is('.mui-active')?1:0;
+
+		var unit=$('.unit').val();
+		var old_price=$('.old_price').val();
+		var price=$('.price').val();
+		var sort=$('.sort').val();
+		var label=$('#label_text').text();
+		var label=$('#label_text').text();
+		var original_stock=$('.original_stock').val();
+		var stock_num=$('.stock_num').val();
+		if(label=='请选择标签'){
+			label='';
+		}
+		if(name!=''){
+			if(pic!=[]){
+				if(old_price!=''){
+					if(price!=''){
+						if(unit!=''){
+							common.http('WapMerchant&a=foodAdd',{'ticket':ticket,'client':client,'print_id':prink_index,'sort_id':goods_index,'number':number,'name':name,'pic':pic,'status':status,'is_must':is_must,'is_hot':is_hot,'unit':unit,'old_price':old_price,'price':price,'sort':sort,'label':label,'update_stock_type':stock_type_index,'original_stock':original_stock,'stock_num':stock_num},function(data){
+									if(data.length==0){
+										mui.toast('添加成功');
+										if(common.checkApp()){
+											setTimeout(function(){
+												if(common.checkAndroidApp()){
+														window.pigcmspackapp.closewebview(2);
+													}else{
+														common.iosFunction('closewebview/2');
+													}
+											},2000);
+										}else{
+											setTimeout(function(){
+												history.go(-1);
+												document.execCommand('Refresh');
+											},2000); 
+										}	 
+									}
+							});
+						}else{
+							mui.toast('请输入商品单位');
+						}
+					}else{
+						mui.toast('请输入商品售价');
+					}
+				}else{
+					mui.toast('请输入商品原价');
+				}
+			}else{
+				mui.toast('请上传商品图片');
+			}
+		}else{
+			mui.toast('请输入商品名称');
+		}
+		
+
+	});
+}else{
+	$('.mui-title').text('修改商品');
+	//调用修改方法渲染数据
+	common.http('WapMerchant&a=foodModify',{'ticket':ticket,'client':client,'goods_id':goods_id,'store_id':store_id},function(data){
+		console.log(data);
+		if(data.print_list.length==0){
+			data.print_list=[];
+			//mui.toast('还没有归属打印机哦');
+			$('.guishu').hide();
+			selects(data.sort_list,[],data.labels,data.stock_type_list);
+		}else{
+			$('.guishu').show();
+			selects(data.sort_list,data.print_list,data.labels,data.stock_type_list);
+		}
+		//selects(data.sort_list,data.print_list,data.labels);
+		goods_index=data.goods.sort_id;
+		$.each(goodsClass,function(i,val){
+			if(val.value==data.goods.sort_id){
+				$('#goods_class').text(val.text).css('color','#333');
+			}
+		});
+		prink_index=data.goods.print_id;
+		$.each(print_list,function(i,val){
+			if(val.value==data.goods.print_id){
+				$('#ptink_text').text(val.text).css('color','#333');
+			}
+		});
+		$.each(label_list,function(i,val){
+			if(val.text==data.goods.label){
+				label_index=val.value;
+				$('#label_text').text(val.text).css('color','#333');
+			}
+		});
+
+		stock_type_index=data.goods.update_stock_type;
+		$.each(updateStockType,function(i,val){
+			if(val.value==data.goods.update_stock_type){
+				$('#update_stock_type').text(val.text).css('color','#333');
+			}
+		});
+
+
+
+		$('.number').val(data.goods.number);
+		$('.name').val(data.goods.name);
+		$('.unit').val(data.goods.unit);
+		$('.old_price').val(data.goods.old_price);
+		$('.price').val(data.goods.price);
+		$('.sort').val(data.goods.sort);
+		$('.original_stock').val(data.goods.original_stock);
+		$('.stock_num').val(data.goods.stock_num);
+		data.goods.status==1?$('.status').addClass('mui-active'):$('.status').removeClass('mui-active');
+		data.goods.is_must==1?$('.is_must').addClass('mui-active'):$('.is_must').removeClass('mui-active');
+		data.goods.is_hot==1?$('.is_hot').addClass('mui-active'):$('.is_hot').removeClass('mui-active');
+		//商家图片
+		if(data.goods.pic_arr!=[]){
+			var str='';
+			var pic_len=data.goods.pic_arr.length;
+			pic_lens=pic_len;
+			$.each(data.goods.pic_arr,function(i,val){
+				str+='<div class="mui-pull-left delate_photo" data-url='+val.title+'><img src='+val.url+' data-preview-src="" data-preview-group="1"><i></i></div>';
+			});
+			$('.showImg').append(str);
+			
+			$('.showImg').width(111*(pic_len)+105);
+		}
+
+	});
+	//保存按钮点击
+	mui('.mui-bar-tab').on('tap','a',function(e){
+		document.activeElement.blur();
+		var number=$('.number').val();//商品编码
+		var name=$('.name').val();//商品名称
+		var pic=[];//商家图片
+		$.each($('.showImg .delate_photo'),function(i,val){
+			pic.push($(this).attr('data-url'));
+		});
+		var status=$('.status').is('.mui-active')?1:0;
+		var is_must=$('.is_must').is('.mui-active')?1:0;
+		var is_hot=$('.is_hot').is('.mui-active')?1:0;
+
+		var unit=$('.unit').val();
+		var old_price=$('.old_price').val();
+		var price=$('.price').val();
+		var sort=$('.sort').val();
+		var label=$('#label_text').text();
+		var original_stock=$('.original_stock').val();
+		var stock_num=$('.stock_num').val();
+        if(label=='请选择标签'){
+            label='';
+        }
+		if(name!=''){
+			if(pic!=[]){
+				if(old_price!=''){
+					if(price!=''){
+						if(unit!=''){
+							common.http('WapMerchant&a=foodAdd',{'ticket':ticket,'client':client,'goods_id':goods_id,'print_id':prink_index,'sort_id':goods_index,'number':number,'name':name,'pic':pic,'status':status,'is_must':is_must,'is_hot':is_hot,'unit':unit,'old_price':old_price,'price':price,'sort':sort,'label':label,'update_stock_type':stock_type_index,'original_stock':original_stock,'stock_num':stock_num},function(data){
+									if(data.length==0){
+										mui.toast('修改成功');
+										if(common.checkApp()){
+											setTimeout(function(){
+												if(common.checkAndroidApp()){
+														window.pigcmspackapp.closewebview(2);
+													}else{
+														common.iosFunction('closewebview/2');
+													}
+											},2000);
+										}else{
+											setTimeout(function(){
+												history.go(-1);
+												document.execCommand('Refresh');
+											},2000); 
+										}	
+									}
+							});
+						}else{
+							mui.toast('请输入商品单位');
+						}
+					}else{
+						mui.toast('请输入商品售价');
+					}
+				}else{
+					mui.toast('请输入商品原价');
+				}
+			}else{
+				mui.toast('请上传商品图片');
+			}
+		}else{
+			mui.toast('请输入商品名称');
+		}
+		
+
+	});
+	
+}
+
+
+
+
+
+
+
+
+//图片滚动
+mui('.mui-scroll-wrapper').scroll({
+	scrollY:false,
+	scrollX:true,
+	startX:0,
+	startY:0,
+	indicators:false,
+	deceleration:0.0005,
+	bounce:true
+});
+mui.previewImage();
+//	//单选框点击
+	mui('.mui-content').on('tap','.rido_change li',function(e){
+		$(this).addClass('active').siblings('li').removeClass('active');
+		
+	});
+
+	//点击删除图片
+	mui('.mui-content').on('tap','.delate_img',function(e){
+		$(this).parent('.mui-pull-left').remove();
+	});
+
+	// 上传图片
+function imgUpload(id){
+    var fullPath=window.document.location.href;  
+    var pathName=window.document.location.pathname;  
+    var pos=fullPath.indexOf(pathName);  
+    var localhostPath=fullPath.substring(0,pos);  
+    var post_url = localhostPath+'/appapi.php?c=WapMerchant&a=uploadPic';
+   	motify.log('加载中');
+    $.ajaxFileUpload({
+        url:post_url,
+        secureuri:false,
+        fileElementId:id,
+        dataType: 'json', 
+        type: 'post',
+        data : {'picType':'foodshop_goods','ticket':ticket},
+        success: function(data, status){  
+        	//console.log(data);
+        	setTimeout(function(){
+        		$('.motifyShade,.motify').hide();
+        	},2000);
+        	var str='<div class="mui-pull-left delate_photo" data-url='+data.result.title+' ><img src='+data.result.url+' data-preview-src="" data-preview-group="1"/><i></i></div>';
+        	$('.showImg').append(str);
+        	
+        },
+        error: function(data, status, e){ 
+          mui.alert('上传失败');
+        }
+    }); 
+}
+// 上传图片
+$('.up_img').off('change','input').on('change','input',function(e){
+	var id=$(this).attr('id');
+	var length=$('.showImg .delate_photo').length;
+	//console.log(length);
+	if(pic_lens<5){
+		pic_lens++;
+		imgUpload(id);
+        $('.showImg').width(111*(pic_lens)+105);
+		
+	}else{
+		mui.toast('最多只能上传5张图片');
+	}
+	
+});
+//删除图片{}
+mui('.showImg').on('tap','.delate_photo i',function(e){
+	$(this).parents('.delate_photo').remove();
+	pic_lens--;
+    $('.showImg').width(111*(pic_lens)+105);
+});
+
+
+   	//筛选
+(function($, doc) {
+	$.init();
+	//更新库存类型
+	mui('.mui-content').on('tap','#showStockType',function(e){
+		document.activeElement.blur();
+		/**
+		 * 获取对象属性的值
+		 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+		 * @param {Object} obj 对象
+		 * @param {String} param 属性名
+		 */
+		var _getParam = function(obj, param) {
+			return obj[param] || '';
+		};
+		//普通示例
+		var userPicker = new $.PopPicker();
+		userPicker.setData(updateStockType);
+		userPicker.pickers[0].setSelectedValue(stock_type_index);
+		userPicker.show(function(items) {
+			document.getElementById('update_stock_type').innerHTML = items[0].text;
+			document.getElementById('update_stock_type').style.color='#535353';
+			stock_type_index=items[0].value;
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+	});
+	//商品分类
+	mui('.mui-content').on('tap','#showUserPicker',function(e){
+		document.activeElement.blur();
+		/**
+		 * 获取对象属性的值
+		 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+		 * @param {Object} obj 对象
+		 * @param {String} param 属性名
+		 */
+		var _getParam = function(obj, param) {
+			return obj[param] || '';
+		};
+		//普通示例
+		var userPicker = new $.PopPicker();
+		userPicker.setData(goodsClass);
+		userPicker.pickers[0].setSelectedValue(goods_index);
+		userPicker.show(function(items) {
+			document.getElementById('goods_class').innerHTML = items[0].text;
+			document.getElementById('goods_class').style.color='#535353';
+			goods_index=items[0].value;
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+	});
+	//归属打印机
+	mui('.mui-content').on('tap','#ptink',function(e){
+		document.activeElement.blur();
+		/**
+		 * 获取对象属性的值
+		 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+		 * @param {Object} obj 对象
+		 * @param {String} param 属性名
+		 */
+		var _getParam = function(obj, param) {
+			return obj[param] || '';
+		};
+		//普通示例
+		var userPicker = new $.PopPicker();
+		userPicker.setData(print_list);
+		userPicker.pickers[0].setSelectedValue(prink_index);
+		userPicker.show(function(items) {
+			if(items[0].text!=undefined){
+				document.getElementById('ptink_text').innerHTML = items[0].text;
+				document.getElementById('ptink_text').style.color='#535353';
+				
+				prink_index=items[0].value;
+			}
+			
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+	});
+	//标签
+	mui('.mui-content').on('tap','#label',function(e){
+		document.activeElement.blur();
+		/**
+		 * 获取对象属性的值
+		 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+		 * @param {Object} obj 对象
+		 * @param {String} param 属性名
+		 */
+		var _getParam = function(obj, param) {
+			return obj[param] || '';
+		};
+		//普通示例
+		var userPicker = new $.PopPicker();
+		userPicker.setData(label_list);
+		userPicker.pickers[0].setSelectedValue(label_index);
+		userPicker.show(function(items) {
+			document.getElementById('label_text').innerHTML = items[0].text;
+			document.getElementById('label_text').style.color='#535353';
+			label_index=items[0].value;
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+	});
+
+})(mui, document);
+
+//库存提示语
+mui('.mui-content').on('tap','.ku_propt',function(e){
+	mui.alert('数量小于10时，商品详细页面会显示库存。','商品库存','知道了',function(e){
+		
+	});
+});
+//遮罩蒙版
+var mask = mui.createMask();//callback为用户点击蒙版时自动执行的回调；			
+////点击小红点弹出遮罩层
+mui('.mui-content').on('tap','.open_bianma',function(){
+
+	mui.alert('扫描商品条形码可匹配平台商品库的商品信息，实现快速录入的功效',function(e){
+		
+	});
+});
+
+mui('.mui-content').on('tap','.open_photo',function(){
+
+	mui.alert('图片宽度建议为：900px，高度建议为：500px',function(e){
+		
+	});
+});
+
+mui('.mui-content').on('tap','.original_stock_tip',function(){
+	mui.alert('当库存更新类型是每天更新的话，每天会将这个原始库存的值自动填充当前库存。（注：-1表示无限量）',function(e){});
+});
+mui('.mui-content').on('tap','.stock_num_tip',function(){
+	mui.alert('-1表示无限量。数量小于10时，商品详细页面会显示库存。',function(e){});
+});
+//库存自定义点击
+// mui('.mui-content').on('tap','.ku_change li',function(e){
+// 	if($('.ku_change li:eq(0)').is('.active')){
+// 		$('.ku_change li:eq(0)').removeClass('active');
+// 		$('.ku_change li:eq(1)').addClass('active');
+// 		$('.ku_nuber').show();
+// 	}else{
+// 		$('.ku_change li:eq(0)').addClass('active');
+// 		$('.ku_change li:eq(1)').removeClass('active');
+// 		$('.ku_nuber').hide();
+// 	}
+// });
+
+
+  $('#scanQRCode1').click(function(e){
+  	common.scan('scanSearchResult');
+  });
+
+function scanSearchResult(str){
+	var strArr = str.split(',');
+	if(strArr.length == 2){
+		str = strArr[1];
+	}
+	$('.number').val(str);
+}
+			
+</script>
+</body>
+</html>

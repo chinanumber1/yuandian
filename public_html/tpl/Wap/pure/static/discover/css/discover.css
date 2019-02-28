@@ -1,0 +1,149 @@
+.banner .swiper-wrapper {
+    height: 300px;
+}
+
+.banner {
+    height: 300px;
+}
+.banner .swiper-wrapper .swiper-slide {
+    height: 300px;
+}
+.swiper-slide img {
+    height: 100%;
+    width: 100%;
+}
+.swiper-slide{
+    overflow: hidden;
+}
+
+.swiper-slide-active{
+    overflow: auto !important;
+}
+.title_info {
+    background: #fff;
+    /*border-bottom: 1px solid #eee;*/
+}
+.pr {
+    position: relative;
+}
+.wrap {
+    padding: 0 0.5rem;
+}
+.title_info h1 {
+    font-size: 0.8rem;
+    color: #222;
+    padding: 0.375rem 0 0.125rem 0;
+}
+.title_info h1 img{
+    width: 50px;
+    height: 50px;
+}
+.title_info p {
+    font-size: 0.55rem;
+    color: #999;
+    padding: 0.25rem 0 0.375rem 0;
+}
+
+.title_info .star {
+    position: absolute;
+    left: 85%;
+    top: 25%;
+    margin-top: -0.5rem;
+}
+.title_info .star p {
+    font-size: 0.6rem;
+    color: #999;
+    padding: 0
+}
+.title_info .star p img{
+    width: 25px;
+    height: 25px;
+}
+
+.card-content {
+    position: relative;
+}
+.card-content-inner {
+    padding: .75rem;
+    position: relative;
+}
+.card-content p.desc {
+    color: #999;
+    font-size: 0.8rem;
+}
+.card-content-inner>p:first-child {
+    margin-top: 0;
+}
+
+
+
+
+
+
+/*add_discover_msg*/
+.fabu-type-info #discover_content {
+    width: 98%;
+    height: 4rem;
+    color: #333;
+}
+
+.discover_add_info nav:first-child {
+    margin-top: 15px;
+}
+.discover_add_info nav {
+    border-top: 1px solid #DADADC;
+    border-bottom: 1px solid #DADADC;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    background-color: white;
+}
+.discover_add_info nav section:last-child {
+    border-bottom: none;
+}
+.discover_add_info nav section {
+    height: auto;
+}
+.discover_add_info nav section {
+    border: none;
+}
+.discover_add_info nav section {
+    padding: 10px 15px 10px 0px;
+    color: black;
+    position: relative;
+}
+.discover_add_info #upload_list .upload_action, #upload_list .upload_item {
+    width: 33%;
+    float: left;
+    position: relative;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    border: solid 5px #fff;
+    overflow: hidden;
+}
+.discover_add_info .upload_box .upload_action #fileImage {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fabu-btn {
+    text-align: center;
+    height: 3rem;
+    line-height: 1rem;
+    color: #fff;
+    font-size: 18px;
+    background: #06c1ae;
+    width: 100%;
+    border: none;
+}
+.discover_add_info nav section  .input_msg {
+    width: 96%;
+    line-height: 2rem;
+    /*padding-left: 0.5rem;*/
+    color: #333;
+    border: none;
+}

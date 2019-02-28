@@ -1,0 +1,308 @@
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+        <meta charset="utf-8">
+        <title>快店订单</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="address=no">
+        <link rel="stylesheet" href="css/mui.css" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.picker.min.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+        <link href="css/pigcms.css" rel="stylesheet">
+        <!--<link href="css/mobiscroll.2.13.2.css" rel="stylesheet">-->
+    	<link href="http://hf.pigcms.com/packapp/storestaff/scripts/layer/need/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+    	<link rel="stylesheet" type="text/css" href="css/fastList.css"/>
+	</head>
+    <body>
+    	
+        <!--<section class="public pageSliderHide">
+            <div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+            <div class="content">快店订单</div>
+            <div class="census" style="display:block;">
+                <div class="sus_popup"></div>
+                <div class="sus_url">
+                    <a href="retail.html" class="retail" data-webview="true">线下零售</a>
+                    <a href="statistics.html" class="statistics" data-webview="true">商品销售计</a>
+                </div>
+            </div>
+        </section>-->
+       
+        <div class="remind" style="">
+        	您有部分商品库存小于10，请<span class="rem_see">点击查看！</span>
+        	<div class="del"></div>
+       	</div>
+        <section class="h130">
+            <header class="mui-bar mui-bar-nav">
+               <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+                <h1 class="mui-title"><span class="ashop">快店</span>订单</h1>
+            </header>
+            <div class="cable">
+                <div class="cable_n cable_kd mui-clearfix">
+                    <div class="input">
+                        <input type="text" id="find_value" name="fv" placeholder="请输入搜索内容">
+                    </div>
+                    <div class="select mui-pull-right" id="selects">
+                        <span id="selectsText">订单号</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fix">
+                <div class="dropdown">
+                    <div class="drop_select">
+                        <div class="pos order_from">
+                        	<span id="order_fromText">订单来源</span>
+                        	
+                        </div>
+                    </div>
+                    <div class="drop_select" id="status1">
+                        <div class="pos status">
+                            <span id="statusText">订单状态</span>
+                        </div>
+                    </div>
+                    <div class="drop_select">
+                        <div class="pos pay_type">
+                            <span id="pay_typeText">支付方式</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="kd_time clr">
+                    <div class="pos fl begin_date">
+                        <input type="text" placeholder="开始时间" readonly="" id="stime">
+                    </div>
+                    <div class="pos fr end_date">
+                        <input type="text" placeholder="结束时间" readonly="" id="etime">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="store">
+            <div class="entry kd_entry" >
+            	<ul id="masgs">          
+            	</ul>
+                <!-- 上拉刷新 -->
+				<div class="pullup" style="display:none;">上拉加载更多...</div>
+				<div class="loading" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+            </div>
+        </section>
+
+        <section class="amend">
+            <div class="alter">
+                <h2>修改金额</h2>
+                <div class="del"></div>
+            </div>
+            <div class="correct">
+                <ul>
+                    <li class="clr">
+                        <div class="fl">修改金额</div>
+                        <div class="fr">
+                            <input type="number" placeholder="请输入修改金额" id="change_price">
+                            <input type="hidden" id="order_id">
+                        </div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">备注</div>
+                        <div class="fr">
+                            <input type="text" placeholder="请输入您修改的理由" id="change_price_reason">
+                        </div>
+                    </li>
+                    <li class="clr">
+                        <div class="fl">当前值</div>
+                        <div class="fr e93" id="now_price"></div>
+                    </li>
+                </ul>
+                <div class="clr button">
+                    <div class="fl recovery" data-type="r">恢复初始价格</div>
+                    <div class="fr ensure" data-type="c">确定修改</div>
+                </div>
+            </div>
+        </section>
+       
+
+        <section class="since"></section>
+
+        <section class="stock" style=" margin-top: -208px;">         
+            <div class="h2">库存报警商品列表（12）</div>        
+                 <div class="ul">            
+                    <ul>                     
+                        <li>      
+                            <div class="tit">          
+                                <span class="fl">商品条形码：</span>           
+                                <div class="p65">2017154587820</div>      
+                            </div>      
+                            <div class="bot">           
+                                <div class="name">               
+                                    <span class="fl">商品名称：</span>               
+                                    <div class="p65">品牌 (11,单层)</div>          
+                                 </div>           
+                                    <div class="name">              
+                                     <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥1</div>                   <div class="fr f86">剩余库存：1</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">2017154587820</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">品牌 (11,双层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥1</div>                   <div class="fr f86">剩余库存：1</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">2017154587820</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">品牌 (11,多层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥1</div>                   <div class="fr f86">剩余库存：1</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">2017154587820</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">品牌 (12,单层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥1</div>                   <div class="fr f86">剩余库存：1</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">2017154587820</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">品牌 (12,双层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥1</div>                   <div class="fr f86">剩余库存：1</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">2017154587820</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">品牌 (12,多层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥1</div>                   <div class="fr f86">剩余库存：1</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">2017154587820</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">品牌 (13,单层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥1</div>                   <div class="fr f86">剩余库存：1</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">2017154587820</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">品牌 (13,双层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥1</div>                   <div class="fr f86">剩余库存：1</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">2017154587820</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">品牌 (13,多层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥1</div>                   <div class="fr f86">剩余库存：1</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">&nbsp;</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">小蛋糕 (10,双层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥10</div>                   <div class="fr f86">剩余库存：8</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">&nbsp;</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">小蛋糕 (11,双层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥11</div>                   <div class="fr f86">剩余库存：8</div>               </div>           </div>      </div>     </li>          <li>      <div class="tit">           <span class="fl">商品条形码：</span>           <div class="p65">&nbsp;</div>      </div>      <div class="bot">           <div class="name">               <span class="fl">商品名称：</span>               <div class="p65">小蛋糕 (12,双层)</div>           </div>           <div class="name">               <span class="fl">商品价格：</span>               <div class="p65 clr">                   <div class="fl f86">￥12</div>                   <div class="fr f86">剩余库存：8</div>               </div>           </div>      </div>     </li>                  </ul>         </div>         <div class="del"></div>         <div class="report">             <span>如需导出报表，请到电脑版店员中心操作</span>         </div>         </section>
+        <div class="flat roof"></div>
+    <script src="js/fastclick.js"></script>
+    <script src="js/mui.min.js"></script>
+    <script src="js/mui.zoom.js"></script>
+     <script src="js/mui.picker.js"></script> 
+     <script src="js/mui.dtpicker.js"></script>
+    <script src="js/mui.poppicker.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/fastclick.js"></script>
+    <!--<script src="js/layer/layer.m.js"></script>-->
+    <script src="js/common.js"></script>
+    <script src="js/work/fastList.js" type="text/javascript" charset="utf-8"></script>
+   
+   
+  <!--   <script id="pcikTpl" type="text/html">
+        <div class="h2">分配自提点</div>
+        <div class="ul">
+            <ul>
+                {{# for (var i in d.pick_list) { }}
+                <li data-id="{{d.pick_list[i].pick_addr_id}}">
+                    <div class="tit">{{d.pick_list[i].area_info.province}} {{d.pick_list[i].area_info.city}} {{d.pick_list[i].area_info.area}}</div>
+                    <div class="p">{{d.pick_list[i].name}} [tel:{{d.pick_list[i].phone}}]</div>
+                    <div class="range">距离{{d.pick_list[i].range}}</div>
+                </li>
+                {{# } }}
+            </ul>
+        </div>
+        <div class="submit">
+            <div class="determine" data-id="{{d.order_id}}">确定</div>
+        </div>
+        <div class="del"></div>
+        </script>
+        <script id="expressTpl" type="text/html">
+        <div class="peak def">
+            <h2>快递信息</h2>
+        </div>
+        <div class="con">
+            <ul>
+                <li>
+                    <span class="fl">收货地址：</span>
+                    <div class="p70">{{d.address}}
+                        <p>配送距离{{d.distance}}km</p>
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li class="indek_li">
+                    <div class="indek">
+                        <select id="express_id">
+                            {{# for (var i in d.express_list) { }}
+                            <option value="{{d.express_list[i].id}}" {{# if (d.express_list[i].id == d.express_id) { }}selected{{# } }}>{{d.express_list[i].name}}</option>
+                            {{# } }}
+                        </select>
+                    </div>
+                    <input class="inpt_dk" placeholder="请输入快递单号" id="express_number" value="{{d.express_number}}"/>
+               </li>
+            </ul>
+            <div class="sub def express_save" data-id="{{d.order_id}}">保存</div>
+        </div>
+        <div class="del"></div>
+        </script>
+        <script id="stockTpl" type="text/html">
+            <div class="h2">库存报警商品列表（{{d.count}}）</div>
+            <div class="ul">
+                <ul>
+                    {{# for (var i in d.goods_list) { }}
+    				<li>
+    					<div class="tit">
+    					     <span class="fl">商品条形码：</span>
+    					     <div class="p65">{{# if (d.goods_list[i].number == '') { }}&nbsp{{# } else { }}{{d.goods_list[i].number}}{{# } }}</div>
+    					</div>
+    					<div class="bot">
+    					     <div class="name">
+    					         <span class="fl">商品名称：</span>
+    					         <div class="p65">{{d.goods_list[i].name}}</div>
+    					     </div>
+    					     <div class="name">
+    					         <span class="fl">商品价格：</span>
+    					         <div class="p65 clr">
+    					             <div class="fl f86">￥{{d.goods_list[i].price}}</div>
+    					             <div class="fr f86">剩余库存：{{d.goods_list[i].stock_num}}</div>
+    					         </div>
+    					     </div>
+    					</div>
+    				</li>
+    				{{# } }}
+                </ul>
+            </div>
+            <div class="del"></div>
+            <div class="report">
+                <span>如需导出报表，请到电脑版店员中心操作</span>
+            </div>
+        </script> -->
+      
+    <script id="listTpl" type="text/html">
+    {{# for (var i = 0, len = d.length; i < len; i++){ }}
+        <li data-id="{{d[i].order_id}}">
+           <div class="top clr">
+               <div class="fl">下单时间：{{d[i].create_time}}</div>
+               <div class="fr cancel">{{d[i].pay_status}}</div>
+           </div>
+           <div class="con">
+               <div class="con_top">
+    				{{# if(d[i].status != 2 && d[i].status != 3 && d[i].status != 4 && d[i].status != 5 && d[i].fetch_number != '0'){ }}
+    					<h2>取单编号：{{d[i].fetch_number}}</h2>
+    				{{# } }}
+    				{{# if(d[i].username){ }}
+    					<h2>下 单 人：{{d[i].username}}  <a href="tel:{{d[i].userphone}}" class="pho callPhone" data-phone="{{d[i].userphone}}">{{d[i].userphone}}</a></h2>
+    				{{# } }}
+    			   {{# if (d[i].order_from != 6) { }}
+                   <p>配送方式：{{# if (d[i].is_pick_in_store == 0) { }}平台配送{{# } else if (d[i].is_pick_in_store == 1) { }}商家配送{{# } else if (d[i].is_pick_in_store == 2) { }}用户自提{{# } else { }}快递配送{{# } }}</p>
+                   {{# } }}
+    				{{# if(d[i].address){ }}<p>配送地址：{{d[i].address}}{{# } }}</p>
+                   <p>订单总价：<span class="red">￥{{d[i].total_price}} {{# if (d[i].paid > 0) { }}{{d[i].pay_type_str}} {{# } }}</span></p>
+                   <p>应收总额：<span class="red change_{{d[i].order_id}}" >￥{{d[i].price}} {{# if (d[i].change_price_reason != '') {}}<em class="xgh">（{{d[i].change_price_reason}}）</em>{{# } }}</span></p>
+              
+               </div>
+               <div class="remark">
+                    <div class="source">订单来源：{{d[i].order_from_name}}</div>
+                    {{# if(d[i].status == 0 && d[i].paid == 1) { }}
+                       <div class="overtime kd_order">待接单</div>
+                    {{# } else if (d[i].status == 1) { }}
+                        <div class="overtime kd_order">已确认</div>
+                    {{# } else if (d[i].status == 2) { }}
+                        <div class="overtime kd_cons">已消费</div>
+                    {{# } else if (d[i].status == 3) { }}
+                        <div class="overtime kd_cons">已评价</div>
+                    {{# } else if (d[i].status == 4) { }}
+                        {{# if (d[i].cancel_type == 7) { }}
+                        <div class="overtime kd_cons">超时退款</div>
+                        {{# } else { }}
+                        <div class="overtime kd_cons">已退款</div>
+                        {{# } }}
+                    {{# } else if (d[i].status == 5) { }}
+                        {{# if (d[i].cancel_type == 7) { }}
+                        <div class="overtime">超时取消</div>
+                        {{# } else { }}
+                        <div class="overtime">已取消</div>
+                        {{# } }}
+                    {{# } else if (d[i].status == 7 && d[i].paid == 1) { }}
+                        <div class="overtime kd_rob send" data-id="{{d[i].order_id}}">发货到自提</div>
+                    {{# } else if (d[i].status == 8) { }}
+                        <div class="overtime kd_hair">已发货到自提</div>
+                    {{# } else if (d[i].status == 9) { }}
+                        <div class="overtime kd_hair">自提点接货</div>
+                    {{# } else if (d[i].status == 10) { }}
+                        <div class="overtime kd_distri">配送中</div>
+                    {{# } else { }}
+                        {{# if (d[i].order_from == 6) { }}
+                        <div class="overtime">已取消</div>
+                        {{# } else { }}
+                        <div class="overtime">未支付</div>
+                        {{# } }}
+                    {{# } }}
+               </div>
+           </div>
+        </li>
+    {{# } }}
+    </script>
+    
+</body></html>

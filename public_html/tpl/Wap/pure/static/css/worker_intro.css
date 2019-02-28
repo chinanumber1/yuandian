@@ -1,0 +1,162 @@
+body{ font-family: "微软雅黑"; background: #f0eff5;}
+
+.intro-head{ padding-top: .5rem; }
+.intro-head img{ border-radius: 50%; width: 25%; height:25%; margin: 0 auto; display: block; border: 3px solid #fff;}
+.intro-top{ color:#fff;letter-spacing: 2px;background:url(../images/intro_bg_02.png); padding-bottom: 1rem;}
+.intro-top p{ text-align: center; line-height: 1.5rem;}
+.intro-detail{ font-size: 12px;}
+.intro-detail span{ color: #f8ffb9;}
+.intro-star{ width: 1rem; height: 1rem;  position: relative;top: 0.2rem; padding-left: .2rem;}
+.intro-comment{ background: #fff; margin-top: .5rem;}
+.intro-comment ul li{ height: 6rem; line-height: 3rem; padding-left: .5rem; text-align: right; color: #999; border-bottom: 1px solid #ddd;}
+.intro-comment ul li:first-child{height: 3rem; padding-left: .5rem;  text-align: left; color: #000;}
+
+.intro-comment ul li img{ width: 15px; height: 15px; display: block; float: left; margin-top: 1rem; padding-right: .5rem;}
+.intro-comment ul li p span{ color: #999;}
+.intro-comment ul li p span:first-child{ padding-right: .2rem;}
+.intro-content{ display: block; float:left; clear: both;}
+
+.yxc-time-con dl {
+  text-align: center;
+  width: 25%;
+  float: left;
+}
+.yxc-time-con dl dt {
+  display: block;
+  height: 45px;
+  padding-top: 5px;
+  border-right: 1px solid #32c8a2;
+  border-bottom: 2px solid #32c8a2;
+  font-size: 15px;
+  background: #32c8a2;
+}
+.yxc-time-con.number-4 dl.last dt{
+	line-height:45px;
+}
+.yxc-time-tab li.active, .yxc-time-con dl .active {
+  background: #fff;
+  color: #333;
+}
+.yxc-time-con dl dt span {
+  display: block;
+  font-size: 13px;
+}
+.yxc-time-con dl dt span.last-colum {
+  line-height: 38px;
+}
+.yxc-time-con dl dd {
+  height: 42px;
+  font-size: 12px;
+  border-right: 1px solid #d2d1d6;
+  border-bottom: 1px solid #d2d1d6;
+  padding-top: 3px;
+  color: #29b2a6;
+}
+.yxc-time-con dl .disable {
+  color: #999;
+}
+
+.motify {
+  display: none;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  width: 220px;
+  padding: 0;
+  margin: 0 0 0 -110px;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5em;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.motify .motify-inner {
+  padding: 10px 10px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+#service-position .iw{
+	display:none!important;
+}
+
+.selectInput{
+	margin:5px 0px;
+}
+.selectInput input{
+	padding:5px;
+    height: 30px;
+    line-height: 30px;
+	border: 1px solid #ccc;
+	width:90%;
+	margin:0 auto;
+	display: block;
+}
+.mapBox{
+	border-top: 1px solid #d9e0ec;
+	border-bottom: 1px solid #d9e0ec;
+	width: 100%;
+    height: 300px;
+	position:relative;
+}
+.mapBox #allmap{
+	width: 100%;
+    height: 300px;
+}
+.mapBox .dot {
+    display: block;
+    position: absolute;
+    left: 47%;
+    top: 44%;
+    width: 39px;
+    height: 25px;
+    background: url(http://webmap2.map.bdimg.com/static/mwaimai/widget/address/map/marker_red_sprite_ec1a2a9.png) 0 0 no-repeat;
+}
+
+.mapaddress ul {
+    padding: 0 10px;
+    background: #fff;
+}
+.mapaddress ul li {
+    height: 59px;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+	line-height:normal;
+}
+.mapaddress ul li .icon-location {
+    display: inline-block;
+	width: 18px;
+    height: 18px;
+	background: url(../images/mapicon.png) no-repeat 0 0;
+	background-size: 18px;
+}
+.mapaddress ul li .mapaddress-title {
+    padding-top: 10px;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mapaddress ul li:nth-child(1) .mapaddress-title {
+    color: #fe2947;
+}
+.mapaddress ul li .recommend {
+    display: inline-block;
+    margin-left: 10px;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mapaddress ul li .mapaddress-body {
+    padding-left: 28px;
+    font-size: 14px;
+    padding-top: 6px;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

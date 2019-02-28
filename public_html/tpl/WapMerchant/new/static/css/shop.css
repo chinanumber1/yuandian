@@ -1,0 +1,257 @@
+﻿
+.up-load-img{
+	position: relative;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	background: #fff;
+	border-radius: 50%;
+	overflow: hidden;
+	}
+	.up-load-img img{
+		position: absolute;
+		top: -1px;
+		left: -1px;
+		width: 102%;
+		height: 102%;
+		border-radius: 50%;
+	}
+	.up-load-img i{
+		display: block;
+		margin-top: 5px;
+		color:  #ff683d;
+		font-size: 24px;
+	}
+	.up-load-img p{
+		margin-top: 5px;
+		color: #999;
+	}
+
+select[name='office_start_time'],select[name='office_stop_time'],select[name='office_start_time2'],select[name='office_stop_time2'],select[name='office_start_time3'],select[name='office_stop_time3']{
+	position: absolute;
+	width: 40%;
+	background: #fff;
+}
+select[name='office_start_time'],select[name='office_start_time2'],select[name='office_start_time3']{
+	left: 3%;
+}
+select[name='office_stop_time'],select[name='office_stop_time2'],select[name='office_stop_time3']{
+	right: 3%;
+}
+.time-select {
+	font-size: 18px;
+	color: #aaa;
+	margin-left: -30px;
+}
+#location{
+	margin: 0 3%;
+	padding: 0 4%;
+	color: #999;
+}
+#location i{
+	font-size: 24px;
+	color: #ff683d;
+}
+#status-container{
+	position: absolute;
+	left: 15px;
+	color: #696969;
+}
+.settings-icon{
+	position: absolute;
+	top: 11px;
+	right: 15px;
+}
+#confirm-close{
+	display: none;
+	position: absolute;
+	top: 11px;
+	right: 15px; 
+	width: 36px;
+	height: 20px;
+	z-index: 9;
+}
+/*input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+}*/
+/* Normal Track */
+input[type="checkbox"].ios-switch + div {
+	vertical-align: middle;
+	width: 40px;
+	height: 20px;
+	border: 1px solid rgba(0,0,0,.4);
+	border-radius: 999px;
+	background-color: rgba(0, 0, 0, 0.1);
+	-webkit-transition-duration: .4s;
+	-webkit-transition-property: background-color, box-shadow;
+	box-shadow: inset 0 0 0 0px rgba(0,0,0,0.4);
+}
+
+		/* Checked Track (Blue) */
+input[type="checkbox"].ios-switch:checked + div {
+	width: 40px;
+	background-position: 0 0;
+	background-color: #3b89ec;
+	border: 1px solid #0e62cd;
+	box-shadow: inset 0 0 0 10px rgba(59,137,259,1);
+}
+
+		/* Tiny Track */
+input[type="checkbox"].tinyswitch.ios-switch + div {
+	width: 34px;
+	height: 18px;
+}
+
+		/* Big Track */
+input[type="checkbox"].bigswitch.ios-switch + div {
+	width: 50px;
+	height: 25px;
+}
+
+		/* Green Track */
+input[type="checkbox"].green.ios-switch:checked + div {
+	background-color: #00e359;
+	border: 1px solid rgba(0, 162, 63,1);
+	box-shadow: inset 0 0 0 10px rgba(0,227,89,1);
+}
+
+		/* Normal Knob */
+input[type="checkbox"].ios-switch + div > div {
+	float: left;
+	width: 18px;
+	height: 18px;
+	border-radius: inherit;
+	background: #ffffff;
+	-webkit-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+	-webkit-transition-duration: 0.4s;
+	-webkit-transition-property: transform, background-color, box-shadow;
+	-moz-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+	-moz-transition-duration: 0.4s;
+	-moz-transition-property: transform, background-color;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(0, 0, 0, 0.4);
+	pointer-events: none;
+	margin-top: 1px;
+	margin-left: 1px;
+}
+
+		/* Checked Knob (Blue Style) */
+input[type="checkbox"].ios-switch:checked + div > div {
+	-webkit-transform: translate3d(20px, 0, 0);
+	-moz-transform: translate3d(20px, 0, 0);
+	background-color: #ffffff;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(8, 80, 172,1);
+}
+
+		/* Tiny Knob */
+input[type="checkbox"].tinyswitch.ios-switch + div > div {
+	width: 16px;
+	height: 16px;
+	margin-top: 1px;
+}
+
+		/* Checked Tiny Knob (Blue Style) */
+input[type="checkbox"].tinyswitch.ios-switch:checked + div > div {
+	-webkit-transform: translate3d(16px, 0, 0);
+	-moz-transform: translate3d(16px, 0, 0);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(8, 80, 172,1);
+}
+
+		/* Big Knob */
+input[type="checkbox"].bigswitch.ios-switch + div > div {
+	width: 23px;
+	height: 23px;
+	margin-top: 1px;
+}
+
+		/* Checked Big Knob (Blue Style) */
+input[type="checkbox"].bigswitch.ios-switch:checked + div > div {
+	-webkit-transform: translate3d(25px, 0, 0);
+	-moz-transform: translate3d(16px, 0, 0);
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(8, 80, 172,1);
+}
+
+		/* Green Knob */
+input[type="checkbox"].green.ios-switch:checked + div > div {
+	/*box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 162, 63,1);*/
+}
+
+.after-unit-name{
+	position: relative;
+}
+.after-unit-name:after{
+	position: absolute;
+  	top: 34px;
+  	right: 26px;
+  	font-size: 16px;
+  	color: #ccc;
+}
+.after-yuan:after{
+  	content: "元";
+}
+.after-distance:after{
+  	content: "米";
+}
+#full-order-container{
+	margin: 0 auto;
+	padding: 0 4%;
+	width: 86%;
+}
+#full-order-container input{
+	position: relative;
+	width: 75px;
+	margin-right: 10px;
+}
+#full-order-container span{
+	position: relative;
+	margin-right: 10px;
+}
+#full-order-container span:after{
+	position: absolute;
+  	top: -2px;
+  	left: 99px;
+  	content: "元";
+  	font-size: 14px;
+  	color: #ccc;
+  	z-index: 9;
+}
+.detail-img{
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin: 0 10px 10px;
+	background: #fff;
+	border-radius: 10px;
+	text-align: center;
+	line-height: 50px;
+	color: #999;
+	overflow: hidden;
+	}
+	.detail-img img{
+		width: 100%;
+		height: 100%;
+		border-radius: 10px;
+	}
+	.detail-img i{
+		font-size: 24px;
+	}
+	.detail-img p{
+		margin: -25px 0 0;
+	}
+#share-copy-wrap{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99999;
+}
+.qrcode{
+	background: rgba(0,0,0,.5);
+	padding-top: 170px;
+}
+#share-copy-wrap img{
+	display: none;
+	width: 100%;
+}

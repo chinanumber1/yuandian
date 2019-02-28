@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>配送员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/deliver.css?t=21" rel="stylesheet"/>
+		<style>
+			.acc span{
+				position: relative;
+				top:-40px;
+			}
+			.f14.c9.acc,.f16.c9.acc{
+				height: 55px;
+				padding-top: 5px;
+			}
+			.acc img{
+				width:50px;
+				height: 50px;
+				margin:0 3px	;
+			}
+			.mask1{
+				position: fixed;
+			    z-index: 998;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    background-color: rgba(0, 0, 0, .8);
+			     
+			}
+			.add{
+				display: table;
+	    		font-family: Helvetica, arial, sans-serif;
+	    		pointer-events: none;
+	    		position: fixed;
+			    left: 0;
+			    top: 0;
+			    width: 100%;
+			    height: 100%;
+			}
+			.hidden{
+				display: none;
+			}
+			 .section {
+			    display: table-cell;
+			    vertical-align: middle;
+			    text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="fixed_top">
+			<section class="public pageSliderHide">
+				<div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+				<div class="content">配送详情</div>
+			</section>		
+			<div class="h44"></div>
+        </section>
+		<div id="container">
+			<section class="details p10 openMap openUserMap" data-type="baidu" data-baidu_lng="" data-baidu_lat="">
+				<div class="details_top clearfix">
+					<h2 class="f16 c3"><i id="supply-name">&nbsp;</i><span class="f14 c6"><a class="callPhone" id="supply-phone" data-data="phone" style="color:blue;">&nbsp;</a></span></h2>
+					<p class="c6 f14"><i>收货地址：</i><span id="supply-aim_site"></span></p>
+					<em><img src="images/dindxqt_11.png" width="23" height="27"/></em>
+				</div>
+			</section>
+			<script id="goodListTpl" type="text/html">	
+				{{# for(var i = 0, len = d.length; i < len; i++){ }}
+					<li class="clr">
+						<dl>
+							<dd>{{ d[i].name }}</dd>
+							<dd class="on"><i>x</i> {{ d[i].num }}</dd>
+							<dd class="rig"><span><i>￥</i>{{ parseFloat(d[i].price) }}</span></dd>
+						</dl>
+					</li>
+				{{# } }}
+			</script>
+			<script id="cueFieldListTpl" type="text/html">	
+				{{# for(var i = 0, len = d.length; i < len; i++){ }}
+					<li class="clr p10">
+						<div class="fl f16 c80">{{ d[i].title }}</div>
+						<div class="fr f14 c80">{{ d[i].txt }}</div>
+					</li>
+				{{# } }}
+			</script>
+			<section class="PsorderX">
+				<div class="Psorder">
+					<div class="Psorder_top p10">
+						<h2 class="f16 c3">订单详情</h2>
+					</div>
+					<div class="Psorder_end p10">
+						<ul id="goodsList"></ul>
+					</div>
+				</div>
+
+				<div class="details_list">
+					<p class="c9 f14">数量：<span id="order-num"></span></p>
+					
+					<p class="f16 red">实际支付：￥<span id="order-price"></span></p>
+					<p class="f14 bur">支付方式： <span id="order-pay_type"></span></p>
+					<p class="f12 red">配送距离<span id="supply-distance"></span>公里，配送费<span id="supply-freight_charge"></span>元</p>
+				</div>
+
+				<div class="Remarks clr p10">
+					<span class="fl c3 f16">备注</span>
+					<div class="Remarks_rig" id="supply-note" data-default="无"></div>
+				</div>
+			</section>
+
+
+			<section class="Psorder information">
+				<div class="Psorder_top p10">
+					<h2 class="f16 c3">订单信息</h2>
+				</div>
+				<div class="information_end">
+					<ul>
+						<li class="clr p10" id="fetch_number_box">
+							<div class="fl f16 c80">取单编号</div>
+							<div class="fr f14 c80" id="supply-fetch_number"></div>
+						</li>
+						<li class="clr p10">
+							<div class="fl f16 c80">订单编号</div>
+							<div class="fr f14 c80" id="order-real_orderid"></div>
+						</li>
+						<li class="clr p10">
+							<div class="fl f16 c80">下单时间</div>
+							<div class="fr f14 c25" id="order-create_time"></div>
+						</li>
+						<li class="clr p10">
+							<div class="fl f16 c80" id="appoint_show">期望送达</div>
+							<div class="fr f14 c25" id="supply-appoint_time"></div>
+						</li>
+						<li class="clr p10">
+							<div class="fl f16 c80">送达时间</div>
+							<div class="fr f14 c25" id="supply-end_time"></div>
+						</li>
+						<li class="clr p10">
+							<div class="fl f16 c80">订单来源</div>
+							<div class="fr f14 c80" id="supply-from_text"></div>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="Psorder information" id="cue_field_box">
+				<div class="Psorder_top p10">
+					<h2 class="f16 c3">分类填写字段</h2>
+				</div>
+				<div class="information_end">
+					<ul id="cue_field_ul"></ul>
+				</div>
+			</section>
+				   
+			<section class="Psorder information Merchant" id="Merchant">
+				<div class="Psorder_top p10">
+					<h2 class="f16 c3">商家信息</h2>
+				</div>
+				<div class="information_end">
+					<ul>
+						<li class="clr p10">
+							<div class="fl f16 c80">店铺名称</div>
+							<div class="fr f14 c80" id="store-name"></div>
+						</li>
+						<li class="clr p10">
+							<div class="fl f16 c80">店铺电话</div>
+							<div class="fr f14 c80"><div id="store-phone" style="color:blue;padding:10px 0;" class="callPhone" data-data="phone"></div></div>
+						</li>
+						<li class="clr p10 openMap openStoreMap" data-type="baidu" data-baidu_lng="" data-baidu_lat="">
+							<div class="fl f16 c80">店铺地址</div>
+							<div class="fr f14 c80" id="store-adress"></div>
+						</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section class="Psorder information Merchant" id="fromSource">
+				<div class="Psorder_top p10">
+					<h2 class="f16 c3">来源信息</h2>
+				</div>
+				<div class="information_end">
+					<ul>
+						<li class="clr p10 server_type1">
+							<div class="fl f16 c80">联系人</div>
+							<div class="fr f14 c80" id="order-start_adress_nickname"></div>
+						</li>
+						<li class="clr p10 server_type1">
+							<div class="fl f16 c80">取货电话</div>
+							<div class="fr f14 c80 callPhone" id="order-start_adress_phone" data-data="phone" style="color:blue;"></div>
+						</li>
+						<li class="clr p10 server_type1">
+							<div class="fl f16 c80">取货地址</div>
+							<div class="fr f14 c80" id="order-start_adress_name"></div>
+						</li>
+						<li class="clr p10 server_type2">
+							<div class="fl f16 c80">购买地址</div>
+							<div class="fr f14 c80" id="supply-from_site"></div>
+						</li>
+						<li class="clr p10 server_type3">
+							<div class="fl f16 c80">购买地址</div>
+							<div class="fr f14 c80">不限</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+		<div class="sign_bottom Ps_bottom">
+			<a href="javascript:void(0);" class="a" id="eventBtn" style="display:none;"></a><a href="javascript:void(0);" id="cancel" style="display:none;">扔回</a>
+		</div>
+
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/work/common.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/detail.js?t=111"></script>
+		<div class="mask1 hidden img_close">
+			<div class="add">
+				<div class="section">
+					<img class="img_close" src="" alt="" style="width: 100%;">
+				</div>
+			</div>
+			
+		</div>
+		<script>
+
+		$('body').off('click','.img_click').on('click','.img_click',function(e){
+			  e.stopPropagation();
+			  var sic=$(this).prop('src');
+			  $('.mask1').removeClass('hidden');
+			  $('.mask1 img').prop('src',sic);
+			  $('.img_close').click(function(e){
+			  	  $('.mask1').addClass('hidden');
+			  });
+		});
+		</script>
+	</body>
+</html>

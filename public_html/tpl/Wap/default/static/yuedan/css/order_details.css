@@ -1,0 +1,250 @@
+*{
+	margin: 0;padding: 0;
+}
+html,body{
+	font-size: 16px;
+	background: #F9F9F9;
+	padding: 0;margin: 0;
+}
+ul,ol,dl,dd,dt,li,p,h1,h2,h3,h4,h5,h6{
+	list-style: none;
+	margin: 0;padding: 0;
+}
+a{
+	text-decoration: none;
+}
+.hidden{
+	display: none;
+}
+.after:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.ft{
+	float: left;
+}
+.rg{
+	float: right;
+}
+header{
+	width: 100%;
+	height: 44px;
+	background: #06C1AE;
+	line-height: 44px;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	border-bottom: 1px solid #fff;
+}
+header a i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../imanges/f1.png) center no-repeat;
+	background-size: contain;
+	margin-top: 12px;
+	
+}
+header a{
+	text-decoration: none;
+	text-align: left;
+	/*margin-left: 3%;*/
+	color: #fff;
+	padding: 15px;
+}
+header span{
+	width: 40%;
+	margin:0 25% 0 27%;
+	text-align: center;
+	color: #fff;
+	position: relative;
+	font-size: 16px;
+	top:-4px;
+}
+.order_status{
+	width: 80%;
+	padding: 15px 10%;
+	background: #06C1AE;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.order_status p{
+	width: 40px;
+	height: 40px;
+	background: url('../imanges/c2.png') center no-repeat;
+	background-size: contain;
+}
+.order_status p.active{
+	background: url('../imanges/d7.png') center no-repeat;
+	background-size: contain;
+}
+
+.order_status ul{
+	width: 83%;
+}
+.order_status ul li{
+	font-size: 16px;
+	color: #fff;
+}
+.order_status ul li span{
+	font-size: 12px;
+	color: #bdeeee;
+}
+.adress,.time{
+	background: #fff;
+	padding: 10px 3%;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+}
+.adress img,.time img{
+	width: 25px;
+	height: 25px;
+}
+.adress ul,.time ul{
+	width: 90%;
+}
+.adress ul li,.time ul li{
+	color:#010101;
+	font-size: 14px;
+	line-height: 1.6;
+}
+.order_xin{
+	margin-top: 15px;
+	background: #fff;
+	padding: 10px 3%;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+}
+.order_xin p img{
+	width: 30px;
+	height: 30px;
+	margin-right: 6px;
+}
+.order_xin p span{
+	font-size: 14px;
+	position: relative;
+	top:-9px;
+	color: #333;
+}
+.order_xin ul li img{
+	width: 20px;
+	height: 20px;
+}
+.buy{
+	background: #fff;
+	padding: 10px 3%;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+}
+.buy img{
+	width:100px;
+	height: 80px;
+}
+.buy ul{
+	width: 67%;
+}
+.buy ul li{
+	line-height: 1.6;
+	font-size: 14px;
+	color: #333;
+}
+.buy ul li span{
+	color: #06C1AE;
+}
+
+.heji{
+	text-align: right;
+	background: #fff;
+	padding: 10px 3%;
+	font-size: 16px;
+	color: #333;
+}
+.heji span{
+	color: #06C1AE;
+}
+.delate {
+	text-align: right;
+	background: #fff;
+	padding: 10px 3%;
+}
+.delate a{
+	display: inline-block;
+	padding: 5px 10px;
+	font-size: 14px;
+	border:1px solid #C1C1C1;
+	border-radius: 3px;
+	color: #333;
+}
+.new_time{
+	margin-top: 15px;
+	background: #fff;
+	padding: 10px 3%;
+	font-size: 14px;
+}
+.new_time  li{
+	color: #999;
+	line-height: 1.6;
+}
+.new_time  li span{
+	display: inline-block;
+	width: 20%;
+	color: #333;
+}
+
+.beizhu{
+	background: #fff;
+	width: 94%;
+	padding: 10px 3%;
+	margin-top: 15px;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid #f1f1f1;
+}
+.beizhu span{
+	font-size: 14px;
+	color: #333;
+	vertical-align: text-top;
+	position: absolute;
+    top: 10px;
+}
+.beizhu p{
+	width: 85%;
+	font-size: 14px;
+	color: #666;
+	margin-left: 13%;
+}

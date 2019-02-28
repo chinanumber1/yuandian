@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+.shopDetail{
+	padding:6px;
+	background-color: white;
+	margin-bottom: 10px;
+	position: relative;
+	border-bottom: 1px solid #E1E1E1;
+}
+.imgInfo{
+	margin-bottom: 6px;
+}
+.shopDetail .dealcard-img{
+    width: 116px;
+    height: 94px;
+    border-radius: 2px;
+    float: left;
+    position: absolute;
+}
+.shopDetail .dealcard-img img {
+   	width: 100%;
+    height: 100%;
+}
+.shopDetail .dealcard-block-right {
+    margin-left: 125px;
+}
+.shopDetail .dealcard-block-right .brand {
+	font-size:16px;
+    line-height: 32px;
+    height:32px;
+    color: black;
+	overflow:hidden;
+}
+.rateInfo{
+	margin:5px 0px;
+}
+.btn{
+	display:inline-block;
+	border:1px solid #06C1AE;
+	padding:4px 10px;
+	border-radius: 2px;
+}
+.locationInfo{
+	border-top: 1px solid #f1f1f1;
+	padding:16px 6px;
+	padding-right: 64px;
+	position: relative;
+}
+.locationInfo .txt{
+	background: url(../img/range.png) no-repeat;
+    background-size: 9px 11px;
+    padding-left: 15px;
+    background-position: left center;
+    color: #999;
+}
+
+.phone {
+    position: absolute;
+    right: 0px;
+    width: 62px;
+    border-left: 1px solid #eee;
+    top: 15px;
+    bottom: 15px;
+    background: url(../img/phoneBig.png) no-repeat;
+    background-size: 18px;
+    background-position: center center;
+}
+
+#see_load{
+	height:60px;
+	line-height:60px;
+	padding:0 12px 0 20px;
+	background:white url(../img/range.png) no-repeat;
+	background-size:11px 14px;
+	background-position: 5px center;
+	position:relative;
+}
+#see_load .btn{
+	line-height: 1.5;
+	margin-top:15px;
+	background-color: #06C1AE;
+    color: white;
+	position: absolute;
+    right: 6px;
+    top: 0;
+}
+
+.introList:last-child{
+	margin-bottom:0px;
+}
+
+.linkInfo{
+	border-top: 1px solid #f1f1f1;
+    padding: 16px 6px;
+	position: relative;
+}
+.linkInfo .txt {
+    padding-left:20px;
+    color: #999;
+}
+.linkInfo .icon {
+    position: absolute;
+    background:#0EC0A8;
+    color: white;
+    font-size: 12px;
+	line-height:16px;
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	text-align:center;
+	top:17px;
+}
+.linkInfo .icon.fu{
+	background:#FF6655;
+}
+.linkInfo .icon.web{
+	background:#7CC6FF;
+}
+.linkInfo:after {
+    display: block;
+    content: "";
+    border-top: 1px solid #BFBFBF;
+    border-left: 1px solid #BFBFBF;
+    width: 8px;
+    height: 8px;
+    -webkit-transform: rotate(135deg);
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -5px;
+}

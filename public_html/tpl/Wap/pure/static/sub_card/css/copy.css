@@ -1,0 +1,24 @@
+*{
+	margin: 0;
+	padding:0 ;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background: #F4F4F4;
+}
+ul,ol,dl,dd,dt{
+	list-style: none;
+}
+.ft{
+	float: left;
+}
+.rg{
+	float: right;
+}
+.after:after{
+	content: " ";
+	display: block;
+	clear: both;
+}

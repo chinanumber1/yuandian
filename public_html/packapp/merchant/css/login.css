@@ -1,0 +1,110 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+body,.mui-content{
+	background: #FFFFFF;
+	width: 100%;
+	height: 100%;
+}
+/*.mui-content{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}*/
+.mui-bar-nav{
+	background: #fff;
+}
+/*logo*/
+.shop_logo{
+	padding-top:70px;
+	text-align: center;
+}
+.shop_logo li b{
+	display: inline-block;
+	width: 60px;height: 60px;
+	background: url(../images/23-_03.png) center no-repeat;
+	background-size: contain;
+	margin-bottom: 10px;
+}
+.shop_logo li:last-child{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+
+/*登陆框*/
+.pass{
+	width: 70%;
+	margin:  0 15%;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+.pass li {
+	padding: 5px 0;
+}
+.pass li input{
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 85%;
+	font-size: 16px;
+	color: #404040;
+	padding: 20px 0;
+}
+.pass li i{
+	display: inline-block;
+	width: 20px;height: 20px;
+	background: url(../images/23-_07.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.pass li b{
+	display: inline-block;
+	width: 20px;height: 20px;
+	background: url(../images/23-_11.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.pass li:nth-child(2){
+	border-bottom: 1px solid #F1F1F1;
+	border-top: 1px solid #F1F1F1;
+}
+.pass li span{
+	color: #FFA200;
+	font-size: 12px;
+	margin-top: 8px;
+}
+
+
+/*按钮*/
+a{
+	display: block;
+	width: 50%;
+	margin:30px 25% 20px 25%;
+	border:1px solid #FFA200;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 30px;
+	color: #FFA200;
+	font-size: 14px;
+}
+a b{
+	display: inline-block;
+	width: 94%;height: 40px;
+	color: #fff;
+	background: #FFA200;
+	border-radius: 40px;
+	line-height: 42px;
+}
+/*@media (min-width:360px) {
+	.pass li {
+		padding: 10px 0;
+	}
+}*/

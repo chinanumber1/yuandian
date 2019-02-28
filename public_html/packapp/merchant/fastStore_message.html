@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>快店信息</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+	<link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+	<link href="css/mui.picker.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/fastStore_message.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title"><span class="ashop">快店</span>信息</h1>
+	</header>
+	<div class="mui-content">
+	    <!--基本信息-->
+	    <div class="essential_message">
+	    	<div class="mui-card">
+				<!--页眉，放置标题-->
+				<h5 class="left_style">基本信息</h5>
+				<div class="mui-card-header">
+					<span class="left_style open_floor" style="width: 32%;">是否开启商城 <i></i></span>
+					<div class="mui-switch shop_swich store_theme">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<!--内容区-->
+				<div class="mui-card-content">
+					<div class="mui-row">
+					    <div class="mui-col-sm-3 left_style">商城店铺背景</div>
+					    <div class="mui-col-sm-9 ">
+					    	<ul >
+					    		<li class="up_img">
+							    	<img src="images/12-8_03.png" alt="" />
+							    	<input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" 	id="fileImage" name="file">
+					    		</li>
+					    		<li class="store_bg"><span>商城店铺背景建议上传尺寸640*420</span></li>
+					    	</ul>
+					    	
+					    </div>
+					</div>
+				</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">
+					<span class="left_style">配送自提点</span>
+					<div class="mui-switch mui-active is_open_pick">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<span class="left_style gonggao">店铺公告</span>
+					<textarea name="" class="store_notice input" rows="2" cols="2" placeholder="请输入店铺公告"></textarea>
+				</div>
+				<div class="mui-card-footer">
+					<span class="left_style">多级分类</span>
+					<div class="mui-switch mui-active is_mult_class">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-content more_class_news">
+					<span>* 开启多级分类后，<span class="ashop">快店</span>商品将分三级分类展示，便于您更好的管理多类型商品，注意: 开启多级分类后，前台只展示侧重文字模板，侧重图片模板将关闭。</span>
+				</div>
+				<div class="mui-card-footer">
+					<span class="left_style">自动接单</span>
+					<div class="mui-switch mui-active is_auto_order">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-footer radio_style is_invoice">
+					
+					<!--<span class="left_style">开发票</span>-->
+					<div class="mui-row">
+					    <div class="mui-col-sm-3 left_style">开发票</div>
+					    <div class="mui-col-sm-4">
+					    	<div class="mui-input-row mui-radio mui-left">
+								<label for=""><input name="radio_fapiao" type="radio"  checked/> 支持</label>
+							</div>
+						</div>
+					    <div class="mui-col-sm-5">
+					    	<div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="radio_fapiao" type="radio"  /> 不支持</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mui-card-footer fa_input">
+					<span class="left_style">满足金额</span>
+					<p><input type="tel" name="" class="invoice_price input" value="50" placeholder="请输入金额"/><span> 元，可开发票</span></p>
+				</div>
+				<div class="mui-card-footer fa_input">
+					<span class="left_style">可提前</span>
+					<p><input type="tel" name="" class="advance_day input" placeholder="请输入天数"/><span> 天，进行预订下单</span></p>
+				</div>
+				<!--<div class="mui-card-footer fa_input">
+					<span class="left_style">虚拟销量</span>
+					<p><input type="number" name="virtual_sale_count" class="virtual_sale_count" placeholder="请输入虚拟销量"/><span> </span></p>
+				</div>-->
+				<div class="mui-card-footer fa_input">
+					<span class="left_style">人均消费</span>
+					<p><input type="number" name="" class="mean_money input" placeholder="请输入金额"/><span> 元</span></p>
+				</div>
+				<!--保装费-->
+				<div class="mui-card-footer bagging">
+					<span class="left_style bagging_style">包装费别名</span>
+					<ul>
+						<li><input type="text" name="" class="pack_alias input" value="打包费"  placeholder="请输入名称"/></li>
+						<li> <span>* 给商品进行包装时所要的耗材产生费用的名称  (如：餐盒费,打包费...)</span></li>
+					</ul>
+				</div>
+				<div class="mui-card-footer bagging">
+					<span class="left_style bagging_style">运费别名</span>
+					<ul>
+						<li><input type="text" name="" class="freight_alias input" value="配送费用"   placeholder="请输入运费别名" /></li>
+						<li> <span>* 把商品从商家送到用户手上所产生的运费的费用名称 (如：配送费用,运费...)</span></li>
+					</ul>
+				</div>
+				<div class="mui-card-footer dispatching_class">
+					<span class="left_style jinguan"  style="width: 32%;margin: 10px 0 10px 8px;">开启紧急关店 <i></i></span>
+					<b id="closeShop" style="margin-left:0;width: 63%;color: #333;"><span id="openShop_text">关闭</span> <sub class="mui-pull-right"></sub></b>
+					<ul>
+						<li><input type="text" class="closeShop close_reason input" style="color: #333;" value="" placeholder="请输入关店原因" /></li>
+						
+					</ul>
+				</div>
+				<div class="mui-card-footer dispatching_class">
+					<span class="left_style chushi" style="width: 32%;margin: 10px 0 10px 8px;">出单时长 <i></i></span>
+					<b id="consuming" style="margin-left:0;width: 63%;color: #333;"><span id="consuming_text">分钟</span> <sub class="mui-pull-right"></sub></b>
+					<ul>
+						<li><input type="tel input" class="closeShop work_time" value="" placeholder="请输入出单时长" /></li>
+						
+					</ul>
+				</div>
+
+				<!--分类-->
+				<div class="mui-card-footer dispatching_class">
+					<span class="left_style peishi">配送方式 <i></i></span>
+					<b id="deliver_types"><span id="deliver_text">请选择配送方式</span> <sub class="mui-pull-right"></sub></b>
+					
+				</div>
+				<!---->
+				<div id="changeType" style="display: none;">
+					
+				
+					<div class="mui-card-footer fa_input ">
+						<span class="left_style">配送时长</span>
+						<p><input type="tel" name="" class="work_time" placeholder="请输入时间"/><span> 分钟</span></p>
+					</div>
+					<div class="mui-card-footer fa_input">
+						<span class="left_style">起送价格</span>
+						<p><input type="number" name="" class="basic_price" placeholder="请输入价格"/><span> 元</span></p>
+					</div>
+					<div class="mui-card-footer fa_input">
+						<span class="left_style">加价送</span>
+						<p><input type="number" name="" class="extra_price" placeholder="请输入价格"/><span> 元</span></p>
+					</div>
+					<div class="mui-card-footer fa_input">
+						<span class="left_style">服务距离</span>
+						<p><input type="number" name="" class="delivery_radius" placeholder="请输入距离"/><span> 公里</span></p>
+					</div>
+					<div class="mui-card-footer set_time">
+						<ul>
+							<li class="active">配送时间段一</li>
+							<li>配送时间段二</li>
+						</ul>
+					</div>
+					<div class="changeTime">
+						<div class="allTimes">
+							<div class="mui-card-footer fa_input">
+								<span class="left_style"  style="width:26%;">配送时间</span>
+								<p><span data-options='{"type":"time"}' class="date_btn delivertime_start" >00:00</span> <span> 至 </span> <span class="date_btn delivertime_stop"  data-options='{"type":"time"}'>23:59</span></p>
+							</div>
+							<div class="mui-card-footer fa_input addPice">
+					   	 		<span class="left_style" style="width:26%;">配送费</span>
+			   	 				<p>
+			   	 					<input type="number" class="basic_distance"> 公里以内 <input type="number" class="delivery_fee"> 元,
+			   	 				</p>
+					   	 		<p>
+			   	 					超出每公里加 <input type="number" class="per_km_price"> 元
+			   	 				</p>
+					   	 	</div>
+					   	 	<div class="mui-card-footer stork">
+					   	 		<span class="left_style">达到起送价格</span>
+					   	 		<ul class="stock_type">
+					   	 			<li>
+					   	 				<div class="mui-input-row mui-radio mui-left">
+											<label for=""><input name="reach_delivery_fee_type" type="radio" checked/> 免外送费</label>
+										</div>
+					   	 			</li>
+					   	 			<li>
+					   	 				<div class="mui-input-row mui-radio mui-left">
+											<label for=""><input name="reach_delivery_fee_type" type="radio"/> 照样收取外送费　</label>
+										</div>
+					   	 			</li>
+					   	 			<li >
+					   	 				<div class="mui-input-row mui-radio mui-left">
+											<label for=""><input name="reach_delivery_fee_type" type="radio"/> <p><span>达到</span> <input type="number" class="no_delivery_fee_value"> <span>元免外送费　</span></p></label>
+										</div>
+					   	 			</li>
+					   	 		</ul>
+					   	 	</div>
+						</div>
+						<div class="allTimes" style="display: none;">
+							<div class="mui-card-footer fa_input">
+								<span class="left_style"  style="width:26%;">配送时间</span>
+								<p><span data-options='{"type":"time"}' class="date_btn delivertime_start2" >00:00</span> <span> 至 </span> <span class="date_btn delivertime_stop2"  data-options='{"type":"time"}'>23:59</span></p>
+							</div>
+							<div class="mui-card-footer fa_input addPice">
+					   	 		<span class="left_style" style="width:26%;">配送费</span>
+			   	 				<p>
+			   	 					<input type="number" class="basic_distance2"> 公里以内 <input type="number" class="delivery_fee2"> 元,
+			   	 				</p>
+					   	 		<p>
+			   	 					超出每公里加 <input type="number" class="per_km_price2"> 元
+			   	 				</p>
+					   	 	</div>
+					   	 	<div class="mui-card-footer stork">
+					   	 		<span class="left_style">达到起送价格</span>
+					   	 		<ul class="stock_type">
+					   	 			<li>
+					   	 				<div class="mui-input-row mui-radio mui-left">
+											<label for=""><input name="reach_delivery_fee_type2" type="radio" checked/> 免外送费</label>
+										</div>
+					   	 			</li>
+					   	 			<li>
+					   	 				<div class="mui-input-row mui-radio mui-left">
+											<label for=""><input name="reach_delivery_fee_type2" type="radio"/> 照样收取外送费　</label>
+										</div>
+					   	 			</li>
+					   	 			<li >
+					   	 				<div class="mui-input-row mui-radio mui-left">
+											<label for=""><input name="reach_delivery_fee_type2" type="radio"/> 达到 <input type="number" class="no_delivery_fee_value"> 元免外送费　</label>
+										</div>
+					   	 			</li>
+					   	 		</ul>
+					   	 	</div>
+						</div>
+					</div>
+					
+				</div>	
+			</div>
+	    </div>
+	    
+	    <h5 class="special">选择分类</h5>
+	    <div class="mui-card">
+	    		<div class="mui-card-footer dispatching_class">
+					<span class="left_style">选择分类</span>
+					<b  class="change_class"><span id="change2">请选择分类</span> <sub class="mui-pull-right"></sub></b>
+					
+				</div>
+	    </div>
+	   	<!--店铺折扣设置-->
+	   	 <h5 class="special">店铺折扣设置</h5>
+	   	 <div class="mui-card">
+	   	 	<div class="mui-card-footer fa_input">
+					<span class="left_style bagging_style">店铺折扣</span>
+					<ul>
+						<li><p style="margin:10px 0 0 0;padding: 0;"><input type="number" name="" class="store_discount" placeholder="请输入折扣"/><span style="color:#FFA200;"></span></p></li>
+						<li> <span>* 0-10之间的数字，支持一位小数! 8代表8折，8.5代表85折，0和10代表无折扣</span></li>
+					</ul>
+			</div>
+			<div class="mui-card-footer radio_style discount_type">
+				<div class="mui-row">
+					<div class="mui-col-sm-3 left_style youshi">优惠方式 <i></i></div>
+					<div class="mui-col-sm-4 ">
+					    <div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="radio_discount" type="radio" checked/> 折上折</label>
+						</div>
+					</div>
+					<div class="mui-col-sm-5">
+						<div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="radio_discount" type="radio"/> 折扣最优</label>
+						</div>
+					</div>
+					</div>
+			</div>
+	   	 </div>
+	   	 <!--库存类型设置-->
+	   	 <h5 class="special">库存类型设置</h5>
+	   	 <div class="mui-card">
+	   	 	<div class="mui-card-header stork">
+	   	 		<span class="left_style">库存类型</span>
+	   	 		<ul class="stock_type st_type">
+	   	 			<li>
+	   	 				<div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="radio_stork" type="radio" checked=""/> 每天自动更新固定量的库存</label>
+						</div>
+	   	 			</li>
+	   	 			<li>
+	   	 				<div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="radio_stork" type="radio"/> 固定的库存，不会每天自动更新</label>
+						</div>
+	   	 			</li>
+	   	 		</ul>
+	   	 	</div>
+	   	 	<div class="mui-card-header stork">
+	   	 		<span class="left_style jianshi">减库存类型 <i></i></span>
+	   	 		<ul class="reduce_stock_type">
+	   	 			<li>
+	   	 				<div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="radio_stork1" type="radio" checked=""/> 支付成功后减库存</label>
+						</div>
+	   	 			</li>
+	   	 			<li>
+	   	 				<div class="mui-input-row mui-radio mui-left">
+							<label for=""><input name="radio_stork1" type="radio"/> 下单成功后减库存</label>
+						</div>
+	   	 			</li>
+	   	 		</ul>
+	   	 	</div>
+			
+			<!--页脚，放置补充信息或支持的操作-->
+			<div class="mui-card-footer fa_input">
+					<span class="left_style">买单时长</span>
+					<ul>
+						<li><p style="margin:10px 0 0 0;padding: 0;"><input type="tel" name="" class="rollback_time input" placeholder="请输入时间"/><span style="color:#FFA200;"> 分钟</span></p></li>
+						<li> <span>* 至少10分钟</span></li>
+					</ul>
+			</div>
+	   	 </div>
+	   	 <!--会员优惠功能-->
+	   	 <span class="left_style plus_alert" style="width: 32%;">会员优惠功能 <i></i></span>
+	   	 <div class="mui-card plus_discont">
+			<!-- <div class="mui-card-content dispatching_class border_dis">
+				<span class="left_style">白银级</span>
+	   	 		<b id="showUserPicker3"><span id="change3">请选择优惠类型</span> <sub class="mui-pull-right"></sub></b>
+				
+				<p><input type="number" name="" id="" value="" placeholder="请填写一个优惠值数字"/> <span>折</span></p>
+			</div>
+			<div class="mui-card-content dispatching_class border_dis">
+				<span class="left_style">尊贵级</span>
+	   	 		<b id="showUserPicker4"><span id="change4">请选择优惠类型</span> <sub class="mui-pull-right"></sub></b>
+				
+				<p><input type="number" name="" id="" value="" placeholder="请填写一个优惠值数字"/> <span>折</span></p>
+			</div>
+			<div class="mui-card-content dispatching_class border_dis">
+				<span class="left_style">专业级</span>
+	   	 		<b id="showUserPicker5"><span id="change5">请选择优惠类型</span> <sub class="mui-pull-right"></sub></b>
+				
+				<p><input type="number" name="" id="" value="" placeholder="请填写一个优惠值数字"/> <span>折</span></p>
+			</div> -->
+	   	 </div>
+	   	 <!--保存按钮-->
+	   	 <button type="button" class="btn_keep">保存</button>
+	</div>
+	<div id="middlePopover" class="mui-popover"> 
+			<div class="mui-card">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header">
+					<span>是否开启商城</span>
+					<b class="mui-pull-right"><i></i></b>
+				</div>
+				<!--内容区-->
+				<div class="mui-card-content">
+					<ul>
+						<li>开启：<span class="ashop">快店</span>中的商品显示为侧重图片模板，店铺中的商品设置了商城属性后，商品就会进入商城中；</li>
+						<li>关闭：<span class="ashop">快店</span>中的商品显示为侧重文字模板，商品在商城中不显示。</li>
+					</ul>
+					<button type="button" class="know">知道了</button>
+				</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<!--<div class="mui-card-footer">页脚</div>-->
+			</div>
+	</div>
+	
+	
+	<div class="deliver_time_box hidden">
+		<div class="mask"></div>
+		<div class="timer">
+			<div class="header"><span style="margin-left: 17%;">选择分类</span>  <i class="mui-pull-right">完成</i></div>
+			<div class="content">
+				<div class="day" style="height: 346.6px;">
+				
+				</div>
+				<div class="time" style="height: 346.6px;">
+							
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<!--筛选用到js-->
+<script src="js/mui.picker.js"></script> 
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/work/fastStore_message.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

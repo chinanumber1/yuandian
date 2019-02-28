@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+        <meta charset="utf-8">
+        <title>预约订单</title>
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="address=no">
+         <link href="css/mui.css" rel="stylesheet"/>
+	    <link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.picker.min.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+        <link href="css/pigcms.css" rel="stylesheet">
+    	<link href="js/layer/need/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+        <style>
+            .kd_entry li .overtime {
+                line-height: 25px;
+                width: 80px;
+                 border: #FFA200 1px solid; 
+                border-radius: 5px;
+                text-align: center;
+                position: absolute;
+                right: 15px;
+                top: 0px;
+                background: #FFA200;
+                color: #fff;
+            }
+            #data{
+                background:#EFEFF4;
+            }
+            .mui-scroll-wrapper{
+                top:185px;
+            }
+            .pullup1{
+                padding-top: 0;
+            }
+        </style>
+	</head>
+    <body>
+        <header class="mui-bar mui-bar-nav">
+             <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+            <h1 class="mui-title"><span class="dyu"></span>订单</h1>
+        </header>
+        <div class="h44"></div>
+
+        <section class="h140">
+            <div class="cable">
+                <div class="cable_n cable_kd">
+                    <div class="input input1">
+                        <input type="text" placeholder="请输入搜索内容" id="find_value" class="">
+                    </div>
+                    <div class="select order_number select1">
+                        <span>全部</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fix">
+                <div class="kd_time clr">
+                    <div class="pos fl begin_date" id="pickTimeBtn">
+                        <span class="date_style">请选择开始日期</span>
+                    </div>
+                    <div class="pos fr end_date" id="pickTimeBtn1">
+                        <span class="date_style">请选择结束日期</span>
+                    </div>
+                </div>
+                <div class="kd_select  clr">
+                    <div class="select">
+                        <div class="selsct_pad pay">
+                            <i></i>
+                        	<span>全部支付方式</span>
+                            <b></b>
+                        </div>
+                        <div class="query">查询</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="store">
+            <div class="entry kd_entry" >
+                <div id="pullrefresh" class="mui-content mui-scroll-wrapper order_list">
+                    <div class="mui-scroll">
+                        <!--数据列表-->
+                        <ul id="data" class="mui-table-view mui-table-view-chevron">
+                            
+                        </ul>
+                        <div class="pullup1" style="display:none;">上拉加载更多...</div>
+						<div class="loading1" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="mask" style="height: 667px;"></div>
+        <section class="seek">
+            <div class="within">
+                <h2>验证服务</h2>
+                <div class="con">
+                    <div class="img">
+                        <img src="images/tct_06.jpg">   
+                    </div>
+                    <div class="tit">
+                        <p class="on">重要提示</p>
+                        <p class="p rig_p">验证服务后，订单状态将修改为已完成，并且不能恢复，<span class="red">确定验证？</span></p>
+                    </div>
+                    <div class="button">
+                        <input type="hidden" id="order_id" value="0" class="">
+                        <div class="clr p20">
+                            <div class="fl close">点错了</div>
+                            <div class="fr ensure">确认消费</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="del"></div>
+        </section>
+        <script src="js/fastclick.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.zoom.js"></script>
+		<script src="js/mui.picker.js"></script> 
+		<script src="js/mui.dtpicker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <!-- <script src="js/fastclick.js"></script> -->
+        <script src="js/layer/layer.m.js"></script>
+        <script src="js/common.js"></script>
+        <!--<script src="scripts/iscroll.js"></script>-->
+        <!--<script src="scripts/mobiscroll.2.13.2.js"></script>-->
+        <script src="js/work/appoint_order_list.js"></script>
+        <script id="pluscardLists" type="text/html">
+			{{# for (var i in d) { }}
+				<li class="link-url" data-id="{{d[i].order_id}}"  data-webview="true">
+					<div class="top query_top clr">
+					   <div class="fl">预订时间：{{d[i].appoint_date}}</div>
+					   {{# if (d[i].appoint_type == 1) { }}
+					   <div class="fr cancel smfw">上门服务</div>
+					   {{# } else { }}
+					   <div class="fr cancel ddfw">到店服务</div>
+					   {{# } }}
+					   
+					</div>
+					<div class="con query_con">
+						<div class="con_top">
+							{{# if (d[i].truename == "") { }}
+								<h2>预 订 人：匿名用户 <a class="pho callPhone" data-phone="{{ d[i].phone }}">{{d[i].phone}}</a></h2>
+							   {{# } else { }}
+							   <h2>预 订 人：{{d[i].truename}} <a class="pho callPhone" data-phone="{{ d[i].phone }}">{{d[i].phone}}</a></h2>
+							{{# } }}
+							<p>
+							   <span class="fl"><span class="dyu"></span>项目：</span>
+							   <span class="p60">{{d[i].appoint_name}}</span>
+							</p>
+							<!--p>
+							   <span class="fl">服务地址：</span>
+							   <span class="p60">xxxx</span>
+							</p-->
+							<p>
+								<span class="fl">预付定金：</span>
+								<span class="p60">
+									<span class="red">￥{{# if (d[i].product_id > 0) { }} {{ 	parseFloat(d[i].product_payment_price) }} {{# } else { }}{{ parseFloat(d[i].payment_money) }}{{# } }}{{# if (d[i].paid == 1) { }} （已支付） {{# } else if (d[i].paid == 0) { }}（未支付）{{# } }}</span>
+								</span>
+							</p>
+							<p>
+								<span class="fl">订单总价：</span>
+								<span class="p60">
+									<span class="red">￥{{# if (d[i].product_id > 0) { }} {{ parseFloat(d[i].product_price) }} {{# } else { }}{{ parseFloat(d[i].appoint_price) }}{{# } }} {{# if (d[i].service_status > 0) { }} （已支付） {{# } else { }}（未支付）{{# } }}</span>
+								</span>
+							</p>
+							<p>
+								<span class="fl">下单时间：</span>
+								<span class="p60">{{d[i].order_time}}</span>
+							</p>
+							<p>
+								<span class="fl">服务状态：</span>
+								<span class="p60">
+									{{# if (d[i].paid == 0) { }}
+										{{# if (d[i].service_status == 0) { }}<span class="red">未服务 </span>
+										{{# } else if (d[i].service_status == 1) { }}<span class="red">已服务</span>
+										{{# } else if (d[i].service_status == 2) { }}<span class="red">已评价</span>
+										{{# } }}
+									{{# } else if (d[i].paid == 1) { }}
+										{{# if (d[i].complete_source == 2) { }}
+											{{# if (d[i].service_status == 1) { }}<span class="red">已服务</span>
+											{{# } else { }}<span class="red">技师已服务</span>
+											{{# } }}
+										{{# } else if (d[i].service_status == 0) { }}<span class="red">未服务</span>
+										{{# } else if (d[i].service_status == 1) { }}<span class="red">已服务</span>
+										{{# } else if (d[i].service_status == 2) { }}<span class="red">已评价</span>
+										{{# } }}
+									{{# } else if (d[i].paid == 2) { }}<span class="red">已退款</span>
+									{{# } else if (d[i].paid == 3) { }}<span class="red">用户已取消</span>
+									{{# } else { }}<span class="red">订单异常</span>
+									{{# } }}
+							   </span>
+							</p>
+						</div>
+					</div>
+					<div class="remark">
+					   {{# if (d[i].type == 1) { }}
+					   <div class="source">平台分配</div>
+					   {{# } }}
+					   {{# if (d[i].service_status == 0 ) { }}
+					   <div class="overtime yanzhen "  data-id="{{d[i].order_id}}">验证服务</div>
+					   {{# } else if (d[i].service_status == 1) { }}
+						<div class="overtime kd_cons">已验证</div>
+					   {{# } }}
+				   </div>
+			   </li>
+		   {{# } }}
+        </script>   	
+	</body>
+</html>

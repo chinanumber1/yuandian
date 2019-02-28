@@ -1,0 +1,83 @@
+ul{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.left_style {
+    display: inline-block;
+    padding: 13px 0 13px 10px;
+    font-size: 14px;
+    color: #404040;
+    width: 31%;
+}
+.mui-card{
+	margin: 10px 0;
+}
+.mui-card-header,.mui-card-footer{
+	padding: 0;
+}
+.mui-card-header input{
+	margin: 0;
+	border:none;
+	font-size: 14px;
+}
+/*开关样式*/
+.mui-input-row{
+	margin-right: 10px;
+}
+.mui-input-row .mui-switch {
+    float: right;
+    margin-top: 2px;
+     margin-right: 0; 
+}
+
+.mui-switch{
+	margin-top: 3px;
+	/*margin-right: 2%;*/
+	/*margin-right: 3%;*/
+}
+.mui-switch.mui-active {
+    border-color: #FFA200;
+    background-color: #FFA200;
+}
+.mui-switch{
+	background: #f0f0f0;
+}
+ .mui-switch:before {
+	font-size: 13px;
+	position: absolute;
+	top: 3px;
+	right: 19px;
+	content: '否';
+	text-transform: uppercase;
+	color: #999;
+}
+
+ .mui-switch.mui-active:before {
+	right: auto;
+	content: '是';
+	color: #fff;
+	left: 17px;
+}
+.sign{
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 90%;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	background: #FFA200;
+	color: #fff;
+	border-radius: 3px;
+	font-size: 14px;
+}
+
+
+
+

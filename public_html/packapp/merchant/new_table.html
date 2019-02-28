@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>编辑桌台</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/new_table.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	   <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">编辑桌台</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="mui-card">
+	    	<div class="mui-card-content">
+				<span class="left_style">桌台名称</span>
+				<input type="text" class="name" value="" placeholder="请输入桌台名称"/>
+			</div>
+			<div class="mui-card-footer">
+				<p>
+					<span class="left_style">桌台所属分类</span>
+					<b id="showUserPicker"><span id="table_text"> 请选择桌台所属分类 </span><i class="mui-pull-right"></i></b>
+					
+				</p>
+			</div>
+			<div class="mui-card-footer">
+				<p>
+					<span class="left_style">所属店员</span>
+					<b id="dians"><span id="dian_text"> 请选择店员 </span><i class="mui-pull-right"></i></b>
+					
+				</p>
+			</div>
+	    </div>
+	    <nav class="mui-bar mui-bar-tab">
+	       <a href="javascript:;">保存</a>
+	   </nav>
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/mui.picker.js"></script> 
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+mui.init();
+var ticket = common.getCache('ticket');
+var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+var store_id=$.getUrlParam('store_id');//店铺ID
+var tableId=$.getUrlParam('tableId');//桌台id
+var table_list=[];
+var table_index='';
+var dian_list=[];//店员数组
+var dian_index='';//
+var tid='';
+function selects(gList,pList){
+	$.each(gList,function(i,val){
+		var temp={'value':val.id,'text':val.name};
+		dian_list.push(temp);
+	});
+	$.each(pList,function(i,val){
+		var temp={'value':val.id,'text':val.name};
+		table_list.push(temp);
+	});
+
+}
+
+
+
+common.http('WapMerchant&a=tableModify',{'ticket':ticket,'client':client,'store_id':store_id,'tableId':tableId},function(data){
+	console.log(data);
+	selects(data.staffs,data.types);
+	table_index=data.table.id;
+	dian_index=data.table.staff_id;
+	$.each(dian_list,function(i,val){
+		if(val.value==data.table.staff_id){
+			$('#dian_text').text(val.text).css('color','#333');
+		}
+	});
+	$.each(table_list,function(i,val){
+		if(val.value==data.table.tid){
+			$('#table_text').text(val.text).css('color','#333');
+		}
+	});
+	$('.name').val(data.table.name);	
+	tid=data.table.tid;
+	console.log(tid);
+	if(tid==undefined){
+		tid='';
+	}
+});
+
+
+
+mui('.mui-bar-tab').on('tap','a',function(e){
+	var name=$('.name').val();
+	console.log(table_index);
+	if(tid==''||tid==undefined){
+		mui.toast('请选择桌台所属分类');
+	}else{
+		if(dian_index==''||dian_index==undefined){
+			mui.toast('请选择店员');
+		}else{
+			common.http('WapMerchant&a=tableSave',{'ticket':ticket,'client':client,'store_id':store_id,'tableId':tableId,'staff_id':dian_index,'tid':tid,'name':name},function(data){
+				console.log(data);
+				if(data.length==0){
+					if(tableId==0){
+						mui.toast('创建成功');
+						if(common.checkApp()){
+							setTimeout(function(){
+								if(common.checkAndroidApp()){
+									window.pigcmspackapp.closewebview(2);
+								}else{
+									common.iosFunction('closewebview/2');
+								}
+							},2000);
+						}else{
+							setTimeout(function(){
+								history.go(-1);
+								document.execCommand('Refresh');
+							},2000); 
+						}	 
+
+					}else{
+						mui.toast('修改成功');
+						if(common.checkApp()){
+							setTimeout(function(){
+								if(common.checkAndroidApp()){
+									window.pigcmspackapp.closewebview(2);
+								}else{
+									common.iosFunction('closewebview/2');
+								}
+							},2000);
+						}else{
+							setTimeout(function(){
+								history.go(-1);
+								document.execCommand('Refresh');
+							},2000); 
+						}	 
+					}
+				}
+			});
+		}
+	}
+	
+});
+
+
+
+
+
+
+//筛选
+(function($, doc) {
+	$.init();
+	mui('.mui-content').on('tap','#showUserPicker',function(e){
+		var _getParam = function(obj, param) {
+			return obj[param] || '';
+		};
+		//普通示例
+		var userPicker = new $.PopPicker();
+		userPicker.setData(table_list);
+		userPicker.pickers[0].setSelectedValue(tid);
+		userPicker.show(function(items) {
+			if(items[0].text!=undefined){
+				document.getElementById('table_text').innerHTML = items[0].text;
+				document.getElementById('table_text').style.color='#535353';
+				tid=items[0].value;
+			}
+			
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+	});
+	mui('.mui-content').on('tap','#dians',function(e){
+		var _getParam = function(obj, param) {
+			return obj[param] || '';
+		};
+		//普通示例
+		var userPicker = new $.PopPicker();
+		userPicker.setData(dian_list);
+		userPicker.pickers[0].setSelectedValue(dian_index);
+		userPicker.show(function(items) {
+			if(items[0].text!=undefined){
+				document.getElementById('dian_text').innerHTML = items[0].text;
+				document.getElementById('dian_text').style.color='#535353';
+				dian_index=items[0].value;
+			}
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+	});
+})(mui, document);
+</script>
+</body>
+</html>

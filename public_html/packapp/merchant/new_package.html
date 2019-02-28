@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>新建套餐</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/new_package.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">新建套餐</h1>
+	</header>
+	<div class="mui-content">
+		 <div class="class_list">
+	    	<ul>
+	    		<li class="mui-pull-left class active">基本信息</li>
+	    		<li class="mui-pull-left list">商品详情</li>
+	    	</ul>
+	    </div>
+	    <div class="first_new ">
+	    	<h5>基本信息</h5>
+		    <div class="mui-card">
+		    	<div class="mui-card-content">
+					<span class="left_style">套餐名称</span>
+					<input type="text" class="name" placeholder="请输入套餐名称" />
+				</div>
+				<div class="mui-card-content deposit">
+					<span class="left_style">套餐价格</span>
+					<input type="text" class="price" placeholder=" 请输入金额" />
+					<i>元</i>
+				</div>
+				<div class="mui-card-content">
+					<span class="left_style">是否可用</span>
+					<div class="mui-switch mui-active mui-pull-right status">
+							<div class="mui-switch-handle"></div>
+					</div>
+				</div>
+				<div class="mui-card-content">
+					<span class="left_style" style="position: fixed;margin-top: 16px;">使用说明</span>
+					<textarea name="" class="note" rows="3" cols="3" placeholder="请输入使用说明，最多200字"></textarea>
+				</div>
+		    </div>
+	    </div>
+	    <div class="secrod_new hidden">
+	    	 <h5 class="left_style shuoming">商品详情 <i></i></h5>
+			    <div class="add_variety">
+			    	
+			    </div>
+	    
+	    <!--添加一项-->
+	    <a href="javascript:void(0);" class="add_dishes">+ 添加一项</a>
+	    </div>
+		<div style="padding-bottom: 50px;"></div>
+	    <nav class="mui-bar mui-bar-tab">
+	       <a href="javascript:void(0);">保存</a>
+	   </nav>
+	    
+	</div>
+	
+	<div id="middlePopover" class="mui-popover">
+		<p><span>菜单列表(已选<span class="check">0</span>)</span><i class="mui-pull-right"></i></p>
+		<!-- <div class="goods_list">
+			<span>商品分类：</span>
+			<b id="showUserPicker1"> <span id="goods_class">请选择商品分类</span><sub class="mui-pull-right"></sub></b>
+		</div> -->
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="table_cai">
+			
+				<!--这里放置真实显示的DOM内容-->
+					<table>
+						<thead>
+							<tr>
+								<th>菜品名称</th>
+								<th>菜品单价</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+		<div style="padding-bottom:26% ;"></div>
+		<div class="determine"><a href="javascript:void(0);">确定</a></div>
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/mui.picker.js"></script> 
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="attrLists" type="text/html">	
+	{{# for(var i in d){ }}
+		 <div class="mui-card" data-id="{{ d[i].id }}">
+	    	<div class="mui-card-content mui-clearfix">
+				<span class="left_style">可选数</span>
+				<input type="text" class="num" value="{{ d[i].num }}" placeholder="请输入可选个数">
+				<i class="mui-pull-right delate_class"></i>
+			</div>
+			<div class="mui-card-content">
+				<span class="left_style">已添加菜品</span>
+				<span class="mui-pull-right">添加菜品</span>
+				<!--<a href="javascript:void(0);" class="mui-pull-right">添加菜品</a>-->
+			</div>
+			<div class="mui-card-content variety">
+				
+				<table cellspacing="" cellpadding="">
+					<thead>
+						<tr>
+							<th>菜品名称</th>
+							<th>菜品价格</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					{{# if(d[i].goods_list!=[]){ }}
+						{{#  for(var k=0; k< d[i].goods_list.length;k++  ){ }}
+							<tr data-goodsid="{{ d[i].goods_list[k].goods_id }}">
+								<td>{{ d[i].goods_list[k].name }}</td>
+								<td>{{ d[i].goods_list[k].price }}</td>
+								<td class="delate_food"><i></i></td>
+							</tr>
+						{{# } }}
+					{{# } }}
+						
+					</tbody>
+					
+				</table>
+			</div>
+	    </div>
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+	mui.init();
+	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var store_id=$.getUrlParam('store_id');
+	var id=$.getUrlParam('id');
+	var goods_class=[];
+
+	
+
+
+
+
+	if(id==0){
+		$('.status').addClass('mui-active');
+	}else{
+		$('.mui-title').text('修改套餐');
+		common.http('WapMerchant&a=packageModify',{'ticket':ticket,'client':client,'store_id':store_id,'id':id},function(data){
+			console.log(data);
+			$('.name').val(data.name);
+			$('.price').val(data.price);
+			data.status==1?$('.status').addClass('mui-active'):$('.status').removeClass('mui-active');
+			$('.note').val(data.note);
+			laytpl(document.getElementById('attrLists').innerHTML).render(data.goods_detail, function(html){
+				//console.log(html);
+				$('.add_variety').html(html);
+			});
+
+		});
+
+
+	}
+	//保存按钮点击
+	mui('.mui-bar-tab').on('tap','a',function(e){
+		var name=$('.name').val();
+		var price=Number($('.price').val());
+
+		var status=$('.status').is('.mui-active')?1:0; 
+		var note=$('.note').val();
+		var nums =[];
+		var dids=[];
+		var goods_ids=[];
+		$.each($('.add_variety .mui-card'),function(i,val){
+			nums.push($(this).find('.num').val());
+			dids.push($(this).attr('data-id'));
+			var item=[];
+			$.each($('.add_variety .mui-card:eq('+i+') tbody tr'),function(j,value){
+				item.push($(this).attr('data-goodsid'));
+			});
+			goods_ids.push(item);
+		}); 
+		if(price<0){
+			price=0;
+			mui.toast('套餐价格必须大于或等于0');
+			$('.price').val(price)
+		}else{
+			common.http('WapMerchant&a=packageSave',{'ticket':ticket,'client':client,'store_id':store_id,'id':id,'name':name,'price':price,'status':status,'note':note,'nums':nums,'dids':dids,'goods_ids':goods_ids},function(data){
+				if(data.length==0){
+					if(id==0){
+						// $('input').val('');
+						// $('.status').removeClass('active');
+						// $('.add_variety').html('');
+						mui.toast('创建成功');
+						if(common.checkApp()){
+							setTimeout(function(){
+								if(common.checkAndroidApp()){
+							window.pigcmspackapp.closewebview(2);
+						}else{
+							common.iosFunction('closewebview/2');
+						}
+							},2000);
+						}else{
+							setTimeout(function(){
+								history.go(-1);
+								document.execCommand('Refresh');
+							},2000); 
+						}	 
+						
+						
+					}else{
+						
+						mui.toast('修改成功');
+
+						if(common.checkApp()){
+							setTimeout(function(){
+								if(common.checkAndroidApp()){
+							window.pigcmspackapp.closewebview(2);
+						}else{
+							common.iosFunction('closewebview/2');
+						}
+							},2000);
+						}else{
+							setTimeout(function(){
+								history.go(-1);
+								document.execCommand('Refresh');
+							},2000); 
+						}	 
+					}
+				}
+			});
+		}
+		
+
+	});
+
+
+
+
+
+
+	mui('.mui-content').on('tap','.delate_food',function(e){
+		$(this).parent('tr').remove();
+	});
+
+	// 删除分类
+	mui('.mui-content').on('tap','.delate_class',function(e){
+		var me=this;
+		mui.confirm('您确认删除这类菜品吗?', function(e) {
+            if (e.index == 1) {
+                $(me).parents('.mui-card').remove();
+            } 
+        })
+	});
+	
+//tab选项卡切换
+	mui('.mui-content').on('tap','.class_list ul li',function(e){
+		$(this).addClass('active');
+		$(this).siblings('li').removeClass('active');
+		if($('.class').is('.active')){
+			$('.first_new').removeClass('hidden');
+			$('.secrod_new').addClass('hidden');
+		}else{
+			$('.first_new').addClass('hidden');
+			$('.secrod_new').removeClass('hidden');
+		}
+
+	});
+	
+	
+	//点击添加一项
+var content='<div class="mui-card" data-id="0"><div class="mui-card-content"><span class="left_style">可选数</span><input class="num" type="text" placeholder="请输入可选个数" /><i class="mui-pull-right delate_class"></i></div><div class="mui-card-content"><span class="left_style">添加菜品</span><span class="mui-pull-right">添加菜品</span></div><div class="mui-card-content variety"><table  cellspacing="" cellpadding=""><thead><tr><th>菜品名称</th><th>菜品价格</th><th>操作</th></tr></thead><tbody></tbody></table></div></div>';
+mui('.mui-content').on('tap','.add_dishes',function(e){
+	$('.add_variety').append(content);
+});		
+
+var mask = mui.createMask();//callback为用户点击蒙版时自动执行的回调；	
+//点击蒙版
+mui('body').on('tap','.mui-backdrop',function(){
+  	mui('#middlePopover').popover('hide');
+  	mask.close();
+});
+
+//点击添加菜品
+mui('.add_variety').on('tap','span.mui-pull-right',function(e){
+
+	e.stopPropagation();
+	e.preventDefault(); 
+	mask.show();
+	mui('#middlePopover').popover('show');
+	var id=[];
+	$.each($(this).parents('.mui-card').find('tbody tr'),function(i,val){
+		id.push($(this).attr('data-goodsid'));
+	});
+	//console.log(id);
+	var me=this;
+	$('.check').text(0);
+	$('.table_cai table tbody tr').removeClass('active');
+	common.http('WapMerchant&a=foodMenu',{'ticket':ticket,'client':client,'store_id':store_id},function(data){
+		//console.log(data);
+		if(data!=null){
+			var str="";
+			$.each(data,function(i,val){
+				// if($.inArray(val.goods_id.toString(),id)===-1){
+					str+='<tr data-name='+val.name+' data-goodsid='+val.goods_id+' data-price='+val.price+' ><td>'+val.name+'</td><td><span>￥'+val.price+'</span></td><td><b></b></td></tr>';
+				// }
+				
+			});
+			$('.table_cai table tbody').html(str);
+			str='';
+		}
+		
+	});
+	
+	//弹层确认按钮点击
+	mui('#middlePopover').on('tap','.determine a',function(e){
+		mask.close();
+		mui('#middlePopover').popover('hide');
+		var sum='';
+
+		$.each($('.table_cai table tbody tr'),function(i,val){
+			if($(this).is('.active')){
+				sum+='<tr data-goodsid='+$(this).attr("data-goodsid")+'><td>'+$(this).attr("data-name")+'</td><td>'+$(this).attr("data-price")+'</td><td class="delate_food"><i></i></td></tr>';
+			}
+		});
+		$(me).parents('.mui-card').find('tbody').append(sum);
+		me=null;
+		
+
+	});
+});
+//弹层复选框点击
+	mui('#middlePopover').on('tap','tbody tr',function(e){
+		if($(this).is('.active')){
+			$(this).removeClass('active');
+		}else{
+			$(this).addClass('active');
+		}
+		var len=$('.table_cai table tbody tr.active').length;
+		$('.check').text(len);
+
+	});
+//点击关闭按钮
+mui('#middlePopover').on('tap','i.mui-pull-right',function(e){
+	mask.close();
+	mui('#middlePopover').popover('hide');
+});
+
+
+
+mui('.mui-scroll-wrapper').scroll({
+  deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006 
+});
+
+
+// //筛选
+// 	  	(function($, doc) {
+// 		$.init();
+// 		$.ready(function() {
+// 			/**
+// 			 * 获取对象属性的值
+// 			 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+// 			 * @param {Object} obj 对象
+// 			 * @param {String} param 属性名
+// 			 */
+// 			var _getParam = function(obj, param) {
+// 				return obj[param] || '';
+// 			};
+// 			//普通示例
+// 			var userPicker = new $.PopPicker();
+// 			userPicker.setData([{
+// 				value: 'ywj',
+// 				text: '董事长 叶文洁'
+// 			}, {
+// 				value: 'aaa',
+// 				text: '总经理 艾AA'
+// 			}, {
+// 				value: 'lj',
+// 				text: '罗辑'
+// 			}, {
+// 				value: 'ymt',
+// 				text: '云天明'
+// 			}, {
+// 				value: 'shq',
+// 				text: '史强'
+// 			}, {
+// 				value: 'zhbh',
+// 				text: '章北海'
+// 			}, {
+// 				value: 'zhy',
+// 				text: '庄颜'
+// 			}, {
+// 				value: 'gyf',
+// 				text: '关一帆'
+// 			}, {
+// 				value: 'zhz',
+// 				text: '智子'
+// 			}, {
+// 				value: 'gezh', 
+// 				text: '歌者'
+// 			}]);
+// //					var showUserPickerButton = doc.getElementById('showUserPicker');
+// //					var userResult = doc.getElementById('userResult');
+// //					showUserPickerButton.addEventListener('tap', function(event) {
+// //						userPicker.show(function(items) {
+// //							showUserPicker.innerHTML = JSON.stringify(items[0]);
+// //							//返回 false 可以阻止选择框的关闭
+// //							//return false;
+// //						});
+// //					}, false);
+// 			var showUserPickerButton1 = doc.getElementById('showUserPicker1');
+// 			var userResult = doc.getElementById('userResult');
+// 			showUserPickerButton1.addEventListener('tap', function(event) {
+// 				userPicker.show(function(items) {
+// 					document.getElementById('goods_class').innerHTML = items[0].text;
+// 					//返回 false 可以阻止选择框的关闭
+// 					//return false;
+// 				});
+// 			}, false);
+		
+// 		});
+// 	})(mui, document);
+		
+		
+mui('.mui-content').on('tap','.shuoming',function(e){
+  	mui.alert('添加一项表示添加一个菜品系列，可以添加多个菜品供选择;可选数：表示该系列下最多能选择几个菜品 默认可选择一个菜品;可选数后面的删除表示删除该系列，菜品后面的删除表示删除该菜品！', function() {
+    });
+});
+		
+</script>
+</body>
+</html>

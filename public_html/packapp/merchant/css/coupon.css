@@ -1,0 +1,409 @@
+ul,ol,dl,dd,dt,p{
+	list-style: none;
+	padding: 0;margin: 0;
+}
+.hidden{
+	display: none;
+}
+
+/*.mui-card{margin: 15px 0 0 0;}*/
+
+
+/*头部样式*/
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav h1{
+	color: #fff;
+}
+.mui-bar-nav a{
+	color: #fff;
+}
+
+/*tab切换导航条*/
+.class_list{
+	width: 100%;
+	background: #fff;
+}
+.class_list ul{
+	width: 100%;
+	background: #fff;
+}
+.class_list ul li{
+	width: 33%;
+	padding: 10px 5%;
+	text-align: center;
+	background: #fff;
+	font-size: 14px;
+	color: #414141;
+	height: 70px;
+}
+.class_list ul li.active{
+	color: #FFA200;
+}
+.class_list ul li.active dd:last-child{
+	margin-top: 5px;
+	border-bottom: 2px solid #FFA200;
+}
+/*优惠劵卡片样式*/
+
+.all_coupon .mui-card-content ul li:nth-child(2){
+	display: inline-block;
+	width: 7px;height: 90px;
+	background: url(../images/40-3_03.png) center no-repeat;
+	background-size: contain;
+}
+.all_coupon .mui-card-content{
+	position: relative;
+}
+.all_coupon .mui-card-content>ul>li{
+	height: 90px;
+}
+
+.all_coupon .mui-card-content ul li:first-child dl dt span{
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.all_coupon .mui-card-content ul li:last-child{
+	padding: 10px;
+}
+.all_coupon .mui-card-content ul li:first-child dl{
+	padding: 20px;
+}
+.all_coupon .mui-card-content ul.conduct li:first-child dl dt{
+	font-size: 13px;
+	color: #FF3E4A;
+}
+.all_coupon .mui-card-content ul.conduct li:first-child dl dd{
+	font-size: 13px;
+	color: #FF3E4A;
+}
+.all_coupon .mui-card-content ul.conduct li:last-child h5{
+	font-size: 16px;
+	color: #333333;
+}
+.all_coupon .mui-card-content ul li:last-child p{
+	font-size: 12px;
+}
+.all_coupon .mui-card-content ul.end li:first-child dl dt{
+	font-size: 13px;
+	color: #999999;
+}
+.all_coupon .mui-card-content ul.end li:first-child dl dd{
+	font-size: 13px;
+	color: #999999;
+}
+.all_coupon .mui-card-content ul.end li:last-child h5{
+	font-size: 16px;
+	color: #999999;
+}
+
+.jieshu{
+	background: url(../images/40-6_06.png) center no-repeat;
+	background-size: contain;
+}
+.lingwan{
+	background: url(../images/40-66_03.png) center no-repeat;
+	background-size: contain;
+}
+.all_coupon .mui-card-content ul.begin li:first-child dl dt{
+	font-size: 13px;
+	color: #FFA200;
+}
+.all_coupon .mui-card-content ul.begin li:first-child dl dd{
+	font-size: 13px;
+	color: #FFA200;
+}
+.all_coupon .mui-card-content ul.begin li:last-child h5{
+	font-size: 16px;
+	color: #333333;
+}
+
+.kaishi{
+	background: url(../images/40-7_03.png) center no-repeat;
+	background-size: contain;
+}
+
+/*底部按钮*/
+.mui-bar-tab{
+	height: 60px;
+	line-height: 60px;
+	background: #fff;
+	width: 100%;
+	padding: 0 9%;
+}
+.mui-bar-tab a{
+	display: inline-block;
+	width: 47%;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	color: #fff;
+	border-radius: 5px;
+	font-size: 12px;
+	
+}
+.mui-bar-tab a.new_coupon{
+	margin-right: 6%;
+	background: #169BD5;
+}
+.mui-bar-tab a.new_coupon i{
+	display: inline-block;
+	width: 12px;height: 14px;
+	background: url(../images/40-1_11.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 2%;
+}
+.mui-bar-tab a.distribute{
+	background: #FFA200;
+}
+.mui-bar-tab a.distribute i{
+	display: inline-block;
+	width: 14px;height: 14px;
+	background: url(../images/40-1_13.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 2%;
+}
+
+
+
+
+
+
+
+
+
+
+/*弹窗样式*/
+.mui-popover{
+	position: fixed;
+    z-index: 999;
+    bottom: 0;
+    display: none;
+    width: 100%;
+    height: 370px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.mui-popover .see_ma{
+	text-align: center;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #464646;
+	border-bottom: 1px solid #E6E6E6;
+}
+.mui-popover .see_ma>span{
+	margin-left: 42px;
+}
+.mui-popover .see_ma i{
+	display: inline-block;
+    width: 42px;
+    height: 42px;
+    background: url(../images/27-_03.png) center no-repeat;
+    background-size: 15px 15px;
+    margin-top: -11px;
+}
+.mui-popover p{
+	width: 100%;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	text-align:center;
+}
+
+.mui-popover p img{
+	width:50%;height:50%;
+	/*margin-left:25% ;*/
+}
+.mui-popover .ass{
+	display: inline-block;
+	width: 50%;
+	height: 40px;
+	line-height: 42px;
+	background: #FFA200;
+	color: #FFFFFF;
+	text-align: center;
+	margin: 0 25%;
+	border-radius: 30px;
+	font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.all_coupon .mui-card-content>i{
+	display: inline-block;
+	width: 55px;height: 17px;
+	background: url(../images/40-6_03.png) center no-repeat;
+	background-size: contain;
+	position: absolute;
+	top:10px;
+	right: 0;
+}
+.all_coupon .mui-card-content>b{
+	display: inline-block;
+	width:77px;height:64px;
+	background: url(../images/40-2_03.png) center no-repeat;
+	background-size: contain;
+	position: absolute;
+	top:28px;
+	right: 0;
+}*/
+.jinxing{
+	background: url(../images/40-6_03.png) center no-repeat;
+	background-size: contain;
+}
+
+
+.mui-card-footer:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #f1f1f1;
+}
+.mui-card-footer{
+ 	border-top:1px dashed #F1F1F1;
+ 	padding: 10px;
+ }
+.mui-card-footer span{
+ 	font-size: 12px;
+ }
+.mui-card-footer p{
+	color: #FFA200;
+}
+.mui-card-footer p i{
+	display: inline-block;
+	width: 14px;height: 14px;
+	background: url(../images/40-1_07.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+}
+@media (min-width:320px) {
+	.all_coupon .mui-card-content ul li:first-child dl{
+		padding: 22px 10px;
+	}
+	.all_coupon .mui-card-content>b{
+		display: inline-block;
+		width:60px;height:75px;
+		background: url(../images/40-2_03.png) center no-repeat;
+		background-size: contain;
+		position: absolute;
+		top:28px;
+		right: 0;
+	}
+	.all_coupon .mui-card-content ul li:last-child {
+	    padding: 10px 6px;
+	}
+	.all_coupon .mui-card-content>i {
+	    display: inline-block;
+	    width: 44px;
+	    height: 17px;
+	    position: absolute;
+	    top: 10px;
+	    right: 0;
+	}
+}
+@media (min-width:360px) {
+	.all_coupon .mui-card-content ul li:first-child dl{
+		padding: 22px 18px;
+	}
+	.all_coupon .mui-card-content>b{
+		display: inline-block;
+		width:77px;height:64px;
+		background: url(../images/40-2_03.png) center no-repeat;
+		background-size: contain;
+		position: absolute;
+		top:28px;
+		right: 0;
+	}
+	.all_coupon .mui-card-content ul li:last-child {
+	    padding: 10px 8px;
+	}
+	.all_coupon .mui-card-content>i {
+	    display: inline-block;
+		width: 55px;height: 17px;
+		position: absolute;
+		top:10px;
+		right: 0;
+	}
+}
+@media (min-width:375px) {
+	.all_coupon .mui-card-content ul li:first-child dl{
+		padding: 22px 20px;
+	}
+	.all_coupon .mui-card-content>b{
+		display: inline-block;
+		width:77px;height:64px;
+		background: url(../images/40-2_03.png) center no-repeat;
+		background-size: contain;
+		position: absolute;
+		top:28px;
+		right: 0;
+	}
+	.all_coupon .mui-card-content ul li:last-child {
+	    padding: 12px 10px;
+	}
+	.all_coupon .mui-card-content>i {
+	    display: inline-block;
+		width: 55px;height: 17px;
+		position: absolute;
+		top:10px;
+		right: 0;
+	}
+}
+
+
+
+
+.pullup,.loading{
+	text-align: center;
+	padding:10px 0 10px 0;
+	font-size: 14px;
+	color: #999;
+}
+.loading img{
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

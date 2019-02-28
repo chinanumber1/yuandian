@@ -1,0 +1,3 @@
+<?php
+//000000000060a:1:{i:1;a:14:{s:2:"id";s:1:"1";s:5:"level";s:1:"1";s:5:"lname";s:12:"白银客户";s:8:"integral";s:4:"1000";s:9:"use_money";s:3:"500";s:4:"icon";s:53:"/upload/system/image/000/000/030/5bfe4a182ce3f687.jpg";s:4:"boon";s:1:"1";s:4:"type";s:1:"2";s:11:"description";s:0:"";s:8:"validity";s:1:"0";s:22:"spread_user_give_moeny";s:2:"10";s:22:"spread_user_give_score";s:1:"0";s:19:"score_clean_percent";s:1:"0";s:16:"score_clean_time";s:0:"";}}
+?>

@@ -1,0 +1,93 @@
+ul,ol,dl,dd,dt,p{
+	list-style: none;
+	padding: 0;margin: 0;
+}
+.hidden{
+	display: none;
+}
+
+/*.mui-card{margin: 15px 0 0 0;}*/
+
+
+/*头部样式*/
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav h1{
+	color: #fff;
+}
+
+.mui-bar-nav a{
+	color: #fff;
+}
+.mui-card-content{
+	width: 100%;
+	padding: 15px 0%;
+}
+.mui-card-content img{
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	margin: 0 2%;
+}
+.mui-card-content ul{
+	display: inline-block;
+	font-size: 14px;
+	width: 74%;
+	
+}
+.mui-card-content ul li{
+	font-size: 14px;
+	color: #FFA200;
+	font-weight: bold;
+}
+.mui-card-content ul li:first-child{
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.mui-card-content ul li p{
+	font-size: 12px;
+	font-weight: normal;
+	color: #747474;
+	width: 100%;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp:2;
+	overflow: hidden;
+}
+
+
+
+/*下拉刷新样式*/
+.pullup1,.loading1{
+	text-align: center;
+	padding:0 0 10px 0;
+	font-size: 14px;
+	color: #999;
+}
+.loading1 img{
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,346 @@
+.pigcms-main {
+	padding: 0;
+}
+
+.pigcms-container {
+	background: #fff;
+	padding-top: 5px;
+	margin-bottom: 1px;
+}
+
+.search-container {
+	margin: 0 2%;
+	width: 96%;
+}
+
+.header-fliter-container {
+	background: #fff;
+	padding: 14px 0 10px;
+	text-align: center;
+	color: #08af94;
+	border-bottom: 1px solid #f0f0f0;
+}
+li.header-fliter-container:hover {
+	background: #eee;
+}
+#fliter-layer{
+	position: fixed;
+	background: rgba(0,0,0,.5);
+	top: 128px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99999;
+}
+#fliter-wrapper{
+	position:relative; 
+	width:100%;
+	height: 149px;
+	overflow:auto;
+	background: #fff;
+}
+#fliter-scroller{
+	position:absolute;
+	/*	-webkit-touch-callout:none;*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	width:100%;
+}
+#fliter-ul{
+}
+#order-list-wrapper {
+	position:relative; 
+	top: 0;
+	width:100%;
+	height: 100%;
+	padding-top: 9px;
+	overflow:auto;
+	}
+	#order-list-scroller {
+		position:absolute;
+	/*	-webkit-touch-callout:none;*/
+		-webkit-tap-highlight-color:rgba(0,0,0,0);
+		width:100%;
+	}
+	#order-list-ul{
+		width: 100%;
+		padding-bottom: 100px;
+	}
+.order-list-container {
+	display: block;
+	background: #fff;
+	margin-top: 15px;
+	padding: 5px 10px 0;
+	color: #6e6e6e;
+}
+.order-list-container:first-child {
+	margin-top: 5px;
+}
+
+.order-list-container:hover {
+	background: #eee;
+}
+.order-list-container:visited{
+	color: #6e6e6e;
+}
+.order-list-container p {
+	margin: 10px 0;
+	padding: 0;
+}
+
+.order-list-detail {
+	float: left;
+}
+.shop-name{
+	margin-bottom: 0!important;
+	padding-bottom: 10px!important;
+	border-bottom: 1px solid #f1f8f5;
+}
+.name{
+	font-size: 13px;
+}
+.phone {
+	margin-left: 15px;
+	color: #2b94c3;
+	font-size: 13px;
+}
+
+.address{
+	font-size: 14px;
+}
+.strong {
+	color: #fa8a71;
+	font-size: 16px;
+}
+
+.count {
+	color: #bababa;
+}
+
+.date {
+	color: #bebebe;
+	font-size: 12px;
+}
+
+.status {
+	margin-left: 10px;
+	color: #01ac98;
+	font-size: 14px;
+}
+
+.order-list-pointer {
+	float: right;
+	height: 107px;
+	line-height: 107px;
+}
+
+.order-list-pointer i {
+	font-size: 24px;
+	font-weight: 100;
+}
+.order-operation{
+	float: left;
+	width: 22.5%;
+	margin-right: 3%;
+	text-align: center;
+	line-height: 36px;
+	border-radius: 10px;
+	height: 56px;
+	color: #fff;
+}
+.order-btn:last-child{
+	margin-right: 0;
+}
+.order-btn i{
+	font-size: 36px;
+}
+.order-btn p{
+	margin: -18px 0 0 0;
+	padding: 0;
+}
+
+p{
+	margin: 0 0 10px;
+	padding: 0;
+}
+.order-detail-title{
+	color: #b2b2b2;
+}
+.order-detail-title a{
+	color: #b2b2b2;
+}
+.order-detail-title a span{
+	color: #1791ad;
+}
+.order-detail-text{
+	color: #777;
+}
+.order-detail-count{
+	padding: 5px 0 5px 5px;
+	margin-bottom: 0;
+}
+#order-detail-count{
+	color: #696969;
+}
+.order-item-container{
+				padding: 10px;
+				border-top: 1px solid #e6e6e6;
+			}
+			.order-item-img{
+				float: left;
+				width: 90px;
+				height: 80px;
+				border-radius: 10px;
+			}
+			.order-item-text{
+				float: left;
+				margin-left: 10px;
+			}
+			.order-item-title{
+				margin-top: 10px;
+				color: #717171;
+			}
+			.order-item-price{
+				margin-top: 10px;
+				color: #fc714c;
+			}
+#comment-title{
+	float: left;
+}
+#comment-container{
+	float: left;
+}
+#user_comments{
+	margin: 10px 0 7px;
+  	padding-bottom: 5px;
+  	line-height: 16px;
+  	border-bottom: 1px solid #ddd;
+  	color: #666;
+}
+#shop_comments{
+	margin-bottom: 0;
+  	color: #666;
+}
+#reply_comment{
+	float: right;
+	color: #666;
+	font-size: 13px;
+}
+#reply_comment i{
+	font-size: 18px;
+	color: #ee793d;
+}
+#status-container{
+	position: absolute;
+	left: 15px;
+	margin: 7px 0;
+	color: #696969;
+}
+.settings-icon{
+	position: absolute;
+	top: 4px;
+	right: 15px;
+}
+input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+}
+/* Normal Track */
+input[type="checkbox"].ios-switch + div {
+	vertical-align: middle;
+	width: 40px;
+	height: 20px;
+	border: 1px solid rgba(0,0,0,.4);
+	border-radius: 999px;
+	background-color: rgba(0, 0, 0, 0.1);
+	-webkit-transition-duration: .4s;
+	-webkit-transition-property: background-color, box-shadow;
+	box-shadow: inset 0 0 0 0px rgba(0,0,0,0.4);
+}
+
+		/* Checked Track (Blue) */
+input[type="checkbox"].ios-switch:checked + div {
+	width: 40px;
+	background-position: 0 0;
+	background-color: #3b89ec;
+	border: 1px solid #0e62cd;
+	box-shadow: inset 0 0 0 10px rgba(59,137,259,1);
+}
+
+		/* Tiny Track */
+input[type="checkbox"].tinyswitch.ios-switch + div {
+	width: 34px;
+	height: 18px;
+}
+
+		/* Big Track */
+input[type="checkbox"].bigswitch.ios-switch + div {
+	width: 50px;
+	height: 25px;
+}
+
+		/* Green Track */
+input[type="checkbox"].green.ios-switch:checked + div {
+	background-color: #00e359;
+	border: 1px solid rgba(0, 162, 63,1);
+	box-shadow: inset 0 0 0 10px rgba(0,227,89,1);
+}
+
+		/* Normal Knob */
+input[type="checkbox"].ios-switch + div > div {
+	float: left;
+	width: 18px;
+	height: 18px;
+	border-radius: inherit;
+	background: #ffffff;
+	-webkit-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+	-webkit-transition-duration: 0.4s;
+	-webkit-transition-property: transform, background-color, box-shadow;
+	-moz-transition-timing-function: cubic-bezier(.54,1.85,.5,1);
+	-moz-transition-duration: 0.4s;
+	-moz-transition-property: transform, background-color;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(0, 0, 0, 0.4);
+	pointer-events: none;
+	margin-top: 1px;
+	margin-left: 1px;
+}
+
+		/* Checked Knob (Blue Style) */
+input[type="checkbox"].ios-switch:checked + div > div {
+	-webkit-transform: translate3d(20px, 0, 0);
+	-moz-transform: translate3d(20px, 0, 0);
+	background-color: #ffffff;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(8, 80, 172,1);
+}
+
+		/* Tiny Knob */
+input[type="checkbox"].tinyswitch.ios-switch + div > div {
+	width: 16px;
+	height: 16px;
+	margin-top: 1px;
+}
+
+		/* Checked Tiny Knob (Blue Style) */
+input[type="checkbox"].tinyswitch.ios-switch:checked + div > div {
+	-webkit-transform: translate3d(16px, 0, 0);
+	-moz-transform: translate3d(16px, 0, 0);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(8, 80, 172,1);
+}
+
+		/* Big Knob */
+input[type="checkbox"].bigswitch.ios-switch + div > div {
+	width: 23px;
+	height: 23px;
+	margin-top: 1px;
+}
+
+		/* Checked Big Knob (Blue Style) */
+input[type="checkbox"].bigswitch.ios-switch:checked + div > div {
+	-webkit-transform: translate3d(25px, 0, 0);
+	-moz-transform: translate3d(16px, 0, 0);
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3), 0px 0px 0 1px rgba(8, 80, 172,1);
+}
+
+		/* Green Knob */
+input[type="checkbox"].green.ios-switch:checked + div > div {
+	/*box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 162, 63,1);*/
+}

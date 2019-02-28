@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>商家中心</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+  	<link rel="stylesheet" type="text/css" href="css/index1.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		  <h1 class="mui-title">商家中心</h1>
+		<a class="mui-pull-right"></a>
+	</header>
+	<div class="mui-content">
+		<ul>
+			<li class="shop_mange" style="display:none;">
+				<span class="shop_m"></span>
+				<span>店铺</span>
+			</li>
+			<li class="shop_list" style="display:none;">
+				<span class="shop"></span>
+				<span  class="ashop" >快店</span>
+			</li>
+			<li class="eat_list" style="display:none;">
+				<span class="eat"></span>
+				<span class="byin">餐饮</span>
+			</li>
+			<li class="printer" style="display:none;">
+				<span class="peci"></span>
+				<span>打印机</span>
+			</li>
+			<li class="sign_out">
+				<span class="tui"></span>
+				<span>安全退出</span>
+			</li>
+		</ul>
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js?android=appbackmonitor" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    mui.init();
+    var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+   	var power=common.getCache('power');
+	if(power){
+		power.card==1?$('.shop_plus').show():$('.shop_plus').hide();//会员
+		power.merchant_money==1?$('.merchant_money').show():$('.merchant_money').hide();//商家余额
+		power.store_list==1?$('.shop_mange').show():$('.shop_mange').hide();//店铺
+		power.shop==1?$('.shop_list').show():$('.shop_list').hide();//快店
+		power.meal==1?$('.eat_list').show():$('.eat_list').hide();//餐饮
+		power.group==1?$('.grounp_buy').show():$('.grounp_buy').hide();//团购
+		power.appoint==1?$('.booking').show():$('.booking').hide();//预约
+		power.hardware==1?$('.printer').show():$('.printer').hide();//打印机
+		power.fun_group==1?$('.fans_send').show():$('.fans_send').hide();//粉丝群发
+		if(power.store_list!=1&&power.shop!=1&&power.meal!=1&&power.group!=1&&power.appoint!=1){
+			$('#Gallery').hide();
+		}
+	}
+
+
+    function setData(data){
+		$('.ashop').text(data.shop_name);
+		$('.byin').text(data.meal_name);
+		$('.ctuan').text(data.group_name);
+		$('.dyu').text(data.appoint_name);
+		common.setCache('ashop',data.shop_name);
+		common.setCache('byin',data.meal_name);
+		common.setCache('ctuan',data.group_name);
+		common.setCache('dyu',data.appoint_name);
+		common.setCache('jif',data.score_name);
+	}
+	
+	/*先初始化判断有没有缓存，有的话先展示缓存内容*/
+	var app_config = common.getCache('config',true);
+	if(app_config){
+		setData(app_config);
+	}
+	common.http('Merchantapp&a=config', {'client':client}, function(data){
+		
+		common.setCache('app_config',data,true);
+		setData(data);
+	});
+	//点击二维码进入二维码页面
+	mui('.mui-bar-nav').on('tap', 'a', function(e) {
+		openWindow({
+			url:'qr_code.html',
+			id:'qr_code'
+		});
+	});
+	//快店管理点击
+	mui('.mui-content').on('tap','.shop_list',function(e){
+		openWindow({
+				url:'shop_list.html',
+				id:'shop_list'
+			});
+	});
+	//餐饮管理点击
+	mui('.mui-content').on('tap','.eat_list',function(e){
+		openWindow({
+				url:'shop_list_col.html',
+				id:'shop_list_col'
+			});
+	});
+	//点击店铺管理
+	mui('.mui-content').on('tap','.shop_mange',function(e){
+		openWindow({
+			url:'shop_management.html',
+			id:'shop_management'
+		});
+	});
+	//打印机管理
+	mui('.mui-content').on('tap','.printer',function(e){
+		openWindow({
+			url:'printer.html',
+			id:'printer'
+		});
+	});
+	var exitLayer = -1;
+	function appbackmonitor(){
+		if(exitLayer != -1){
+			window.pigcmspackapp.closewebview(2);
+		}else{
+			layer.closeAll();
+			exitLayer = layer.open({
+				content: '您确定要退出程序吗？再次按返回键将退出。'
+				,btn: ['确定', '取消']
+				,yes: function(index){
+					window.pigcmspackapp.closewebview(2);
+					layer.close(index);
+				}
+				,end: function(index){
+					exitLayer = -1;
+				}
+			});
+		}
+	}
+	mui('.mui-content').on('tap','.sign_out',function(e){
+		var btnArray = ['否', '是'];
+		mui.confirm('您确认要退出登录吗？', '退出登录', btnArray, function(e){
+			if(e.index == 1){
+				common.removeAllCache(false);
+				common.removeAllCache(true);
+				common.removeAllCache(false);
+				common.removeAllCache(true);
+				location.href = 'login.html';
+			}
+		})
+	});
+
+</script>
+</body>
+</html>

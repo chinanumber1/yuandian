@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>新建优惠</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link href="css/mui.poppicker.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/new_discount.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">新建优惠</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="mui-card">
+			<!--页眉，放置标题-->
+			<div class="mui-card-header">
+				<span class="left_style" >优惠条件</span>
+				<ul>
+					<li><input type="number" name="" class="full_money" placeholder="请输入金额" /></li>
+					<li>* 满足条件的金额</li>
+				</ul>
+			</div>
+			<div class="mui-card-header">
+				<span class="left_style">优惠金额</span>
+				<ul>
+					<li><input type="text" name="" class="reduce_money" placeholder="请输入金额"/></li>
+					<li>* 可优惠的金额</li>
+				</ul>
+			</div>
+			<div class="mui-card-header new_select" >
+				<span class="left_style">优惠类型</span>
+				<b id="showUserPicker1"> <span id="change_text" style="color:black;">新单</span> <i class="mui-pull-right"></i></b>
+			</div>
+			<div class="mui-card-header new_select" >
+				<span class="left_style tonggui">同享规则<sup></sup></span>
+				<b id="showUserPicker2"> <span id="change_text2" style="color:black;">与限时优惠、店铺/分类折扣、会员优惠不同享</span> <i class="mui-pull-right"></i></b>
+			</div>
+		</div>
+		<div class="mui-card">
+			<div class="mui-card-header" style="justify-content: space-between;">
+				<span class="left_style">使用状态</span>
+				<div class="mui-switch mui-active">
+					<div class="mui-switch-handle"></div>
+				</div>
+			</div>
+		</div>
+		<!--保存-->
+		<button type="button" class="keep_juan">保 存</button>
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<!--筛选用到js-->
+<script src="js/mui.picker.js"></script>
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+mui.init();
+var ticket = common.getCache('ticket');
+var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+var store_id=$.getUrlParam('store_id');
+var discountId=$.getUrlParam('discountId');
+var typeArr=[{value: '0',text: '新单'}, {value: '1',text: '满减'}];//优惠类型数组
+var shareArr=[{value: '0',text: '与限时优惠、店铺/分类折扣、会员优惠不同享'}, {value: '1',text: '与限时优惠、店铺/分类折扣、会员优惠同享'}];//同享规则数组
+var type=0;//默认选中 优惠类型
+var share=0;//同享规则 默认选中
+common.http('WapMerchant&a=discountModify',{'ticket':ticket,'client':client,'store_id':store_id,'discountId':discountId},function(data){
+	console.log(data);
+	if(data!=null){
+		$('.full_money').val(data.full_money);
+		$('.reduce_money').val(data.reduce_money);
+		data.status==1?$('.mui-switch').addClass('mui-active'):$('.mui-switch').removeClass('mui-active');
+		type=data.type;
+		share=data.is_share;
+		$.each(typeArr,function(i,val){
+			if(data.type==val.value){
+				$('#change_text').text(val.text).css('color','#333');
+			}
+		});
+		$.each(shareArr,function(i,val){
+			if(data.is_share==val.value){
+				$('#change_text2').text(val.text).css('color','#333');
+			}
+		});
+	}else{
+		$('input').val('');
+	}
+});
+
+
+//保存按钮点击
+mui('.mui-content').on('tap','.keep_juan',function(e){
+	var full_money=$('.full_money').val();
+	var reduce_money=$('.reduce_money').val();
+	var status=$('.mui-switch').is('.mui-active')?1:0;
+	if($('input').val()!=''){
+		common.http('WapMerchant&a=discountSave',{'ticket':ticket,'client':client,'store_id':store_id,'discountId':discountId,'full_money':full_money,'reduce_money':reduce_money,'status':status,'type':type,'is_share':share},function(data){
+			console.log(data);
+			if(data.length==0){
+				mui.toast('保存成功');
+				if(common.checkApp()){
+					setTimeout(function(){
+						if(common.checkAndroidApp()){
+							window.pigcmspackapp.closewebview(2);
+						}else{
+							common.iosFunction('closewebview/2');
+						}
+					},2000);
+				}else{
+					setTimeout(function(){
+						history.go(-1);
+						window.addEventListener('pageshow', function(event) {
+						  	window.document.execCommand('Refresh');
+						});
+					},2000); 
+				}	 
+			}
+		});
+	}else{
+		mui.toast('请完善所有值');
+	}
+});
+
+
+
+//筛选
+(function($, doc) {
+	$.init();
+	mui('.mui-content').on('tap','#showUserPicker1',function(e){
+		var _getParam = function(obj, param) {
+			return obj[param] || '';
+		};
+		//普通示例
+		var userPicker = new $.PopPicker();
+		userPicker.setData(typeArr);
+		userPicker.pickers[0].setSelectedValue(type);
+		userPicker.show(function(items) {
+			document.getElementById('change_text').innerHTML = items[0].text;
+			document.getElementById('change_text').style.color='#535353';
+			type=items[0].value;
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+	});
+	// 同享规则
+	mui('.mui-content').on('tap','#showUserPicker2',function(e){
+		var _getParam = function(obj, param) {
+			return obj[param] || '';
+		};
+		//普通示例
+		var userPicker = new $.PopPicker();
+		userPicker.setData(shareArr);
+		userPicker.pickers[0].setSelectedValue(share);
+		userPicker.show(function(items) {
+			document.getElementById('change_text2').innerHTML = items[0].text;
+			document.getElementById('change_text2').style.color='#535353';
+			share=items[0].value;
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+	});
+})(mui, document);
+			
+		
+//开关
+mui.init({
+		swipeBack:true //启用右滑关闭功能
+});
+
+
+
+//提示语功能
+mui('.mui-content').on('tap','.tonggui',function(e){
+  	mui.alert('同享，则所有店铺优惠用户均可享用；不同享，则满减优惠（含新单，满减）用户不能享用，其他店铺优惠（含限时优惠、店铺/分类折扣、会员优惠）正常享用', function() {
+    });
+});
+</script>
+</body>
+</html>

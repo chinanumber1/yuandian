@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>创建群发</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+	<link href="css/mui.picker.css" rel="stylesheet" />
+	<link href="css/mui.picker.min.css" rel="stylesheet" />
+	<link href="css/mui.poppicker.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/create_mass.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">创建群发</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="mui-card jifen">
+	    	<div class="mui-card-footer">
+	    		<ul>
+	    			<li>当前积分  (分)</li>
+	    			<li class="sh_ji">0</li>
+	    		</ul>
+	    		<a href="javascript:void(0);" class="add">去增加</a>
+	    	</div>
+	    </div>
+	    <!--群发对象-->
+	    <div class="mui-card">
+	    	<div class="mui-card-content select_change class_change">
+    			<span class="left_style">群发对象</span>
+    			<ul id="mass_obj">
+    				<li class="mui-clearfix" ><span>请选择群发对象</span><i class="mui-pull-right"></i></li>
+    			</ul>
+    		</div>
+    		<div class="mui-card-content select_change class_change">
+    			<span class="left_style">群发内容</span>
+    			<ul id="mass_cont">
+    				<li class="mui-clearfix" ><span>请选择群发内容</span><i class="mui-pull-right"></i></li>
+    			</ul>
+    		</div>
+    		<div class="mui-card-footer delate_jifen">
+    			<span>当前需要扣除的积分</span>
+    			<p><span id="score">0</span>分</p>
+    		</div>
+	    </div>
+	    <div class="buttom">
+	    	提交
+	    </div>
+	</div>
+	<!---->
+	<div id="middlePopover" class="mui-popover">
+		<p class="close"><i></i></p>
+		<img src="images/49-6_06.png"/>
+		<p class="index_sort">您现在的首页排序储蓄值为<b class="savings">0</b></p>
+		<p class="exchange">(一个首页排序储存值可以兑换<b class="customer_one_score_exchange">0</b>积分)</p>
+		<input type="tel" name="" id="" value="" placeholder="请输入储蓄值" />
+		<span class="huan">兑换</span>
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/mui.picker.js"></script> 
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    mui.init();
+    var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var obj=[];//群发对象
+	var content=[];//群发内容
+	var type='';//选择群发对像 传值
+	var source_id='';//选择群发内容传值
+	var score1='';
+	function selectChange(lists,all){
+		if(all==null){
+
+		}else{
+			$.each(all,function(i,val){
+				var goods_id_list ={'value':'','text':''};
+				goods_id_list.text=val.title;
+				goods_id_list.value=val.pigcms_id;
+				
+				content.push(goods_id_list);
+			});
+		}
+		
+
+		$.each(lists,function(i,val){
+			var objChd ={'value':'','text':'','score':''};
+			if(val.name!=undefined){
+				objChd.text=val.name+'('+val.value+')';
+					objChd.value=val.id;
+					objChd.score=val.value;
+				if(val.name=="全部粉丝"){
+					
+					obj.unshift(objChd)
+				}else{
+					obj.push(objChd);
+				}
+			}else{
+				objChd.text=val.name+'('+val.value+')';;
+				objChd.value=val.id;
+				objChd.score=val.value;
+				obj.push(objChd);
+			}
+			
+		});
+	}
+	function change(){
+		common.http('Merchantapp&a=custom_fans_list',{'ticket':ticket,'client':client},function(data){
+			console.log(data);
+			selectChange(data.fans_list,data.list);
+			$('.sh_ji').text(data.plat_score);
+			$('.savings').text(data.storage_indexsort);
+			$('.customer_one_score_exchange').text(data.customer_one_score_exchange);
+		});
+	}
+	change();
+	(function($, doc) {
+		$.init();
+		
+		mui('.mui-content').on('tap','#mass_obj',function(e) {
+			//普通示例
+			var userPicker = new $.PopPicker();
+			//console.log(obj);
+			userPicker.setData(obj);
+			var that=this;
+			userPicker.show(function(items) {
+				that.children[0].children[0].innerHTML = items[0].text;
+				that.children[0].children[0].style.color="#333333";
+				type=items[0].value;
+				document.getElementById('score').innerText=items[0].score;
+				score1=items[0].score;
+			}, false);
+		
+		});
+		
+	})(mui, document);
+	(function($, doc) {
+		$.init();
+		
+		mui('.mui-content').on('tap','#mass_cont',function(e) {
+			//普通示例
+			var userPicker = new $.PopPicker();
+
+			userPicker.setData(content);
+			var that=this;
+			userPicker.show(function(items) {
+				if(items[0].text!=undefined){
+					that.children[0].children[0].innerHTML = items[0].text;
+					that.children[0].children[0].style.color="#333333";
+					source_id=items[0].value;
+				}
+			}, false);
+		
+		});
+		
+	})(mui, document);
+	var mask = mui.createMask();
+		
+	//增加积分
+	mui('.mui-content').on('tap','.add',function(e){
+		mask.show();
+	    mui('#middlePopover').popover('show');
+	  	$('#middlePopover input').val('');
+	    //兑换点击
+	    mui('#middlePopover').on('tap','.huan',function(e){
+	    	var val=Number($('#middlePopover input').val());
+	    	var text1=Number($('.savings').text());
+	    	console.log(val);
+	    	if(val!=''){
+	    		if(val<=0){
+	    			mui.toast('请输入大于等于1的正整数');
+	    		}else{
+	    			if(val>text1){
+		    			mui.toast('您没有足够的排序储蓄值');
+		    		}else{
+		    			common.http('Merchantapp&a=ChangeScore',{'ticket':ticket,'client':client,'score':val},function(data){
+		    			console.log(data);
+			    			if(data.error_code==0){
+			    				mui.toast('兑换成功');
+			    				$('.sh_ji').text(data.current_score);
+			    				$('.savings').text(data.storage_indexsort);
+			    				mask.close();
+								mui('#middlePopover').popover('hide');
+			    			}
+			    		});
+		    		}
+	    		}
+	    		
+	    		
+	    	}else{
+	    		if(val==0){
+	    			mui.toast('请输入大于等于1的正整数');
+	    		}else{
+	    			mui.toast('请输入储蓄值');
+	    		}
+	    		
+	    		
+	    	}
+	    });
+	});
+	
+	//蒙层点击关闭
+	mui('body').on('tap','.mui-backdrop',function(e){
+		mask.close();
+		mui('#middlePopover').popover('hide');
+	});
+	mui('body').on('tap','.close i',function(e){
+		mask.close();
+		mui('#middlePopover').popover('hide');
+	});
+	// 保存提交按钮点击
+	mui('.mui-content').on('tap','.buttom',function(e){
+		if(type!=''&&source_id!=''){
+			common.http('Merchantapp&a=custom_send',{'ticket':ticket,'client':client,'type':type,'source_id':source_id,'score':score1},function(data){
+				console.log(data);
+				if(data.length==0){
+					mui.toast('创建成功');
+					if(common.checkApp()){
+						setTimeout(function(){
+							if(common.checkAndroidApp()){
+														window.pigcmspackapp.closewebview(2);
+													}else{
+														common.iosFunction('closewebview/2');
+													}
+						},2000);
+					}else{
+						setTimeout(function(){
+							history.go(-1);
+							document.execCommand('Refresh');
+						},2000); 
+					}	
+				}
+			});
+		}else{
+			mui.toast('请选择群发对象和群发内容');
+		}
+		
+	});
+</script>
+</body>
+</html>

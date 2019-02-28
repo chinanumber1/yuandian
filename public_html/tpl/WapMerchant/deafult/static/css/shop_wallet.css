@@ -1,0 +1,171 @@
+﻿.wallet-container{
+	margin: 5px 10px;
+	font-size: 12px;
+	color: #7c7c7c;
+	border-bottom: 1px solid #f0f0f0;
+}
+.wallet-detail-container{
+	float: left;
+}
+.wallet-title{
+	letter-spacing: 2px;
+}
+#wallet-img{
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin-left: 10px;
+	border-radius: 50%;
+}
+.wallet-detail{
+	display: inline-block;
+}
+.strong{
+	font-size: 18px;
+}
+.wallet-operation{
+	display: block;
+	float: right;
+	margin: 1em 0;
+	width: 99px;
+	color: #7c7c7c;
+	letter-spacing: 1px;
+	text-align: right;
+	border-left: 1px solid #dfdfdf;
+}
+.wallet-operation:hover{
+	color: #666;
+	border-left: 1px solid #dfdfdf;
+}
+.wallet-operation:visited{
+	color: #7c7c7c;
+	border-left: 1px solid #dfdfdf;
+}
+.wallet-operation i{
+	color: #ff8d79;
+}
+.wallet-btn-container{
+	float: left;
+  	width: 30%;
+  	text-align:center;
+}
+/*.wallet-btn-container:last-child{
+  	width: 37%;
+  	text-align:right;
+}*/
+.wallet-btn{
+	display: inline-block;
+	margin: 5px 0;
+	padding: 0px 15px 3px;
+	text-align: center;
+	color: #fff;
+	line-height: 40px;
+	border-radius: 10px;
+	height: 60px;
+}
+.wallet-btn:visited{
+	
+	color: #fff;
+}
+.wallet-btn:last-child{
+	margin-right: 0;
+}
+.wallet-btn i{
+	font-size: 40px;
+}
+.wallet-btn p{
+	margin: -16px 0 0 0;
+	padding: 0;
+	font-size: 14px;
+}
+select[name='bank_code']{
+	background: #fff;
+	width: 94%;
+}
+input[disabled='disabled']{
+	background: none;
+}
+
+.search-container {
+	margin: 0 2%;
+	width: 96%;
+}
+
+.header-fliter-container {
+	padding: 15px 0 10px;
+	text-align: center;
+	color: #08af94;
+}
+
+.header-fliter-container:hover {
+	background: #eee;
+}
+.pigcms-container {
+	padding-top: 5px;
+	margin-bottom: 0;
+}
+ul,li{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#draw-list-wrapper {
+	position:relative; 
+	top: 5px;
+	width:100%;
+	height: 100%;
+	overflow:auto;
+}
+#draw-list-scroller {
+	position:absolute;
+	/*	-webkit-touch-callout:none;*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	width:100%;
+}
+#draw-list-ul{
+	width: 100%;
+	padding-bottom: 90px;
+}
+.draw-list-container{
+	background: #fff;
+	margin-bottom: 5px;
+	padding: 15px;
+}
+.draw-list-container p{
+	margin: 0;
+	padding: 0;
+}
+.draw-detail{
+	font-size: 14px;
+	color: #565656;
+}
+
+/* 小屏支持*/
+@media (max-width: 330px){
+	.draw-detail{
+		font-size: 13px;
+	}
+}
+.draw-money{
+	float: right;
+}
+.draw-money strong{
+	font-weight: normal;
+	font-size: 14px;
+	color: #e36e34;
+}
+.id-date-type{
+	margin-top: 15px!important;
+}
+.draw-id{
+	color: #b2b2b2;
+}
+.draw-date{
+	margin-left: 10px;
+	color: #b2b2b2;
+}
+.draw-type{
+	float: right;
+	font-size: 14px;
+	color: #565656;
+}

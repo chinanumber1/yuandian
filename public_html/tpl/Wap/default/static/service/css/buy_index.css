@@ -1,0 +1,567 @@
+html, body {
+  min-height: 100%;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html, body {
+  height: 100%;
+  overflow-x:hidden;
+}
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+ul,ol{list-style:none;}
+a{text-decoration:none;color:#9F9F9F;}
+body, button, input, select, textarea {
+  font: 16px/1.5 tahoma,arial,sans-serif;
+}
+body {
+  background: #F4F4F4;
+}
+body {
+  color: #333;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+.lt{
+	float:left;
+}
+.rg{float:right;}
+.lt:after,.rg:after{
+	content:" ";
+	display:block;
+	clear:both;
+}
+/*头部样式*/
+.buy_header{background-color:#EFEFEF;height:40px;line-height:40px;}
+.buy_header span{
+	display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/return.png) center no-repeat;
+    margin-left: 5%;
+    vertical-align: middle;
+}
+.buy_header b{
+	margin-left:31%;
+}
+
+/*中心样式*/
+.buy_shop{
+	border-bottom:#ccc 1px dotted;
+	background:#fff;
+}
+.buy_shop p{
+	height:40px;
+	line-height:40px;
+	font-size: 16px;
+}
+.buy_shop p s{
+	display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/yaoqiu.png) center no-repeat;
+    margin-left: 3%;
+    background-size: 80%;
+    margin-right: 3%;
+    color: #FFD161;
+    vertical-align: middle;
+}
+.buy_shop textarea{
+	display:block;border-style:none;
+	width:86%;
+	margin:0 5%;
+	padding:2%;
+	resize : none;
+	background:transparent;
+}
+.buy_shop ul li{
+	float: left;
+    font-size: 14px;
+    margin: 4% 17px;
+}
+.buy_shop:after{
+	content:" ";
+	display:block;
+	clear:both;
+}
+.buy_shop ul li a{
+	border: 1px solid #e2dede;
+	padding:10px;
+	border-radius:20px;
+}
+.buy_shop ul li a i{
+	display:inline-block;
+	width:20px;height:20px;
+	background:url('../images/add.png') center no-repeat;
+	vertical-align:text-bottom;
+}
+/*时间*/
+.buy_time{
+	width:100%;
+	border-top:1px solid #ccc;
+	background: #fff;
+	/*height:120px;*/
+	margin-top:10px;
+}
+.buy_time ul li{
+	padding: 12px;
+	font-size: 16px;
+}
+.active_click{
+	display:inline-block;
+	width:20px;height:20px;
+	background:url('../images/success.png') center no-repeat;
+	background-size:100%;
+	margin-right:8px;
+	vertical-align:text-top;
+}
+.buy_time ul:after,.buy_tip div:after,.detailed{
+	content:" ";
+	display:block;
+	clear:both;
+}
+.active_out{
+	display:inline-block;
+	width:20px;height:20px;
+	border:1px solid #ccc;
+	border-radius:50%;margin-right:8px;
+	vertical-align:text-top;
+}
+.buy_time ul,.detailed{border-bottom:1px solid #ccc;}
+.give_re{position:relative;}
+.buy_give{
+	padding-top: 15px;
+    top: 0;
+    left:3%;
+    position: absolute;
+    font-size: 16px;
+}
+.give_re a{
+	position:absolute;
+	left:25%;
+	top:18px;
+
+}
+dt{
+	font-size: 16px;
+}
+.give_re i{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background:url('../images/enter1.png') center no-repeat;
+	background-size: 100%;
+	position:absolute;
+	top:20px;
+	left:93%;
+}
+label{
+	font-size: 16px;
+}
+/*指定地址显示隐藏*/
+.detailed p{
+	padding: 10px 0;
+}
+.detailed p:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.detailed p i{
+	float: right;
+	margin-right: 3%;
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background:url('../images/enter1.png') center no-repeat;
+	background-size: 100%;
+	margin-top: 14px;	
+	    position: relative;
+    top: -37px;
+}
+.detailed p span{
+	margin-left: 23%;
+	position: relative;
+	color: #404040;
+	font-size: 14px;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    width: 60%;
+}
+#adress_html p span{
+	color: #404040;
+	font-size: 14px;
+}
+dl.list .dd-padding, dl.list dt, dl.list dd>.react {
+    padding: 0.28rem 1.2rem;
+}
+dl.list .dd-padding, dl.list dt, dl.list dd>.react {
+    padding: 0.28rem 1.2rem;
+}
+.kv-line {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    margin: 1.2rem 0;
+    font-size: 14px;
+}
+/*时间*/
+.buy_save{
+	width:100%;
+	background: #fff;
+	height:280px;
+	margin-top:15px;
+
+}
+.order-timefield {
+    height: 44px;
+    margin-left:15px;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    font-size:14px;
+}
+.order-timefield-label{
+	
+	line-height:44px;
+	margin-right:15%;
+}
+.order-timefield i{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background:url('../images/enter.png') center no-repeat;
+	position:absolute;
+	top:15px;
+	left:93%;
+}
+.shop_money,.paysong{
+	height:60px;
+	background:#FFF;
+	border-bottom: 1px solid #f0f0f0;
+}
+.shop_money dl{margin-left:15px;margin-top:5px;}
+.shop_money dl dd{color:#06c1ae;font-size:12px;}
+.shop_money input{
+	margin-top: 18px;
+    text-align: right;
+    border: none;
+    margin-right: 2%;
+}
+.paysong{line-height:60px;}
+.paysong label{margin-left:15px;font-size: 16px;}
+.paysong span{margin-right:5%;}
+.paysong span i{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	background:url('../images/feedback.png') center no-repeat;
+	background-size: contain;
+	margin-right:8px; 
+	vertical-align: sub;
+}
+.buy_tip{
+	background:#FFF;
+	border-bottom: 1px solid #f0f0f0;
+	padding-bottom: 10px;
+}
+.buy_tip div{
+	margin-top:15px;
+	margin-left:15px;
+	height:32px;
+}
+.buy_tip div span{
+	font-size:12px;
+	border:1px solid #06c1ae;
+	color:#06c1ae;
+	padding:2px;
+	border-radius:1.5px;
+	position:relative;
+	margin-left:20%;
+}
+/*.buy_tip div span i{
+	display:inline-block;
+	width:20px;height:20px;
+	background:url('../images/kuo2.png') center no-repeat;
+	background-size:100%;
+	position:absolute;
+	top:-3px;
+	left:93%;
+}*/
+.add_money{
+	background: #06c1ae;
+}
+.buy_tip div a{
+	display:inline-block;
+	height:30px;
+	width:50px;
+	border-radius:20px;
+	/*background:#06c1ae;*/
+	margin-right:3%;
+}
+.buy_tip div a i{
+	display:inline-block;
+	width:25px;
+	height:25px;
+	background:#fff;
+	border:1px solid #fff;
+	border-radius:50%;
+	margin:2px;
+}
+.remove_money{
+	background:#ccc;
+	position:relative;
+}
+.remove_money i{
+	position:absolute;
+	right:38%;
+}
+/**/
+.buy_tip p{margin-left:15px; width:100%;}
+.buy_tip p button{
+	margin-top:20px;
+	margin-right:10px;
+	padding:5px 9px;
+	font-size:13px;
+	background:#fff;border-radius:3px;
+	border:1px solid #ccc;
+}
+.money_tip{
+	margin-top:10px;
+	margin-left:15px;
+	border-bottom:1px solid #06c1ae;
+}
+.buy_tip .buy_active{
+	border-color: #06c1ae;
+	color:#06c1ae;
+}
+.money_tip input{border:none;width: 95%;}
+footer{
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index:100;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255,254,253,1);
+    border-top: 1px solid #cacaca;
+    line-height:50px;
+}
+footer span{margin-left:40%;font-size: 16px;}
+footer span b{color:#06c1ae;}
+footer button{
+	padding:13px 33.5px;
+	border:none;background:#ccc;
+	color:#fff;
+}
+.bg{
+	background:#06C1AE;
+	color:#fff;
+}
+/*点击选择送达时间*/
+.mask {
+    position: absolute;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+}
+.receive_time_dialog {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background: #fff;
+}
+.receive_time_top {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    overflow: hidden;
+    font-size: 14px;
+}
+.receive_date_wrap {
+    overflow: hidden;
+    max-height: 220px;
+    width: 30%;
+    text-align: center;
+    background: #f5f5f5;
+}
+.receive_date_list li{line-height:48px;}
+.receive_date_list li.hvr {
+
+    background: #fff;
+    border-color: #f3f3f3;
+}
+.receive_time_wrap {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    overflow:scroll;
+    max-height: 220px;
+}
+.receive_time_list li.hvr {
+    position: relative;
+    color: #348bed;
+}
+.receive_time_list li {
+    height: 48px;
+    padding: 0 35px 0 15px;
+    border-bottom: 1px solid #fff;
+}
+.receive_date_list li {
+    height: 48px;
+    border-bottom: 1px solid #e7e7e7;
+}
+.receive_time_wrap li{
+	line-height:48px;
+}
+
+.receive_time_bottom {/*取消按钮*/
+    font-size: 16px;
+    text-align: center;
+    border-top: 1px solid #e4e4e4;
+    padding:17px 0;
+}
+/*配送费详情*/
+.delivery_fee_details{
+	color:#fff;
+	position:fixed;
+	top:20%;
+	z-index:10000;
+	width: 50%;
+	height:100%;
+    left: 25%;
+    height:100%;
+}
+.delivery_fee_details h4{
+	text-align:center;
+	font-size: 14px;
+}
+.delivery_fee_details .fee_money{
+	text-align:center;
+}
+.delivery_fee_details .fee_money b{
+	font-size:35px;
+	font-weight:normal;
+	margin-right: 10px;
+}
+.delivery_fee_details .fee_details{
+	text-align:center;font-size:15px;
+}
+.delivery_fee_details .fee_details b{
+	margin-right: 10%;
+    font-weight: normal;
+}
+.fee_error {
+	display:block;
+	width:32px;
+	height:32px;
+	color:#fff;
+	background:url('../images/cuo2.png') center no-repeat;
+	position:absolute;
+	z-index:100000;
+	left:43%;
+	bottom:31%;
+
+}
+@media (min-width:320px) { 
+	.buy_shop ul li {
+	    float: left;
+	    margin: 5% 13px;
+	}
+	.buy_tip div span i{background-size:105%;top:-1px;.buy_tip div span i}
+	.buy_tip div span{
+		margin-left:5%;
+	}	
+	footer button{
+		padding: 13px 16.5px;
+		padding-right:17px;
+	}		
+			
+}
+/* 判断iphone4-iphone4s *//* 横屏竖屏判断方法与ipad一样 */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px){
+/* style */
+	
+}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px){
+/* style */
+	
+}
+
+@media (min-width:360px) {
+	html, body {
+	    height: 110%;
+	    overflow-x: hidden;
+	    /* min-height: 620px; */
+	}
+}
+@media (min-width:375px) {
+	
+	.buy_shop ul li {
+	    float: left;
+	    margin: 5% 21px;
+	} 
+	.buy_tip p button {
+	    padding: 11px 15px;
+	    
+	}
+	footer button{
+		padding:13px 33.5px;
+	/*	padding-right:34px;*/
+		border:none;background:#ccc;
+		color:#fff;
+	}
+	.buy_tip div span {
+	    margin-left: 20%;
+	}
+}
+@media (min-width:375px) {
+	
+}
+@media (min-width:410px) {
+	.buy_shop ul li {
+	    float: left;
+	    margin: 5% 11px;
+	}
+	.buy_tip p button {
+	    padding: 11px 20px;
+	    
+	}
+	footer button{
+		padding:13px 45px;
+		padding-right:45.5px;
+		border:none;background:#ccc;
+		color:#fff;
+	}
+	.buy_tip div span {
+	    margin-left: 24%;
+	}
+	
+}
+@media (min-width:435px) {
+	
+} 
+#adress_html{
+	    border-right: 1px solid #d5d5d5;
+    width: 59%;
+    font-size: 16px;
+    color: #333;
+}

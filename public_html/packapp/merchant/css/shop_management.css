@@ -1,0 +1,234 @@
+ul{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-bar-nav a.mui-pull-right{
+	line-height: 44px;
+	font-size: 14px;
+}
+.mui-bar-nav a.mui-pull-right i{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../images/6-_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 5px;
+}
+/*导航条*/
+.mui-slider-indicator{
+	background: #ffa200;
+}
+.mui-control-item{
+	list-style: none;
+	margin: 0;
+	width: 25%!important;padding:5px  0!important;
+	text-align: center!important;
+	
+}
+.mui-segmented-control .mui-control-item{
+	line-height: 1.4;
+}
+.mui-control-item li{
+	font-size: 13px;
+	color: #FFFFFF;
+	text-align: center;
+}
+.mui-control-item.mui-active li:last-child{
+	width:40px;
+	border-bottom:3px solid #FFFFFF ;
+	margin: 0 auto;
+}
+/*卡片视图区域*/
+.mui-card .mui-card-header{
+	padding: 0;
+	margin-left: 10px;
+}
+.mui-card .mui-card-header h4{
+	font-size: 14px;
+	color: #ffa200;
+	
+}
+.mui-card .mui-card-header .normal{
+	display: inline-block;
+	width: 55px;
+	height: 25px;
+	background: url(../images/6-_07.png) center no-repeat;
+	background-size: 55px 19px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 26px;
+	color: #FFFFFF;
+}
+.mui-card .mui-card-header .wait_examine{
+	display: inline-block;
+	width: 55px;
+	height: 25px;
+	background: url(../images/6-_22.png) center no-repeat;
+	background-size: 55px 19px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 26px;
+	color: #FFFFFF;
+}
+.mui-card .mui-card-header .wait_close{
+	display: inline-block;
+	width: 55px;
+	height: 25px;
+	background: url(../images/6-_24.png) center no-repeat;
+	background-size: 55px 19px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 26px;
+	color: #FFFFFF;
+}
+.mui-card .mui-card-content{
+	margin-left: 10px;
+}
+.mui-card .mui-card-content ul li{
+	margin: 0;
+	font-size: 12px;
+	margin: 5px 0;
+	color: #696969;
+}
+.mui-card .mui-card-content ul li i{
+	display: inline-block;
+	width: 11px;height:13.5px;
+	background: url(../images/6-_11.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 5px;
+}
+.mui-card .mui-card-content ul li b{
+	display: inline-block;
+	width: 11px;height: 14px;
+	background: url(../images/6-_15.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 5px;
+}
+.mui-card .mui-card-footer .btn_mange{
+	border-color: #FFA200;
+	color: #FFA200;
+}
+.mui-card-footer button{
+	height: 33px;
+	line-height: 23px;
+	padding: 0 12px;
+	display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.mui-card .mui-card-footer {
+	margin-left: 10px;
+	padding: 10px 10px 10px 0;
+}
+.mui-card .mui-card-footer .btn_mange i{
+	display: inline-block;
+	width: 12px;height: 12px;
+	background: url(../images/6-6.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.mui-card .mui-card-footer .btn_penci,.mui-card .mui-card-footer .btn_open{
+	background: #FFA200;
+	color: #FFFFFF;
+	border: none;
+
+}
+.mui-card .mui-card-footer .btn_close{
+	border-color: #FFA200;
+	color: #FFA200;
+
+}
+/*底部*/
+
+.mui-bar-tab .shop-home{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/1-_36.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+
+.mui-tab-item span{
+	font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mui-bar-tab .shop-plus{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/1-_38.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-bar-tab .shop-take{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/1-_41.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-bar-tab .shop-my{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/1-_43.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-active span{
+	color:#FFA200;
+}
+.mui-active .shop-home{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/6-7_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-active .shop-my{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/33-1.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-bar-tab {
+	background: #FFFFFF;
+}
+.mui-active .shop-take{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/6-23_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+
+
+/*下拉刷新样式*/
+.pullup1,.loading1{
+	text-align: center;
+	padding:5px 0 10px 0;
+	font-size: 14px;
+	color: #999;
+}
+.loading1 img{
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}

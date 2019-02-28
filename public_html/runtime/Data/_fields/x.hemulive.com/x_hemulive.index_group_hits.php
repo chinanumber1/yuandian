@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'group_id', 1 => 'ip', 2 => 'time', '_autoinc' => false, '_type' => array ( 'group_id' => 'int(11)', 'ip' => 'varchar(30)', 'time' => 'int(11)', ), );?>

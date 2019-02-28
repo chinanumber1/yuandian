@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+<meta charset="utf-8" />
+<title>店员中心</title>
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name='apple-touch-fullscreen' content='yes' />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="address=no" />
+<link href="css/pigcms.css" rel="stylesheet" />
+</head>
+<body>
+	<section class="public pageSliderHide">
+		<div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+		<div class="content">餐饮</div>
+	</section>
+	<section class="meal p40">
+		<div class="meal_list">
+			<ul>
+				<li class="book">
+					<a href="foodshop_list.html" data-webview="true">
+						<div class="tit">
+							<span>订单列表</span>
+						</div>
+						<div class="con">
+							<dl>
+								<dd>
+									<div class="num" id="book_count">0</div>
+									<div class="ex">预订中</div>
+								</dd>
+								<dd>
+									<div class="num" id="confirm_count">0</div>
+									<div class="ex">待确认菜品</div>
+								</dd>
+								<dd>
+									<div class="num" id="eating_count">0</div>
+									<div class="ex">就餐中</div>
+								</dd>
+							</dl>
+						</div>
+					</a>
+				</li>
+				<li class="table">
+					<a href="foodshop_table_list.html" data-webview="true">
+						<div class="tit">
+							<span>桌台列表</span>
+						</div>
+						<div class="con">
+							<dl>
+								<dd>
+									<div class="num" id="lock_count">0</div>
+									<div class="ex">锁定</div>
+								</dd>
+								<dd>
+									<div class="num" id="open_count">0</div>
+									<div class="ex">解锁</div>
+								</dd>
+							</dl>
+						</div>
+					</a>
+				</li>
+				<li class="row">
+					<a href="foodshop_row_list.html" data-webview="true">
+						<div class="tit">
+							<span>排号列表</span>
+						</div>
+						<div class="con">
+							<dl>
+								<dd>
+									<div class="num" id="queue_count">0</div>
+									<div class="ex">等待叫号</div>
+								</dd>
+							</dl>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<script src="scripts/jquery-1.8.3.min.js"></script>
+	<script src="scripts/fastclick.js"></script>
+	<script src="scripts/layer/layer.m.js"></script>
+	<script src="scripts/common.js"></script>
+	<script src="scripts/work/foodshop.js"></script>
+</body>
+</html>

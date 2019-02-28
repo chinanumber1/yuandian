@@ -1,0 +1,186 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-card{margin: 0;margin-top: 15px;}
+.mui-card .mui-card-header,.mui-card .mui-card-footer{
+	padding: 0;
+} 
+.left_style1{
+	margin: 10px 10px 10px 10px;
+	font-size: 14px;
+	color: #999999;
+}
+.left_style1 i{
+	display: inline-block;
+	width: 12px;height: 12px;
+	background: url(../images/12-_03.png) center no-repeat;
+	background-size: contain;
+}
+
+
+.left_style{
+	margin: 10px 10px 10px 10px;
+	font-size: 14px;
+	color: #404040;
+	width: 36%;
+}
+
+/*规格快样式*/
+.mui-card-header input{
+	border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #404040;
+}
+.attr_zhi{
+	width: 42%;
+}
+.mui-switch {
+    position: relative;
+    display: block;
+    width: 74px;
+    height: 30px;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+    -webkit-transition-property: background-color, border;
+    transition-property: background-color, border;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    background-color: #fff;
+    background-clip: padding-box;
+}
+.mui-switch .mui-switch-handle {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 1px;
+    width: 25px;
+    height: 25px;
+    ition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    -webkit-transition-property: -webkit-transform, width,left;
+    transition-property: transform, width,left;
+    border-radius: 16px;
+    background-color: #fff;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+}
+.mui-card-header i{
+	display: inline-block;
+	width: 20px;height: 44px;
+	background: url(../images/18-_03.png) center no-repeat;
+	    background-size: 20px 20px;
+	padding:0 18px;
+}
+
+.mui-card-header b{
+	display: inline-block;
+	width: 20px;height: 44px;
+	background: url(../images/18-_07.png) center no-repeat;	
+	    background-size: 20px 20px;
+	padding:0 18px;
+}
+.mui-card-header sub{
+	display: inline-block;
+	width: 20px;height: 44px;
+	background: url(../images/18-_09.png) center no-repeat;
+	    background-size: 20px 20px;
+	padding:0 18px;
+}
+.add_size{
+	margin:20px 0 15px  0;
+	width: 100%;height: 40px;
+	text-align: center;
+	color: #FFA200;
+	background: #FFFFFF;
+	line-height: 40px;
+	font-size: 16px;
+}
+.generate{
+	width: 90%;
+	margin: 0 5%;
+	background: #FFA200;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;color: #FFF;
+	border-radius: 5px;
+}
+
+/*表格样式*/
+.size_nexus{
+	width: 100%;
+	overflow: auto;
+}
+.size_nexus table{
+	width:auto;
+	font-size:12px ;
+}
+.size_nexus table thead th{
+	border: 1px solid #f1f1f1;
+	/*width:/ 110px;*/
+	height: 40px;
+	text-align: center;
+	color: #404040;
+	
+}
+.size_nexus table thead th span{
+	margin-left:5px ;
+}
+.size_nexus table thead{
+	background: #F6F6F6;
+}
+.size_nexus table tbody{
+	background: #FFFFFF ;
+}
+.size_nexus table tbody td input{
+	/*border: none;*/
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	width:55px;
+	margin-left: 5px;
+	height: 33px;
+    padding: 5px;
+}
+.size_nexus table tbody td span{
+	display: inline-block;
+	width: 55px;
+	/*margin-left: 5px;*/
+}
+.size_nexus table tbody .bianma input{
+	width: 110px;
+}
+.size_nexus table tbody td {
+	/*width: 110px;*/
+	vertical-align: middle;
+	font-size: 12px;
+	border: 1px solid #eee;
+	height: 40px;
+    padding: 0 7px;
+    text-align:center;
+}
+
+/*保存*/
+.mui-bar-tab a{
+	/*margin-top: 10px;*/
+	display: block;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #FFA200;
+	color: #FFFFFF;
+	font-size: 15px;
+}

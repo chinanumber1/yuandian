@@ -1,0 +1,202 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-card{margin: 0;margin-top: 15px;}
+.mui-card .mui-card-header,.mui-card .mui-card-footer{
+	padding: 0;
+} 
+
+.left_style{
+	display: inline-block;
+	margin: 10px 0 10px 10px;
+	font-size: 14px;
+	color: #404040;
+	width: 29%;
+}
+.left_style i{
+	display: inline-block;
+	width: 12px;height: 12px;
+	background: url(../images/12-_03.png) center no-repeat;
+	background-size: contain;
+	
+}
+.left_style em{
+	display: inline-block;
+	width: 12px;height: 12px;
+	background: url(../images/12-_03.png) center no-repeat;
+	background-size: contain;
+}
+input[type='text'],input[type='tel']{
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 55%;
+	font-size: 15px;
+	line-height: 40px;
+}
+/*第一块*/
+.content_style .mui-card .mui-card-content{
+    border-bottom: 1px solid #f1f1f1;
+    padding: 1px 0;
+}
+.content_style .mui-card .change{
+
+}
+/*第二块*/
+.change,.mui-card-footer{
+	display: block;
+	padding-top: 4px;
+}
+
+
+.change i.mui-pull-right,.classP i.mui-pull-right{
+	display: inline-block;
+	width: 15px;height: 8px;
+	background: url(../images/7-6_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: 7px;
+	margin-right: 2%;
+}
+.change p b,.classP p b{
+	display: inline-block;
+	padding: 10px 0;
+    width: 66%;
+    font-weight: normal;
+}
+.classP{
+	border-bottom: 1px solid #f1f1f1;
+
+}
+#bettly input{
+	width: 50%;
+}
+#bettly span.checked1{
+	display: inline-block;
+	width: 44px;
+	height: 42px;
+	line-height: 42px;
+	color: #fff;
+	background: #FFA200;
+	text-align: center;
+	margin-right: 3%;
+}
+
+
+.mui-card-footer ul:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.mui-card-footer ul{
+	/*padding: 10px 0;*/
+}
+.mui-card-footer ul li{
+	width: 46%;
+	padding: 6px 0 6px 10px;
+    line-height: 20px;
+}
+.mui-card-footer ul li b{
+	display: inline-block;
+	width: 19px;height: 19px;
+	background: url(../images/16-_06.png) center no-repeat;
+	background-size: contain;
+	margin-right: 5px;
+	vertical-align: bottom;
+}
+.mui-card-footer ul li.active b{
+	display: inline-block;
+	width: 19px;height: 19px;
+	background: url(../images/16-_03.png) center no-repeat;
+	background-size: contain;
+	margin-right: 5px;
+	vertical-align: bottom;
+}
+
+.change_add{
+	margin-top: 15px;
+}
+
+/*开关样式*/
+.mui-input-row .mui-switch {
+    float: right;
+    margin-top: 2px;
+     margin-right: 0; 
+}
+.mui-input-row{
+	margin-right: 3%;
+	padding: 10px 0;
+}
+.mui-switch{
+	margin-top: 3px;
+	/*margin-right: 2%;*/
+	/*margin-right: 3%;*/
+}
+.mui-switch.mui-active {
+    border-color: #FFA200;
+    background-color: #FFA200;
+}
+.mui-switch{
+	background: #f0f0f0;
+}
+ .mui-switch:before {
+	font-size: 13px;
+	position: absolute;
+	top: 3px;
+	right: 11px;
+	content: '关闭';
+	text-transform: uppercase;
+	color: #999;
+}
+
+ .mui-switch.mui-active:before {
+	right: auto;
+	left: 10px;
+	content: '开启';
+	color: #fff
+}
+
+
+.ling ul{
+	display: inline-block;
+	width: 60%;
+	vertical-align: middle;
+}
+
+.mui-input-row.mui-radio.mui-left{
+	    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    margin:0;
+}
+.mui-radio.mui-left input[type='radio']{
+	left: 0px;	
+}
+.mui-radio.mui-left label, .mui-checkbox.mui-left label {
+    padding-right: 10px;
+    padding-left: 30px;
+}
+
+
+
+/*保存*/
+a.add{
+
+	display: block;
+	width: 90%;
+	margin: 20px 5%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #FFA200;
+	color: #FFFFFF;
+	border-radius: 3px;
+	
+}

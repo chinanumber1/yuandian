@@ -1,0 +1,154 @@
+﻿body{
+	overflow-x: hidden;
+}
+.pigcms-main{
+	padding: 0;
+}
+.addWrap{ 
+	position:relative; 
+	width:100%;
+	margin:0; 
+	padding:0;
+}
+.addWrap .swipe{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	visibility: hidden;
+	position:relative;
+}
+.addWrap .swipe-wrap{
+	overflow:hidden;
+	position:relative;
+}
+.addWrap .swipe-wrap > div {
+	float: left;
+	width: 100%;
+	position:relative;
+}
+.img-responsive { 
+	display: block; 
+	width: 100%;  
+	height: 100px;
+}
+#position_wrap{
+	position: relative;
+	top: -30px;
+}
+#position{ 
+	position: absolute;
+	top: 12px;
+	width: 98%;
+	text-align: right;
+}
+#position li{
+	width:8px;
+	height:8px;
+	margin:0 2px;
+	display:inline-block;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	background-color:#555;
+}
+
+#position li.cur{
+	background:#fff;
+}
+
+.pigcms-container{
+	margin: 0;
+}
+#count-container{
+	background: #fff;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+}
+.index-count-container{
+	float: left;
+	width: 45.5%;
+	margin: 15px 0 0 3%;
+	border-radius: 10px;
+	color: #fff;
+	text-align: center;
+}
+.index-count{
+	margin: 0 auto;
+	height: 100%;
+	padding-bottom: 15px;
+}
+.index-count p{
+	padding: 0;
+	font-weight: normal;
+}
+.count-text{
+	margin: 15px 0 0 0;
+	font-size: 18px;
+}
+.count-title{
+	margin: 10px 0 0 0;
+	font-size: 14px;
+}
+#canvas-container{
+	position: relative;
+	background: #fff;
+	padding: 6px 5px 0 5px;
+	margin-bottom: 50px;
+}
+#canvas-layer{
+	position: absolute;
+	width: 97%;
+	height: 100%;
+}
+#canvas-title{
+	text-align: center;
+	font-size: 14px;
+	color: #6a6a6a;
+	margin: 0;
+}
+#canvas-title span{
+	font-size: 12px;
+	color: #c0c0c0;
+}
+#index-footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	background: rgba(241,248,245,.8);
+}
+
+.shop-link{
+	float: left;
+	width: 22.5%;
+	margin: 1%;
+	color: #838383;
+	text-align: center;
+	font-size: 13px;
+	font-weight: 100;
+}
+.shop-link:visited{
+	color: #838383;
+}
+.link-icon{
+	font-size: 24px!important;
+}
+.shop-link p{
+	margin: 7px 0 0 0;
+}
+.index-btn{
+	display: block;
+	float: left;
+	padding: 10px 0;
+	width: 25%;
+	text-align: center;
+}
+.index-btn:hover{
+	background: #eee;
+}
+.index-btn i{
+	font-size: 30px;
+}
+.index-btn p{
+	margin: 10px 0 0 0;
+}

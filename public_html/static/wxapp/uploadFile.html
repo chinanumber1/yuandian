@@ -1,0 +1,227 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>上传文件</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name='apple-touch-fullscreen' content='yes'/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+    <!--引入JS-->
+    <script src="https://apps.bdimg.com/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+    <style type="text/css">
+        .clearfix {overflow: auto;zoom: 1;}
+        .content{width: 100%;height: 100%;margin: 0 auto;}
+        .file_upload{width: 100%;padding: 10px;position: relative;display: inline-block;vertical-align: top;box-sizing: border-box;}
+        .file_upload > div{width: 100%;height: 100%;}
+        .file_con .hide{width: 120px;height: 40px;opacity: 0;filter: alpha(opacity=0);position: absolute;top: 60%;left: 50%;transform: translate(-50%, -50%);z-index: 22;}
+
+        .file_con .file_uploader{position: absolute;top: 60%;left: 50%;transform: translate(-50%, -50%);display: inline-block;color: #fff;background: #16b990;
+            text-align: center;z-index: 11;border-radius: 5px;cursor: pointer;width: 120px;height: 40px;line-height: 40px;text-align: center;}
+
+        .file_con .hide:hover{box-shadow: 1px 2px #44795b;}
+        .input_wrapper{width: 100%;height: 185px;background: #e5f5f3;position: relative;font-size:14px;}
+        .input_wrapper .desc{padding:10px 10px 0;text-align: left;color: #666;}
+        .input_wrapper .type_accept{padding:0 10px 10px;text-align: left;color: #666;font-size:12px;}
+        .btn_box{position: fixed;bottom: 0;left: 0;width: 100%;height: 40px;padding: 10px 0;border-top: 1px solid #e5e5e5;display: none;}
+        .btn_box button{width: 90%;margin: 0 5%;height: 100%;border: none;outline: none;color: #fff;border-radius: 5px;font-size: 16px;}
+        .btn_box #uploadBtn{background: #16b990;display: none;}
+        .btn_box #cancelBtn{background: #a80000;display: none;}
+        .file_list{padding: 10px;display: none}
+
+        .file_list .item{width:100%;border:1px solid #ddd;box-sizing: border-box;position: relative;}
+        .file_list .item .image{float: left;width: 80px;padding: 10px 5px 5px;box-sizing: border-box}
+        .file_list .item .image img{width: 100%;}
+        .file_list .item .name_box{float: left;width: calc(100% - 90px)}
+        .file_list .item .delete{position: absolute;top: 0;right: 0;background: #838383;color: #ffffff;width: 20px;height: 20px;line-height: 20px;text-align: center;display: none;}
+        .file_list .item .name{padding: 20px 5px 10px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;box-sizing: border-box;}
+        .file_list .item .size{padding: 0 5px;}
+
+        .progress_box{padding: 10px;color: #333333;display: none;}
+        .progress_box .delete{float: right;color: #16b990;display: none;}
+        .progress_box progress{color: #16b990;border: 1px solid #ddd;background-color:#f1f1f1;}
+        .progress_box progress::-moz-progress-bar { background: #f1f1f1; }
+        .progress_box progress::-webkit-progress-bar { background: #f1f1f1; }
+        .progress_box progress::-webkit-progress-value  { background: #16b990; }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="file_upload">
+        <div class="file_con">
+            <div class="input_wrapper" >
+                <div class="desc">请选择需要上传的文件，大小不超过50M，类型支持：MP3、MP4、WMV、EXCEL、TEXT、PPT、PDF、WORD、CHM、压缩包、手机安装包和图片</div>
+                <!--<div class="type_accept">MP3、MP4、WMV、EXCEL、TEXT、PPT、PDF、WORD、CHM、压缩包、手机安装包和图片</div>-->
+
+                <input id="file" name="file" type="file" class="hide" ><span class="file_uploader">选择文件</span>
+            </div>
+        </div>
+    </div>
+    <div class="file_list">
+        <div class="item clearfix">
+            <div class="image"><img src="https://hf.pigcms.com/static/wxapp/file.png" /></div>
+            <div class="name_box"></div>
+        </div>
+
+    </div>
+    <div class="progress_box">
+        上传进度：<progress value="0" max="0"></progress>
+        <text id="progress">0%</text>
+        <text class="delete">删除</text>
+
+    </div>
+
+
+    <div class="btn_box">
+        <button id="uploadBtn">开始上传</button>
+        <button id="cancelBtn">取消上传</button>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+
+        function GetRequest(){
+            var url = location.search;
+            var theRequest = {};
+            if(url.indexOf("?") != -1){
+                var str = url.substr(1);
+                strs = str.split("&");
+                for(var i = 0; i < strs.length; i ++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        var urlParam = GetRequest();
+        var url = 'https://hf.pigcms.com/Appapi.php?g=Appapi&c=Comm_group_expansion&a=single_add_file';
+        var file = '';
+        var request = '';
+        var percent = 0;
+
+
+        $('#uploadBtn').on('click', function () {
+            if (percent > 0 && percent<100) {
+                alert('当前文件还未上传完毕，请勿重复点击！');
+                return
+            }
+            if (file.size > 1024*1024*50) {
+                alert('文件大小不得超过50M，请重新选择符合条件的文件！');
+                $('.file_list').hide();
+                $('.progress_box').hide();
+                $('.file_list .name_box').children().remove();
+                file = '';
+                return
+            }
+
+            if (file) {
+                $('#file').hide();
+                $('.delete').hide();
+                $('#uploadBtn').hide();
+                $('#cancelBtn').show();
+                var formData = new FormData();
+                formData.append('file',  file);
+                formData.append('Device-Id',  urlParam.device_id);
+                formData.append('community_id',  urlParam.community_id);
+                formData.append('ticket',  urlParam.ticket);
+                formData.append('folder_id',  urlParam.folder_id);
+                request = $.ajax({
+                    url: url ,
+                    type: 'POST',
+                    data: formData,
+                    xhr: function(){ //获取ajaxSettings中的xhr对象，为它的upload属性绑定progress事件的处理函数
+                        myXhr = $.ajaxSettings.xhr();
+                        if(myXhr.upload){ //检查upload属性是否存在
+                            //绑定progress事件的回调函数
+                            myXhr.upload.addEventListener('progress',progressHandlingFunction, false);
+                        }
+                        return myXhr; //xhr对象返回给jQuery使用
+                    },
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        if (request != '') {
+                            if (data.errorCode > 0) {
+                                alert(data.errorMsg)
+                            } else {
+                                alert('上传成功');
+                                wx.miniProgram.navigateBack({
+                                    delta: 1
+                                })
+                            }
+                        }
+
+                    },
+                    error: function (data) {
+                        if (request != '' && data.errorCode > 0) {
+                            alert(data.errorMsg)
+                        }
+                    }
+                });
+            } else {
+                alert('您还未选择文件！')
+            }
+        });
+
+        $('#cancelBtn').on('click', function () {
+            request.abort();
+            request = '';
+            percent = 0;
+            $('progress').attr({value : 0, max : 0}); //更新数据到进度条
+            $('#progress').html('0%');
+            $(this).hide();
+            $('#file').show();
+            $('.delete').show();
+            $('#uploadBtn').show()
+        });
+
+
+        //上传进度回调函数：
+        function progressHandlingFunction(e) {
+            if (e.lengthComputable) {
+                $('progress').attr({value : e.loaded, max : e.total}); //更新数据到进度条
+                percent = e.loaded/e.total*100;
+                // $('#progress').html(e.loaded + "/" + e.total+" bytes. " + percent.toFixed(2) + "%");
+                $('#progress').html(percent.toFixed(2) + "%");
+            }
+        }
+
+        $(document).on('change', '#file', function () {
+            $('.file_list .name_box').children().remove();
+            file = $("#file")[0].files[0];
+            if (file) {
+                $('.file_list').show();
+                $('.progress_box').show();
+                $('.delete').show();
+                $('#uploadBtn').show();
+                $('#cancelBtn').hide();
+                $('.btn_box').show();
+                $('progress').attr({value : 0, max : 0}); //更新数据到进度条
+                $('#progress').html('0%');
+                var fileSize = 0;
+                if (file.size > 1024 * 1024){
+                    fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+                }else{
+                    fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+                }
+                var itemHtml = '<div class="name">'+ file.name +'</div>\n' + '<div class="size">'+ fileSize +'</div>\n'
+                $('.name_box').append(itemHtml)
+            }
+        })
+
+        $(document).on('click', '.delete', function(){
+            $('.file_list').hide();
+            $(this).parent().hide();
+            $('.btn_box').hide();
+            $('#file').val('');
+            file = ''
+        });
+
+
+    });
+
+</script>
+</body>
+</html>

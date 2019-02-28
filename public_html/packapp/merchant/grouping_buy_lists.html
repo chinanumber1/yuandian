@@ -1,0 +1,85 @@
+<html lang="zh-CN" manifest="appcache.php"><head>
+		<meta charset="utf-8">
+		<title>团购订单</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="address=no">
+		<link href="css/mui.css" rel="stylesheet"/>
+     	<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+		<link href="css/pigcms.css" rel="stylesheet">
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+		    <h1 class="mui-title"><span class="ctuan">团购</span>订单</h1>
+		</header>
+		<div class="mui-content">
+			<section class="order">
+				<div class="cable pageSliderHide">
+					<div class="cable_n">
+						<form id="searchForm" method="post">
+							<div class="input">
+								<input type="search" id="find_value" placeholder="请输入搜索内容">
+							</div>
+							<div class="select 	consumption_password">
+								<span>全部</span>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div id="pullrefresh" class="mui-content mui-scroll-wrapper order_list">
+					<div class="mui-scroll">
+						<!--数据列表-->
+						<ul id="data" class="mui-table-view mui-table-view-chevron">
+							
+						</ul>
+					</div>
+				</div>
+			
+				</div>	
+
+			</section>
+		</div>
+		
+		
+     	<script src="js/fastclick.js"></script>
+        <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/mui.picker.js"></script> 
+		<script src="js/mui.dtpicker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/fastclick.js"></script>
+		<script src="js/layer/layer.m.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/work/group_list.js"></script>
+		<script id="pluscardLists" type="text/html">
+			{{# for(var i = 0, len = d.length; i < len; i++){ }}
+				<li data-id="{{ d[i].order_id }}" style="padding:10px; ">      
+					<div class="clr" data-webview="true">       
+						<div class="img fl">       
+							<img src="{{  d[i].pic }}">
+						</div>       
+						<div class="content">        
+							<h2>{{ d[i].s_name }}</h2>        
+							<div class="clr price">         
+								<div class="fl">总价：{{ d[i].total_money }}元</div>         
+								<div class="fl">数量：{{ d[i].num }}</div>        
+							</div>        
+							<div class="state">   
+
+								<span class="ecc">{{ d[i].status_txt }}</span>                  
+								 <span class="ef6">{{ d[i].type_txt }}</span>
+							</div>       
+						</div>      
+					</div>   
+					       
+				</li>  
+			{{# } }}
+		</script>
+</body>
+</html>

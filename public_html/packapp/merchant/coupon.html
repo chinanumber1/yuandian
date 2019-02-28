@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>优惠券</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/coupon.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">优惠券</h1>
+	</header>
+	<div class="mui-content">
+	     <div class="class_list">
+	   		<ul class="mui-clearfix">
+	    		<li class="mui-pull-left  active all_way">
+	    			<dl>
+		    			<dt>0</dt>
+		    			<dd>全部</dd>
+		    			<dd></dd>
+		    		</dl>
+	    		</li>
+	    		<li class="mui-pull-left under_way">
+	    			<dl>
+		    			<dt>0</dt>
+		    			<dd>进行中</dd>
+		    			<dd></dd>
+		    		</dl>
+	    		</li>
+	    		<!-- <li class="mui-pull-left ">
+	    			<dl>
+		    			<dt>6</dt>
+		    			<dd>未开始</dd>
+		    			<dd></dd>
+		    		</dl>
+	    		</li> -->
+	    		<li class="mui-pull-left ende_way">
+	    			<dl>
+		    			<dt>0</dt>
+		    			<dd>已结束</dd>
+		    			<dd></dd>
+		    		</dl>
+	    		</li>
+	    	</ul>
+	   </div>
+	   <div class="all_coupon">
+	   		
+	   		
+	   	<!-- 	<div class="mui-card">
+	   			<div class="mui-card-content mui-clearfix ">
+	   				<ul class="mui-clearfix begin">
+	   					<li class="mui-pull-left ">
+	   						<dl>
+	   							<dt>￥<span>10.0</span></dt>
+	   							<dd>满88可用</dd>
+	   						</dl>
+	   					</li>
+	   					<li class="mui-pull-left"></li>
+	   					<li class="mui-pull-left">
+	   						<h5>特价优惠券</h5>
+	   						<p>使用平台:移动网页、APP、微信</p>
+	   						<p>使用类别:快店</p>
+	   					</li>
+	   				</ul>
+	   				<i class="mui-pull-right kaishi"></i>
+	   				<b class="mui-pull-right"></b>
+	   			</div>
+	   			<div class="mui-card-footer">
+	   				<span>使用日期: 2017.06.07-2017.09.10</span>
+	   				<p class="see_fa"><i></i> 二维码发券</p>
+	   			</div>
+	   		</div> -->
+	   </div>
+	   <!-- 上拉刷新 -->
+		<div class="pullup" style="display:none;">上拉加载更多...</div>
+		<div class="loading" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+	   
+	</div>
+	<div style="padding-bottom: 70px;"></div>
+	<nav class="mui-bar mui-bar-tab">
+	    <a href="javascript:void(0);" class="new_coupon"><i></i> 新增优惠券</a>
+	    <a href="javascript:void(0);" class="distribute"><i></i> 派发优惠券</a>
+	</nav>
+	<div id="middlePopover" class="mui-popover">
+		<div class="see_ma"><span>二维码发券</span><i class="mui-pull-right"></i></div>
+		<p><img src="images/27-_07.png" alt="暂无二维码哦" /></p>
+		<div class="ass">下载二维码</div>
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="cardlist" type="text/html">
+	{{# for(var i = 0, len = d.data.length; i < len; i++){ }}
+	<!-- 进行中 -->
+		{{# if(d.data[i].status==1){ }}
+			<div class="mui-card">
+	   			<div class="mui-card-content mui-clearfix edit_youhui" data-id="{{d.data[i].coupon_id }}">
+	   				<ul class="mui-clearfix conduct">
+	   					<li class="mui-pull-left ">
+	   						<dl>
+	   							<dt>￥<span>{{d.data[i].discount}}</span></dt>
+	   							<dd>满{{d.data[i].order_money}}可用</dd>
+	   						</dl>
+	   					</li>
+	   					<li class="mui-pull-left"></li>
+	   					<li class="mui-pull-left">
+	   						<h5>{{ d.data[i].name }}</h5>
+	   						<p>使用平台:{{d.data[i].platform}}</p>
+	   						<p>使用类别:{{ d.data[i].category }}</p>
+	   					</li>
+	   				</ul>
+
+	   				<i class="mui-pull-right jinxing"></i>
+
+	   				<b class="mui-pull-right"></b>
+	   			</div>
+	   			<div class="mui-card-footer">
+	   				<span>使用日期: {{d.data[i].start_time }}-{{d.data[i].end_time}}</span>
+	   				{{# if(d.data[i].wx_qrcode && d.data[i].wx_qrcode!=null ){ }}
+	   				<p class="see_fa" data-url="{{ 	d.data[i].wx_qrcode }}"><i></i> 二维码发券	</p>
+					{{# } }}
+	   			</div>
+	   		</div>
+		{{# } else { }}
+			<div class="mui-card">
+	   			<div class="mui-card-content mui-clearfix edit_youhui" data-id="{{d.data[i].coupon_id }}">
+	   				<ul class="mui-clearfix end">
+	   					<li class="mui-pull-left ">
+	   						<dl>
+	   							<dt>￥<span>{{d.data[i].discount}}</span></dt>
+	   							<dd>满{{d.data[i].order_money}}可用</dd>
+	   						</dl>
+	   					</li>
+	   					<li class="mui-pull-left"></li>
+	   					<li class="mui-pull-left">
+	   						<h5>{{ d.data[i].name }}</h5>
+	   						<p>使用平台:{{d.data[i].platform}}</p>
+	   						<p>使用类别:{{ d.data[i].category }}</p>
+	   					</li>
+	   				</ul>
+					{{# if(d.data[i].status==3){ }}
+	   				<i class="mui-pull-right lingwan"></i>
+					{{# } else { }}
+					<i class="mui-pull-right jieshu"></i>
+					{{# } }}
+	   				<b class="mui-pull-right"></b>
+	   			</div>
+	   			<div class="mui-card-footer">
+	   				<span>使用日期: {{d.data[i].start_time }}-{{d.data[i].end_time}}</span>
+	   				<!-- <p class="see_fa" data-url="{{ 	d.data[i].wx_qrcode }}"><i></i> 二维码发券	</p> -->
+	   			</div>
+	   		</div>
+		{{# } }}
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	//页面初次加载渲染数据
+      	var ticket = common.getCache('ticket');
+		var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+		var page=1;
+		var all_status=-1;
+		$('.all_coupon').html('');
+		function couponAll(coupon_status){
+			common.http('Merchantapp&a=card_new_coupon_list',{'ticket':ticket,'client':client,'pindex':page,'status':coupon_status},function(data){
+				console.log(data);
+				$('.class_list ul li:eq(0) dt').text(data.all_count);
+				$('.class_list ul li:eq(2) dt').text(data.ban_count);
+				$('.class_list ul li:eq(1) dt').text(data.normal_cont);	
+						
+				if(data.data.length==0){
+					$('.pullup').html('没有更多数据啦');
+					$('.loading').hide();
+					$('.pullup').show();
+				}else{
+					data.data.length<10&&$('.pullup').html('没有更多数据啦');
+					$('.loading').hide();
+					$('.pullup').show();
+					laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+						//console.log(html);
+						$('.all_coupon').append(html);
+						$('.loading').hide();
+						$('.pullup').show();
+					});	
+					if(data.data.length>9){
+						var flag = false;
+						// 上拉加载下拉刷新数据
+						$(window).scroll(function(e) {
+				            e.stopPropagation();
+				              if(flag){
+							      //数据加载中
+							      return false;
+							    }
+				            //上拉加载
+				            if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+				            	$('.pullup').hide();
+				            	$('.loading').show();
+				            	flag = true;
+				                page++;
+				                couponAll(all_status);
+				                //$('.pullup').show();
+				            	//$('.loading').hide();
+				            }
+				        });
+					}
+				}
+			});
+		}
+		couponAll(-1);
+		
+		// 导航条进行中点击
+		mui('.mui-content').on('tap','.class_list .under_way',function(e){
+			$('.all_coupon').html('');
+			all_status=1;
+			couponAll(all_status);
+		});
+		//导航条已结束点击
+		mui('.mui-content').on('tap','.class_list .ende_way',function(e){
+			$('.all_coupon').html('');
+			all_status=2;
+			couponAll(all_status);
+		});
+		//导航条全部点击
+		mui('.mui-content').on('tap','.class_list .all_way',function(e){
+			$('.all_coupon').html('');
+			all_status=-1;
+			couponAll(all_status);
+		});
+
+
+      	var mask = mui.createMask();//callback为用户点击蒙版时自动执行的回调；	
+      	// 二维码发卷点击
+      	mui('.mui-content').on('tap','.see_fa',function(e){
+      		mask.show();
+			mui('#middlePopover').popover('show');
+			var url=$(this).data('url');
+      		if(common.checkApp()){
+      			if(url==null){
+	      			$('#middlePopover .ass').hide();
+	      		}else{
+	      			$('#middlePopover .ass').show();
+	      			$('.ass').on('click',function(ev){
+	      				ev.stopPropagation();
+						ev.preventDefault(); 
+						downPic(url);
+						mask.close();
+						mui('#middlePopover').popover('hide');
+					});
+	      		}	
+      		}
+      		$('.mui-popover img').attr('src',url);
+      	});	
+      	function downPic_callback(status){
+      		if(status==1){
+      			mui.toast('保存成功');
+      		}else{
+      			mui.toast('保存失败');
+      		}
+      	}
+      	function downPic(url){
+      		if(common.checkAndroidApp()){
+				window.pigcmspackapp.savePicToMobile(url,'downPic_callback');
+			}else{
+				var iosHref = window.btoa(url);
+				iosHref = iosHref.replace('/','&');
+				common.iosFunction('savePicToMobile/'+iosHref+'/downPic_callback');
+			}
+      	}
+      	//点击蒙版
+      	mui('body').on('tap','.mui-backdrop',function(){
+      		mui('#middlePopover').popover('hide');
+      		mask.close();
+      	});
+      	//点击关闭按钮
+      	mui('#middlePopover').on('tap','i',function(){
+      		mui('#middlePopover').popover('hide');
+      		mask.close();
+      	});
+      	//点击保存按妞
+      	mui('#middlePopover').on('tap','a',function(){
+      		mui('#middlePopover').popover('hide');
+      		mask.close();
+	    });
+	    
+	    //tab切换
+	    mui('.mui-content').on('tap','.class_list>ul>li',function(e){
+	    	$(this).addClass('active').siblings('li').removeClass('active');
+	    });
+	    
+	    //新增优惠券点击
+	    mui('.mui-bar-tab').on('tap','.new_coupon',function(e){
+	    	openWindow({
+	    		url:'added_coupon.html',
+	    		id:'added_coupon'
+	    	});
+	    });
+	    // 修改优惠券点击
+	    mui('.mui-content').on('tap','.edit_youhui',function(e){
+	    	var ids=$(this).data('id');  
+	    	common.setCache('coupon_ids',ids);
+	    	openWindow({
+	    		url:'edit_coupon.html',
+	    		id:'edit_coupon'
+	    	});
+	    });
+	    //派发优惠券点击
+	     mui('.mui-bar-tab').on('tap','.distribute',function(e){
+	    	openWindow({
+	    		url:'distribute_coupons.html',
+	    		id:'distribute_coupons'
+	    	});
+	    });
+		function pageShowFunc(){
+			location.reload(true);
+		}
+</script>
+</body>
+</html>

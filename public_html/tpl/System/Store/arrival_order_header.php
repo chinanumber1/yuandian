@@ -1,0 +1,1 @@
+<div id="nav" class="mainnav_title">	<ul>		<a href="{pigcms{:U('Store/arrival_order')}">店内收银订单列表</a>		<a href="{pigcms{:U('Config/index',array('galias'=>'arrival','header'=>'Store/arrival_order_header'))}" class="on">店内收银配置</a>	</ul></div>

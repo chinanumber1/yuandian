@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>商品规格</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/goods_size.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">商品规格</h1>
+	</header>
+	<div class="mui-content">
+	    <h5 class="left_style1 sizes">添加规格 <i></i></h5>
+	    <div class="size">
+
+	    	<!-- <div class="mui-card">
+				<div class="mui-card-header">
+					<span class="left_style">规格名称</span>
+					<input type="text" name="" id="" class="name" data-id="0"	 value="蛋糕" placeholder="请输入规格名称"/>
+					<i class="mui-pull-right size_delate"></i>
+				</div>
+				<div class="mui-card-header">
+					<span class="left_style">规格属性值</span>
+					<input type="text" name="" class="size_zhi" data-id="0"	 placeholder="请输入规格属性" value="单层"/>
+					<b class="mui-pull-right size_add"></b>
+				</div>
+				<div class="mui-card-header">
+					<span class="left_style">规格属性值</span>
+					<input type="text" name="" class="size_zhi" data-id="0"	 placeholder="请输入规格属性" value="双层"/>
+					<sub class="mui-pull-right size_error"></sub>
+				</div>
+				<div class="mui-card-header">
+					<span class="left_style">规格属性值</span>
+					<input type="text" name="" class="size_zhi" data-id="0"	 placeholder="请输入规格属性" value="多层"/>
+					<sub class="mui-pull-right size_error"></sub>
+				</div>
+			</div>
+
+			<div class="mui-card">
+				<div class="mui-card-header">
+					<span class="left_style">规格名称</span>
+					<input type="text" name="" id="" class="name" data-id="0"	 placeholder="请输入规格名称" value="尺寸"/>
+					<i class="mui-pull-right size_delate"></i>
+				</div>
+				<div class="mui-card-header">
+					<span class="left_style">规格属性值</span>
+					<input type="text" name="" class="size_zhi" data-id="0"	 placeholder="请输入规格属性" value="11"/>
+					<b class="mui-pull-right size_add"></b>
+				</div>
+				<div class="mui-card-header">
+					<span class="left_style">规格属性值</span>
+					<input type="text" name="" class="size_zhi" data-id="0"	 placeholder="请输入规格属性" value="12"/>
+					<sub class="mui-pull-right size_error"></sub>
+				</div>
+				<div class="mui-card-header">
+					<span class="left_style">规格属性值</span>
+					<input type="text" name="" class="size_zhi" data-id="0"	 placeholder="请输入规格属性" value="13"/>
+					<sub class="mui-pull-right size_error"></sub>
+				</div>
+			</div> -->
+			
+	    </div>
+	    <p class="add_size click_add_size"><i>+</i> 新建规格</p>
+	  	<h5 class="left_style1 shux">添加属性 <i></i></h5>
+	  	<div class="add_attribute">
+
+	  	<!-- 	<div class="mui-card">
+				<div class="mui-card-header">
+					<span class="left_style">属性名称</span>
+					<input type="text" name="" class="attr_name" data-id="0"	  placeholder="请输入属性名称" value="口味"/>
+					<i class="mui-pull-right size_delate"></i>
+				</div>
+				<div class="mui-card-header">
+					<span class="left_style">可选个数</span>
+					<input type="text" name="" class="attr_len"  placeholder="请输入可选个数" value="1"/>
+				</div>
+				<div class="mui-card-header">
+					<span class="left_style">属性的属性值</span>
+					<input type="text" name="" class="attr_zhi" data-id="0"	  placeholder="请输入属性值" value="不辣"/>
+					<b class="mui-pull-right shu_add"></b>
+				</div>
+				<div class="mui-card-header">
+					<span class="left_style">属性的属性值</span>
+					<input type="text" name="" class="attr_zhi" data-id="0"	 placeholder="请输入属性值" value="辣"/>
+					<sub class="mui-pull-right size_error"></sub>
+				</div>
+			</div> -->
+			
+	  	</div>
+	  	<p class="add_size arr_add"><i>+</i> 新建属性</p>
+	  	<p class="generate">生成规格关系</p>
+	  	<!--规格关系-->
+	  	<h5 class="left_style1">规格关系</h5>
+	  	<div class="size_nexus">
+	  		<table border="1" cellspacing="" cellpadding="">
+	  			
+	  		</table>
+	  	</div>
+	  	 <div style="padding-bottom: 60px;">
+	    	
+	    </div>
+	   <nav class="mui-bar mui-bar-tab">
+	       <a href="javascript:;">保存</a>
+	   </nav>
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="sizeLists" type="text/html">	
+	{{# var a=0;}}
+	{{# for(var i in d.spec_list){ }}
+		<div class="mui-card">
+			<div class="mui-card-header">
+				<span class="left_style">规格名称</span>
+				<input type="text" name="" id="" class="name" data-id="{{ d.spec_list[i].id }}"	 value="{{ d.spec_list[i].name }}" placeholder="请输入规格名称"/>
+				<i class="mui-pull-right size_delate"></i>
+			</div>
+			{{# for(var key in d.spec_list[i].list){ }}
+
+				{{# if(a==0){ }}
+					<div class="mui-card-header">
+						<span class="left_style">规格属性值</span>
+						<input type="text" name="" class="size_zhi" data-id="{{ d.spec_list[i].list[key].id }}"	 placeholder="请输入规格属性" value="{{ d.spec_list[i].list[key].name }}"/>
+						<b class="mui-pull-right size_add"></b>
+					</div>
+				{{# } else { }}
+					<div class="mui-card-header">
+						<span class="left_style">规格属性值</span>
+						<input type="text" name="" class="size_zhi" data-id="{{ d.spec_list[i].list[key].id }}" placeholder="请输入规格属性" value="{{ d.spec_list[i].list[key].name }}">
+						<sub class="mui-pull-right size_error"></sub>
+					</div>
+				{{# } }}
+				{{# a++}}
+			{{# } }}
+		</div>
+	{{# } }}
+</script>
+<script id="attrLists" type="text/html">	
+	{{# var b=0;}}
+	{{# for(var i in d.properties_list){ }}
+		<div class="mui-card">
+			<div class="mui-card-header">
+				<span class="left_style">属性名称</span>
+				<input type="text" name="" id="" class="name" data-id="{{ d.properties_list[i].id }}"	 value="{{ d.properties_list[i].name }}" placeholder="请输入属性名称">
+				<i class="mui-pull-right size_delate"></i>
+			</div>
+			<div class="mui-card-header">
+				<span class="left_style">可选个数</span>
+				<input type="text" name="" class="attr_len" placeholder="请输入可选个数" value="{{ d.properties_list[i].num }}">
+			</div>
+			{{# for(var key in d.properties_list[i].val){ }}
+					<div class="mui-card-header">
+						<span class="left_style">属性的属性值</span>
+						{{# var tems=d.properties_list[i].val[key].replace(/:1/,"");}}
+					
+						<input type="text" name="" class="attr_zhi" 	 placeholder="请输入属性值" value="{{ tems }}"/>
+						{{# if(b==0){ }}
+						<b class="mui-pull-right shu_add"></b>
+						{{# } else { }}
+						<sub class="mui-pull-right size_error"></sub>
+						{{# } }}
+					</div>
+				
+					
+				
+				{{# b++}}
+			{{# } }}
+		</div>
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+mui.init();
+
+var ticket = common.getCache('ticket');
+var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+var goods_id=$.getUrlParam('goods_id');//商品ID
+var size_num=[];//规格属性值 spec_val_id  spec_val
+var size_name=[];//规格名称 specs  spec_id
+var attr_name=[];//属性名称 properties
+var attr_len=[];//可选个数 properties_num
+
+var spec_id=[];//规格属性名id
+var spec_val_id=[];//规格属性值id
+var properties_id=[];//属性名ID
+var properties_val=[];//属性值
+
+var add_moy=1;//用来判断是用来修改保存还是添加保存
+
+//初始加载页面调用方法 渲染表格数据
+common.http('WapMerchant&a=foodSpec',{'ticket':ticket,'client':client,'goods_id':goods_id},function(data){
+	console.log(data);
+	if(data.spec_list!=""){
+		laytpl(document.getElementById('sizeLists').innerHTML).render(data, function(html){
+			//console.log(html);
+			$('.size').html(html);
+		});
+		laytpl(document.getElementById('attrLists').innerHTML).render(data, function(html){
+			$('.add_attribute').html(html);
+		});		
+	}
+	if(data.list!=''){
+		//渲染表格头部
+		$('.size_nexus table').html('');
+		var thead='<thead><tr><th><span>商品编码</span></th>';
+		$.each(data.spec_list,function(i,val){
+			thead+='<th><span>'+val.name+'</span></th>';
+		});
+		thead+='<th><span>原价</span></th><th><span>现价</span></th>';
+		$.each(data.properties_list,function(i,val){
+			thead+='<th><span>'+val.name+'(可选个数)</span></th>';
+		});
+		thead+='</tr></thead>';
+		//console.log(thead);
+		var tbody='<tbody>';
+		for(var key in data.list){
+			tbody+='<tr><td class="bianma"><input type="tel" class="numbers" value='+data.list[key].number+' ></td>';
+			for(var i=0;i<data.list[key].spec.length;i++){
+				tbody+='<td><span>'+data.list[key].spec[i].spec_val_name+'</span></td>';
+			}
+			tbody+='<td><input type="number" value='+data.list[key]['old_price']+' class="old_prices" /></td><td><input type="number" value='+data.list[key].price+' class="prices" /></td>';
+			if(data.list[key].properties!=undefined){
+				for(var j=0;j<data.list[key].properties.length;j++){
+					tbody+='<td><input type="number" value='+data.list[key].properties[j].num+' class=num'+j+' ></td>';
+				}
+			}
+			
+			tbody+='</tr>';
+		}
+		tbody+='</tbody>';
+		$('.size_nexus table').html(thead+tbody);
+
+	}
+
+	
+});
+//点击新建规格
+var size='<div class="mui-card"><div class="mui-card-header"><span class="left_style">规格名称</span><input type="text" data-id="0"	 name="" class="name" value=""placeholder="请输入规格名称" /><i class="mui-pull-right size_delate"></i></div><div class="mui-card-header"><span class="left_style">规格属性值</span><input type="text" name="" data-id="0"	 class="size_zhi" value="" placeholder="请输入规格属性"/><b class="mui-pull-right size_add"></b></div></div>';
+mui('.mui-content').on('tap','.click_add_size',function(e){
+	var lens=$('.size .mui-card').length;
+	if(lens>=3){
+		mui.toast('最多只能添加3种规格');
+	}else{
+		$('.size').append(size);
+	}
+	
+});
+
+
+//点击删除规格表
+mui('.mui-content').on('tap','.size_delate',function(e){
+	$(this).parents('.mui-card').remove();
+});
+
+//规格属性值html
+var size_attr='<div class="mui-card-header"><span class="left_style">规格属性值</span><input type="text" name="" data-id="0"	 class="size_zhi"			placeholder="请输入规格属性"/><sub class="mui-pull-right size_error"></sub></div>';
+//点击添加属性值
+mui('.mui-content').on('tap','.size_add',function(e){
+	$(this).parents('.mui-card').append(size_attr);
+});
+var shu_attr='<div class="mui-card-header"><span class="left_style">属性的属性值</span><input type="text" name="" data-id="0"	 class="attr_zhi"			placeholder="请输入属性值"/><sub class="mui-pull-right size_error"></sub></div>';
+mui('.mui-content').on('tap','.shu_add',function(e){
+	$(this).parents('.mui-card').append(shu_attr);
+	mui.init({
+		swipeBack:true //启用右滑关闭功能
+	});
+});
+mui('.mui-content').on('tap','.size_error',function(e){
+	$(this).parents('.mui-card-header').remove();
+});
+//点击新建属性
+var attribute='<div class="mui-card"><div class="mui-card-header"><span class="left_style">属性名称</span><input 	data-id="0"		type="text" name="" class="name"  value="" placeholder="请输入属性名称"/><i class="mui-pull-right size_delate"></i></div><div 			class="mui-card-header"><span class="left_style">可选个数</span><input type="text" name="" id="" 	class="attr_len" placeholder="请输入可选个数"/></div><div class="mui-card-header"><span class="left_style">属性的属性值</span><input type="text" name="" class="attr_zhi" data-id="0"	 value="" placeholder="请输入属性值"/><b class="mui-pull-right shu_add"></b></div></div>';
+
+mui('.mui-content').on('tap','.arr_add',function(e){
+	$('.add_attribute').append(attribute);
+	mui.init({
+		swipeBack:true //启用右滑关闭功能
+	});
+});
+// 点击生成规格关系
+function addShu(){
+	var len=$('.size .mui-card').length;
+	size_num=[];//规格属性值 spec_val_id  spec_val
+	size_name=[];//规格名称 specs  spec_id
+	attr_name=[];//属性名称 properties
+	attr_len=[];
+
+	spec_id=[];//规格名id
+	spec_val_id=[];//规格属性值id
+	properties_id=[];//属性名ID
+	properties_val=[];//属性值
+
+	$.each($('.size .mui-card'),function(i,val){/*遍历规格属性*/
+		if($(this).find('.name').val()!=''){
+			size_name.push($(this).find('.name').val());//规格名称
+			spec_id.push($(this).find('.name').attr('data-id'));
+		}else{
+			mui.toast('请完善所有值');
+			return false;
+		}
+
+		var arr=[];//规格属性值
+		var arr_id=[];
+		$.each($('.size .mui-card:eq('+i+') .size_zhi'),function(j,value){
+			if($(this).val()!=''){
+				arr.push($(this).val());
+				arr_id.push($(this).attr('data-id'));
+			}else{
+				mui.toast('请完善所有值');
+				return false;
+			}
+			
+		});
+		size_num.push(arr);
+		spec_val_id.push(arr_id);
+	});
+	$.each($('.add_attribute .mui-card'),function(i,val){/*遍历属性的属性*/
+		if($(this).find('.attr_name').val()!=''){
+			attr_name.push($(this).find('.name').val());
+			properties_id.push($(this).find('.name').attr('data-id'));
+		}else{
+				mui.toast('请完善所有值');
+				return false;
+			}
+		if($(this).find('.attr_len').val()!=''){
+			attr_len.push($(this).find('.attr_len').val());
+		}else{
+				mui.toast('请完善所有值');
+				return false;
+			}
+		/*属性的属性值ID*/
+		var attrZhi=[];
+		$.each($('.add_attribute .mui-card:eq('+i+') .attr_zhi'),function(j,value){
+			if($(this).val()!=''){
+				attrZhi.push($(this).val());
+			}else{
+				mui.toast('请完善所有值');
+				return false;
+			}
+			
+		});
+		properties_val.push(attrZhi);
+	});
+	addTable(len,size_name,size_num,attr_name,attr_len);
+}
+mui('.mui-content').on('tap','.generate',function(e){
+	addShu();
+});
+
+
+//保存按钮点击
+mui('.mui-bar-tab').on('tap','a',function(e){
+	//addShu();
+	var len=$('.size .mui-card').length;
+	size_num=[];//规格属性值 spec_val_id  spec_val
+	size_name=[];//规格名称 specs  spec_id
+	attr_name=[];//属性名称 properties
+	attr_len=[];
+
+	spec_id=[];//规格名id
+	spec_val_id=[];//规格属性值id
+	properties_id=[];//属性名ID
+	properties_val=[];//属性值
+
+	$.each($('.size .mui-card'),function(i,val){/*遍历规格属性*/
+		if($(this).find('.name').val()!=''){
+			size_name.push($(this).find('.name').val());//规格名称
+			spec_id.push($(this).find('.name').attr('data-id'));
+		}else{
+			mui.toast('请完善所有值');
+			return false;
+		}
+
+		var arr=[];//规格属性值
+		var arr_id=[];
+		$.each($('.size .mui-card:eq('+i+') .size_zhi'),function(j,value){
+			if($(this).val()!=''){
+				arr.push($(this).val());
+				arr_id.push($(this).attr('data-id'));
+			}
+			
+		});
+		size_num.push(arr);
+		spec_val_id.push(arr_id);
+	});
+	$.each($('.add_attribute .mui-card'),function(i,val){/*遍历属性的属性*/
+		if($(this).find('.attr_name').val()!=''){
+			attr_name.push($(this).find('.name').val());
+			properties_id.push($(this).find('.name').attr('data-id'));
+		}
+		if($(this).find('.attr_len').val()!=''){
+			attr_len.push($(this).find('.attr_len').val());
+		}
+		/*属性的属性值ID*/
+		var attrZhi=[];
+		$.each($('.add_attribute .mui-card:eq('+i+') .attr_zhi'),function(j,value){
+			if($(this).val()!=''){
+				attrZhi.push($(this).val());
+			}
+			
+		});
+		properties_val.push(attrZhi);
+	});
+	var numbers=[];//商品编码数组
+	var old_prices=[];//进价
+	var prices=[];//现价
+	var seckill_prices=[];//限时价
+	var max_nums=[];//每单限购
+	var stock_nums=[];//库存
+	var nums=[];//二维数组暂存
+
+	$.each($('.add_attribute .mui-card'),function(i,val){
+		var arr=[];
+		$.each($('.size_nexus .num'+i),function(j,val){
+			arr.push($(this).val());
+		});
+		nums.push(arr);
+	});
+	
+	$.each($('.size_nexus .numbers'),function(j,val){
+		numbers.push($(this).val());
+	});
+	console.log(numbers);
+	$.each($('.size_nexus .old_prices'),function(j,val){
+		old_prices.push($(this).val());
+	});
+	$.each($('.size_nexus .prices'),function(j,val){
+		prices.push($(this).val());
+	});
+
+	// $.each($('.size_nexus .seckill_prices'),function(j,val){
+	// 	seckill_prices.push($(this).val());
+	// });
+	// $.each($('.size_nexus .max_nums'),function(j,val){
+	// 	max_nums.push($(this).val());
+	// });
+	// $.each($('.size_nexus .stock_nums'),function(j,val){
+	// 	stock_nums.push($(this).val());
+	// });
+	var param = {
+		'ticket':ticket,
+		'client':client,
+		'goods_id':goods_id,
+		'specs':size_name,
+		'spec_id':spec_id,
+		'spec_val_id':spec_val_id,
+		'spec_val':size_num,
+		'properties':attr_name,
+		'properties_num':attr_len,
+		'properties_id':properties_id,
+		'properties_val':properties_val,
+		'numbers':numbers,
+		'old_prices':old_prices,
+		'prices':prices
+		
+	};
+	if( nums.length==0){
+		param['num0'] = nums;
+	}else{
+		for ( var i= 0; i< nums.length; i++) {
+			param['num'+i] = nums[i];
+		}
+	}
+	common.http('WapMerchant&a=foodSpecSave',param,function(data){
+		console.log(data);
+		if(data.length==0){
+			mui.toast('保存成功');
+			if(common.checkApp()){
+				setTimeout(function(){
+					if(common.checkAndroidApp()){
+														window.pigcmspackapp.closewebview(2);
+													}else{
+														common.iosFunction('closewebview/2');
+													}
+				},2000);
+			}else{
+				setTimeout(function(){
+					history.go(-1);
+					document.execCommand('Refresh');
+				},2000); 
+			}	 
+		}
+	});
+});
+
+
+
+
+
+
+
+
+/*生成规格关系表格*/
+function addTable(len,sname,szhi,aname,alen){
+	// console.log(aname);
+	//渲染表格头部
+	if(szhi.length>0){
+		if(len!=0){
+			$('.size_nexus table').html('');
+			var thead='<thead><tr><th><span>商品编码</span></th>';
+			$.each(sname,function(i,val){
+				thead+='<th><span>'+val+'</span></th>';
+			});
+			thead+='<th><span>原价</span></th><th><span>现价</span></th>';
+			$.each(aname,function(i,val){
+				thead+='<th><span>'+val+'(可选个数)</span></th>';
+			});
+			thead+='</tr></thead>';
+			// 渲染表格主体
+			var tbody='<tbody>';
+
+		
+			if(len==1){
+				if(szhi.length>0){
+					for(var i=0;i<szhi[0].length;i++){
+						tbody+='<tr><td class="bianma"><input type="tel"  class="numbers" /></td>';
+						tbody+='<td><span>'+szhi[0][i]+'</span></td>';
+						tbody+='<td><input type="number" value="0" class="old_prices" /></td><td><input type="number" value="0" class="prices" /></td>';
+						for(var j=0;j<alen.length;j++){
+							tbody+='<td><input type="number" value='+alen[j]+' class=num'+j+' /></td>';
+						}
+						tbody+='</tr>';
+						
+					}
+				}else{
+					mui.toast('请完善所有值');
+				}
+				
+			}else if(len==2){
+				if(szhi.length>0){
+					for(var i=0;i<szhi[0].length;i++){
+						for(var k=0;k<szhi[1].length;k++){
+
+							tbody+='<tr><td class="bianma"><input type="tel" class="numbers" /></td>';
+							tbody+='<td><span>'+szhi[0][i]+'</span></td><td><span>'+szhi[1][k]+'</span></td>';
+							tbody+='<td><input type="number" value="0" class="old_prices" /></td><td><input type="number" value="0" class="prices" /></td>';
+							for(var j=0;j<alen.length;j++){
+								tbody+='<td><input type="number" value='+alen[j]+' class=num'+j+'  /></td>';
+							}
+							tbody+='</tr>';
+						}	
+					}
+				}else{
+					mui.toast('请完善所有值');
+				}
+				
+			}else if(len==3){
+				if(szhi.length>0){
+					for(var i=0;i<szhi[0].length;i++){
+						for(var k=0;k<szhi[1].length;k++){
+							for(var s=0;s<szhi[2].length;s++){
+								tbody+='<tr><td class="bianma"><input type="tel"  class="numbers"/></td>';
+								tbody+='<td><span>'+szhi[0][i]+'</span></td><td><span>'+szhi[1][k]+'</span></td><td><span>'+szhi[2][s]+'</span></td>';
+								tbody+='<td><input type="number" value="0" class="old_prices" /></td><td><input type="number" value="0" class="prices" /></td>';
+								for(var j=0;j<alen.length;j++){
+									tbody+='<td><input type="number" value='+alen[j]+' class=num'+j+'  /></td>';
+								}
+								tbody+='</tr>';
+							}
+						}	
+					}
+				}else{
+					mui.toast('请完善所有值');
+				}
+				
+			}else if(len==0){
+				mui.toast('请先添加规格');
+			}else{
+				mui.toast('最多只能3种规格');
+			}
+			
+			tbody+='</tbody>';
+			//console.log(tbody);
+			$('.size_nexus table').html(thead+tbody);
+		}else{
+			mui.toast('请先添加规格');
+		}
+	}
+}
+
+//提示语功能
+mui('.mui-content').on('tap','.sizes',function(e){
+  	mui.alert('规格，即大家熟悉的商品可选择类别。例如菜品有大份、中份、小份，衣服有颜色、尺码等，规格可以单独设置价格库存等信息。 ', function() {
+    });
+});
+//提示语功能
+mui('.mui-content').on('tap','.shux',function(e){
+  	mui.alert('属性，可以理解为用户下单时选择的标签。例如菜品中的过桥米线可以选2个荤菜和选5个素菜，一份菜品可选辣不辣，但是这些不涉及价格，需要标注的。', function() {
+    });
+});
+	      	
+</script>
+</body>
+</html>

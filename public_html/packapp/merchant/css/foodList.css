@@ -1,0 +1,108 @@
+.reserve .search input {
+    width: 100%;
+    border-radius: 20px;
+    height: 12px;
+     line-height: 12px; 
+    font-size: 12px;
+    padding: 14px 0;
+    background: url(../images/16-6_03.png) 10px center no-repeat ;
+    background-size: 15px;
+    text-indent: 30px;
+    border: none;
+    color: black;
+    margin: 0;
+    border:1px solid #eee;
+}
+.reserve .search input::-webkit-input-placeholder { /* WebKit browsers*/ 
+　　color:#333;
+}
+.reserve .search input:-moz-placeholder, textarea:-moz-placeholder { 
+    color: #333; 
+} 
+.reserve .search input::-moz-placeholder, textarea::-moz-placeholder { 
+    color: #333; 
+} 
+.reserve .search input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+    color: #333; 
+} 
+.entry li .con h2 {
+    font-size: 12px;
+    color: #333333;
+    padding-left: 18px;
+    background: url(../images/ren_03.png) left center no-repeat;
+    background-size: 12px 14px;
+}
+.entry li .con_top p:last-child{
+	padding-bottom: 5px;
+}
+.entry li .already dd span.w1 em {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 0px 3px;
+    margin-top: 3px;
+    height: 18px;
+    line-height: 18px;
+    display: inline-block;
+    border-radius: 3px;
+}
+.cease .notice {
+    font-size: 11px;
+    color: #fff83a;
+    border: #fff83a 1px solid;
+    border-radius: 5px;
+    line-height: 18px;
+    padding: 0 5px;
+    margin-left: 10px;
+    position: absolute;
+    top: 18px;
+    left: 78px;
+}
+.cease .within {
+    padding: 10px 20px;
+}
+.cease .within {
+    padding: 10px 20px;
+    position: relative;
+}
+
+
+.pullup,.loading{
+	text-align: center;
+	padding:10px 0 10px 0;
+	font-size: 14px;
+	color: #999;
+}
+.loading img{
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+.dels{
+	width: 44px;
+    height: 44px;
+    background: url(../images/close1.png) center no-repeat;
+    background-size: 30px 30px;
+    position: absolute;
+    top: 11px;
+    right: 4px;
+}
+
+
+
+
+
+.cease .surface li div.w1 em {
+    font-size: 12px;
+    line-height: 20px;
+    padding: 0px 2px;
+    margin-top: 2px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+
+
+
+
+

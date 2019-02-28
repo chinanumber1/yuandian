@@ -1,0 +1,319 @@
+html,body{
+	font-size: 16px;
+	background: #fff;
+	padding: 0;margin: 0;
+}
+ul,ol,dl,dd,dt,li,p,h1,h2,h3,h4,h5,h6{
+	list-style: none;
+	margin: 0;padding: 0;
+}
+a{
+	text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+    display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+}
+.hidden{
+	display: none;
+}
+.after:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.ft{
+	float: left;
+}
+.rg{
+	float: right;
+}
+header{
+	width: 100%;
+	height: 49px;
+	border-bottom:1px solid #f1f1f1;
+	line-height: 47px;
+	text-align: center;
+}
+header a{
+	float: left;
+	margin-left: 2.5%;
+}
+header a i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../imanges/f2.png) center no-repeat;
+	background-size: contain;
+	margin-top: 12px;
+	
+}	
+header span{
+	display: inline-block;
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+header b{
+	float: right;
+	margin-right: 3%;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../imanges/16-6_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: 14px;
+}
+
+/**/
+
+
+
+
+
+
+
+
+
+
+
+.screen {
+	width:100%;
+}
+.screen  ul{
+	width: 100%;
+	border-bottom: 1px solid #f1f1f1;
+}
+.screen  ul li{
+	width: 49.7%;
+	text-align: center;
+	font-size: 14px;
+	padding: 10px 0;
+	color: #404040;
+}
+.screen  ul li i{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background:url('../imanges/xiao1.png') center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.screen  ul li.active i{
+	background:url('../imanges/xiao2.png') center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.screen  ul li:first-child{
+	border-right: 1px solid #f1f1f1;
+}
+
+/*个性服务*/
+.personality{
+	width: 94%;
+	margin: 10px 3%;
+}
+.personality .sevice{
+	height: 120px;
+}
+.personality .sevice img{
+	width: 140px;
+	height: 105px;
+}
+.personality .sevice ul{
+	display: inline-block;
+	margin-left: 1%;
+	width: 57%;
+	height: 105px;
+	position: relative;
+	top:-25px;
+}
+.personality .sevice ul li{
+	font-size: 16px;
+	color: #404040;
+	line-height: 1.5;
+	width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.personality .sevice ul li b{
+	font-size: 14px;
+}
+.personality .sevice ul li span{
+	font-size: 12px;
+}
+.personality .sevice ul li i{
+	font-style: normal;
+	font-size: 12px;
+	color: #716c6c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*排序弹窗*/
+.sort{
+	width: 100%;
+	position: absolute;
+	top:86px;
+	left: 0;
+	background: #fff;
+	z-index: 100;
+}
+.sort ul{
+	width: 94%;
+	margin: 0 3%;
+	font-size:14px ;
+}
+.sort ul li{
+	padding: 10px 0;
+	border-bottom: 1px solid #f1f1f1;
+}
+.sort ul li.active{
+	color: #3ABDEB;
+}
+.screen ul li.active{
+	color: #3ABDEB;
+}
+.show_screen {
+	position: absolute;
+	top:86px;
+	bottom: 0;
+	width: 100%;
+	background: #fff;
+	z-index: 100;
+}
+.show_screen p{
+	margin-left: 3%;
+	padding: 10px;
+	font-size: 12px;
+	color: #808080;
+}
+.show_screen .bg{
+	width: 94%;
+	margin: 0 3%;
+	height: 40px;
+	background: #f0f0f0;
+}
+.show_screen .bg input{
+	border:none;
+	background: #fff;
+	width: 42%;
+	height: 25px;
+	margin: 6px 0 7.5px 2%;
+	text-align: center;
+	
+}
+.show_screen .bg input:last-child{
+	margin-left: 0;
+}
+.show_screen .bg span{
+	display: inline-block;
+	width: 8%;
+	text-align: center;
+	font-size: 18px;
+}
+.show_screen .anniu{
+	position: fixed;
+	bottom: 0;
+	height: 40px;
+	line-height: 40px;
+	width: 100%;
+	border-top:1px solid #f1f1f1;
+}
+.show_screen .anniu ul li{
+	width: 50%;
+	text-align: center;
+}
+.show_screen .anniu  ul li:first-child{
+	background: #e5e5e5;
+	color: #808080;
+}
+.show_screen .anniu ul li:last-child{
+	background: #3399FF;
+	color: #fff;
+}
+.mask {
+	position: fixed;
+	left: 0;
+    top: 86px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 10;
+}
+@media (min-width: 320px) {
+	.show_screen {
+		height: 85%;
+	}
+	.personality .sevice ul{
+		display: inline-block;
+		width: 50%;
+	}
+}
+
+@media (min-width: 360px) {
+	.show_screen {
+		height: 87%;
+	}
+	.personality .sevice ul{
+		display: inline-block;
+		width: 56%;
+	}
+}
+@media (min-width: 375px) {
+	.show_screen {
+		height: 87%;
+	}
+	.personality .sevice ul{
+		display: inline-block;
+		width: 57%;
+	}
+}
+@media (min-width: 384px) {
+	.show_screen {
+		height: 87%;
+	}
+}
+@media (min-width: 400px) {
+	.show_screen {
+		height: 88%;
+	}
+}

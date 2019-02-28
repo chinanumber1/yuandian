@@ -1,0 +1,113 @@
+.cable .cable_kd .select select {
+    background: #e5e5e5;
+    border-radius: 5px;
+    height: 28px;
+    width: 75px;
+    padding: 0 10px;
+}
+.remind {
+    line-height: 40px;
+    height: 40px;
+    background: #ff7634;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    top: 42px;
+    z-index: 50;
+    width: 100%;
+    display: none;
+}
+.cable .cable_kd .select:after {
+    top: 36px;
+}
+.h130 {
+    height: 128px;
+    position: fixed;
+    top: 44px;
+    width: 100%;
+    z-index: 10;
+}
+.store{
+	padding-top: 175px;
+}
+.pullup,.loading{
+	text-align: center;
+	padding:0 0 10px 0;
+	font-size: 14px;
+	color: #999;
+}
+.loading img{
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+.stock{
+	z-index: 1000;
+}
+.remind .del {
+    width: 40px;
+    height: 40px;
+    background: url(../images/49-6_03.png) center no-repeat;
+    background-size: 18px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.stock .del {
+    width: 45px;
+    height: 45px;
+    background: url(../images/49-6_03.png) center no-repeat;
+    background-size: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.kd_entry li .source {
+    background: url(../images/37-1_03.png) left center no-repeat;
+    background-size: 12px 14px;
+    padding-left: 15px;
+    color: #FFA200;
+}
+.cable .input {
+    height: 28px;
+    width: 69%;
+    display: inline-block;
+}
+.dropdown .pos{
+    width: 100%;
+    text-align: center;
+}
+.dropdown .pos:after {
+    display: block;
+    content: "";
+    border-top: 1px solid #666;
+    border-left: 1px solid #666;
+    width: 5px;
+    height: 5px;
+    -webkit-transform: rotate(225deg);
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    top: 5px;
+}
+.cable .cable_kd #selects  {
+    background: #e5e5e5;
+    border-radius: 5px;
+    height: 28px;
+    width: 85px;
+    padding: 0 10px;
+    line-height: 28px;
+}
+.kd_entry li .overtime {
+    line-height: 25px;
+    width: 80px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    right: 0px;
+    top: 9px;
+}
+.stock .h2{
+    background: #FFA200;
+}

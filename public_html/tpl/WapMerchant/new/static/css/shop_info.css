@@ -1,0 +1,43 @@
+﻿#map-layer{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	}
+	#map{
+		width: 100%;
+		height: 100%;
+	}
+	#map-header{
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 50px;
+		background: #02b099;
+		color: #fff;
+		line-height: 50px;
+		font-size: 14px;
+		text-align: center;
+	}
+	#map-title{
+		font-size: 16px;
+	}
+	#map-cancel{
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		top: 0;
+		left: 0;
+		margin-left: 10px;
+	}
+	#map-confirm{
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		top: 0;
+		right: 0;
+	}

@@ -1,0 +1,521 @@
+ul,ol,dl,dd,dt,p{
+	list-style: none;
+	padding: 0;margin: 0;
+}
+.hidden{
+	display: none;
+}
+
+/*.mui-card{margin: 15px 0 0 0;}*/
+
+
+/*头部样式*/
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav h1{
+	color: #fff;
+}
+
+.mui-bar-nav a{
+	color: #fff;
+}
+.mui-bar-nav a.mui-pull-right{
+	margin-top: 12px;
+	font-size: 14px;
+}
+.mui-bar-nav a.mui-pull-right i{
+	display: inline-block;
+	width: 16px;height: 18px;
+	background: url(../images/34-_08.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 2px;
+}
+.mui-content{
+	overflow:hidden;
+}
+/*tab切换*/
+.class_list{
+	width: 100%;
+	height: 54px;
+	background: #fff;
+	border:1px solid #F1F1F1;
+	overflow-x: auto;
+}
+.class_list ul{
+	width: 130%;
+	height: 52px;
+	overflow-y:hidden;
+	text-align: center;
+}
+.class_list ul li{
+	width: 24%;
+	line-height: 50px;
+	font-size: 16px;
+	color: #505050;
+}
+.class_list ul li.active{
+	color: #FFA200;
+	border-bottom:2px solid #FFA200 ;
+}
+/*.sroll_style{
+	width: 125%;
+	height: 45px;
+}*/
+/*.sroll_test{
+	width: 125%!important;
+	height: 45px;
+}*/
+/*.sroll_test div{
+	width: 25%;
+	height: 40px;
+	background: #fff;
+	line-height: 40px;
+	font-size: 12px;
+	text-align: center;
+	color: #404040;
+}*/
+
+/*选取分组*/
+.groupings .checkbox_click,.coupons .checkbox_click{
+	width: 100%;
+	margin: 15px 0;
+}
+.change_grouping{
+	width: 90%;
+	margin: 15px 5%;
+}
+.change_grouping span{
+	font-size: 14px;color: #404040;
+	display: block;
+	padding: 10px;
+	background: #fff;
+	border-radius: 5px;
+}
+.groupings,.coupons{
+	width: 90%;
+	height: 230px;
+	margin: 0 5%;
+}
+.groupings .checkbox_click,.coupons .checkbox_click{
+	padding: 13px 16px;
+	background: #fff;
+	border-radius: 5px;
+}
+.groupings .checkbox_click>span,.coupons .checkbox_click>span{
+	font-size: 15px;color: #404040;
+	display: inline-block;
+	line-height: 30px;
+	font-weight: bold;
+	
+}
+.groupings .checkbox_click>img,.coupons .checkbox_click>img{
+	/*display: inline-block;*/
+	width: 28px;height: 28px;
+	margin-right: 4%;
+	
+	
+}
+/*.groupings .diamonds b{
+	background: url(../images/42-1_03.png) center no-repeat;
+	background-size: contain;
+}
+.groupings .vip b{
+	background: url(../images/42-1_06.png) center no-repeat;
+	background-size: contain;
+}*/
+/*.groupings b{
+	background: url(../images/42-1_08.png) center no-repeat;
+	background-size: contain;
+}*/
+
+.groupings .checkbox_click> i,.coupons .checkbox_click>i,.mui-card-header.checkbox_click>i{
+	display: inline-block;
+	width: 19px;height: 19px;
+	background: url(../images/16-_06.png) center no-repeat;
+	background-size: contain;
+	margin-top: 5px;
+}
+.groupings .checkbox_click> i.active,.coupons .checkbox_click>i.active,.mui-card-header.checkbox_click>i.active{
+	display: inline-block;
+	width: 19px;height: 19px;
+	background: url(../images/16-_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: 5px;
+}
+
+.groupings .mui-scroll-wrapper {
+   position: absolute;
+    z-index: 2;
+    top: 155px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 5%;
+    height: 245px;
+}
+.coupons .mui-scroll-wrapper {
+   position: absolute;
+    z-index: 2;
+    top: 450px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 5%;
+    height: 245px;
+    margin-top: 10px;
+}
+.all_distribution>.coupons>.mui-scroll-wrapper {
+   position: absolute;
+    z-index: 2;
+    top: 150px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 5%;
+    height: 435px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+.promotion b{
+	background: url(../images/42-1_10.png) center no-repeat;
+	background-size: contain;
+}
+
+/*派发优惠劵弹层*/
+.mui-popover{
+	position: fixed;
+	width: 80%;
+	margin: 0 10%;
+	height: 250px;
+	top: 50%;
+	margin-top: -125px;
+}
+.mui-popover>p{
+	width: 45px;
+	height: 45px;
+	background: url(../images/42-666_03.png) center no-repeat;
+	background-size: 15px 15px;
+}
+.mui-popover ul{
+	width: 100%;
+	margin: 45px 0% 20px 0;
+	text-align: center;
+}
+.mui-popover ul li{
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 5px;
+}
+.mui-popover ul li img{
+	width: 95px;height: 87px;
+}
+.mui-popover a{
+	display: inline-block;
+	width: 80%;
+	margin: 0 10%;
+	height: 40px;
+	background: #FFA200;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+/*个人派发*/
+.individual_distribution .search_record{
+	width: 100%;height: 55px;
+	background: #fff;
+	/*line-height: 55px;*/
+	
+}
+
+.individual_distribution .search_record li{
+	height: 35px;
+	line-height: 35px;
+	border-radius: 3px;
+}
+.individual_distribution .search_record li:first-child{
+	width: 30%;
+	margin: 10px 3%;
+	font-size:12px;
+	background: #EEEEEE;
+	padding-left: 10px;
+	color: #353535;
+}
+.individual_distribution .search_record li:first-child i{
+	display: inline-block;
+	width: 12px;height: 7.5px;
+	background: url(../images/43-1_03.png) center no-repeat;
+	background-size: contain;
+	margin-right: 7px;
+	margin-top: 13px;
+}
+.individual_distribution .search_record li:nth-child(2){
+	width: 42%;
+	margin:9px 3% 10px 0;
+}
+.individual_distribution .search_record li:nth-child(2) input{
+	height: 35px;
+	font-size: 12px;
+	padding: 0 0 0 10px;
+
+	background: #eee;
+	border: none;
+}
+.individual_distribution .search_record li:nth-child(3){
+	width: 16%;
+	margin:10px 3% 10px 0;;
+	
+}
+.individual_distribution .search_record li:nth-child(3) a{
+	display: inline-block;
+	font-size: 14px;
+	width: 100%;
+	background: #FFA200;
+	text-align: center;
+	height: 35px;
+	color: #fff;
+	border-radius: 3px;
+}
+.individual_distribution .users_lists{
+	width: 90%;
+	margin: 0 5%;
+}
+.individual_distribution .mui-card{
+	margin: 12px 0;
+}
+.individual_distribution .mui-card .mui-card-header{
+	font-size: 14px;
+}
+.individual_distribution .mui-card .mui-card-content ul{
+	padding:7px 15px 10px 15px;
+}
+.individual_distribution .mui-card .mui-card-content ul li{
+	margin-top: 7px;
+}
+.individual_distribution .mui-card .mui-card-content ul li>i{
+	font-style: normal;
+	font-size: 14px;
+	display: inline-block;
+	width: 35%;
+	color: #B5B5B5;
+}
+.individual_distribution .mui-card .mui-card-content ul li span{
+	font-size: 16px;
+	color: #333333;
+}
+.individual_distribution  .users_lists{
+	width: 90%;
+	height: 190px;
+}
+.individual_distribution  .users_lists .mui-scroll-wrapper {
+   position: absolute;
+    z-index: 2;
+    top: 210px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 5%;
+    height: 190px;
+}
+
+
+
+.individual_distribution  .coupons .mui-scroll-wrapper {
+   	position: absolute;
+    z-index: 2;
+    top: 470px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 5%;
+    height: 245px;
+    margin-top: 10px;
+}
+
+
+/*购买金额设置*/
+.weixin_distribution .set_money{
+	width: 90%;
+	margin: 12px 5%;
+	background: #fff;
+}
+.weixin_distribution .set_money .left_style{
+	display: inline-block;
+	width: 40%;
+	font-size: 16px;
+	position: relative;
+	top:-35px;
+}
+.weixin_distribution .set_money ul{
+	display: inline-block;
+	width:55%;
+	padding: 15px 0;
+}
+.weixin_distribution .set_money ul li:last-child{
+	font-size: 12px;
+	margin-top: 10px;
+	color: #FF7956;
+}
+.weixin_distribution .set_money ul li span{
+	font-size: 14px;
+	margin-left: 2%;
+	color: #FFA200;
+}
+.weixin_distribution .set_money ul li input[type='number']{
+	padding: 0;
+	margin: 0;
+	width: 80%;
+	height: 30px;
+	padding-left: 7px;
+	border: 1px solid #EEEEEE;
+	background: #F7F7F7;
+	font-size: 14px;
+}
+.weixin_distribution .mui-scroll-wrapper{
+	position: absolute;
+    z-index: 2;
+    top: 310px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 5%;
+    height: 245px;
+    margin-top: 15px;
+}
+@media (min-width:320px) {
+	.weixin_distribution .set_money .left_style{
+		display: inline-block;
+		width: 40%;
+		font-size: 14px;
+		margin: 0 0 0 3%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*保存*/
+.mui-bar-tab a{
+	/*margin-top: 10px;*/
+	display: block;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #FFA200;
+	color: #FFFFFF;
+	font-size: 15px;
+}
+
+.change_grouping{
+	position: relative;
+}
+.lists1{
+	position: absolute;
+	right: 10px;
+	top:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>餐饮店铺管理</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/shop-list_col.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	   <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title"><span class="byin">餐饮</span>店铺列表</h1>
+	</header>
+	<div class="mui-content">
+	    
+	    
+
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="pluscardLists" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+		 <div class="mui-card" data-id="{{ d[i].store_id }}">
+			<div class="mui-card-header">
+				<span><i></i> 店铺编号 <b>{{ d[i].store_id }}</b></span>
+				{{# if(d[i].sid>0){ }}
+					<p class="penci_shop"><i></i></p>
+				{{# } else { }}
+					<button type="button" class="perfect_message penci_shop">完善店铺信息</button>
+				{{# } }}
+			</div>
+			<div class="mui-card-content">
+				<h4>{{ d[i].name }}</h4>
+				<h5><a href="tel: {{ d[i].phone }}">{{ d[i].phone }} <b></b></a> </h5>
+				{{# if(d[i].sid>0){ }}
+				<ul>
+					<li class="mui-pull-left view_order"><a class="" href="javascript:void(0);" ><i></i> 查看订单</a></li>
+					<li class="mui-pull-left merchandise_control"><a  class=""  href="javascript:void(0);"><i></i> 商品管理</a></li>
+					<li class="mui-pull-left table_manger"><a class=""  href="javascript:void(0);"><i></i> 桌台管理</a></li>
+					<li class="mui-pull-left package_manger"><a class=""  href="javascript:void(0);"><i></i> 套餐管理</a></li>
+				</ul>
+				{{# } }}
+			</div>
+		</div>
+		
+	{{# } }}
+
+</script>
+<script type="text/javascript" charset="utf-8">
+  	mui.init();
+  	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+  	var byin=common.getCache('byin');
+  	$('.byin').text(byin);
+  	$('title').html(byin+"店铺管理");
+    var store_idAll=common.getCache('store_idAll');
+  	common.http('WapMerchant&a=foodshop',{'ticket':ticket,'client':client,'store_id':store_idAll},function(data){
+  		console.log(data);
+  		laytpl(document.getElementById('pluscardLists').innerHTML).render(data, function(html){
+				$('.mui-content').html(html);
+		});
+  	});
+  	//点击完善信息
+  	mui('.mui-content').on('tap','.penci_shop',function(){
+  		var store_id=$(this).parents('.mui-card').attr('data-id');
+  		//window.location.href='fastStore_message_copy.html?store_id='+store_id;
+  		openWindow({
+  			url:'fastStore_message_copy.html?store_id='+store_id,
+  			id:'fastStore_message_copy'
+  		});
+  	});
+  	//点击商品管理
+  	mui('.mui-content').on('tap','.merchandise_control',function(){
+  		var store_id=$(this).parents('.mui-card').attr('data-id');
+  		//window.location.href='commodity_management_copy.html?store_id='+store_id;
+  		openWindow({
+  			url:'commodity_management_copy.html?store_id='+store_id,
+  			id:'commodity_management_copy'
+  		});
+  	});
+  	//点击桌台管理
+  	mui('.mui-content').on('tap','.table_manger',function(){
+  		var store_id=$(this).parents('.mui-card').attr('data-id');
+  		//window.location.href='table_manger.html?store_id='+store_id;
+  		openWindow({
+  			url:'table_manger.html?store_id='+store_id,
+  			id:'table_manger'
+  		});
+  		
+  	});
+  	//点击套餐管理
+  	mui('.mui-content').on('tap','.package_manger',function(){
+  		var store_id=$(this).parents('.mui-card').attr('data-id');
+  		//window.location.href='package_management.html?store_id='+store_id;
+  		openWindow({
+  			url:'package_management.html?store_id='+store_id,
+  			id:'package_management'
+  		});
+  	});
+  	mui('.mui-content').on('tap','.view_order',function(e){
+		var store_id=$(this).parents('.mui-card').attr('data-id');
+		openWindow({
+			url:'foodList.html?store_id='+store_id,
+			id:'foodList'
+		});
+	});
+</script>
+</body>
+</html>

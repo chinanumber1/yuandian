@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>派发记录</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+   <link rel="stylesheet" type="text/css" href="css/distribution_records.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	   <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">派发记录</h1>
+	</header>
+	<div class="mui-content">
+		<div class="allDistribute">
+			
+			
+		</div>
+		<!-- 上拉下拉刷新-->
+		<div class="pullup" style="display:none;">上拉加载更多...</div>
+		<div class="loading" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="cardlist" type="text/html">
+	{{# for(var i = 0, len = d.data.length; i < len; i++){ }}
+		<div class="time-axis">
+			<div class="time-axis-border"></div>
+			<div class="time-axis-dot"><span></span></div>				
+			<div class="record_lists">
+				<div class="date_style">{{ d.data[i].add_time }}</div>
+				<div class="mui-card">
+					<div class="mui-card-header">
+						<span>ID: {{ d.data[i].id }}</span>
+					</div>
+					<div class="mui-card-content mui-clearfix">
+						<ul class="mui-pull-left">
+							
+							<li>{{ d.data[i].coupon_name }}</li>
+							<li><span>优惠券名称</span></li>
+						</ul>
+						<ul class="mui-pull-left">
+							
+							{{# if( d.data[i].nickname==null|| d.data[i].nickname==""){ }}
+								<li>暂无</li>
+							{{# } else { }}
+								<li>{{ d.data[i].nickname }}</li>
+							{{# } }}
+							<li><span>派发对象</span></li>
+							
+						</ul>
+					</div>
+					<div class="mui-card-footer">
+						<p>派发结果: <span class="distribute_success">{{ d.data[i].msg }}</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	var ticket = common.getCache('ticket');
+		var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+		var pindex=1;//初始页面
+		$('.allDistribute').html('');
+		function all_coupons(pindex){
+			common.http('Merchantapp&a=send_history',{'ticket':ticket,'client':client,'pindex':pindex},function(data){
+				console.log(data);
+				var data=data;
+				if(data.data.length!=0){
+					if(data.data.length<10){$('.pullup').html('没有更多数据啦');}
+					$('.time-axis-border').height($('.allDistribute').height()+40);
+					laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+						$('.allDistribute').append(html);
+						$('.loading').hide();
+						$('.pullup').show();
+						
+					});
+					 var flag = false;
+					$(window).scroll(function(e) {
+			             if(flag){
+					      //数据加载中
+					      return false;
+					    }
+			            //上拉加载
+			            if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+			            	$('.pullup').hide();
+			            	$('.loading').show();
+			            	flag = true;
+			                pindex++;
+			                all_coupons(pindex);	
+			            }
+			        });
+				}else{
+					$('.pullup').html('没有更多数据啦');
+					$('.loading').hide();
+					$('.pullup').show();
+				}
+			});
+		}	
+		all_coupons(pindex);	
+		
+</script>
+</body>
+</html>

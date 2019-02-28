@@ -1,0 +1,1 @@
+<div id="nav" class="mainnav_title">	<ul>		<a href="{pigcms{:U('Store/buy_order')}">{pigcms{$config.cash_alias_name}订单列表</a>		<a href="{pigcms{:U('Config/index',array('galias'=>'quickpay','header'=>'Store/buy_order_header'))}"  class="on">{pigcms{$config.cash_alias_name}配置</a>		<a href="{pigcms{:U('Store/store_ticket')}">票务插件</a>	</ul></div>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>群发内容列表</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/mass_content_lists.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">群发内容列表</h1>
+	</header>
+	<div class="mui-content">
+		<div class="allCards">
+			<!-- <div class="mui-card">
+		    	<div class="mui-card-header">
+		    		<span>ID: 011</span>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<img src="images/47-1_03.png"/>
+		    		<ul>
+		    			<li>小猪CMS(pigcms)微外卖应用火热升级!</li>
+		    			<li><p>据悉，微信团队已经邀请一批公众号进行 “赞赏” 功能的内侧。在赞赏页面，用户可以直接选择设置</p></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		    <div class="mui-card">
+		    	<div class="mui-card-header">
+		    		<span>ID: 011</span>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<img src="images/47-1_03.png"/>
+		    		<ul>
+		    			<li>小猪CMS(pigcms)微外卖应用火热升级!</li>
+		    			<li><p>据悉，微信团队已经邀请一批公众号进行 “赞赏” 功能的内侧。在赞赏页面，用户可以直接选择设置</p></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		    <div class="mui-card">
+		    	<div class="mui-card-header">
+		    		<span>ID: 011</span>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<img src="images/47-1_03.png"/>
+		    		<ul>
+		    			<li>小猪CMS(pigcms)微外卖应用火热升级!</li>
+		    			<li><p>据悉，微信团队已经邀请一批公众号进行 “赞赏” 功能的内侧。在赞赏页面，用户可以直接选择设置</p></li>
+		    		</ul>
+		    	</div>
+		    </div> -->
+		</div>
+		<div class="pullup1" style="display:none;">上拉加载更多...</div>
+		<div class="loading1" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>		   
+	   
+
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="pluscardLists" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+
+		 <div class="mui-card" data-url="{{ d[i].url }}">
+		    	<div class="mui-card-header">
+		    		<span>ID: {{ d[i].pigcms_id }}</span>
+		    	</div>
+		    	<div class="mui-card-content">
+		    		<img src="{{ d[i].cover_pic }}"/>
+		    		<ul>
+		    			<li>{{ d[i].title }}</li>
+		    			<li><p>{{ d[i].digest}}</p></li>
+		    		</ul>
+		    	</div>
+		    </div>
+		
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+  	mui.init();
+  	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var cid=$.getUrlParam('cid');
+	var pindex=1;
+	function addCard(page){
+		common.http('Merchantapp&a=custom_txtdetail',{'ticket':ticket,'client':client,'id':cid,'pindex':page},function(data){
+		  	console.log(data);
+		  	if (data.length!=0) {
+				data.length<=9&&$('.pullup1').html('没有更多数据啦');
+				$('.loading1').hide();
+				$('.pullup1').show();
+				laytpl(document.getElementById('pluscardLists').innerHTML).render(data, function(html){
+					$('.allCards').append(html);
+				});
+				if(data.length>9){
+					var flag = false;
+					$(window).scroll(function(e) {
+					    e.stopPropagation();
+					    if(flag){
+					      //数据加载中
+					      return false;
+					    }
+					    //上拉加载
+					    if ($(document).scrollTop() == $(document).height() - $(window).height()) {
+					    	$('.pullup1').hide();
+					    	$('.loading1').show();
+					    	flag = true;
+					        pindex++;
+					      addCard(pindex);
+					    }
+					});
+				}
+			}else{
+				$('.pullup1').html('没有更多数据啦');
+				$('.loading1').hide();
+				$('.pullup1').show();
+			}
+		});
+
+	}
+	addCard(1);
+	
+	mui('.mui-content').on('tap','.mui-card',function(e){
+		var url=$(this).attr('data-url');
+		openWindow({
+			url:url,
+			id:"url"
+		});
+		//window.location.href=url;
+	});
+</script>
+</body>
+</html>

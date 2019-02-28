@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>银行卡管理</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/bank_manger.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back"></div>
+		<h1 class="mui-title">银行卡管理</h1>
+		<a class="mui-pull-right addBank" href="javascript:;" data-status="0"><i></i>添加银行卡</a>
+	</header>
+	<div class="mui-content">
+		
+	
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js?android=appbackmonitor" type="text/javascript" charset="utf-8"></script>
+<script id="pluscardLists" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+		<div class="mui-card" data-id="{{ d[i].id }}">
+			<div class="mui-card-header">
+				<span>创建时间: {{ d[i].add_time }}</span>
+				<div>
+					<i class="addBank" data-id="{{ d[i].id }}" data-status='1'></i>
+					<b class="remove"></b>
+				</div>
+			</div>
+			<div class="mui-card-content">
+				<ul>
+					<li>开户名: {{ d[i].account_name }}</li>
+					<li>银行卡号: {{ d[i].account }}</li>
+					<li>所属银行: {{ d[i].remark }}</li>
+					<li>是否默认:
+						{{# if( d[i].is_default==0 ){ }}
+							否
+						{{# } else { }}
+							是
+						{{# } }}
+					</li>
+					
+				</ul>
+			</div>
+		</div> 
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+    mui.init();
+    var client=common.getCache('client');
+    common.http('Merchantapp&a=bank_list',{'client':client},function(data){
+    	console.log(data);
+    	if(data.bank_list!=null){
+    		laytpl(document.getElementById('pluscardLists').innerHTML).render(data.bank_list, function(html){
+				$('.mui-content').html(html);
+			});
+    	}
+    });
+    $('body').off('click','.addBank').on('click','.addBank',function(e){
+    	e.preventDefault();
+    	e.stopPropagation();
+    	var status=$(this).attr('data-status');
+    	var id=$(this).attr('data-id');
+		var id_str = id ? '&bank_id='+id : '';
+    	openWindow({
+    		url:'add_bank.html?status='+status+id_str,
+    		id:'add_bank'
+    	});
+    });
+    $('body').off('click','.remove').on('click','.remove',function(e){
+    	e.preventDefault();
+    	e.stopPropagation();
+    	var me=this;
+    	var bank_id=$(this).parents('.mui-card').attr('data-id');
+    	mui.confirm('您确认删除此银行卡吗?不可恢复！',function(e) {
+            if (e.index == 1) {
+                common.http('Merchantapp&a=delete_bank_account',{'client':client,'bank_id':bank_id},function(data){
+                	console.log(data);
+                	mui.toast(data.msg);
+                	$(me).parents('.mui-card').remove();
+                });
+            } 
+        })
+    });
+    function pageShowFunc(){
+        location.reload(true);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>店员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/pigcms.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<section class="public pageSliderHide">
+			<div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+			<div class="content">订单详情</div>
+		</section>
+		<section class="g_details p40">
+			<div class="user detail_list">
+				<div class="top clr">
+					<h2 class="fl">订单信息</h2>
+				</div>
+				<div class="user_list">
+					<ul>
+						<li class="clr">
+							<span class="fl">套餐名称</span>
+							<span class="fr" id="name"></span>
+						</li>
+						<li class="clr">
+							<span class="fl">消费码</span>
+							<span class="fr" id="pass"></span>
+						</li>
+						<li class="clr">
+							<span class="fl">总价</span>
+							<span class="fr"><em class="ecc">￥<span id="money" data-exec="parseFloat"></span>元</em></span>
+						</li>
+						<li class="clr">
+							<span class="fl">购买时间</span>
+							<span class="fr" id="add_time"></span>
+						</li>
+						<li class="clr">
+							<span class="fl">消费状态</span>
+							<span class="fr" id="status"></span>
+						</li>
+					
+						<li class="clr">
+							<span class="fl">验证消费时间</span>
+							<span class="fr" id="use_time"></span>
+						</li>
+
+						<li class="clr">
+							<span class="fl">店员</span>
+							<span class="fr" id="staff"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="user detail_list">
+				<div class="top clr">
+					<h2 class="fl">用户信息</h2>
+				</div>
+				<div class="user_list">
+					<ul>
+						<li class="clr">
+							<span class="fl">用户ID</span>
+							<span class="fr" id="uid"></span>
+						</li>
+						<li class="clr">
+							<span class="fl">用户名</span>
+							<span class="fr" id="nickname"></span>
+						</li>
+						<li class="clr">
+							<span class="fl">手机号</span>
+							<span class="fr blue callPhone" id="phone" data-data="phone"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/sub_card_order_detail.js"></script>
+	</body>
+</html>

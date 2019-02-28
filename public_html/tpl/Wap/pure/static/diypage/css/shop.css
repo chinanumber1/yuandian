@@ -1,0 +1,114 @@
+.scrollGoods_section{font-size:62.5%}
+.scrollGoods_section .custom-nav{ position:relative; margin:0 10px; }
+.scrollGoods_section .custom-nav-title{ }
+.scrollGoods{background: #f9f9f9}
+.scrollGoods h2{font-size: 13px;color: #000;font-weight: normal;padding: 15px}
+.scrollBox{position: relative;height: 155px;    margin: 0 6px; padding: 0 7px;}
+#scrollThis{position: absolute;z-index: 1;top: 0;bottom: 0;left: 0;width: 100%;overflow: hidden;}
+#scrollThis .scroller{position: absolute;z-index: 1;-webkit-tap-highlight-color: rgba(0,0,0,0);width: 5000px;height: auto;background-color: #fff;-webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);-o-transform: translateZ(0);transform: translateZ(0);-webkit-touch-callout: none;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;-webkit-text-size-adjust: none;-moz-text-size-adjust: none;-ms-text-size-adjust: none;-o-text-size-adjust: none;text-size-adjust: none;}
+#scrollThis .scroller ul{list-style: none;padding: 0;margin: 0;width: 100%;height: auto;text-align: center;}
+/*
+#scrollThis .scroller li{position: relative;display: block;float: left;width: 190px;height: auto;margin-right: 15px;border: 1px solid #e3e3e3;background-color: #fafafa;font-size: 14px;}
+#scrollThis .scroller li img{    width: 160px;
+    height: 170px;
+    margin-top: 12px;}
+*/
+#scrollThis .scroller li{ -webkit-box-sizing: border-box; box-sizing: border-box;position: relative;display: block;float: left;width: 130px;height: auto;border: 1px solid #e3e3e3;background-color: #fafafa;font-size: 14px;}
+#scrollThis .scroller li img{    width: 116px;
+    height: 100px;
+    margin-top: 12px;}
+
+#scrollThis .scroller li h3{    font-size: 11px;
+    color: #000;
+    font-weight: normal;
+    padding: 5px 5px;
+    padding-bottom: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;}
+/*
+#scrollThis .scroller li p span:nth-child(1){font-size: 25px;color: #57ac50;margin-right: 5px}
+*/
+#scrollThis .scroller li p span:nth-child(1){font-size: 13px;color: #57ac50;margin-right: 5px}
+
+#scrollThis .scroller li p span:nth-child(1) i{font-size: 10px}
+#scrollThis .scroller li p span:nth-child(2){font-size: 10px;color: #828282;text-decoration: line-through}
+#scrollThis .scroller li .time{    padding-top: 4px;color: #8b8b8b;font-size: 10px;padding-bottom: 10px}
+#scrollThis .scroller li .time span{border-radius: 2px;background: #8b8b8b;padding: 1px 5px;display: inline-block;color: #fff}
+#scrollThis .scroller li .time em{font-style: normal;margin: 0 2px}
+.tipOn{position: absolute;top: 0;left: 0;padding: 0 0 0 5px;height: 20px;line-height: 20px;color: #fff}
+.tipOn:after{content: '';border-top: 10px solid transparent;border-bottom: 10px solid transparent;border-left: 10px solid #fbfdfb;position: absolute;top: 0px;right: -10px;}
+.ms{background:#f67a6b}
+.ms:after{border-left-color: #f67a6b}
+.zc{background:#f7a315}
+.zc:after{border-left-color: #f7a315}
+.jjp{background:#18bb73}
+.jjp:after{border-left-color: #18bb73}
+.kj{background:#9f83e4}
+.kj:after{border-left-color: #9f83e4}
+.tg{background:#fe5842}
+.tg:after{border-left-color: #fe5842}
+.specialItem{background: #fff}
+.specialItem ul li{height: 100px;overflow: hidden;position: relative;border-bottom: 1px solid #e3e3e3;}
+.specialItem ul li .goodsImg{width: 130px;height: 100px;text-align: center}
+.specialItem ul li .goodsImg img{width: 90px;height: 70px;margin-top: 15px}
+.specialItem ul li .desc{overflow: hidden;padding-top: 15px;}
+.specialItem ul li .desc .time{color: #8b8b8b;font-size: 10px;padding-bottom: 0px}
+.specialItem ul li .desc .time span{border-radius: 2px;background: #8b8b8b;padding: 1px 5px;display: inline-block;color: #fff}
+.specialItem ul li .desc .time em{font-style: normal;margin: 0 2px}
+.specialItem ul li .desc h3{font-size: 14px;color: #000;font-weight: normal;padding: 5px 0;padding-bottom: 0;}
+.specialItem ul li .desc p span:nth-child(1){font-size: 25px;color: #57ac50;margin-right: 5px}
+.specialItem ul li .desc p span:nth-child(1) i{font-size: 10px}
+.specialItem ul li .desc p span:nth-child(2){font-size: 10px;color: #828282;text-decoration: line-through}
+.specialItem ul li .abtn{border-radius: 5px;padding: 5px 20px;background: #49b44f;color: #fff;font-size: 15px;position: absolute;right: 10px;top: 33px;}
+
+.index-category{text-align: center;padding: 0 0 3px;background-color: #fff;}
+.index-category .page{float: left;padding: 0 10px;width: 100%;box-sizing: border-box;-webkit-box-sizing: border-box;position: relative;}
+.index-category .item{width: 25%;padding: 13px 0 0;display: block;float: left;color: #333;position: relative;box-sizing: border-box;-webkit-box-sizing: border-box;}
+.index-category .icon_list .item .icon{border-radius: 0;-webkit-border-radius: 0;}
+.index-category .icon_list .item .icon{background-size: 44px 44px;}
+.index-category .item .icon{border-radius: 22px;-webkit-border-radius: 22px;width: 44px;height: 44px;margin: 0 auto 8px;color: #333;position: relative;}
+.index-category .bounceInLeft{-webkit-animation-name: bounceInLeft;animation-name: bounceInLeft;-webkit-animation-duration: 0.5s;animation-duration: 0.5s;-webkit-animation-fill-mode: both;animation-fill-mode: both;}
+.index-category .bounceInRight{-webkit-animation-name: bounceInRight;animation-name: bounceInRight;-webkit-animation-duration: 0.5s;animation-duration: 0.5s;-webkit-animation-fill-mode: both;animation-fill-mode: both;}
+.index-category .fadeInLeft{-webkit-animation-name: fadeInLeft;animation-name: fadeInLeft;-webkit-animation-duration: 0.5s;animation-duration: 0.5s;-webkit-animation-fill-mode: both;animation-fill-mode: both;}
+.index-category .fadeInRight{-webkit-animation-name: fadeInRight;animation-name: fadeInRight;-webkit-animation-duration: 0.5s;animation-duration: 0.5s;-webkit-animation-fill-mode: both;animation-fill-mode: both;}
+.yanchi1{-webkit-animation-delay: 0s;animation-delay: 0s;}
+.yanchi2{-webkit-animation-delay: 0.5s;animation-delay: 0.5s;}
+.yanchi3{-webkit-animation-delay: 1s;animation-delay: 1s;}
+.yanchi4{-webkit-animation-delay: 1.5s;animation-delay: 1.5s;}
+.yanchi5{-webkit-animation-delay: 2s;animation-delay: 2s;}
+.yanchi6{-webkit-animation-delay: 2.5s;animation-delay: 2.5s;}
+.yanchi7{-webkit-animation-delay: 3s;animation-delay: 3s;}
+.yanchi8{-webkit-animation-delay: 3.5s;animation-delay: 3.5s;}
+
+.activity_module-nav {background-color: #fff}
+.activity_module-nav .custom-nav a {padding: 8px 1px 8px 15px; line-height: 16px;position:relative;}
+.activity_module-nav .custom-nav .arrow-right::after {/* border:none; */right:10px;}
+
+.progressBar{padding: 0 10px}
+.progressBar span{width: 100%;display: block;height: 5px;background: #e7e7e7;border-radius: 10px}
+.progressBar span i{width: 50%;border-radius: 10px;height: 5px;background: #18bb73;display: block}
+.progressBar small{display: block;width: 100%;text-align: center;margin: 5px 0}
+/*
+#scrollThis .scroller li{height: 264px;overflow: hidden}
+*/
+#scrollThis .scroller li{height: 145px;overflow: hidden}
+#scrollThis .scroller li p.zcPrice{padding: 5px 0}
+#scrollThis .scroller li p.zcPrice span{font-size: 12px;color: #828282}
+.specialItem ul li .desc p.zcPrice{padding:0}
+.specialItem ul li .desc p.zcPrice span{font-size: 12px;color: #828282}
+.specialItem ul li .desc .progressBar{padding: 0;width: 50%}
+.specialItem ul li .desc .progressBar small{position: relative;padding: 0;margin: 0}
+.specialItem ul li .desc .progressBar small em{position: absolute;display: block;font-size: 8px}
+.specialItem ul li .desc .progressBar small em i{display: block;font-size: 9px}
+.specialItem ul li .desc .progressBar small em:nth-child(1){left: 0;top: 0;text-align: left}
+.specialItem ul li .desc .progressBar small em:nth-child(1) i{color: #48b34f}
+.specialItem ul li .desc .progressBar small em:nth-child(2){position: static;display: block;text-align: center}
+.specialItem ul li .desc .progressBar small em:nth-child(2) i{color:#828282}
+.specialItem ul li .desc .progressBar small em:nth-child(3){right: 0;top: 0;text-align: right}
+.specialItem ul li .desc .progressBar small em:nth-child(3) i{color: #20a7ff}
+
+/* 使用swiper3.0修改样式 */
+.scrollBox { /*height: 204px;*/ }
+#scrollThis .scroller { width: 100%; border-right: 1px solid #e3e3e3; height: 149px; }
+.swiper-pagination-clickable .swiper-pagination-bullet { margin: 0 5px; }

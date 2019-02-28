@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>会员充值记录</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/recharge_record.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">会员充值记录</h1>
+	</header>
+	<div class="mui-content">
+		<div class="all_recards">
+			
+		</div>
+		<!-- 上拉刷新 -->
+		<div class="pullup" style="display:none;">上拉加载更多...</div>
+		<div class="loading" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+	</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="cardlist" type="text/html">
+	{{# for(var i = 0, len = d.data.length; i < len; i++){ }}
+		<div class="mui-card">
+	    	<div class="mui-card-header">
+	    		<span>会员卡ID: {{d.data[i].card_id}}</span>
+	    		<p>时间: {{d.data[i].time}}</p>
+	    	</div>
+	    	<div class="mui-card-header">
+	    		{{# if(d.data[i].nickname==null){ }}
+					<span>暂无</span>
+	    		{{# } else { }}
+					<span>{{d.data[i].nickname}}</span>
+	    		{{# } }}
+	    		{{# if(d.data[i].phone==null){ }}
+					<p>暂无</p>
+	    		{{# } else { }}
+					<p>{{d.data[i].phone}}</p>
+	    		{{# } }}
+	    	</div>
+	    	<div class="mui-card-content">
+	    		<ul class="mui-clearfix">
+					{{# if(d.data[i].type==1){ }}
+						<li class="mui-pull-left">
+		    				<dl>
+		    					<dt class="add">+{{d.data[i].money_add}}</dt>
+		    					<dd>金额增加(元)</dd>
+		    				</dl>
+		    			</li>
+		    			<li class="mui-pull-left">
+		    				<dl>
+		    					<dt class="add">+{{d.data[i].score_add}}</dt>
+		    					<dd>积分增加(分)</dd>
+		    				</dl>
+		    			</li>
+		    			<li class="mui-pull-left">
+		    				<dl>
+		    					<dt class="add">+{{d.data[i].coupon_add}}</dt>
+		    					<dd>优惠劵增加(元)</dd>
+		    				</dl>
+		    			</li>
+					{{# } else { }}
+						<li class="mui-pull-left">
+		    				<dl>
+		    					<dt class="reduce">-{{d.data[i].money_use}}</dt>
+		    					<dd>金额减少(元)</dd>
+		    				</dl>
+		    			</li><li class="mui-pull-left">
+		    				<dl>
+		    					<dt class="reduce">-{{d.data[i].score_use}}</dt>
+		    					<dd>积分减少(分)</dd>
+		    				</dl>
+		    			</li>
+		    			<li class="mui-pull-left">
+		    				<dl>
+		    					<dt class="reduce">-{{d.data[i].coupon_use}}</dt>
+		    					<dd>优惠劵减少(元)</dd>
+		    				</dl>
+		    			</li>
+					{{# } }}
+	    		</ul>
+	    	</div>
+	    	<div class="mui-card-footer">
+	    		<p><span><i></i> 详情:</span> {{d.data[i].desc}}</p>
+	    	</div>
+	    </div>
+	{{# } }}
+</script>
+
+<script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	var ticket = common.getCache('ticket');
+		var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+		var page=1;
+		$('.all_recards').html('');
+		function recordAll(page){
+			common.http('Merchantapp&a=recharge_list',{'ticket':ticket,'client':client,'pindex':page},function(data){
+				console.log(data);			
+				if(data.data.length==0){
+					$('.pullup').html('没有更多数据啦');
+					$('.loading').hide();
+					$('.pullup').show();
+				}else{
+					data.data.length<10&&$('.pullup').html('没有更多数据啦');
+					$('.loading').hide();
+					$('.pullup').show();
+					laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+						
+						$('.all_recards').append(html);
+						$('.loading').hide();
+						$('.pullup').show();
+					});
+					if(data.data.length>9){
+						var flag=false;
+						$(window).scroll(function() {
+				         	if(flag){
+				         		return false;
+				         	}
+
+				            //上拉加载
+				            if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+				            	$('.pullup').hide();
+				            	$('.loading').show();
+				            	flag=true;
+				                page++;
+				                recordAll(page);
+				            }
+				        });
+					}
+					
+				}
+			});
+		}
+		recordAll(1);
+		// 上拉加载下拉刷新数据
+		
+</script>
+</body>
+</html>

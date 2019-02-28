@@ -1,0 +1,300 @@
+html,body{
+	font-size: 16px;
+	background: #F9F9F9;
+	padding: 0;margin: 0;
+}
+ul,ol,dl,dd,dt,li,p,h1,h2,h3,h4,h5,h6{
+	list-style: none;
+	margin: 0;padding: 0;
+	    -webkit-margin-start: 0px;
+}
+a{
+	text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+    display: block;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+li{
+    display: block;
+    -webkit-margin-before: 0em;
+    /*-webkit-margin-after: 0.4em;*/
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+}
+.hidden{
+	display: none;
+}
+.after:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.ft{
+	float: left;
+}
+.rg{
+	float: right;
+}
+
+header{
+	background: #06C1AE;
+	display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+     padding: 30px 10px 30px 20px;
+}
+header img{
+	width: 60px;
+    height: 60px;
+   border-radius: 5px;
+}
+header ul{
+	display: inline-block;
+	width: 75%;
+	font-size: 16px;
+}
+@media (min-width: 320px){
+	header ul{
+		width: 75%;
+	}
+}
+@media (min-width: 360px){
+	header ul{
+		width: 79%;
+	}
+}
+@media (min-width: 375px){
+	header ul{
+		width: 80%;
+	}
+}
+@media (min-width: 384px){
+	header ul{
+		width: 80%;
+	}
+}
+@media (min-width:400px){
+	header ul{
+		width: 81%;
+	}
+}
+@media (min-width:412px){
+	header ul{
+		width: 82%;
+	}
+}
+@media (min-width:434px){
+	header ul{
+		width: 83%;
+	}
+}
+@media (min-width:450px){
+	header ul{
+		width: 84%;
+	}
+}
+header ul li{
+	color: #fff;
+	line-height: 1.8;
+}
+header ul li:last-child{
+	font-size: 12px;
+}
+header a{
+	padding: 30px 20px;
+}
+header a i{
+	display: inline-block;
+	width: 24px; height: 24px;
+	background: url(../imanges/set.png) center no-repeat;
+	background-size: contain;
+}
+
+.content li a{
+	display: block;
+	padding:16px  10px;
+	background: #fff;
+	font-size: 16px;
+	color: #404040;
+	border-bottom: 1px solid #F1F1F1;
+}
+.content ul li:nth-child(1) i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../imanges/my1.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 1%;
+}
+.content ul li:nth-child(2) i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../imanges/gr1.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 1%;
+}
+.content ul li:nth-child(3) i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../imanges/fw1.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 1%;
+}
+.content ul li:nth-child(4) i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../imanges/jn1.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 1%;
+}
+.content ul li:nth-child(5) i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../imanges/shou-2.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 1%;
+}
+.content ul li:nth-child(6) i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../images/address1.png) center no-repeat;
+    background-size: contain;
+    vertical-align: sub;
+    margin-right: 1%;
+}
+.content ul li:nth-child(7) i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../images/mu1.png) center no-repeat;
+    background-size: contain;
+    vertical-align: sub;
+    margin-right: 1%;
+}
+.content ul li:nth-child(8) i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../imanges/dj1.png) center no-repeat;
+    background-size: contain;
+    vertical-align: sub;
+    margin-right: 1%;
+}
+.content li b{
+	display: inline-block;
+	width: 8px;
+	height: 13px;
+	background: url(../imanges/14-2_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-top: 6px;
+}
+.content li:first-child b{
+	display: inline-block;
+	width: 8px;
+	height: 13px;
+	background: url(../imanges/14-2_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: inherit;
+	
+}
+.content li span{
+	color: #FF5750;
+}
+
+
+
+
+.bottom{
+	position: fixed;
+	bottom: 0;
+	background: #fff;
+	height: 52px;
+	width: 100%;
+	text-align: center;
+	font-size: 0px;
+}
+.bottom div{
+	display: inline-block;
+	width: 33.3%;;
+	color: #8a8a8a;
+	font-size: 14px;
+}
+
+.bottom div.active{
+	color: #2999F1;
+}
+.bottom div{
+	margin-top: 3px;
+}
+.bottom div .icon1{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../imanges/222-2.png) center no-repeat;
+	background-size: contain;
+}
+.bottom div.active .icon1{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../imanges/222-1.png) center no-repeat;
+	background-size: contain;
+}
+
+.bottom div .icon2{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../imanges/111-2.png) center no-repeat;
+	background-size: contain;
+}
+
+.bottom div.active .icon2{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../imanges/111-1.png) center no-repeat;
+	background-size: contain;
+}
+
+.bottom div.active .icon3{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../imanges/333-1.png) center no-repeat;
+	background-size: contain;
+}
+
+.bottom .icon3{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../imanges/333-2.png) center no-repeat;
+	background-size: contain;
+}

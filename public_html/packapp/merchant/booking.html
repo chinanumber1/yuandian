@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>预约管理</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/booking.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	     <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title"><span class="dyu"></span>管理</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="allGoods">
+			<div class="alls" id="data">
+				
+			</div>
+			
+			<div class="pullup1" style="display:none;">上拉加载更多...</div>
+			<div class="loading1" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+		</div>
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="pluscardLists" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+
+		<div class="mui-card" data-id="{{ d[i].appoint_id }}">
+	    	<div class="mui-card-content">
+	    		<a href="javascript:void(0);" class="group_click">
+	    			<img src="{{ d[i].pic }}" class="mui-pull-left"/>
+		    		<ul class="mui-pull-left">
+		    			<li><span>{{ d[i].appoint_name }}</span></li>
+		    			{{# if(d[i].payment_status==0){ }}
+							<li>定金:0.00元</li>
+						{{# } else if(d[i].payment_status==1) { }}
+							<li>定金:{{ d[i].payment_money }}元</li>
+						{{# } }}
+		    			
+		    			<li>价格{{ d[i].appoint_price }}元</li>
+		    			{{# if(d[i].appoint_type==0){ }}
+							<li>服务类型:到店</li>
+						{{# } else if(d[i].appoint_type==1) { }}
+							<li>服务类型:上门</li>
+						{{# } }}
+		    		</ul>
+	    		</a>
+	    		{{# if(d[i].appoint_status==1){ }}
+					<a  href="#" class="mui-pull-right cli_status close">关闭</a>
+				{{# } else if(d[i].appoint_status==0) { }}
+					<a  href="#" class="mui-pull-right cli_status open">开启</a>
+				{{# } }}
+	    	</div>
+	    </div>	
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+mui.init();
+var ticket = common.getCache('ticket');
+var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+var dyu=common.getCache('dyu');
+$('.dyu').text(dyu);
+var pindex=1;
+function addGoods(page){
+	common.http('Merchantapp&a=appoint',{'ticket':ticket,'client':client,'pindex':page},function(data){
+		console.log(data);
+		if (data.appoint_list.length!=0) {
+			data.appoint_list.length<=9&&$('.pullup1').html('没有更多数据啦');
+			$('.loading1').hide();
+			$('.pullup1').show();
+			laytpl(document.getElementById('pluscardLists').innerHTML).render(data.appoint_list, function(html){
+				$('.alls').append(html);
+			});
+			if(data.appoint_list.length>9){
+				var flag = false;
+				$(window).scroll(function(e) {
+				    e.stopPropagation();
+				    if(flag){
+				      //数据加载中
+				      return false;
+				    }
+				    //上拉加载
+				    if ($(document).scrollTop() == $(document).height() - $(window).height()) {
+				    	$('.pullup1').hide();
+				    	$('.loading1').show();
+				    	flag = true;
+				        pindex++;
+				      addGoods(pindex);
+				    }
+				});
+			}
+		}else{
+			$('.pullup1').html('没有更多数据啦');
+			$('.loading1').hide();
+			$('.pullup1').show();
+		}
+	});
+}
+
+addGoods(1);
+mui('.mui-content').on('tap','.cli_status',function(e){
+	var status=0;
+	var me=this;
+	var appoint_id=$(this).parents('.mui-card').attr('data-id');
+	if($(this).text()=="开启"){
+		status=1;
+		$(this).text('关闭').removeClass('open').addClass('close');
+	}else{
+		status=0;
+		$(this).text('开启').removeClass('close').addClass('open');
+	}
+	common.http('Merchantapp&a=appoint_status',{'ticket':ticket,'client':client,'appoint_id':appoint_id,'appoint_status':status},function(data){
+		console.log(data);
+		if(data.length==0){
+			mui.toast('操作成功');
+		}
+	});
+
+});
+
+
+//进入预约订单页面
+mui('.mui-content').on('tap','.group_click',function(e){
+	var appoint_id=$(this).parents('.mui-card').attr('data-id');
+	openWindow({
+		url:'booking_order.html?appoint_id='+appoint_id,
+		id:'booking_order'
+	});
+});
+</script>
+</body>
+</html>

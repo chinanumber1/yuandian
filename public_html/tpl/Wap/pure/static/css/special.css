@@ -1,0 +1,450 @@
+@charset "utf-8";
+
+.custom-image-swiper img{
+	display:block;
+	width:100%;
+}
+.coupon_list {
+    margin: 0 2%;
+}
+.couponRow {
+    float: left;
+    width: 32%;
+    position: relative;
+    margin-right: 2%;
+    position: relative;
+    background: url(../img/coupon_on1.png) no-repeat;
+    background-size: 100% auto;
+    color: #FFF;
+	overflow:hidden;
+}
+.couponRow:hover{
+	color:#fff;
+}
+.couponRow:nth-child(3n) {
+    margin-right: 0%;
+}
+.pull-left {
+    float: left;
+}
+.couponRow .coupon_name {
+    width: 14px;
+    line-height: 14px;
+    font-size: 12px;
+    height: 100%;
+    overflow: hidden;
+    display: table;
+}
+.couponRow .coupon_name span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.couponRow .coupon_monery{
+    font-size: 16px;
+    position: relative;
+    font-weight: bold;
+	text-align:center;
+}
+.couponRow .coupon_monery::before {
+    content: '￥';
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    top: 2px;
+}
+.couponRow .coupon_use {
+    display: block;
+    font-size: 10px;
+    text-align: center;
+}
+.oneline {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+.addCategoryBtn{
+	height:50px;
+	background:white;
+	cursor:pointer;
+    position: relative;
+}
+.addCategoryBtn  li{
+	height:50px;
+	line-height:50px;
+	width:100%;
+	text-align:center;
+	overflow:hidden;
+	float:left;
+}
+.addCategoryBtn.col-2  li{
+	width:50%;
+}
+.addCategoryBtn.col-3  li{
+	width:33%;
+}
+.addCategoryBtn.col-4  li{
+	width:25%;
+}
+.addCategoryBtn.col-5  li{
+	width:20%;
+}
+
+
+.addCategoryBtn  li.curr{
+    background: #f98100;
+    color: #FFF;
+}
+
+.coupon_list .icon2 {
+    display: block;
+    width: 36px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: -3px;
+    text-indent: -9999px;
+}
+.coupon_on1{ background: url(../img/coupon_on2.png) no-repeat; background-size: 100% auto; }
+.coupon_on1 .icon2{ background: url(../img/coupon_jb.png) no-repeat; background-size: 100% auto;}
+
+.productRow {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    position: relative;
+}
+.product_dealcard {
+    background-color: white;
+    padding: 8px 3px;
+    border-bottom: 1px solid #f1f1f1;
+    line-height: 1.5;
+}
+.product_dealcard .dealcard-img {
+    width: 90px;
+    height: 60px;
+    border-radius: 2px;
+    float: left;
+    position: absolute;
+    overflow: hidden;
+}
+.product_dealcard .dealcard-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+.product_dealcard .dealcard-img .closeTip {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    color: white;
+    background: black;
+    text-align: center;
+}
+.product_dealcard .dealcard-block-right {
+    margin-left: 100px;
+}
+.product_dealcard .brand {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+}
+.product_dealcard .location-right {
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    color: #666;
+    font-size: 11px;
+}
+.product_dealcard .title {
+    padding-left: 74px;
+}
+.product_dealcard .title, .product_dealcard .price {
+    position: relative;
+}
+.product_dealcard .title span, .product_dealcard .price span {
+    color: #666;
+    font-size: 11px;
+}
+.product_dealcard .title .star {
+    vertical-align: middle;
+    margin-left: 2px;
+    position: absolute;
+    left: 0px;
+    top: 3px;
+}
+.product_dealcard .title .star i {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: url(../img/none_star.png) no-repeat;
+    background-size: 100%;
+    margin-right: 2px;
+}
+.product_dealcard .title .star i.full {
+    background-image: url(../img/full_star.png);
+}
+.product_dealcard .title .star i.half {
+    background-image: url(../img/mid_star.png);
+}
+.product_dealcard .title .location-right {
+    top: 2px;
+}
+em, i {
+    font-style: normal;
+    font-weight: normal;
+}
+.product_dealcard .price span.delivery {
+    border-left: 1px solid #bbb;
+    padding-left: 8px;
+    margin-left: 8px;
+}
+.product_dealcard .price .location-right, .product_dealcard .title.pick .location-right {
+    background: #06c1ae;
+    color: white;
+    padding: 0px 2px;
+    border-radius: 2px;
+    font-size: 10px;
+    top: 4px;
+}
+.product_dealcard .coupon {
+    color: #bbb;
+    font-size: 11px;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+.product_dealcard .coupon li {
+    position: relative;
+    padding-left: 20px;
+    line-height: 22px;
+    padding-right: 60px;
+    height: 22px;
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.product_dealcard .coupon li em {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    display: inline-block;
+    background-color: #DD1111;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    border-radius: 2px;
+}
+.product_dealcard .coupon li em:before {
+    content: '惠';
+    font-size: 11px;
+    color: white;
+    margin-left: 2px;
+}
+em.merchant_minus{
+	background-color:#FF6655!important;
+}
+em.system_minus{
+	background-color:#5D26EA!important;
+}
+em.merchant_minus:before,em.system_minus:before{
+	content:'减'!important;
+}
+em.newuser{
+	background-color:#FFAA22!important;
+}
+em.system_newuser{
+	background-color:#0EC0A8!important;
+}
+em.newuser:before,em.system_newuser:before{
+	content:'首'!important;
+}
+em.merchant_delivery{
+	background-color:#6C5CB4!important;
+}
+em.merchant_delivery:before{
+	content:'送'!important;
+}
+em.merchant_discount{
+	background-color:#DD1111!important;
+}
+em.merchant_discount:before{
+	content:'折'!important;
+}
+em.merchant_invoice{
+	background-color: #7CC6FF!important;
+}
+em.merchant_invoice:before{
+	content:'票'!important;
+}
+
+
+.coupon.hasMore {
+    height: 44px;
+}
+.coupon.showMore {
+    height: auto;
+}
+.coupon .more {
+    position: absolute;
+    bottom: 11px;
+    right: 2px;
+    padding-right: 12px;
+}
+.coupon .more:after {
+    display: inline-block;
+    content: "";
+    border-bottom: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    width: 4px;
+    height: 4px;
+    -webkit-transform: rotate(315deg);
+    background-color: transparent;
+    position: absolute;
+    top: 5px;
+    right: 4px;
+}
+.coupon.showMore .more:after {
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    border-bottom: none;
+    border-left: none;
+    top: 8px;
+}
+
+/*列表页样式*/
+#listHeader{
+	top:0;
+	height: 50px;
+    background-color: #06c1ae;
+    display: -webkit-box;
+	position:fixed;
+    width: 100%;
+    z-index: 21;
+}
+#locationBtn{
+	background:none;
+	color:white;
+	margin: 0 auto;
+	padding: 0 28px;
+    height: 28px;
+    line-height: 28px;
+    margin-top: 11px;
+	border-radius: 30px;
+	font-size: 12px;
+	position: relative;
+    display: block;
+}
+#locationBtn .location{
+	height: 10px;
+    width: 10px;
+    border: 1px white solid;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+	position: absolute;
+    top: 8px;
+    left: 9px;
+}
+#locationBtn .location:before {
+    content: '';
+	width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+#locationBtn .go{
+	position: absolute;
+    top: 7px;
+    right: 10px;
+}
+#locationBtn .go:before{
+	content:''; height:6px; width:6px; display:block; border:1px solid white; border-left-width:0; border-top-width:0; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); position:absolute; top:3px; right:3px;
+}
+.fixedRoundBg{
+	top:0px;
+	background-color:#06c1ae!important;
+}
+.fixedRoundBg #locationBtn{
+	background:none!important;
+}
+.roundBg #locationBtn{
+	background-color:rgba(0,0,0,0.4);
+}
+#pageList .fixedRoundBg #searchBtn:before{
+	background:none!important;
+}
+.listBackBtn{
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.listBackBtn div{
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    top: 17px;
+    left: 5px;
+}
+.listBackBtn div:after {
+    display: block;
+    content: "";
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    width: 8px;
+    height: 8px;
+    -webkit-transform: rotate(315deg);
+    background-color: transparent;
+    position: absolute;
+    top: 3px;
+    left: 19px;
+}
+
+.listSearchBtn{
+	position: absolute;
+    width: 50px;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+#pageList .roundBg #searchBtn:before,#pageList .roundBg #listBackBtn:before{
+	content: "";
+    display: block;
+    position: absolute;
+	background-color:rgba(0,0,0,0.4);
+	width: 28px;
+    height: 28px;
+	border-radius:100%;
+	top: 10px;
+    left: 12px;
+}
+.listSearchBtn div{
+	height:20px;
+    position: absolute;
+    width: 20px;
+    top: 17px;
+    right: 10px;
+}
+.listSearchBtn div:before, .listSearchBtn div:after{
+	content:''; height:10px; display:block; position:absolute; top:0; left:0; 
+}
+
+.listSearchBtn div:before{
+	width:10px; border:1px white solid; border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;
+}
+
+.listSearchBtn div:after{
+	width:1px; background:white; transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);-ms-transform:rotate(-45deg); top:10px; left:11px;    height: 4px;
+}
+

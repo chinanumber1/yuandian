@@ -1,0 +1,142 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-card{margin: 0;margin-top: 15px;}
+.mui-card .mui-card-header,.mui-card .mui-card-footer{
+	padding: 0;
+} 
+
+.left_style{
+	display: inline-block;
+	margin: 10px 0 10px 3%;
+	width: 20%;
+	font-size: 14px;
+	color: #404040;
+}
+input[type='text'],input[type='number'],input[type='tel']{
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 70%;
+	font-size: 15px;
+}
+
+/*提现人*/
+.withdrawals_money b{
+	font-size: 16px;
+    font-weight: normal;
+    vertical-align: text-bottom;
+}
+.withdrawals_money span{
+	display: inline-block;
+	padding: 10px 0;
+	/* border-bottom: 1px solid #F1F1F1; */
+	margin-left: 10px;
+	/*width: 100%;*/
+}
+.withdrawals_money span	input{
+	font-size: 22px;
+	font-weight: bold;
+}
+.withdrawals_money span i{
+	font-style: normal;
+	color: #3DD0BE;
+	font-size: 12px;
+	margin-right: 5%;
+    margin-top: 10px;
+}
+.withdrawals_money p{
+	margin-left: 10px;
+	color: #A3A3A3;
+	font-size: 12px;
+	padding: 4px 0;
+}
+/*提现至*/
+.withdrawals_form p b{
+	 padding: 9px 0;
+    margin-left: 1%;
+    color: #575757;
+    font-size: 15px;
+    width: 75%;
+    display: inline-flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.withdrawals_form p i{
+	display: inline-block;
+    width: 15px;
+    height: 8px;
+    background: url(../images/7-6_03.png) center no-repeat;
+    background-size: contain;
+    margin-top: 9px;
+    margin-right: 3%;
+}
+.withdrawals_form p b>span{
+	display: inline-block;
+	width: 85%;
+}
+#changeBank{
+	border-top: 1px solid #f1f1f1;
+}
+#changeBank_text{
+	margin-left: -0.1px;
+}
+.withdrawals_form ul{
+	margin-left: 9%;
+}
+.withdrawals_form ul li{
+	border-top: 1px solid #F1F1F1;
+}
+.withdrawals_marks span{
+	
+}
+.withdrawals_marks textarea{
+	border: none;
+	padding: 0px 10px 10px 10px;
+    flex: 1;
+	margin: 0;
+	font-size: 15px;
+	
+}
+
+.withdrawals{
+	display: inline-block;
+	width: 90%;
+	margin: 30px 5%;
+	height: 40px;
+	text-align:center;
+	line-height: 40px;
+	background: #FFA200;
+	color: #fff;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+@media (min-width:320px ) {
+	.withdrawals_form ul li input{
+		margin-left: 20%;
+	}
+}
+@media (min-width:360px ) {
+	.withdrawals_form ul li input{
+		margin-left: 17%;
+	}
+}
+
+@media (min-width:410px ) {
+	.withdrawals_form ul li input{
+		margin-left: 16%;
+	}
+}

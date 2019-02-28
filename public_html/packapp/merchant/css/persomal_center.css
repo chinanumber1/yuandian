@@ -1,0 +1,247 @@
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.mui-bar-nav{
+	background: #ffa200;
+	border-bottom: 1px solid #fff;
+}
+.mui-bar-nav h1{
+	color: #fff;
+}
+.mui-bar-nav a{
+	color: #61616D;
+}
+
+.center{
+	background: #FFFFFF;
+}
+.mui-table-view:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 14px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #F1F1F1;
+}
+
+.mui-media img{
+	width: 71px;height: 71px;
+}
+.mui-media-body{
+	margin-left: 81px;
+}
+.mui-media-body p{
+	margin-top: 8px;
+}
+.mui-table-view-cell{
+	padding: 15px;
+}
+.mui-media-body p:first-child{
+	color: #333333;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.mui-media-body p:last-child{
+	width: 115px;
+	height: 21px;
+	font-size: 12px;
+	border: 1px solid #FFA200;
+	border-radius: 30px;
+	text-align: center;
+	color: #ffa200;
+	line-height: 21px;
+}
+.mui-media-body p i{
+	display: inline-block;
+	width: 12px;height: 11px;
+	background: url(../images/33-_06.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+
+/*订单数样式*/
+.all_order>li{
+	width: 32%;
+	text-align: center;
+	margin: 15px 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+.all_order>li:first-child ul li{
+	color: #25ADFF;
+}
+.all_order>li ul li span{
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.all_order>li:nth-child(2){
+	border-left:1px solid #F1F1F1 ;
+	border-right:1px solid #F1F1F1 ;
+}
+.all_order>li:nth-child(2) ul li{
+	color: #FF9307;
+}
+.all_order>li:last-child ul li{
+	color: #FC8080;
+}
+/*打印机*/
+.mui-card{
+	margin: 10px 0;
+}
+.mui-card .mui-card-header{
+	padding: 0;
+	padding: 10px 0 10px 10px;
+	font-size: 15px;
+}
+.mui-card .mui-card-header b{
+	display: inline-block;
+	width: 6px;height: 11px;
+	background: url(../images/33-1_03.png) center no-repeat;
+	background-size: contain;
+	margin-right: 2%;
+}
+.mui-card>div:first-child span i{
+	display: inline-block;
+	width: 16px;height: 16px;
+	background: url(../images/33-_10.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+.mui-card>div:nth-child(2) span i{
+	display: inline-block;
+	width: 16px;height: 16px;
+	background: url(../images/33-8_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+.mui-card>div:nth-child(3) span i{
+	display: inline-block;
+	width: 16px;height: 16px;
+	background: url(../images/33-_17.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+.mui-card>div:nth-child(4) span i{
+	display: inline-block;
+	width: 16px;height: 16px;
+	background: url(../images/33-_13.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+.mui-card>div:nth-child(5) span i{
+	display: inline-block;
+	width: 16px;height: 16px;
+	background: url(../images/bl1.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+.mui-card>div:nth-child(7) span i{
+	display: inline-block;
+	width: 16px;height: 16px;
+	background: url(../images/tg1.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+.mui-card>div:last-child:after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #f1f1f1;
+}
+
+/*底部*/
+.mui-bar-tab .shop-home{
+	display: inline-block;
+	width: 22px;
+	height: 20.5px;
+	background: url(../images/1-_36.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+
+.mui-tab-item span{
+	font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mui-bar-tab .shop-plus{
+	display: inline-block;
+	width: 27px;
+	height: 20.5px;
+	background: url(../images/1-_38.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-bar-tab .shop-take{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/1-_41.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-bar-tab .shop-my{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/1-_43.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-active span{
+	color:#FFA200;
+}
+.mui-active .shop-home{
+	display: inline-block;
+	width: 22px;
+	height: 20.5px;
+	background: url(../images/6-7_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-active .shop-plus{
+	display: inline-block;
+	width: 27px;
+	height: 20.5px;
+	background: url(../images/34-1_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-active .shop-my{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/33-1.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}
+.mui-bar-tab {
+	background: #FFFFFF;
+}
+.mui-active .shop-take{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/6-23_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: -webkit-baseline-middle;
+}

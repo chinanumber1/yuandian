@@ -1,0 +1,127 @@
+ul{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.left_style{
+	display: inline-block;
+	margin: 15px 0 15px 10px;
+	font-size: 14px;
+	color: #404040;
+	width: 25%;
+}
+.left_style sup{
+	display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url(../images/12-_03.png) center no-repeat;
+    background-size: contain;
+    top:0;
+}
+input[type="text"],input[type="number"]{
+	width: 95%;
+}
+
+
+
+.mui-card-header{
+	padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-card{margin: 0;margin-top: 15px;}
+
+/*优惠条件*/
+.mui-card .mui-card-header{
+	justify-content: baseline;
+}
+.mui-card .mui-card-header>span{
+	font-size: 14px;
+}
+.mui-card .mui-card-header ul{
+	width: 72%;
+	padding: 7px 0;
+}
+.mui-card .mui-card-header ul li:last-child{
+	font-size: 12px;
+	color: #FF5053;
+}
+.mui-card .mui-card-header ul li input{
+	font-size: 15px;
+	border: none;	
+	padding: 0;
+	margin-bottom: 0;
+	height: 30px;
+}
+.new_select{
+	display: block
+}
+.new_select b{
+	font-weight: 100;
+	line-height: 44px;
+	color: #A9A9A9;
+	font-size: 15px;
+	display: inline-block;
+	width: 70%;
+}
+.new_select b>span{
+	width: 80%;
+    display: inline-block;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+.new_select i{
+	display: inline-block;
+	width: 15px;height: 8.5px;
+	background: url(../images/7-6_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: 17px;
+    margin-right: 3%;
+}
+/*开关通用样式*/
+.mui-switch.mui-active {
+    border-color: #FFA200;
+    background-color: #FFA200;
+}
+.mui-switch{
+	background: #f0f0f0;
+}
+.mui-switch:before {
+	font-size: 13px;
+	position: absolute;
+	top: 3px;
+	right: 11px;
+	content: '关闭';
+	text-transform: uppercase;
+	color: #999;
+}
+
+.mui-switch.mui-active:before {
+	right: auto;
+	left: 10px;
+	content: '开启';
+	color: #fff
+}
+
+
+
+/**/
+.mui-switch{
+	margin-right: 7px;
+}
+/*保存*/
+.keep_juan{
+	margin: 0 5%;
+	width: 90%;
+	margin-top: 40px;
+	height: 40px;
+	border-radius: 30px;
+	border-color: #FFA200;
+	background: #FFA200;
+	color: #fff;
+	
+}

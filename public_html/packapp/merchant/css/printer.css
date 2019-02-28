@@ -1,0 +1,62 @@
+ul,ol,dl,dd{
+	list-style: none;
+	margin: 0;padding: 0;
+}
+p{margin: 0;padding: 0;}
+/*头部*/
+.mui-bar-nav{
+	background: #ffa200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #fff;
+}
+.mui-bar-nav a.mui-pull-right{
+	font-size: 12px;
+	margin-top: 12px;
+}
+.mui-bar-nav a.mui-pull-right i{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../images/6-_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-right: 3px;
+}
+
+/*卡片样式*/
+.mui-card{
+	margin:15px 0;
+}
+
+.mui-card  .mui-card-content{
+	padding: 10px;
+}
+.mui-card  .mui-card-content ul li{
+	color: #363636;
+}
+.mui-card  .mui-card-content .mui-pull-right{
+	/*margin-top: 10px;*/
+}
+.mui-card  .mui-card-content .mui-pull-right li{
+	font-size: 12px;
+}
+.mui-card  .mui-card-content .mui-pull-right li:first-child{
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+.mui-card  .mui-card-content .mui-pull-right li i{
+	display: inline-block;
+	width: 14px;
+	height: 15px;
+	background: url(../images/9-_05.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+}
+.mui-card  .mui-card-content .mui-pull-right li b{
+	display: inline-block;
+	width: 12px;height: 15px;
+	background: url(../images/9-_07.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+}

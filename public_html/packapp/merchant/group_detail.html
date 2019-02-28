@@ -1,0 +1,273 @@
+<html lang="zh-CN" manifest="appcache.php"><head>
+		<meta charset="utf-8">
+		<title>订单详情</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="address=no">
+		<link href="css/mui.css" rel="stylesheet"/>
+     	<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+		<link href="css/pigcms.css" rel="stylesheet">
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+		    <h1 class="mui-title"><span class="ctuan">团购</span>订单详情</h1>
+		</header>
+								<!-- <span class="ff0">未付款</span>        
+									<span class="ef6">未发货</span>         
+									<span class="ecc">已付款</span>         
+									<span class="fc6">待评价</span>         
+									<span class="a2a">已取消</span> -->  
+		<section class="g_details p40 allHtml">
+			
+		</section>
+		<script src="js/fastclick.js"></script>
+		<script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.picker.js"></script> 
+		<script src="js/mui.dtpicker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/fastclick.js"></script>
+		<script src="js/jRoll.js"></script>
+		<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js"></script>
+		<script id="pluscardLists" type="text/html">
+			{{# var data=d; }}
+			{{# console.log(data); }} 
+			<div class="commod detail_list">
+					<div class="top clr">
+						<h2 class="fl">商品信息</h2>
+					</div>     
+					<div class="commod_list">
+						<div class="img fl">
+							<img src="{{ data.now_order.pic }}">
+						</div>      
+						<div class="content" style="height: 76px;">       
+							<h2>{{ data.now_order.s_name }}</h2>       
+							<div class="clr price">        
+								<div class="fl">单价：{{ data.now_order.price }}元</div>        
+								<div class="fl">数量：{{ data.now_order.num }}</div>
+							</div>       
+							<div class="clr">        
+								<div class="fl total">共计：￥{{ data.now_order.total_money }}</div>        
+								<div class="state fr">                  
+									<span class="ecc">{{ data.now_order.paystatus }}</span>                             
+									<span class="ff0">{{ data.now_order.paytypestr }}</span>                  
+									  
+								</div>       
+							</div>      
+						</div>     
+					</div>   
+				</div>
+				<div class="user detail_list">
+					<div class="top clr">    
+						<h2 class="fl">用户信息</h2>   
+					</div>   
+					<div class="user_list">    
+						<ul>     
+							<li class="clr">      
+								<span class="fl">用户ID</span>      
+								<span class="fr">{{  data.user.uid }}</span>     
+							</li>     
+							<li class="clr">      
+								<span class="fl">用户名</span>      
+								<span class="fr">{{  data.user.nickname }}</span>     
+							</li>     
+							<li class="clr">      
+								<span class="fl">手机号</span>      
+								<span class="fr blue callPhone" data-phone="{{ data.user.user_phone }}">{{ data.user.user_phone }}</span>     
+							</li>    
+						</ul>   
+					</div>   
+				</div>
+
+				<div class="distri detail_list" id="distriBox">   
+					<div class="top clr">    
+						<h2 class="fl">配送信息</h2>   
+					</div>   
+					<div class="distri_list">    
+						<ul>     
+							<li class="clr address">      
+								<div class="tit">       
+									<div class="tit_top clr">        
+										<div class="fl">收件人：</div>        
+										<div class="fr blue callPhone" data-phone="{{ data.user.user_phone }}">{{ data.user.user_phone }}</div>       
+									</div>       
+									<div class="tit_bot openMap" data-type="baidu" data-name="收件人：" data-address="{{ data.distribution.adress }} 自提点电话：{{ data.distribution.phone }}">
+										{{ data.distribution.adress }} 自提点电话：{{ data.distribution.phone }}</div>      
+								</div>     
+							</li>     
+						 
+							<li class="clr express additional">
+								<h2 >额外信息 <span class="modify">修改</span></h2>
+								<div class="textarea">       
+									<textarea placeholder="点击进行修改信息">{{ data.now_order.merchant_remark }}</textarea>      
+								</div>     
+							</li>
+						</ul>   
+					</div>   
+				</div>
+				
+
+				{{# if(data.now_order.tuan_type==2 && data.now_order.store_id=="0"){ }}
+					{{# if( data.now_order.pin_num>0 && data.now_order.can_assign_store ==0){ }}
+						<div class="mui-card guishu">
+							<div class="mui-card-header">
+								<span>收货地址</span>
+								<b ><span>还未成团不能分配店铺 </span> </b>
+							</div>
+						</div>
+					{{# } else { }}
+						<div class="mui-card guishu">
+							<div class="mui-card-header">
+								<span>将订单归属所属店铺</span>
+								<b id="showUserPicker1"><span id="shop_class">请选择店铺分类</span> <i class="mui-pull-right"></i></b>
+							</div>
+						</div>
+					{{# } }}
+				{{# } }}
+
+				
+
+				
+	            <div class="order detail_list">         
+	            	<div class="top clr">             
+	            		<h2 class="fl">订单信息</h2>         
+	            	</div>         
+	            	<div class="user_list">             
+	            		<ul>                 
+	            			<li class="clr">                     
+	            				<span class="fl">订单类型</span>                     
+	            				<span class="fr">{{ data.now_order.order_type }}</span>                 
+	            			</li>                 
+	            			<li class="clr">                     
+	            				<span class="fl">订单号</span>                     
+	            				<span class="fr">{{ data.now_order.real_orderid }}</span>                 
+	            			</li>                 
+	            			<li class="clr">                     
+	            				<span class="fl">下单时间</span>                     
+	            				<span class="fr">{{ data.now_order.add_time }}</span>                 
+	            			</li>                                  
+	            			<li class="clr">                     
+	            				<span class="fl">付款时间</span>                     
+	            				<span class="fr">{{ data.now_order.pay_time }}</span>                 
+	            			</li>                              
+	            		</ul>         
+	            	</div>         
+	            </div>
+
+				<div class="payment detail_list" id="paymentBox">
+					<div class="top clr">    
+						<h2 class="fl">付款方式</h2>   
+					</div>   
+					<div class="user_list">    
+						<ul>     
+							<li class="clr">      
+								<span class="fl">平台余额支付</span>      
+								<span class="fr">{{ data.now_order.balance_pay }}</span>     
+							</li>     
+							<li class="clr">      
+								<span class="fl">商家会员卡余额支付</span>      
+								<span class="fr">{{ data.now_order.merchant_balance }}</span>     
+							</li>     
+							<li class="clr">      
+								<span class="fl">在线支付金额</span>      
+								<span class="fr">{{ data.now_order.payment_money }}</span>     
+							</li>    
+						</ul>   
+					</div>   
+				</div>
+
+				<div class="leaving detail_list">
+					<div class="top clr">
+						<h2 class="fl">买家留言</h2>
+					</div>
+					<div class="textarea">
+						<textarea placeholder="暂无" readonly="readonly">{{ data.now_order.delivery_comment }}		</textarea>
+					</div>
+				</div>
+			
+		</script>		
+		<script>
+			mui.init();
+			var ticket = common.getCache('ticket');
+			var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+			var ctuan=common.getCache('ctuan');
+			$('.ctuan').text(ctuan);
+			var order_id=$.getUrlParam('order_id');
+			var shopList=[];
+			var group_id=$.getUrlParam('group_id');
+			//$('.mui-icon-left-nav').attr('href','grouping_buy_lists.html?group_id='+group_id);
+			// 渲染数据
+			common.http('Merchantapp&a=gdetail',{'ticket':ticket,'client':client,'order_id':order_id},function(data){
+				//console.log(data);
+				laytpl(document.getElementById('pluscardLists').innerHTML).render(data, function(html){
+					$('.allHtml').html(html);
+					
+				});
+			});
+			// 渲染店铺列表
+			common.http('Merchantapp&a=merchant_money_info',{'ticket':ticket,'client':client},function(data){
+				//console.log(data);
+				selectChange(data.store_list);
+			});
+			function selectChange(lists){
+				$.each(lists,function(i,val){
+					var goods_id_list ={'value':'','text':''};
+					goods_id_list.text=val.name;
+					goods_id_list.value=val.store_id;
+					shopList.push(goods_id_list);
+				});
+			}
+mui('body').on('tap','.modify',function(e){
+	var merchant_remark=$('.textarea textarea').val();
+	common.http('Merchantapp&a=group_remark ',{'ticket':ticket,'client':client,'order_id':order_id,'merchant_remark':merchant_remark},function(data){
+		console.log(data);
+		if(data.length==0){
+			mui.toast('修改成功');
+		}
+	});
+});
+
+
+(function($, doc) {
+	$.init();
+	mui('body').on('tap','#showUserPicker1',function(e) {
+	//消费密码
+	var userPicker = new $.PopPicker();
+	console.log(shopList);
+	userPicker.setData(shopList);
+	var that=this;
+	userPicker.show(function(items) {
+		that.children[0].innerHTML = items[0].text;
+		that.children[0].style.color="#333333";
+		var store_id=items[0].value;
+		common.http('Merchantapp&a=order_store_id',{'ticket':ticket,'client':client,'store_id':store_id,'order_id':order_id},function(data){
+			console.log(data);
+			if(data.length==0){
+				mui.toast('归属成功');
+				common.http('Merchantapp&a=gdetail',{'ticket':ticket,'client':client,'order_id':order_id},function(data){
+					//console.log(data);
+					laytpl(document.getElementById('pluscardLists').innerHTML).render(data, function(html){
+						$('.allHtml').html(html);
+						
+					});
+				});
+			}
+		});
+	}, false);
+		
+});
+
+	
+})(mui, document);
+
+		</script>
+	
+</body></html>

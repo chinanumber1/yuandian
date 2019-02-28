@@ -1,0 +1,38 @@
+    /* 头部和主体 */
+      body{
+        font-family: "微软雅黑", Arial, Helvetica, sans-serif; background-color: #dddddd; padding: 0; border: 0; margin: 0; color: #333333; font-size: 13px;
+    }
+    ul,li{ list-style: none;}
+    a{ text-decoration: none; color: #333;}
+    .content{  margin: 10px;  background-color: #fff; display: block;}
+    .clear{ clear: both}
+    .icon{ padding: 10px;}
+    .font_size{ float: left; height: 30px; line-height: 30px; overflow: hidden; font-size: 16px; color:#666;}
+    /* 分页 */
+  .list_page .page_text{
+    display:none;
+  }
+  .list_page{padding:8px 10px 20px 10px;text-align: center; }
+  .list_page span,.list_page a{display:inline-block;
+    background:#B3B1B1; color:#666666; padding:8px 12px; margin:5px 0 0 5px;}
+  .list_page .current{background:#666666; color:white; }
+/* 作者样式 */
+  .authorization{
+    width:100%;
+    height:45px;
+    display:inline-block;
+    line-height:45px;
+    text-align:center;
+  }
+  .authorization a{
+    text-decoration:none;
+    color:#666;
+    font-size:12px;
+    font-family: Arial;
+  }
+/* 底部 跳转*/
+  .gotop{position:fixed; right:10px; bottom:120px; display:block; width:50px; height:50px; background:#666;
+      border-radius:25px; -moz-border-radius:25px; -webkit-border-radius:25px; opacity:0.9; filter:alpha(opacity=90); cursor:pointer;}
+  .gotop span:nth-child(1){ width:0; height:0; display:block; margin:0 auto; margin-top:14px;
+      border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #bde5fd;}
+  .gotop span:nth-child(2){ width:8px; height:10px; display:block; margin:0 auto; background: #bde5fd; }

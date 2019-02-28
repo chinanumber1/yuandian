@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>提现记录</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/apply_record.css"/>
+    <style type="text/css">
+    	
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">提现记录</h1>
+	</header>
+	
+	<div class="mui-content">
+		<div class="header_style">
+			<ul>
+				<li class="mui-pull-left active">
+					<ul>
+						<li class="text">提现到微信</li>
+					</ul>
+				</li>
+				<li class="mui-pull-left">
+					<ul><li class="text">提现到第三方</li></ul>
+				</li>
+			</ul>
+			<div style="clear: both;"></div>
+		</div>
+	   <nav class="notes">
+			<ul>
+				<li class="mui-pull-left">金额(元)</li>
+				<li class="mui-pull-left">状态</li>
+				<li class="mui-pull-left">备注</li>
+			</ul>
+		</nav> 
+		<div style="padding-top:100px;"></div>
+		<div class="notes_content">
+			
+		</div>
+		<!-- 上拉刷新 -->
+		<div class="pullup" style="display:none;">上拉加载更多...</div>
+		<div class="loading" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="cardlist" type="text/html">
+	{{# for(var i = 0, len = d.withdraw.length; i < len; i++){ }}
+		<ul>
+			<li class="mui-pull-left">
+				<ul>
+					<li>{{d.withdraw[i].money}}</li>		
+					<li>{{d.withdraw[i].time}}</li>
+				</ul>
+			</li>
+			{{# if(d.withdraw[i].status=="待审核"){ }}
+			<li class="mui-pull-left pending_audit">待审核</li>
+			{{# } else if(d.withdraw[i].status=="被驳回"){ }}
+				<li class="mui-pull-left be_rejected">被驳回</li>
+			{{# } else { }}
+				<li class="mui-pull-left passed">已通过</li>
+			{{# } }}
+			<li class="mui-pull-left see"><span>{{d.withdraw[i].remark}} </span><i class="mui-pull-right"></i></li>
+		</ul>
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+	var ticket = common.getCache('ticket');
+	//console.log(ticket);
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var page=1;
+	var type=1;
+	changeAll(type);
+	function changeAll(types){
+		common.http('Merchantapp&a=withdraw_list',{'ticket':ticket,'client':client,'page':page,'type':types},function(data){
+			console.log(data);
+			if (data.withdraw.length==0) {
+				$('.pullup').html('没有更多数据啦');			
+				$('.loading').hide();
+				$('.pullup').show();
+			}else{
+				laytpl(document.getElementById('cardlist').innerHTML).render(data, function(html){
+					$('.notes_content').append(html);
+					$('.loading').hide();
+					$('.pullup').show();
+				});
+				if(data.withdraw.length>19){
+					// 上拉加载和下拉刷新
+					 $(window).scroll(function() {
+				        //上拉加载
+				        if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+				        	 page++;
+				            if(page<=data.page_num){
+				            	$('.pullup').hide();
+				        		$('.loading').show();
+				            	 changeAll();
+				            }				        }
+				    });
+				}else{
+					$('.pullup').html('没有更多数据啦');		
+				}
+			}
+			
+		});
+	}
+	
+  	mui.init();
+  	mui('.mui-content').on('tap','.see',function(e){
+  		var text=this.children[0].innerText;
+  		mui.alert(text,'备注说明','知道了',function(e){
+  			
+  		});
+  	});
+  	$('.header_style>ul>li').click(function(e){
+  		$(this).addClass('active').siblings('li').removeClass('active');
+  		$('.notes_content').html('');
+  		if($(this).find('.text').text()== "提现到微信" ){
+  			type=1;
+  			changeAll(type);
+  		}else{
+  			type=2;
+  			changeAll(type);
+  		}
+  	});
+
+  	
+</script>
+</body>
+</html>

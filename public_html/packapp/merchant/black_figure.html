@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+   <title>余额提现</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+     <link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/black_figure.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">余额提现</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="mui-card">
+			<!--内容区-->
+			<div class="mui-card-content">
+				<span class="left_style">提现人</span>
+				<input class="name" type="text" placeholder="请填写真实姓名" />
+			</div>
+		</div>
+		<!--提现金额-->
+		<div class="mui-card">
+			<!--页眉，放置标题-->
+			<div class="mui-card-header">
+				<span class="left_style">提现金额</span>
+			</div>
+			<!--内容区-->
+			<div class="mui-card-content withdrawals_money">
+				<span><b>￥</b><input id="field1" type="number" value="" placeholder="请输入提现金额" /> <i class="mui-pull-right">全部提现</i></span>
+				<p>当前余额￥<span class="now" style="margin-left: 0;">0.00</span>，<span class="nowType">当前提现手续费</span><span class="bili"></span><span class="payType"></span>，最多支持2位小数</p>
+			</div>
+		</div>
+		<!--提现至-->
+		<div class="mui-card withdrawals_form">
+			<!--内容区-->
+			<div class="mui-card-content">
+				<p id="showUserPicker"><span class="left_style">提现至</span><b id="ti_text"><span>请选择提现方式</span><i></i></b></p>
+			<!-- 	<ul id="yinhang" style="display: none;">
+					<li><input  class="card_name" type="text" / placeholder="请填写持卡人姓名"></li>
+					<li><input id="card_num" type="tel" placeholder="请填写卡号" /></li>
+					<li><input id="card_adress" type="text" placeholder="请填写所属银行" /></li>
+				</ul> -->
+				<ul id="zhifu" style="display: none;">
+					<li><input type="text"  placeholder="请填写支付宝账号"></li>
+				</ul>
+			</div>
+			<div class="mui-card-content">
+				<p id="changeBank" style="display: none;" data-id="-1">
+					<span class="left_style">选择银行</span>
+					<b id="changeBank_text">
+						<span>
+							<span ><span id="bank_names">请选择提现的银行卡</span>&nbsp;&nbsp; <span id="bankMark"></span></span>
+							<br/>
+							<span id="bank_actount"></span>
+						</span>				
+						<i></i>
+					</b>
+				</p>
+				
+			</div>
+		</div>
+		<div class="mui-card withdrawals_marks">
+			<!--内容区-->
+			<div class="mui-card-content" style='padding:10px ;display:flex'>
+				<span >提现备注</span>
+				<textarea name="remark" id="remark" rows="3" cols="3" placeholder="请输入备注内容" style='padding:0px 10px 10px 10px'></textarea>
+				<!--<input type="text" name="" id="" value="" placeholder="请输入备注内容"/>-->
+			</div>
+		</div>
+		<a href="javascript:void(0);" class="withdrawals">提现</a>
+	</div>
+<script src="js/mui.min.js"></script>
+<!--筛选用到js-->
+<script src="js/fastclick.js"></script>
+<script src="js/mui.picker.js"></script> 
+<script src="js/mui.dtpicker.js"></script>
+<script src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+	  var fixedPay=true;//固定手续费
+	  var least_money='';
+	  var pay_mer_percent='';
+	  var banks=false;
+	  var withdraw_type = false;
+	  mui.init();
+      	var ticket = common.getCache('ticket');
+		//console.log(ticket);
+		var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+		var stor_list=[];
+		var less_money='';
+		var bank_list=[];
+		function selectChange(lists){
+			stor_list=[];
+			$.each(lists,function(i,val){
+				var goods_id_list ={'value':'','text':''};
+				 if(val=='银行卡'){
+				 	banks=true
+				 }
+				goods_id_list.text=val;
+				goods_id_list.value=i;
+				stor_list.push(goods_id_list);
+			});
+			console.log(stor_list)
+		}
+		
+
+
+      	$('input').val('');
+      	
+		common.http('Merchantapp&a=withdraw_method', {'ticket':ticket,'client':client}, function(data){
+			console.log(data);
+			selectChange(data.withdraw_type);
+			$('.now').text(data.now_money);
+			least_money=data.company_least_money*1;
+			pay_mer_percent=data.company_pay_mer_money*1;
+			if(data.merchant_withdraw_fee_type==null){
+				fixedPay=false;
+				if(data.company_pay_mer_percent!=null){
+					pay_mer_percent = data.company_pay_mer_percent;
+                    $(".payType").html("(比例"+data.company_pay_mer_percent+"%)");
+				}
+				$('.bili').text('￥0.00');
+
+			}else{
+                if(data.merchant_withdraw_fee_type==0){
+					fixedPay=false;
+					pay_mer_percent = data.company_pay_mer_percent;
+					$(".payType").html("(比例"+data.company_pay_mer_percent+"%)");
+					data.company_pay_mer_percent
+					$('.bili').text('￥');
+					/*if(data.company_pay_mer_percent!=null){
+						$('.bili').text(data.company_pay_mer_percent+'%');
+					}else{
+						$('.bili').text('0.00%');
+					}*/
+			   }else{
+					//$(".payType").html("(固定手续费)");
+			      	if(data.company_pay_mer_money!=null){
+                      $('.bili').text('￥'+data.company_pay_mer_money);
+				    }else{
+					 $('.bili').text('￥0.00');
+				    }
+				
+					$(".nowType").html("每笔提现固定手续费")
+				}
+			}
+			common.http('Merchantapp&a=bank_list', {'ticket':ticket,'client':client}, function(data){
+				console.log(data);
+				 if(banks){
+                       if(data.bank_list && data.bank_list.length>0){
+					document.getElementById('changeBank').style.display="block";
+					bank(data.bank_list);
+					for(var i=0;i<data.bank_list.length;i++){
+						if(data.bank_list[i].is_default==1){
+							document.getElementById('changeBank').style.display="block";
+							document.getElementById('bankMark').innerText=data.bank_list[i].remark;
+							document.getElementById('bank_names').innerText=data.bank_list[i].account_name;
+							document.getElementById('bank_actount').innerText=data.bank_list[i].account;
+							document.getElementById('changeBank').setAttribute('data-id',data.bank_list[i].id);
+							$('#ti_text span').text('银行卡');
+						}
+					}
+				   }
+				 }else{
+				 	if(stor_list.length==1){
+				 		$('#ti_text span').text('微信');
+				 	}
+				 }
+				
+				// else{
+				// 	mui.toast('您还没有可用的银行卡快去添加吧');
+				// }
+				
+			});
+			
+		});
+
+
+		function bank(lists){
+			bank_list=[];
+			$.each(lists,function(i,val){
+				var goods_id_list ={'value':'','text':'','remark':'','account':''};
+				goods_id_list.remark=val.account_name;
+				goods_id_list.value=val.id;
+				goods_id_list.text=val.remark;
+				goods_id_list.account=val.account;
+				bank_list.push(goods_id_list);
+			});
+		}
+		//全部提现点击
+      	//筛选
+      	  	(function($, doc) {
+				$.init();
+				mui('.mui-content').on('tap','#changeBank_text',function(e){
+					document.activeElement.blur(); 
+					var _getParam = function(obj, param) {
+						return obj[param] || '';
+					};
+					if(bank_list.length <= 0){
+						mui.toast('您还没有可用的银行卡，快去个人中心添加吧');
+						return false;
+					}
+					//普通示例
+					var userPicker = new $.PopPicker();
+					userPicker.setData(bank_list);
+					var userResult = doc.getElementById('userResult');
+					userPicker.show(function(items) {
+					    console.log(items)
+						if(items[0].remark){
+                            document.getElementById('bank_names').innerText=items[0].remark;
+                            document.getElementById('bankMark').innerText=items[0].text;
+                            document.getElementById('bank_actount').innerText=items[0].account;
+                            document.getElementById('changeBank').setAttribute('data-id',items[0].value);
+						}else{
+                            mui.toast('您还没有可用的银行卡快去添加吧');
+						}
+
+					});
+				});
+			})(mui, document);
+
+			
+			(function($, doc) {
+				$.init();
+				mui('.mui-content').on('tap','#ti_text',function(e){
+					document.activeElement.blur(); 
+					var _getParam = function(obj, param) {
+						return obj[param] || '';
+					};
+					//普通示例
+					var userPicker = new $.PopPicker();
+					userPicker.setData(stor_list);
+					var userResult = doc.getElementById('userResult');
+					userPicker.show(function(items) {
+						document.getElementById('ti_text').children[0].innerHTML = items[0].text;
+						var change_text=items[0].text;
+						var change_val=items[0].value;
+						if(change_val==0){
+							document.getElementById('zhifu').style.display="none";
+							if(stor_list.length>0){
+								document.getElementById('changeBank').style.display="block";
+							}else{
+								mui.toast('您还没有可用的银行卡快去添加吧');
+							}
+							
+							// common.http('Merchantapp&a=bank_list', {'ticket':ticket,'client':client}, function(data){
+							// 	console.log(data);
+							// 	if(data.bank_list!=null){
+							// 		document.getElementById('changeBank').style.display="block";
+							// 		bank(data.bank_list);
+							// 	}else{
+							// 		mui.toast('您还没有可用的银行卡快去添加吧');
+							// 	}
+								
+							// });
+							
+						}else if(change_val==1){
+							document.getElementById('changeBank').style.display="none";
+							document.getElementById('zhifu').style.display="block";
+							document.getElementById('bank_names').innerText="请选择提现的银行卡";
+							document.getElementById('bankMark').innerText="";
+							document.getElementById('bank_actount').innerText="";
+							document.getElementById('changeBank').setAttribute('data-id',"-1");
+						}else{
+							document.getElementById('changeBank').style.display="none";
+							document.getElementById('zhifu').style.display="none";
+							document.getElementById('bank_names').innerText="请选择提现的银行卡";
+							document.getElementById('bankMark').innerText="";
+							document.getElementById('bank_actount').innerText="";
+							document.getElementById('changeBank').setAttribute('data-id',"-1");
+						}
+					});
+				});
+			})(mui, document);
+
+
+
+
+
+
+
+
+
+
+			//全部提现按钮点击
+			mui('.mui-content').on('tap','.withdrawals_money i',function(e){
+		      	common.http('WapMerchant&a=merchant_money_info', {'ticket':ticket,'client':client}, function(data){
+					//console.log(data);
+					$('.withdrawals_money input').val(data.merchant_money);
+					$('.now').text(data.merchant_money);
+					proportionPay(data.merchant_money*1);
+					$('.bili').text('￥'+(Number(data.merchant_money)*Number(pay_mer_percent)/100).toFixed(2));
+				});
+			});
+			function validationNumber(e, num){
+				var regu = /^[0-9]+\.?[0-9]*$/;
+		      	if (e.value != "") {
+					 if($.trim(e.value)*1==0&&e.value.indexOf('.') == -1){
+						 e.value=0;
+
+					 }
+		        	if (!regu.test(e.value)) {
+			          mui.toast("请输入正确的数字");
+			          e.value = e.value.substring(0, e.value.length - 1);
+			          e.focus();
+			        }else{
+				        if (num == 0) {
+				            if (e.value.indexOf('.') > -1) {
+				              e.value = e.value.substring(0, e.value.length - 1);
+								proportionPay( e.value);
+				              e.focus();
+				            }
+				        }
+			          	if (e.value.indexOf('.') > -1) {
+			            	if (e.value.split('.')[1].length > num) {
+			              		e.value = e.value.substring(0, e.value.length - 1);
+								proportionPay(e.value);
+			              		e.focus();
+			              		mui.toast('最多支持2位小数');
+			            	}
+			          	}
+						if(e.value.indexOf('.') ==-1){
+							proportionPay(e.value);
+						}
+			        }
+		      	}else{
+					proportionPay(e.value);
+				}
+			}
+	       function proportionPay(v){
+			   if(!fixedPay){
+				    var value=$.trim(v);
+				     if(value!=''){
+						 if(value*1>least_money){
+							 var num=value*1*pay_mer_percent/100+'';
+							 console.log(num)
+							 if(num.indexOf('.')!=-1){
+								 var len=num.length;
+								  var index=num.indexOf('.');
+								  var float=num.substring(index+1);
+								   if(float.length>1){
+									   num=num.substring(0,index+3)
+								   }else{
+                                        num=num+'0'
+								   }
+
+							 }
+							 $(".bili").html('￥'+num)
+						 }else{
+							 $('.bili').text('￥0.00');
+						 }
+					 }else{
+						 $('.bili').text('￥0.00');
+					 }
+
+			   }
+		   };
+			$('#field1').keyup(function(e){
+				validationNumber(this, 2)
+				$('.bili').text('￥'+(Number($(this).val())*Number(pay_mer_percent)/100).toFixed(2));
+			});
+			
+			//提现按钮点击
+			mui('.mui-content').on('tap','.withdrawals',function(e){
+				if(withdraw_type==true){
+					mui.toast('您已提交提现申请，不能多次提交申请');
+				}
+				withdraw_type =true;
+				var name=$('.name').val();	
+				var money=$('#field1').val();
+				var beizhu=$('.mui-card-content textarea').val();
+				var w=$(".now").html()*1;
+				if(money*1>$(".now").html()*1){
+					mui.toast('提现金额不能大于当前余额');
+					withdraw_type =false;
+					return false
+				}
+				if(name!=''&&money!=''&&money>0){
+					var change_content=$('#ti_text').text();
+					var withdraw_type =2;
+					if(fixedPay){
+						if(least_money>= $.trim(money)*1){
+							mui.toast('提现金额不能低于最小金额');
+							withdraw_type =false;
+							return false
+						}
+						if(pay_mer_percent>=$.trim(money)*1){
+							mui.toast('抱歉！提现金额小于提现手续费，暂时无法提现。');
+							withdraw_type =false;
+							return false
+						}
+					}
+					if(change_content=="银行卡"){
+						withdraw_type =0;
+						var bank_id=$('#changeBank').attr('data-id');
+						if(bank_id == -1){
+							mui.toast('您还没有可用的银行卡,请选择其他提现方式');
+							withdraw_type =false;
+						}else{
+							var card_username=$('#bank_names').text();
+							var card_number=$('#bank_actount').text();
+							var bank=$('#bankMark').text();
+							common.http('Merchantapp&a=withdraw', 
+
+{'ticket':ticket,'client':client,'name':name,'money':money,'withdraw_type':withdraw_type,'card_username':card_username,'card_number':card_number,'bank':bank,'remark':$('#remark').val()}, function(data){
+								withdraw_type =false;
+								if(data.status==1){
+									mui.toast('提现成功');
+									if(common.checkApp()){
+										setTimeout(function(){
+											if(common.checkAndroidApp()){
+															window.pigcmspackapp.closewebview(2);
+														}else{
+															common.iosFunction('closewebview/2');
+														}
+										},2000);
+									}else{
+										setTimeout(function(){
+											history.go(-1);
+											document.execCommand('Refresh');
+										},2000); 
+									}	
+								}
+							});
+						}
+						
+					}else if(change_content=="支付宝"){
+						withdraw_type =1;
+						var alipay_account=$('#zhifu input').val();
+						common.http('Merchantapp&a=withdraw', 
+
+{'ticket':ticket,'client':client,'name':name,'money':money,'withdraw_type':withdraw_type,'alipay_account':alipay_account,'remark':$('#remark').val()}, function(data){
+							withdraw_type =false;
+							if(data.status==1){
+								mui.toast('提现成功');
+								if(common.checkApp()){
+									setTimeout(function(){
+												if(common.checkAndroidApp()){
+													window.pigcmspackapp.closewebview(2);
+												}else{
+													common.iosFunction('closewebview/2');
+												}
+											},2000);
+								}else{
+									setTimeout(function(){
+										history.go(-1);
+										document.execCommand('Refresh');
+									},2000); 
+								}	
+							}
+						});
+					}else if(change_content=="微信"){
+						$.ajax()
+						common.http('Merchantapp&a=withdraw', {'ticket':ticket,'client':client,'name':name,'money':money,'withdraw_type':withdraw_type,'remark':$('#remark').val()}, function(data){
+							
+							withdraw_type =false;
+							if(data.status==1){
+								mui.toast('提现成功');
+								if(common.checkApp()){
+									setTimeout(function(){
+										if(common.checkAndroidApp()){
+														window.pigcmspackapp.closewebview(2);
+													}else{
+														common.iosFunction('closewebview/2');
+													}
+									},2000);
+								}else{
+									setTimeout(function(){
+										history.go(-1);
+										document.execCommand('Refresh');
+									},2000); 
+								}	
+							}
+						});
+					}else{
+						mui.toast('请选择提现方式');
+						withdraw_type =false;
+					}
+				}else{
+					mui.toast('请完善所有信息再提交');
+					withdraw_type =false;
+				}
+			});
+
+</script>
+</body>
+</html>

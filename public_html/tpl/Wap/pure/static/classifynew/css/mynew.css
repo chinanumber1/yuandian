@@ -1,0 +1,30 @@
+.my_new_bd{overflow-x:hidden}
+.my_new_bd .qblink{float: left;font-size: 12px;background: rgba(0,0,0,.15);border-radius: 100px;line-height: 0;padding: 10px;margin-top:8px}
+.my_new_bd .my__head_new{z-index: 1;width: calc(100vw);height:calc(100vw * 8 /16);background-size: cover;position: relative;margin-bottom:30px}
+.my_new_bd .my__head_avatar{float: left;margin-right:10px;margin-bottom: 0;background-color:#fff}
+.my_new_bd .my__head_wap{background:none;text-shadow: 0px 1px 10px rgba(0,0,0,.2);}
+.my_new_bd .my__head_user{margin: 15px}
+.my_new_bd .my__head_user>div{float: left}
+.my_new_bd .my__head{background-image:none!important}
+.my_new_bd .my__head_nickname{margin-top:3px}
+.my_new_bd .setting{position: absolute;right: 15px;top: 15px;font-size:16px}
+.my_new_bd .my__head_wap .weui-grid__label{color:#fff!important}
+.my_new_bd .weui-grid__label{position:relative}
+.my_new_bd .my__head_wap .weui-grids-mini{background:transparent;width:100vw;left:0;right:0;bottom: 18px;position: absolute}
+.my_new_bd .weui-grid__icon{position:relative}
+.my_new_bd .weui-grid{width:25%}
+.sub_label{position: absolute;width: calc(100% - 20px);display: block;text-align: center}
+.my_new_bd .weui-badge{position: absolute;top: -.4em;left:14px;font-size:10px}
+.my_new_bd .float_nav{position: absolute;top: calc(100vw * 8 /16 - 20px);z-index: 2;background: #fff;width: calc(100vw - 30px);margin-left: 15px;border-radius: 10px;height:40px;line-height:40px;overflow:hidden;box-shadow: 0 0 10px rgba(0,0,0,.05);font-size:14px}
+.my_new_bd .float_nav>div{margin:0 15px}
+.my_new_bd .float_nav>div .swiper-slide{white-space:nowrap;text-overflow: ellipsis;overflow:hidden}
+.my_new_bd .my__head_new i[class*="header-annimate-element"]{-webkit-transform: rotate(-315deg);-moz-transform: rotate(-315deg);-ms-transform: rotate(-315deg);-o-transform: rotate(-315deg);transform: rotate(-315deg);-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;display: inline;-webkit-transition: all 2s;-moz-transition: all 2s;-o-transition: all 2s;transition: all 2s;position: absolute}
+.header-annimate-element1{top:33px;right:auto;bottom:auto;left:-15px;width:30px;height:30px;background:rgba(255,255,255,.20)}
+.header-annimate-element4{top:70px;right:auto;bottom:auto;left:0;width:40px;height:130px;background:rgba(255,255,255,.12)}
+.header-annimate-element5{top:32px;right:0;bottom:auto;width:10px;height:188px;background:rgba(255,255,255,.10)}
+.header-annimate-element6{top:0;right:0;bottom:auto;width:25px;height:95px;background:rgba(255,255,255,.13)}
+.header-annimate-element7{top:120px;right:0;bottom:auto;width:1px;height:78px;background:rgba(255,255,255,.18)}
+.header-annimate-element9{top:3px;right:auto;bottom:auto;left:87px;width:20px;height:20px;background:rgba(255,255,255,.10)}
+.hb_head_side {display: block;position: absolute;right: 0;z-index: 2;-webkit-animation-duration: 1.6s;animation-duration: 1.6s;background: rgba(0,0,0,.2);color: #fff;padding: 0 10px;font-size: 12px;border-top-left-radius: 26px;border-bottom-left-radius: 26px;height: 26px;line-height: 26px}
+.my_new_bd .my__head_new, .my__head_wap, .my__head,.my_new_bd .my__head_wap .weui-grids-mini{max-width: 640px;max-height: 480px}
+.my_new_bd .float_nav{max-width:610px}

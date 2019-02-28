@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>分类列表</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/class_list.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		 <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+		<h1 class="mui-title">分类列表</h1>
+		<a class="mui-pull-right open_list" data-type="0" data-id="0" href="javascript:;"><i></i> 添加分类</a>
+	</header>
+	<div class="mui-content">
+	  
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="classLists" type="text/html">
+	{{# for(var i = 0; i < d.list.length; i++){ }}
+		<div class="mui-card">
+			<div class="mui-card-header edge_color">
+				<span>{{ d.list[i].cat_name }}</span>
+				<p><b class="open_list" data-id="{{ d.list[i].sort_id }}" data-type="1"></b>
+				<i class="delate_class" data-id="{{ d.list[i].sort_id }}" data-del="0"></i></p>
+				
+			</div>
+			<div class="mui-card-content week_discount">
+				<div class="list_discount mui-row">
+					<div class="mui-col-sm-4"><span><b></b> 折扣</span></div>
+					<div class="mui-col-sm-8"><span>{{ d.list[i].sort_discount }}折</span></div>
+				</div>
+				<div></div>
+				{{# if(d.list[i].week_str!=""){ }}
+					<div class="list_week mui-row">
+						<div class="mui-col-sm-4"><span><b></b> 星期几显示</span></div>
+						<div class="mui-col-sm-8">
+							<ul>
+								{{# var arr=d.list[i].week_str.split(" "); }}
+								{{# for(var k = 0; k < arr.length; k++){ }}
+									<li class="mui-pull-left">{{ arr[k] }}</li>
+								{{# } }}
+							</ul>
+						</div>
+					</div>
+				{{# } }}
+				
+			</div>
+			{{# if( d.list[i].son_list != null ){ }}
+				<div class="mui-card-footer list_show_hide hidden">
+					<ul class="first_list">
+						{{# for(var j=0; j< d.list[i].son_list.length; j++){ }}
+							<li>
+								<p><span><b></b> {{ d.list[i].son_list[j].cat_name }} </span><b class="delate_class mui-pull-right" data-del="1" data-id=" {{ d.list[i].son_list[j].sort_id }}"></b><i class="mui-pull-right open_list" data-id="{{ d.list[i].son_list[j].sort_id }}" data-type="2"></i></p>
+								{{# if(d.list[i].son_list[j].son_list != null){ }}
+									{{# if( j==0 ){ }}
+									<dl class="secrod_list ">
+										{{#  for(var n=0; n< d.list[i].son_list[j].son_list.length; n++){ }}
+											<dd><p class="mui-clearfix"><span><b></b> {{ d.list[i].son_list[j].son_list[n].cat_name }}</span><b data-del="2" class="delate_class mui-pull-right" data-id=" {{ d.list[i].son_list[j].son_list[n].sort_id }}"></b><i class="mui-pull-right open_list" data-id=" {{ d.list[i].son_list[j].son_list[n].sort_id }}" data-type="3"></i> </p></dd>
+										{{# } }}
+										
+									</dl>
+									{{# } else { }}
+									<dl class="secrod_list hidden">
+										{{#  for(var n=0; n< d.list[i].son_list[j].son_list.length; n++){ }}
+											<dd><p><span><b></b> {{ d.list[i].son_list[j].son_list[n].cat_name }}</span><b data-del="2" class="delate_class mui-pull-right" data-id=" {{ d.list[i].son_list[j].son_list[n].sort_id }}"></b><i class="mui-pull-right open_list" data-id=" {{ d.list[i].son_list[j].son_list[n].sort_id }} " data-type="3"></i></p></dd>
+										{{# } }}
+									</dl>
+									{{# } }}
+								{{# } }}
+								
+							</li>	
+						{{# } }}
+						
+					</ul>
+				</div>
+				<div class="mui-card-footer show_more active">
+					<span class="active"><b></b> <i class="show_shou hidden">收起更多</i><i class="show_kai">展开更多</i></span>
+				</div>
+			{{# } }}
+			
+		</div>		
+		
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+mui.init();
+var ticket = common.getCache('ticket');
+var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+var shopId= common.getCache('shopId');
+function pageShowFunc(){
+	location.reload(true);
+}
+setTimeout(function(e){
+	window.addEventListener('pageshow', function(event) {
+	  	pageShowFunc();
+	});
+},1000);
+common.http('WapMerchant&a=goodsSort',{'ticket':ticket,'client':client,'store_id':shopId},function(data){
+	console.log(data);
+	
+	if(data.list.length==0||data.list==null){
+		mui.toast('还没有分类哦,快去添加吧');
+	}else{
+		laytpl(document.getElementById('classLists').innerHTML).render(data, function(html){
+		// console.log(html);
+			$('.mui-content').html(html);
+		});
+	}
+});
+mui('.mui-content').on('tap','.show_more',function(e){
+	if($(this).is('.active')){
+		$(this).removeClass('active');
+		$(this).prev().removeClass('hidden');
+		$('.show_shou').removeClass('hidden');
+		$('.show_kai').addClass('hidden');
+	}else{
+		$(this).addClass('active');
+		$(this).prev().addClass('hidden');
+		$('.show_shou').addClass('hidden');
+		$('.show_kai').removeClass('hidden');
+	}
+	//点击二级展示三级
+	mui('.first_list').on('tap','li>p>span',function(e){
+		$(this).parents('li').find('dl').removeClass('hidden').parent('li').siblings('li').find('dl').addClass('hidden');
+	});
+});
+mui('body').on('tap','.open_list',function(e){
+	var type=$(this).data('type');
+	var sortId=$(this).data('id');
+	common.setCache('type',type);
+	common.setCache('sortId',sortId);
+	openWindow({
+		url:'new_category.html',
+		id:'new_category'
+	});
+});
+
+//删除按钮的判断
+mui('.mui-content').on('tap','.delate_class',function(e){
+	var sort_id=$(this).data('id');
+	var me=this;
+	var del=$(this).attr('data-del');
+	if(del==0){
+		if($(this).parents('.mui-card').find('.list_show_hide ul li').length>0){
+			mui.toast('该分类下有子分类或商品，请删除后再操作');
+		}else{
+			var btnArray = ['取消', '确认删除'];
+	        mui.confirm('该分类一旦删除不可恢复！', '删除分类', btnArray, function(e) {
+	            if (e.index == 1) {
+	            	// 删除分类调用方法
+	               common.http('WapMerchant&a=sort_del ',{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':sort_id},function(data){
+	               		console.log(data);
+	               		if(data.length==0){
+	               			$(me).parents('.mui-card').remove();
+	               			mui.toast("删除成功");
+
+	               		}
+	               });	
+	            } 
+	        });
+		}
+	}else{
+		var btnArray = ['取消', '确认删除'];
+        mui.confirm('该分类一旦删除不可恢复！', '删除分类', btnArray, function(e) {
+            if (e.index == 1) {
+            	// 删除分类调用方法
+               common.http('WapMerchant&a=sort_del ',{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':sort_id},function(data){
+               		console.log(data);
+               		if(data.length==0){
+               			if(del==1){
+               				$(me).parents('li').remove();
+               			}else if(del==2){
+               				$(me).parents('dd').remove();
+               			}
+               			mui.toast("删除成功");
+
+               		}
+               });	
+            } 
+        });
+	}
+	// if($(this).parents('.mui-card').find('.list_show_hide ul li').length>0){
+	// 	mui.toast('该分类下有子分类或商品，请删除后再操作');
+	// }else{
+	  
+	// }
+});
+
+function pageShowFunc(){
+	location.reload(true);
+}
+</script>
+</body>
+</html>

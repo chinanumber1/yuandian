@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+
+	<head>
+		<meta charset="utf-8">
+		<title>用户评价</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/imange-view.css"/>
+		<link rel="stylesheet" type="text/css" href="css/user_rating.css"/>
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: 215px;
+			}
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <h1 class="mui-title">用户评价</h1>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div  class="header_style">
+					<ul>
+						<!-- <li class="mui-pull-left active">
+							<ul>
+								<li>快店评论</li>
+
+							</ul>
+						</li>
+						<li class="mui-pull-left">
+							<ul>
+								<li>团购评论</li>
+
+							</ul>
+						</li>
+						<li class="mui-pull-left">
+							<ul>
+								<li>餐饮评论</li>
+
+							</ul>
+						</li> -->
+					</ul>
+					<div style="clear: both;"></div>
+				</div>
+				<!--筛选-->
+				<div class="mui-card shaixuan">
+					<div class="mui-card-content">
+						<div class="mui-row">
+						    <div class="mui-col-sm-6" id="showUserPicker">
+						    	<p  style="color: #919191;"> <span id="allShops">全部店铺</span> <i></i></p>
+						    </div>
+						    <div class="mui-col-sm-6"  id="showUserPicker1">
+						    	<p style="color: #919191;border-left: 1px solid #F1F1F1;"> <span id="shopRat">评价类型</span> <i></i>
+
+						    </p></div>
+						     <div class="mui-col-sm-6"  id="showUserPicker2">
+						    	<p style="color: #919191;border-left: 1px solid #F1F1F1;"><span id="allUser">评价回复</span> <i></i>
+
+						    </p></div>
+						</div>
+
+					</div>
+				</div>
+				<div class="results" style="display:none;">
+					筛选结果: <span class="results_color">全部类型</span>数:<span class="results_nums"> 0</span>
+				</div>
+				<!--评价内容-->
+				<!-- 店铺总评分 -->
+				<div class="usats" id="usats" style="display: none;">
+					<div class="clear itemLeft">
+						<h2 class="replyScore">0</h2>
+						<div class="">
+							<ul>
+								<li class="fen">
+									<span><b></b></span>
+								</li>
+								<li>店铺综合评分  共<span id="replyCount">0</span>人评价</li>
+							</ul>
+						</div>
+					</div>
+					<div class="itemRight">
+						<ul>
+							<li id="replyDeliverScore">0</li>
+							<li>配送评分</li>
+						</ul>
+					</div>
+				</div>
+				<div id="rats">
+
+
+
+					<!-- <div class="mui-card rating">
+						<div class="mui-card-header">
+							<ul class="mui-table-view">
+								<li class="">
+										<img class="mui-media-object mui-pull-left" src="images/4-_22.png">
+										<div class="mui-media-body  mui-clearfix">
+											<div class="mui-pull-left">
+												<span>勤劳的肉肉</span>
+												<p><i class="five_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i><i class="one_pointed"></i></p>
+											</div>
+											<div class="mui-pull-right open_ansower">
+												<a class="mui-pull-right mui-clearfix">回复</a>
+												<p>2017-05-19 18:07:25</p>
+											</div>
+										</div>
+
+								</li>
+							</ul>
+						</div>
+						<div class="mui-card-content">
+							<h5>服务态度很好，也很好吃服务态度很好，也很好吃。服务态度很好，也很好吃。</h5>
+							<p><b></b><span>章鱼小丸子 红烧肉</span></p>
+							<div class="mui-scroll-wrapper" data-preview-group="2">
+							    <div class="mui-scroll ">
+							    		<img src="images/4-_18.png" data-preview-src="" data-preview-group="2"/>
+							    	    <img src="images/4-_30.png" data-preview-src="" data-preview-group="2"/>
+							    	    <img src="images/4-_32.png" data-preview-src="" data-preview-group="2"/>
+							    	    <img src="images/4-_18.png" data-preview-src="" data-preview-group="2"/>
+							    	    <img src="images/4-_30.png" data-preview-src="" data-preview-group="2"/>
+							    	    <img src="images/4-_32.png" data-preview-src="" data-preview-group="2"/>
+							    	    <img src="images/4-_18.png" data-preview-src="" data-preview-group="2"/>
+							    	    <img src="images/4-_30.png" data-preview-src="" data-preview-group="2"/>
+							    </div>
+
+							</div>
+						</div>
+						<div class="rating-footer">
+								<p><span>商家回复</span><i class="mui-pull-right">2017-05-20 09:12:25</i></p>
+								<div>常感谢您的评价，首先向您致歉，我们会更加努力改进，祝您每天好心情!</div>
+						</div>
+					</div> -->
+
+
+
+				</div>
+				  <!-- 上拉刷新 -->
+				<div class="pullup1" style="display:none;">上拉加载更多...</div>
+				<div class="loading1" style="display:none;"><img src="images/xubox_loading2.gif" alt="">正在加载</div>
+				<div style="padding-bottom: 50px;"></div>
+				
+		</div>
+		<!--底部导航栏-->
+		<nav class="mui-bar mui-bar-tab">
+			<div class="mui-tab-item shop_home ">
+				<span class="shop-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</div>
+			<div class="mui-tab-item shop_plus" style="display: none;">
+				<span class="shop-plus"></span>
+				<span class="mui-tab-label">会员</span>
+			</div>
+			<div class="mui-tab-item shop_take mui-active">
+				<span class="shop-take"></span>
+				<span class="mui-tab-label">评价</span>
+			</div>
+			<div class="mui-tab-item  shop_my">
+				<span class="shop-my"></span>
+				<span class="mui-tab-label">我的</span>
+			</div>
+		</nav>
+		<script src="js/fastclick.js"></script>
+		<script src="js/mui.min.js"></script>
+		
+		<script src="js/mui.dtpicker.js"></script>
+		<!--筛选用到js-->
+		<script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+			<!--图片滚动-->
+		<script src="js/mui.zoom.js"></script>
+		<script src="js/mui.previewimage.js"></script>
+		<!-- <script src="js/city.data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script> -->
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/work/user_rating.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js?android=appbackmonitor" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

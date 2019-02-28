@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>我的余额</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/my_balance.css"/>
+    <style type="text/css">
+    	
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">我的余额</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="money mui-clearfix">
+	    	<b class="mui-pull-left"></b>
+	    	<ul class="mui-pill-left">
+	    		<li class="all_qian">0</li>
+	    		<li><span>您的账户余额(元)</span></li>
+	    	</ul>
+	    </div>
+	    <div class="operation">
+	    	<ul class="mui-clearfix">
+	    		<li class="mui-pull-left apply_cash">
+	    			<ul>
+	    				<li><i></i></li>
+	    				<li>申请提现</li>
+	    				<li>支持企业付款</li>
+	    			</ul>
+	    		</li>
+	    		<li  class="mui-pull-left apply_record">
+	    			<ul>
+	    				<li><div></div></li>
+	    				<li>提现记录</li>
+	    				<li>清晰详细</li>
+	    			</ul>
+	    		</li>
+	    		<li  class="mui-pull-left record_jilu">
+	    			<ul>
+	    				<li><span></span></li>
+	    				<li>收入记录</li>
+	    				<li>一目了然</li>
+	    			</ul>
+	    		</li>
+				<!--li  class="mui-pull-left record_allinyun">
+	    			<ul>
+	    				<li><span></span></li>
+	    				<li>云商通收入记录</li>
+	    				<li>一目了然</li>
+	    			</ul>
+	    		</li-->
+				
+	    		<li  class="mui-pull-left">
+	    			<b></b>
+	    			<ul>
+	    				<li><p></p></li>
+	    				<li>购买系统服务</li>
+	    				<li>开发中</li>
+	    			</ul>
+	    		</li>
+				
+	    	</ul>
+	    </div>
+	</div>
+	<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	//申请提现点击
+      	var ticket = common.getCache('ticket');
+		//console.log(ticket);
+		var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+      	common.http('Merchantapp&a=merchant_money_info', {'ticket':ticket,'client':client}, function(data){
+			//console.log(data);
+			$('.all_qian').text(data.merchant_money);
+		});
+      	mui('.mui-content').on('tap','.apply_cash',function(e){
+      		openWindow({
+      			url:'black_figure.html',
+      			id:'black_figure'
+      		});
+      	});
+      	//提现记录点击
+      	mui('.mui-content').on('tap','.apply_record',function(e){
+      		openWindow({
+      			url:'apply_record.html',
+      			id:'apply_record'
+      		});
+      	});
+      	//收入记录点击
+      	mui('.mui-content').on('tap','.record_jilu',function(e){
+      		openWindow({
+      			url:'record.html',
+      			id:'record'
+      		});
+      	});
+		
+		mui('.mui-content').on('tap','.record_allinyun',function(e){
+      		openWindow({
+      			url:'allinyun_money_list.html',
+      			id:'allinyun_money_list'
+      		});
+      	});
+      	function pageShowFunc(){
+	    location.reload(true);
+     }
+      	
+</script>
+</body>
+</html>

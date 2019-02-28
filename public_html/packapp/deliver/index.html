@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>配送员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/deliver.css" rel="stylesheet"/>
+		<!--script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places&key=AIzaSyDsXY8vxzV3LbV2mEXjuQZcTMkKuGHAx_A"></script-->
+	</head>
+	<body>
+		<section class="page hide" id="startBg">
+			<img src="bg.png" style="height:100%;width:100%;"/>
+		</section>
+		<section class="page hide" id="mainPage">
+			<section id="fixed_top">
+				<section class="public pageSliderHide">
+					<div class="content">配送员中心</div>
+				</section>
+				<div class="h44"></div>
+			</section>
+			<section class="clerk">
+				<div class="clerk_top">
+					<div class="fl clerk_img">
+						<span></span>
+					</div>
+					<div class="clerk_r">
+						<h2><span id="deliver_info-name"></span><i> , 您好</i></h2>
+						<p id="deliver_info-tip">&nbsp;&nbsp;</p>
+					</div>
+				</div>
+				<div class="clerk_end">
+					<ul class="clr">
+						<li class="Grab fl">
+							<a href="grab.html" data-webview="true">
+								<i></i>
+								<h2 id="gray_count">0</h2>
+								<p>待抢单</p> 
+							</a>
+						</li>
+						<li class="Handle fl">
+							<a href="pick.html" data-webview="true">
+								<i></i>
+								<h2 id="deliver_count">0</h2>
+								<p>处理中</p>
+							</a>
+						</li>
+						<li class="complete fl">
+							<a href="finish.html" data-webview="true">
+								<i></i>
+								<h2 id="finish_count">0</h2>
+								<p>已完成</p> 
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="Map" id="biz-map"></section>
+			<section class="map_location pageSliderHide" id="map_location"></section>
+			<section class="bottom pageSliderHide">
+				<div class="bottom_n">
+					<ul>
+						<li class="Statistics fl">
+							<a href="tongji.html" data-url-type="openLeftWindow">统计</a>
+						</li>
+						<li class="home homeon fl">
+							<a href="javascript:void(0);"><i></i>首页</a>
+						</li>
+						<li class="My fl">
+							<a href="info.html">我的</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</section>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/work/common.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/index.js?android=appbackmonitor"></script>
+		<audio controls="controls" preload="true" loop="loop" id="newOrderMp3" style="display:none;">
+			<source src="new_order.mp3" type="audio/mp3" />
+		</audio>
+	</body>
+</html>

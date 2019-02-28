@@ -1,0 +1,193 @@
+ul,ol,dl,dd,dt,p{
+	list-style: none;
+	padding: 0;margin: 0;
+}
+.hidden{
+	display: none;
+}
+
+.mui-card{margin: 15px 0px;}
+
+
+/*头部样式*/
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav h1{
+	color: #fff;
+}
+.mui-bar-nav a{
+	color: #fff;
+}
+
+/*积分样式*/
+.jifen .mui-card-footer {
+	
+}
+.jifen .mui-card-footer ul li:first-child{
+	font-size: 12px;
+	color: #A5A5A5;
+}
+.jifen .mui-card-footer ul li:last-child{
+	font-size: 20px;
+	font-weight: bold;
+	color: #333333;
+}
+.jifen .mui-card-footer a{
+	background: #FFA200;
+	padding: 3px 18px;
+	font-size: 12px;
+	color: #fff;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+.left_style{
+	display: inline-block;
+	padding: 13px 0 13px 10px;
+	font-size: 14px;
+	color: #404040;
+	width: 31%;
+}
+.mui-card .mui-card-content:nth-child(2){
+	border: none;
+}
+.mui-card-content{
+	border-bottom: 1px solid #F1F1F1;
+}
+.mui-card-content ul{
+	display: inline-block;
+	width:67% ;
+	padding: 13px 0;
+}
+.mui-card-content ul li{
+	width: 100%;
+}
+.select_change ul li span{
+	color: #C7C7CD;
+}
+.select_change ul li i{
+	display: inline-block;
+	width: 15px;height: 9px;
+	background: url(../images/7-6_03.png) center  no-repeat;
+	background-size: contain;
+	margin-top: 7px;
+	margin-right: 10px;
+}
+.delate_jifen{
+	padding: 20px 10px;
+}
+.delate_jifen span{
+	color: #404040;
+}
+.delate_jifen p{
+	color: #FF724C;
+	font-size: 16px;
+}
+
+.buttom {
+	width: 80%;
+	height: 45px;
+	margin: 40px 10% 0 10%;
+	background: #FFA200;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 45px;color: #fff;
+}
+
+.mui-popover{
+	position: fixed;
+	width: 80%;
+	margin:  0 10%;
+	height: 300px;
+	top:50%;
+	margin-top: -150px;
+	background: #fff;
+}
+.mui-popover p.close{
+	text-align: right;
+	width: 95%;
+	margin: 0px 0% 0 5%;
+	
+}
+.mui-popover p.close i{
+	display: inline-block;
+	width: 42px;height: 42px;
+	background: url(../images/49-6_03.png) center no-repeat;
+	background-size: 21px 21px;
+}
+.mui-popover{
+	/*text-align: center;*/
+	
+}
+.mui-popover img{
+	display: block;
+	width: 107px;
+	height: 76px;
+	margin: 0 auto;
+}
+.mui-popover .index_sort{
+	margin-top: 15px;
+	font-size: 16px;
+	color: #333333;
+	font-weight: 700;
+	text-align: center;
+}
+.mui-popover .exchange{
+	margin-top: 10px;
+	font-size: 12px;
+	color: #FF724C;
+	text-align: center;
+}
+
+.mui-popover input[type="tel"]{
+	width: 50%;
+	margin: 15px 5% 0 8%;
+	height: 40px;
+	padding: 8px;
+	background: #F6F6F6;
+	border-color: #F9F9F9;
+	font-size: 14px;
+}
+.mui-popover span{
+	display: inline-block;
+	width: 26%;
+	background: #FFA200;
+	text-align: center;
+	font-size: 14px;
+	padding: 8px 0;
+	color: #fff;
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

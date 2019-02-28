@@ -1,0 +1,164 @@
+*{margin:0;padding:0;}
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #333;
+  background-color:#EFEFF4;
+}
+ul,ol{
+	list-style:none;
+}
+a,a:visited{
+	color:black;
+	text-decoration:none;
+	outline:0;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-tap-highlight-color:transparent;
+}
+.service-container{
+	background:white;
+}
+.service-container li{
+	height:60px;
+	position:relative;
+}
+/* .service-container li a{
+	color:black;
+	text-decoration:none;
+} */
+.service-container li .ico{
+	position:absolute;
+	width:60px;
+	height:61px;
+	background-repeat:no-repeat;
+	background-position:15px;
+	background-color:white;
+}
+.service-container li:last-child .ico{
+	height:60px;
+}
+.service-container li .water_ico{
+	background-image:url(../images/water.png);
+}
+.service-container li .electric_ico{
+	background-image:url(../images/electric.png);
+}
+.service-container li .gas_ico{
+	background-image:url(../images/gas.png);
+}
+.service-container li .txt{
+	height:60px;
+	line-height:60px;
+	border-bottom:1px solid #EFE6E6;
+	padding-left:60px;
+	/*padding:10px 0 10px 60px;*/
+}
+.service-container li:last-child .txt{
+	border-bottom:none;
+}
+
+.query_div{
+	height:70px;
+	width:70px;
+	margin:30px auto 0;
+	background-color:white;
+	border-radius:50%;
+	background-repeat:no-repeat;
+	background-position:20px;
+}
+.query_div.water_ico{
+	background-image:url(../images/water.png);
+}
+.query_div.electric_ico{
+	background-image:url(../images/electric.png);
+}
+.query_div.gas_ico{
+	background-image:url(../images/gas.png);
+}
+.area_tips{
+	width:85%;
+	margin:15px auto 0;
+	height:50px;
+	line-height:50px;
+	background-color:#F7F6FB;
+	border-radius:5px;
+	padding-left:15px;
+	color:#888888;
+	overflow:hidden;
+	font-size:1rem;
+}
+.area_input{
+	width:85%;
+	margin:10px auto 0;
+	height:50px;
+	line-height:50px;
+	background-color:white;
+	border-radius:5px;
+	color:#888888;
+	overflow:hidden;
+	padding-left:15px;
+	position:relative;
+}
+.area_input #recharge_txt{
+	height:50px;
+	border:none;
+	width:100%;
+	outline:0;
+	font-size:1rem;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-tap-highlight-color:transparent;
+}
+.area_input .nametip{
+	position:absolute;
+	right:15px;
+	top:0;
+	font-size:1rem;
+}
+.area_btn{
+	width:85%;
+	margin:20px auto 0;
+	height:50px;
+	line-height:50px;
+	background-color:#04BE02;
+	border-radius:5px;
+	padding-left:15px;
+	color:#888888;
+	overflow:hidden;
+}
+.area_btn #recharge_btn{
+	background-color:transparent;
+	height:50px;
+	border:0;
+	width:100%;
+	outline:0;
+	font-size:1.2rem;
+	color:white;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-tap-highlight-color:transparent;
+}
+
+
+footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 900;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	height: 40px;
+	font-size:14px;
+	text-align:center;
+	color:#999;
+}
+footer a,footer a:visited{
+	display:inline-block;
+	margin: 0 5px;
+	color:#999;
+}
+
+.tb-tip dl dt {
+  margin: 0 0 3px 0;
+  color: #999;
+}
+.tb-tip dl dd {
+  margin-bottom: 10px;
+}

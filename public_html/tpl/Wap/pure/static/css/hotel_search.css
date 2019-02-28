@@ -1,0 +1,280 @@
+ul,ol,dl,dd{
+	list-style: none;
+	padding: 0;margin: 0;
+}
+p{
+	margin: 0;padding: 0;
+}
+.mui-card{
+	/*margin: 0;*/
+	margin-top: 15px;
+}
+.mui-card .mui-card-header{
+	padding: 0;
+}
+.hidden{
+	display: none;
+}
+/*头部样式*/
+.mui-bar-nav{
+	background: #FFFFFF;
+}
+.mui-bar-nav a.mui-pull-left{
+	color: #06C1AE;
+}
+.mui-bar-nav a.mui-pull-right{
+	font-size: 15px;
+	color: #333333;
+	margin-top: 10px;
+    margin-right: 2%;
+}
+.mui-bar-nav div{
+	display: inline-block;
+    width: 78%;
+    line-height: 44px;
+    position: relative;
+    height: 30px;
+    /*margin-left: 2%;*/
+}
+.mui-bar-nav div i{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../imanges/2-hotel_list_11.png) center no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 14px;
+    left: 7px;
+}
+.mui-bar-nav div input{
+	padding: 0;height: 30px;
+	font-size: 14px;
+	padding-left: 30px;
+	background: #F3F3F3;
+	border: none;
+	margin-bottom: 0;
+}
+
+/*中间样式*/
+.see_my{
+	/*width: 90%;*/
+	margin: 15px 10px;
+	height: 30px;line-height: 30px;
+	background: #FFFFFF;
+}
+.see_my b{
+	display: inline-block;
+	width: 15px;height: 17px;
+	background: url(../imanges/3-hotel_s_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+    margin: 0 5px;
+}
+.see_my span{
+	color: #787878;
+	font-size: 15px;
+}
+
+.see_my i{
+	display: inline-block;
+	width: 7px;height: 12px;
+	background: url(../imanges/3-hotel_s_06.png) center no-repeat;
+	background-size: contain;
+	margin-top: 9px;
+	margin-right: 2%;
+}
+/*搜索历史*/
+.search_history .mui-card-header span,.hot .mui-card-header span,.theme .mui-card-header span{
+	font-size: 14px;
+	color: #ADADAD;
+	
+}
+.search_history .mui-card-header span i{
+	display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../imanges/3-hotel_s_10.png) center no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+.search_history .mui-card-header p{
+	margin-right: 2%;
+	font-size: 13px;
+	color: #A7A7A7;
+}
+.search_history .mui-card-header p b{
+	display: inline-block;
+	width: 13px;height: 13px;
+	background: url(../imanges/3-hotel_s_13.png) center no-repeat;
+	background-size: contain;
+	vertical-align: text-top;
+}
+ .mui-card-header{
+	border-bottom:1px solid #F7F7F7;
+}
+.more_search  ul li{
+	width: 25%;
+    text-align: center;
+    padding: 15px 0;
+    border-right: 1px solid #F7F7F7;
+    border-bottom:1px solid #F7F7F7;
+    font-size: 13px;
+    color: #404040;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mui-card-header:after,
+.mui-card-footer:before
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 5%;
+
+    height: 0px;
+
+    content: '';
+    -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+
+    background-color: #f1f1f1;
+}
+
+/**/
+.hot .mui-card-header p span,.theme .mui-card-header p span{
+	font-size: 13px;
+	color: #06C1AE;
+}
+
+
+/*热门*/
+.hot .mui-card-header>span i{
+	display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../imanges/3-hotel_s_17.png) center no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin:0  5px;
+}
+.hot .mui-card-header p,.theme .mui-card-header p{
+	margin-right: 2%;
+}
+.hot .mui-card-header p span b,.theme .mui-card-header p span b{
+	display: inline-block;
+	width: 9px;height: 5px;
+	background: url(../imanges/3-hotel_s_19.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.hot .mui-card-header p span i,.theme .mui-card-header p span i{
+	display: inline-block;
+	width: 9px;height: 5px;
+	background: url(../imanges/3-hotel_s_23.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+/*特色主题*/
+.theme .mui-card-header>span i{
+	display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../imanges/3-hotel_s_22.png) center no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin:0  5px;
+}
+
+
+
+
+
+/*搜索框弹层*/
+
+li>em{
+	color: #07C1AE;
+	font-style: normal;
+}
+.search_content{
+	width:100% ;
+	background: #fff;
+}
+.search_icon ul li{
+	margin: 0;
+	padding: 10px 0;
+	font-size: 14px;
+}
+.search_icon ul li:first-child,.adress_style>ul>li:first-child{
+	padding:  0 3% ;
+}
+.search_icon ul li i{
+	display: inline-block;
+	width: 24px;height: 24px;
+	background: url(../imanges/4-3.png) center no-repeat;
+	background-size: contain;
+	margin-top: 10px;
+}
+.search_icon ul li em{
+	font-size: 14px;
+	color: #07C1AE;
+	width: 63%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.search_icon ul li:nth-child(3){
+	font-size: 12px;
+	color: #9D9D9D;
+	margin-right: 3%;
+}
+.search_icon ul li b{
+	display: inline-block;
+	width: 24px;height: 24px;
+	background: url(../imanges/4-2.png) center no-repeat;
+	background-size: contain;
+	margin-top: 10px;
+}
+
+.adress_style {
+	width: 100%;
+}
+.adress_style>ul>li{
+	padding: 5px 0;
+}
+.adress_style ul li b{
+	display: inline-block;
+	width: 24px;height: 24px;
+	background: url(../imanges/4-1.png) center no-repeat;
+	background-size: contain;
+	margin-top: 10px;
+}
+.adress_style>ul>li:nth-child(2){
+	font-size: 14px;
+	/*color: #07C1AE;*/
+	width: 62%;
+	
+}
+.adress_style>ul li:nth-child(2) ul li:first-child{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.adress_style>ul li:nth-child(2) ul li:first-child span{
+	color: #666666;	
+}
+.adress_style>ul li:nth-child(2) ul li:last-child{
+	color: #A9A9A9;	
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	text-align: center;
+}
+.adress_style>ul>li:nth-child(3){
+	font-size: 12px;
+	color: #9D9D9D;
+	margin-right: 3%;
+	margin-top: 10px;
+}

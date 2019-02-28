@@ -1,0 +1,1 @@
+<div id="nav" class="mainnav_title">	<ul>        <a href="{pigcms{:U('Config/index',array('galias'=>'service','header'=>'Service/config'))}" class="on">跑腿配置</a>	</ul></div>

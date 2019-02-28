@@ -1,0 +1,225 @@
+.menu_right .cf .menu_right_top {
+	position: absolute;
+    z-index: -1;
+} 
+
+.menu_left {
+	width: 220px;
+	float: left;
+	margin-top: 30px;
+	position: relative;
+	/*background-color:#04B7A5;*/
+	background:url(../images/menu_left.png);
+	height: 48px;
+    line-height: 48px;
+}
+.menu_left .category{
+	width: 25px;
+    height: 20px;
+    margin: 18px 0px 0px 13px;
+}
+.menu_left .menu_left_top{
+	padding: 4px 103px 0px 0px;
+    float: right;
+    margin-top: 0px;
+}
+.menu_left li {
+	border-bottom: 1px solid #E1E1E1;
+	padding: 0px 20px 0px 4px;
+	position:relative;
+	z-index:9;
+	height: 49px;
+}
+.menu_main{
+	width: 100%;
+    /* background-color: #ccc; */
+    height: 450px;
+    border-top: 2px solid #06C1AE;
+	position:relative;
+	margin-top:-1px;
+}
+.menu .list {
+	width: 218px;
+	background: #F9F9F9;
+	line-height: 25px;
+	position: absolute;
+	top: 48px;
+	z-index: 9999;
+	height: 450px;
+	border: 1px solid #E1E1E1;
+	border-top:none;
+	/*698  386*/
+}
+.menu .li_top {
+	padding: 12px 0px 0px 6px;
+    float: left;
+}
+.menu .li_bottom {
+	margin-right: -2px;
+	float: right;
+    padding-top: 13px;
+    padding-left: 0px;
+	height:25px;
+	overflow:hidden;
+	width:100px;
+}
+
+.menu_right_top {
+	padding-left: 15px;
+	height: 48px;
+    line-height: 48px;
+    background-color: #fff;
+}
+.menu_right_top li a{
+	color:#000;
+	line-height:48px;
+	display: block;
+	padding:0 20px;
+}
+
+.menu_right .menu_right_top .select{
+	color:#fff;
+	background-color:#04B7A5;
+}
+.menu_right .menu_right_top :hover{
+	color:#fff;
+	background-color:#04B7A5;
+}
+.menu_right_bottom .left{
+	width: 770px;
+    height: 450px;
+	float:left;
+	/* border-right: 1px solid #dfdfdf; */
+}
+
+.menu_right_bottom .right{
+	float:left;
+/* 	border:1px solid #dfdfdf; */
+	border-top:none;
+	border-left:none;
+	width:208px;
+	height:450px;
+}
+
+.menu_right_bottom .right  .systemQrocde{
+	padding:0px 0px;
+	text-align:center;
+}
+
+.menu_right .activityDiv{
+	position:relative;
+	height:450px;
+	overflow:hidden;
+}
+
+.menu_right .activityDiv li{
+	position:relative;
+	height:450px;
+	width: 100%;
+}
+
+.menu_right .activityDesc h1{
+	height:34px;
+	width:100%;
+	float:left;
+	line-height:40px;
+}
+
+.menu_right .main_list {
+	float: left;
+    width: 358px;
+    border: 1px solid #dfdfdf;
+    border-left: none;
+    border-bottom: none;
+    padding: 18px 10px 20px 30px;
+    position: relative;
+    height: 150px;
+    line-height: 2;
+}
+
+.activityDesc .point{
+	margin-top: 15px;
+    float: right;
+    margin-right: 10px;
+}
+
+.extra-inner .noreviews span {
+	color: #5b5b5b;
+	margin-left: 2px;
+	font-size: 14px;
+}
+.menu_right_bottom .right  .systemNews{
+	padding:12px 16px;
+/* 	border-bottom:1px solid #dfdfdf; */
+	height: 235px;
+}
+
+.point_select{
+	background: url('../images/point_select.png');
+}
+
+.point:hover{
+	z-index: 1;
+	background: url('../images/point_select.png');
+}
+.activityDesc a {
+    display: block;
+    margin-top: auto;
+    margin-left: 8px;
+    width: 8px;
+    height: 8px;
+    float: left;
+    /*border-radius: 50%;*/
+    /*background: url(../images/point_select.png);*/
+    /*padding: 0px 0 0px 19px;*/
+}
+.activityDesc .select{
+	 background: url(../images/point_select.png);
+}
+
+.activityDesc .un_select{
+	 background: url(../images/point_un_select.png);
+}
+
+.s_title{
+	color: red;
+	font-size: 12px;
+}
+.systemNews img{
+    float: left;
+    margin-right: 9px;
+    padding-bottom: 8px;
+    margin-top: 7px;
+}
+
+.menu_right_bottom .right .systemNews .newslist li {
+    float: none;
+    height: 25px;
+    overflow: hidden;
+}
+.menu_right .activityDesc h3{
+	float: left;
+    padding: 35px 0 0 90px;
+    margin-right: 21px;
+    position: absolute;
+}
+.activityInfo{
+	width:88%;
+	float:left;
+}
+
+.mainbav  .hot{
+	border-top:5px solid #04B7A5;
+	border-left: 1px solid #dfdfdf;
+	border-bottom: 1px solid #dfdfdf;
+}
+.mainbav  .allarea{
+	border-top:5px solid #FB0909;
+	border-bottom: 1px solid #dfdfdf;
+}
+.mainbav  .hotcircle{
+	border-top:5px solid #F3CD62;
+	border-right: 1px solid #dfdfdf;
+	border-bottom: 1px solid #dfdfdf;
+}
+

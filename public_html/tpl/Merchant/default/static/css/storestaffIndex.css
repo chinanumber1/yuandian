@@ -1,0 +1,263 @@
+*{padding:0;margin:0;}
+html,body,p,table{font:normal 12PX '微软雅黑',Tahoma,Verdana,Helvetica,Arial,sans-serif;}
+/* body{background:#F3F3F3;} */
+.pageBg{
+	background:url(./img/storestaff/index_bg.png) no-repeat;
+	background-size:100% 100%;
+	width:100%;
+}
+.infoBox{
+	position:absolute;
+	left:130px;
+}
+.infoBox .logo{
+	background:rgba(0,0,0,0.2);
+	border-radius:65px;
+	padding:3px;
+	padding-bottom: 0;
+}
+.infoBox .logo,.infoBox .text{
+	float:left;
+}
+.infoBox .logo img{
+	width:130px;
+	height:130px;
+	border-radius:100%;
+}
+.infoBox .text{
+	margin-top:50px;
+	line-height:40px;
+	font-size:20px;
+	margin-left:15px;
+	/* font-weight:bold; */
+	letter-spacing:1px;
+}
+.infoBox .text span{
+	font-size:12px;
+	color:#999;
+}
+
+.pageLink{
+	margin-left:130px;
+	overflow:hidden;
+	margin-top:120px;
+	margin-bottom:120px;
+}
+.pageLink li{
+	float:left;
+	list-style:none;
+	width:230px;
+	margin-top:80px;
+	cursor:pointer;
+	height: 209px;
+	position: relative;
+}
+.pageLink .text{
+	text-align:center;
+	font-size:22px;
+	margin-top:20px;
+	/* font-weight:700; */
+}
+.pageLink .icon{
+	width:130px;
+	height:130px;
+	background-size:100%;
+	background-repeat:no-repeat;
+    margin-left: 50px;
+}
+.pageLink li:hover .icon{
+	width:160px;
+	height:160px;
+	margin-left:40px;
+}
+.pageLink .group .icon{
+	background-image:url(./img/storestaff/group.png);
+}
+.pageLink .group:hover .icon{
+	background-image:url(./img/storestaff/group_hover.png);
+}
+.pageLink .meal .icon{
+	background-image:url(./img/storestaff/meal.png);
+}
+.pageLink .meal:hover .icon{
+	background-image:url(./img/storestaff/meal_hover.png);
+}
+.pageLink .shop .icon{
+	background-image:url(./img/storestaff/shop.png);
+}
+.pageLink .shop:hover .icon{
+	background-image:url(./img/storestaff/shop_hover.png);
+}
+.pageLink .appoint .icon{
+	background-image:url(./img/storestaff/appoint.png);
+}
+.pageLink .appoint:hover .icon{
+	background-image:url(./img/storestaff/appoint_hover.png);
+}
+.pageLink .store .icon{
+	background-image:url(./img/storestaff/store.png);
+}
+.pageLink .store:hover .icon{
+	background-image:url(./img/storestaff/store_hover.png);
+}
+.pageLink .arrival .icon{
+	background-image:url(./img/storestaff/arrival.png);
+}
+.pageLink .arrival:hover .icon{
+	background-image:url(./img/storestaff/arrival_hover.png);
+}
+.pageLink .qrcode .icon{
+	background-image:url(./img/storestaff/qrcode.png);
+}
+.pageLink .qrcode:hover .icon{
+	background-image:url(./img/storestaff/qrcode_hover.png);
+}
+.pageLink .logout .icon{
+	background-image:url(./img/storestaff/logout.png);
+}
+.pageLink .logout:hover .icon{
+	background-image:url(./img/storestaff/logout_hover.png);
+}
+.pageLink .coupon .icon{
+	background-image:url(./img/storestaff/coupon.png);
+}
+.pageLink .coupon:hover .icon{
+	background-image:url(./img/storestaff/coupon_hover.png);
+}
+.pageLink .report .icon{
+	background-image:url(./img/storestaff/report.png);
+}
+.pageLink .report:hover .icon{
+	background-image:url(./img/storestaff/report_hover.png);
+}
+
+.pageLink .physical_card .icon{
+    background-image:url(./img/storestaff/physical_card.png);
+}
+.pageLink .physical_card:hover .icon{
+    background-image:url(./img/storestaff/physical_card_hover.png);
+}
+
+.pageLink .store_manage .icon{
+    background-image:url(./img/storestaff/store_manage.png);
+}
+.pageLink .store_manage:hover .icon{
+    background-image:url(./img/storestaff/store_manage_hover.png);
+}
+
+.pageLink .sub_card .icon{
+    background-image:url(./img/storestaff/sub_card.png);
+}
+.pageLink .sub_card:hover .icon{
+    background-image:url(./img/storestaff/sub_card_hover.png);
+}
+
+.pageLink .printer .icon{
+    background-image:url(./img/storestaff/printer.png);
+}
+.pageLink .printer:hover .icon{
+    background-image:url(./img/storestaff/printer_hover.png);
+}
+
+.loader { position: absolute;  text-align: center; font-size: 14px;  top: -10px; left: 50%; margin-left: 25px;width: 30px;height: 30px;border-radius: 100%; background: #eeeeee;}
+.loader.on:before {border-radius: 100% ;content: ''; background: #eeeeee; width: 26px; height: 26px; position: absolute; left: 2px; top: 2px; background:-webkit-linear-gradient(top, #33cd74 0%,#9adfb8 50%,#c5e7d3 100%);  -webkit-animation: load3 1.4s infinite linear;animation: load3 1.4s infinite linear; }
+.loader.on:after {content: ''; background: #eeeeee; width: 22px; height: 22px; position: absolute;  left: 4px; top: 4px; border-radius: 100%; display: block;}
+.loader em{ font-style: normal; width: 22px; height: 22px; position: absolute;  left: 4px; top: 4px; border-radius: 100%; display: block; line-height: 22px; z-index: 9;color: #f44234;}
+
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.hide{ display: none; }
+
+@media(max-width:1024px){
+	.infoBox{
+		left:100px;
+	}
+	.infoBox .logo{
+		margin-top: 30px;
+	}
+	.infoBox .logo img{
+		width:100px;
+		height:100px;
+	   	border-radius:100%;
+	}
+	.pageLink{
+		margin-top:60px;
+		margin-left:60px;
+	}
+	.pageLink li{
+		margin-top:40px;
+		width:200px;
+		margin-left:20px;
+	    height: 179px;	
+	}
+	.pageLink .icon{
+		width:100px;
+		height:100px;
+	}
+	.pageLink li:hover .icon{
+		width:100px;
+		height:100px;
+		margin-left:50px;
+	}
+	.pageLink .text{
+		font-size:18px;
+	}
+	.pageLink .group:hover .icon{
+		background-image:url(./img/storestaff/group.png);
+	}
+	.pageLink .meal:hover .icon{
+		background-image:url(./img/storestaff/meal.png);
+	}
+	.pageLink .shop:hover .icon{
+		background-image:url(./img/storestaff/shop.png);
+	}
+	.pageLink .appoint:hover .icon{
+		background-image:url(./img/storestaff/appoint.png);
+	}
+	.pageLink .store:hover .icon{
+		background-image:url(./img/storestaff/store.png);
+	}
+	.pageLink .arrival:hover .icon{
+		background-image:url(./img/storestaff/arrival.png);
+	}
+	.pageLink .qrcode:hover .icon{
+		background-image:url(./img/storestaff/qrcode.png);
+	}
+	.pageLink .logout:hover .icon{
+		background-image:url(./img/storestaff/logout.png);
+	}
+	.pageLink .coupon:hover .icon{
+		background-image:url(./img/storestaff/coupon.png);
+	}
+	.pageLink .report:hover .icon{
+		background-image:url(./img/storestaff/report.png);
+	}
+	.pageLink .physical_card:hover .icon{
+		background-image:url(./img/storestaff/physical_card.png);
+	}
+	.pageLink .store_manage:hover .icon{
+		background-image:url(./img/storestaff/store_manage.png);
+	}
+	.pageLink .printer:hover .icon{
+	    background-image:url(./img/storestaff/printer.png);
+	}
+}

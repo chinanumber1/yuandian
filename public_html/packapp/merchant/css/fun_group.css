@@ -1,0 +1,200 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-bar-nav a.mui-pull-right{
+	line-height: 44px;
+	font-size: 14px;
+}
+.mui-bar-nav a.mui-pull-right i{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../images/6-_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 5px;
+}
+.mui-card{margin: 15px 10px;}
+
+/*tab切换*/
+
+/*tab切换导航条*/
+.class_list{
+	width: 100%;
+	background: #fff;
+	    position: fixed;
+    z-index: 10;
+}
+.class_list ul{
+	width: 100%;
+	background: #fff;
+}
+.class_list ul li{
+	width: 24.3%;
+    margin: 5px 4.5% 0px 4.5%;
+    padding: 10px 4%;
+    text-align: center;
+    background: #fff;
+    font-size: 14px;
+    color: #414141;
+    height: 63px;
+}
+.class_list ul li.active{
+	color: #FFA200;
+}
+.class_list ul li.active dd:last-child{
+	margin-top: 5px;
+	border-bottom: 2px solid #FFA200;
+}
+
+/*卡片样式*/
+.mui-card{
+	border-radius: 5px;
+}
+.mui-card-header{
+	line-height: 44px;
+}
+.mui-card-header,.mui-card-footer{
+	display: block;
+	padding: 0;
+	margin: 0;
+	border-bottom: 1px solid #f1f1f1;
+}
+.mui-card-header>span,.mui-card-footer>span{
+	margin: 0px 3%;
+	color: #717171;
+}
+.mui-card-header .yifasong{
+	display: inline-block;
+	width: 55px;height: 17px;
+	background: url(../images/46-3_03.png) center no-repeat;
+	background-size: contain;
+	margin-top: 14px;
+}
+.mui-card-header .examine{
+	display: inline-block;
+	width: 55px;height: 17px;
+	background: url(../images/46-3_14.png) center no-repeat;
+	background-size: contain;
+	margin-top: 14px;
+}
+.mui-card-header .refuse{
+	display: inline-block;
+	width: 55px;height: 17px;
+	background: url(../images/46-3_17.png) center no-repeat;
+	background-size: contain;
+	margin-top: 14px;
+}
+.mui-card-content h4{
+	font-size: 14px;
+	margin: 10px 3%;
+	width: 94%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #FFA200;
+}
+.mui-card-content h5{
+	text-align: center;
+	margin-bottom:10px ;
+	color:#FFA200;
+	font-size: 14px;
+}
+.mui-card-content h5 i{
+	display: inline-block;
+	width: 16px;height: 16px;
+	background: url(../images/tiao.png) center no-repeat;
+	background-size: cover;
+	vertical-align: middle;
+}
+.mui-card-content>span{
+	display: block;
+	font-size: 12px;
+	color: #C4C4C4;
+	margin: 0 3% 10px 3%;
+}
+.mui-card-content>p{
+	margin: 0 3% 10px 3%;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp:2;
+	overflow: hidden;
+	font-size: 12px;
+	color: #666666;
+	width: 94%;
+}
+.mui-card-footer>span i{
+	display: inline-block;
+	width: 13px;
+	height: 12px;
+	background: url(../images/46-3_11.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;margin-right: 1%;
+}
+.mui-card-footer>span{
+	font-size: 12px;
+	color: #A7A7A7;
+}
+.mui-card-footer{
+	width: 94%;
+	margin: 0 3%;
+}
+.btn{
+	text-align: right;
+}
+.mui-card-footer button{
+	font-size: 12px;
+	background: #FFA200;
+	border: none;
+	color: #fff;
+	padding: 3px 12px;
+	margin-top: 8px;
+}
+.all_funs{
+	margin-top: 83px;
+}
+
+/*下拉刷新样式*/
+.pullup1,.loading1{
+	text-align: center;
+	padding:0 0 10px 0;
+	font-size: 14px;
+	color: #999;
+}
+.loading1 img{
+	height: 14px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

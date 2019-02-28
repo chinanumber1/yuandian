@@ -1,0 +1,201 @@
+	<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>快店管理</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/shop_list.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back"></div>
+	    <h1 class="mui-title"><span class="ashop">快店</span>管理</h1>
+	</header>
+	<div class="mui-content">
+	   
+	</div>
+	<div id="middlePopover" class="mui-popover"> 
+		<div class="mui-card">
+			<!--页眉，放置标题-->
+			<div class="mui-card-header">
+				<p>选择将商品克隆至哪个店铺(可多选)</p> <sub class="mui-pull-right"></sub>
+			</div>
+			<!--内容区-->
+			<div class="mui-card-content">
+				<div class="mui-scroll-wrapper">
+				  <div class="mui-scroll">
+				    
+				  </div>
+				</div>
+				
+			</div>
+			<div class="mui-card-footer">
+				<button type="button">保 存</button>
+			</div>
+		</div>	
+	</div> 
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script type="text/javascript" src="js/mui.poppicker.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<!-- 关闭模板渲染 -->
+<script id="pluscardLists" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+		<div class="mui-card" data-id="{{ d[i].store_id }}">
+			<div class="mui-card-header">
+				<span><i></i> 店铺编号 <b>{{ d[i].store_id }}</b></span>
+				{{# if(d[i].sid>0){ }}
+					<p class="penci_shop"><i></i></p>
+				{{# } else { }}
+					<button type="button" class="perfect_message penci_shop">完善店铺信息</button>
+				{{# } }}
+				
+			</div>
+			<div class="mui-card-content">
+				<h4>{{ d[i].name }}</h4>
+				<h5><a href="tel: {{ d[i].phone }}">{{ d[i].phone }} <b></b></a>  </h5>
+				{{# if(d[i].sid>0){ }}
+					<div class="btn_border">
+						<button class="view_order" type="button"><i></i> 查看订单</button>
+						<button type="button" class="merchandise_control"><i></i> 商品管理</button>
+						<button type="button" class="shop_discount"><i></i> 店铺优惠</button>
+						<button type="button" class="clone_goods"><i></i> 克隆商品</button>
+					</div>
+					<div style="padding-bottom: 10px;">
+						
+						
+					</div>
+				{{# } }}
+			</div>
+		</div>
+		
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var ashop=common.getCache('ashop');
+	var isclosed=true;
+	$('.ashop').text(ashop);
+	$('title').html(ashop+"店铺管理"); 	
+	var store_idAll=common.getCache('store_idAll');
+	var shopId=0;//初始化店铺id
+  	mui.init();
+  	//初次加载页面渲染数据
+  	common.http('WapMerchant&a=shopList',{'ticket':ticket,'client':client,'store_id':store_idAll},function(data){
+  		console.log(data);
+  		if(data.length==0){
+  			mui.alert('您没有添加店铺，或店铺没有开启快店功能，或店铺正在审核中。');
+  		}
+  		laytpl(document.getElementById('pluscardLists').innerHTML).render(data, function(html){
+			$('.mui-content').html(html);
+		});
+  	});
+  	var mask = mui.createMask();//callback为用户点击蒙版时自动执行的回调；
+
+  	mui('.mui-content').on('tap','.shop_discount',function(){//点击店铺优惠
+  		var this_id=$(this).parents('.mui-card').attr('data-id');
+  		//window.location.href='shop_discount.html?data='+this_id;
+  		openWindow({
+			url:'shop_discount.html?data='+this_id,
+			id:'shop_discount'
+		});
+  	});
+  	//点击克隆商品
+  	mui('.mui-content').on('tap','.clone_goods',function(){
+  		var id=$(this).parents('.mui-card').attr('data-id');
+  		console.log(isclosed);
+  		mask.show();
+  		mui('#middlePopover').popover('show');
+  		$('body').css('overflow','hidden');
+  		common.http('WapMerchant&a=shopList',{'ticket':ticket,'client':client},function(data){
+  			console.log(data);
+  			var str='';
+  			$.each(data,function(i,val){	
+  				if(val.store_id!=id){
+  					console.log('暂无');
+  					isclosed=false;
+  					str+='<div class="mui-input-row mui-checkbox" data-shop_id='+val.store_id+'><label><i></i> '+val.name+'</label><input name="checkbox1" type="checkbox"></div>';
+  				}
+  			});
+  			$('.mui-scroll').html(str);
+  		});
+  			//点击保存按妞
+		  	mui('#middlePopover').on('tap','button',function(){
+		  		if(isclosed){
+                     
+                      mui('#middlePopover').popover('hide');
+  		              mask.close();
+  		             $('body').css('overflow-y','scroll');
+		  		}else{
+                    
+                     var ids=[];
+		  		  $.each($('.mui-scroll>div'),function(i,val){
+		  			if($(this).find('input').is(':checked')){
+		  				ids.push($(this).attr('data-shop_id'));
+		  			}
+		  		   });
+		  		common.http('WapMerchant&a=cloneGoods',{'ticket':ticket,'client':client,'store_id':id,'store_ids':ids},function(data){
+		  			console.log(data);
+		  			if(data.length==0){
+		  				mui.toast('克隆成功');
+		  			}
+		  		});
+		  		mui('#middlePopover').popover('hide');
+		  		mask.close();
+		  		$('body').css('overflow-y','scroll');
+		  		}
+		  		
+
+		  	});
+  	});
+
+  	//点击蒙版
+  	mui('body').on('tap','.mui-backdrop',function(){
+  		mui('#middlePopover').popover('hide');
+  		mask.close();
+  		$('body').css('overflow-y','scroll');
+  	});
+  	//点击关闭按钮
+  	mui('#middlePopover').on('tap','sub',function(){
+  		mui('#middlePopover').popover('hide');
+  		mask.close();
+  		$('body').css('overflow-y','scroll');
+  	});
+  
+  //点击完善信息
+  	mui('.mui-content').on('tap','.penci_shop',function(){
+  		shopId=$(this).parents('.mui-card').data('id');
+  		common.setCache('shopId',shopId);
+  		openWindow({
+			url:'fastStore_message.html',
+			id:'fastStore_message'
+		});
+  	});
+  	//点击商品管理
+  	mui('.mui-content').on('tap','.merchandise_control',function(){
+  		shopId=$(this).parents('.mui-card').data('id');
+  		common.setCache('shopId',shopId);
+  		openWindow({
+			url:'commodity_management.html',
+			id:'commodity_management'
+		});
+  	});
+  	mui('.mui-scroll-wrapper').scroll({
+	          deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006 
+	});
+
+	mui('.mui-content').on('tap','.view_order',function(e){
+		var store_id=$(this).parents('.mui-card').attr('data-id');
+		openWindow({
+			url:'fastList.html?store_id='+store_id,
+			id:'fastList'
+		});
+	});
+</script>
+</body>
+</html>

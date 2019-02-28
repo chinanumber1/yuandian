@@ -1,0 +1,218 @@
+/*头部右边无按钮通用样式*/
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+/*店铺列表信息*/
+.mui-card .mui-card-header span i{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../images/8-_06.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.mui-card .mui-card-header span{
+	color: #FFA200;
+	font-size: 14px;
+	padding-left: 10px;
+}
+.mui-card .mui-card-header span b{
+	font-size: 17px;
+}
+.mui-card .mui-card-header{
+	padding:0;
+}
+.mui-card .mui-card-header p{
+	margin: 0;
+	height: 44px;
+}
+.mui-card .mui-card-header p i{
+	display: inline-block;
+	width: 44px;height: 44px;
+	background: url(../images/8-_03.png) center no-repeat;
+	background-size: 18px 19px;
+}
+.mui-card .mui-card-header button{
+	color: #FF8768;
+	border-color: #FF8768;
+}
+
+.mui-card .mui-card-content{
+	text-align: center;
+	margin-left: 10px;
+}
+.mui-card .mui-card-content h4{
+	font-size: 15px;
+	margin-top: 15px;
+}
+.mui-card .mui-card-content h5 b{
+	display: inline-block;
+	width: 14px;height: 14px;
+	background: url(../images/8-_11.png) center no-repeat;
+	background-size: contain;
+	vertical-align:bottom;
+	
+}
+.mui-card .mui-card-content h5{
+	margin-bottom: 10px;
+
+}
+.mui-card .mui-card-content .btn_border{
+		border-top: 1px solid #EEEEEE;
+}
+.mui-card .mui-card-content button{
+	margin: 10px 8px 5px 0;
+	width: 38%;
+	border: none;
+	/*display: inline-flex;
+    justify-content: center;
+    align-items: center;*/
+}
+.mui-card .mui-card-content .view_order{
+	background: #9573FE;
+	color: #fff;
+}
+.mui-card .mui-card-content .view_order i{
+	display: inline-block;
+	width: 10px;height: 12.5px;
+	background: url(../images/8-_15.png) center no-repeat;
+	background-size: contain;
+	vertical-align:middle;
+	margin-right: 3px;
+}
+.mui-card .mui-card-content .merchandise_control{
+	background: #FFA64C;
+	color: #fff;
+}
+.mui-card .mui-card-content .merchandise_control i{
+	display: inline-block;
+	width: 12px;height: 13px;
+	background: url(../images/8-_17.png) center no-repeat;
+	background-size: contain;
+	vertical-align:middle;
+	margin-right: 3px;
+}
+.mui-card .mui-card-content .shop_discount{
+	background: #FF724C;
+	color: #fff;
+}
+.mui-card .mui-card-content .shop_discount i{
+	display: inline-block;
+	width: 16px;height: 12px;
+	background: url(../images/8-_22.png) center no-repeat;
+	background-size: contain;
+	vertical-align:middle;
+	margin-right: 3px;
+}
+.mui-card .mui-card-content .clone_goods{
+	background: #1EBBF5;
+	color: #fff;
+}
+.mui-card .mui-card-content .clone_goods i{
+	display: inline-block;
+	width: 12px;height: 12px;
+	background: url(../images/8-_24.png) center no-repeat;
+	background-size: contain;
+	vertical-align:middle;
+	margin-right: 3px;
+}
+
+/*遮罩层模块样式*/
+.mui-popover{
+	width: 90%;
+	margin: 0 5%;
+	background: #fff;
+	position: fixed;
+	top: 50%;
+    margin-top: -200px;
+	border-radius: 5px;
+}
+.mui-popover .mui-card{
+	margin: 0;
+}
+.mui-popover .mui-card .mui-card-header{
+	background: #FFA200;
+	
+	padding: 0;
+}
+.mui-popover .mui-card .mui-card-header p{
+	color: #fff;
+	font-size: 16px;
+	padding: 0px 0;
+	line-height: 44px;
+	margin: 0;
+}
+.mui-popover .mui-card .mui-card-header sub{
+	    display: inline-block;
+    width: 43px;
+    height: 43px;
+    background: url(../images/11-_03.png) center no-repeat;
+    background-size: 15px 15px;
+    margin-top: -6px;
+}
+.mui-popover .mui-card .mui-card-content{
+	text-align: left;
+	margin: 0;
+	padding: 0;
+	height: 280px;
+	/*overflow-y: scroll;*/
+}
+.mui-popover .mui-card .mui-card-content .mui-input-row{
+	height: 50px;
+	line-height: 50px;
+}
+.mui-popover .mui-card .mui-card-content div.mui-input-row:nth-child(odd){
+	background: #F7F5F0;
+}
+.mui-popover .mui-card .mui-card-content div label i{
+	display: inline-block;
+	width: 14px;height: 13px;
+	background: url(../images/11-_07.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.mui-popover .mui-card .mui-card-content div input{
+	font-size: 16px;line-height:50px;
+}
+/*保存按钮*/
+.mui-popover .mui-card .mui-card-footer{
+    background: #F7F5F0;
+    height: 70px;
+}
+.mui-card-footer button{
+	text-align: center;
+	width: 90%;
+	margin: 0 5%;
+	border-radius: 30px;
+	background: #FFA200;
+	color: #FFFFFF;
+	padding: 10px 0;
+}
+@media (min-width:320px) {
+	.mui-popover .mui-card .mui-card-header p{
+		margin-left: 22px;
+		font-size: 15px;
+		    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	}
+}
+
+@media (min-width:360px) {
+	.mui-popover .mui-card .mui-card-header p {
+	    margin-left: 12%;
+	    font-size: 15px;
+	}
+}
+@media (min-width:410px) {
+	/*.mui-popover{
+		height: 54%;
+	}*/
+	.mui-popover .mui-card .mui-card-header p {
+	    margin-left: 19%;
+	    font-size: 16px;
+	}
+}

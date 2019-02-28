@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+   <title>商品管理</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/commodity_management.css"/>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav mui-clearfix">
+	     <div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	    <h1 class="mui-title">商品管理</h1>
+	    
+	    <span class="mui-pull-right hidden" id="cancel">完成</span>
+	    <!--<div style="clear: both;"></div>-->
+	</header>
+	<div class="mui-content">
+		<div class="commod">
+			<div class="search">
+				<p><i></i> <span>商品名称</span></p>
+		    	<!-- <div class="mui-input-row mui-search">
+					<input type="search" class="mui-input-clear" placeholder="商品名称" readonly>
+				</div> -->
+		    </div>
+		</div>
+	    
+	    <div class="mui-content mui-row">
+			<div class="mui-col-xs-3">
+				<div id="segmentedControls" class=" mui-segmented-control-inverted mui-segmented-control-vertical">
+					<dl class="classHtml">
+						<!-- <dd  class="first_list active">
+							<i><b class="mui-pull-left"></b><span>营养早餐</span><sub class="mui-pull-right"></sub></i>
+							<ul>
+								<li class="secord_list"><em><b></b><span>二级菜单</span></em>
+									<div class="hidden">
+										<p class="last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>鲜奶/面包蛋糕</span></em>
+									<div class="hidden">
+										<p><b></b> <span>三级菜单1</span></p>
+										<p><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>15元营养早餐套餐</span></em>
+									<div class="hidden">
+										<p class="last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+							</ul>
+						</dd>
+						<dd  class="first_list">
+							<i><b class="mui-pull-left"></b><span>鲜榨蔬汁</span><sub class="mui-pull-right"></sub></i>
+							<ul class="hidden">
+								<li class="secord_list"><em><b></b><span>二级菜单</span></em>
+									<div class="hidden">
+										<p class="active last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>鲜奶/面包蛋糕</span></em>
+									<div class="hidden">
+										<p><b></b> <span>三级菜单1</span></p>
+										<p><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>15元营养早餐套餐</span></em>
+									<div class="hidden">
+										<p class="last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+							</ul>
+						</dd>
+						<dd  class="first_list">
+							<i><b class="mui-pull-left"></b><span>蔬菜瓜果</span><sub class="mui-pull-right"></sub></i>
+							<ul>
+								<li class="active secord_list"><em><b></b><span>二级菜单</span></em>
+									<div class="hidden">
+										<p class="active last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>鲜奶/面包蛋糕</span></em>
+									<div class="hidden">
+										<p><b></b> <span>三级菜单1</span></p>
+										<p><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>15元营养早餐套餐</span></em>
+									<div class="hidden">
+										<p class="last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+							</ul>
+						</dd>
+						<dd  class="first_list">
+							<i><b class="mui-pull-left"></b><span>蔬菜瓜果</span><sub class="mui-pull-right"></sub></i>
+							<ul>
+								<li class="active secord_list"><em><b></b><span>二级菜单</span></em>
+									<div class="hidden">
+										<p class="active last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>鲜奶/面包蛋糕</span></em>
+									<div class="hidden">
+										<p><b></b> <span>三级菜单1</span></p>
+										<p><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>15元营养早餐套餐</span></em>
+									<div class="hidden">
+										<p class="last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+							</ul>
+						</dd>
+						<dd  class="first_list">
+							<i><b class="mui-pull-left"></b><span>蔬菜瓜果</span><sub class="mui-pull-right"></sub></i>
+							<ul>
+								<li class="active secord_list"><em><b></b><span>二级菜单</span></em>
+									<div>
+										<p class="active last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>鲜奶/面包蛋糕</span></em>
+									<div>
+										<p><b></b> <span>三级菜单1</span></p>
+										<p><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>15元营养早餐套餐</span></em>
+									<div >
+										<p class="last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+							</ul>
+						</dd>
+						<dd  class="first_list">
+							<i><b class="mui-pull-left"></b><span>蔬菜瓜果</span><sub class="mui-pull-right"></sub></i>
+							<ul>
+								<li class="active secord_list"><em><b></b><span>二级菜单</span></em>
+									<div>
+										<p class="active last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>鲜奶/面包蛋糕</span></em>
+									<div>
+										<p><b></b> <span>三级菜单1</span></p>
+										<p><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+								<li class="secord_list"><em><b></b><span>15元营养早餐套餐</span></em>
+									<div >
+										<p class="last_list"><b></b> <span>三级菜单1</span></p>
+										<p class="last_list"><b></b> <span>三级菜单2</span></p>
+									</div>
+								</li>
+							</ul>
+						</dd> -->
+					</dl>
+				</div>
+			</div>
+			<div id="segmentedControlContents" class="mui-col-xs-9">
+				<p class="all_checkbox"><b></b><span>全选</span><i class="yiselect">(已选0件)</i></p>
+				<div class="all_change_show">
+					<p></p>
+					<ul class="goods_news">
+
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+		<div style="padding-bottom: 55px;"></div>
+		<nav class="mui-bar mui-bar-tab shop_guan1">
+		    <ul>
+		    	<li class="mui-pull-left classified_management"><b></b><span>分类管理</span></li>
+		    	<li class="mui-pull-left new_merchandise"><b></b><span>新建商品</span></li>
+		    	<li class="mui-pull-left batch_management"><b></b><span>批量管理</span></li>
+		    </ul>
+		</nav>
+		<nav class="mui-bar mui-bar-tab shop_change hidden">
+			<div class="mui-row mui-clearfix" >
+			    <div class="mui-col-sm-2 goods_upshelves">
+			    	<ul>
+		    			<li><i></i></li>
+		    			<li>上架</li>
+		    		</ul>
+			    </div>
+			    
+			    <div class="mui-col-sm-2 goods_downshelves">
+			    	<ul>
+		    			<li><i></i></li>
+		    			<li>下架</li>
+		    		</ul>
+			    </div>
+			    <a href="#forward" class="mui-col-sm-2 goods_over">
+			    	<div >
+				    	<ul>
+			    			<li><i></i></li>
+			    			<li>库存</li>
+			    		</ul>
+			    	</div>
+			    </a>
+			    
+			    <div class="mui-col-sm-2" id="delate_goods">
+			    	<ul>
+			    		<li><i></i></li>
+			    		<li>删除</li>
+			    	</ul>
+			    </div>
+			</div>
+		</nav>
+	</div>
+	<div id="forward" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#" class="enpoty">置空</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#" class="fill">填满</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#" class="custom">自定义</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#forward">取消</a>
+				</li>
+			</ul>
+		</div>
+		<!--自定义库存-->
+		<div class="custom_content"></div>
+			<div class="custom_header">
+				<p class="mui-clearfix"><span>自定义库存</span><a href="javascript:void(0);" class="mui-pull-right keep_stock">保存</a></p>
+				<div class="now_custom">
+					<span class="left_style">当前库存:</span>
+					<input type="tel" name="" id="" value="" />
+				</div>
+			</div>
+		<!--底部栏遮罩层-->
+		<div class="bottom_bg">
+			
+		</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="classLists" type="text/html">
+	{{# for(var i = 0; i < d.sort_list.length; i++){ }}
+		{{# if(i==0){ }}
+			<dd  class="first_list active" data-id="{{ d.sort_list[i].sort_id }}">
+				<i class="one"><b class="mui-pull-left"></b><span class="texts">{{ d.sort_list[i].cat_name }}</span><sub class="mui-pull-right"></sub></i>
+				{{# if(d.sort_list[i].son_list !=undefined ){ }}
+				<ul>
+					{{# for(var j in d.sort_list[i].son_list ){ }}
+						<li class="secord_list active" data-id="{{ d.sort_list[i].son_list[j].sort_id }}">
+							<em class="two"><b></b><span class="texts">{{ d.sort_list[i].son_list[j].cat_name}}</span></em>
+							{{# if( d.sort_list[i].son_list[j].son_list != undefined ){ }}
+								<div class="hidden">
+									{{# for(var k in d.sort_list[i].son_list[j].son_list){ }}
+									<p class="last_list" data-id="{{ d.sort_list[i].son_list[j].son_list[k].sort_id }}">
+										<b></b> <span class="texts">{{ d.sort_list[i].son_list[j].son_list[k].cat_name}}</span>
+									</p>
+									{{# } }}
+								</div>
+							{{# } }}
+						</li>
+					{{# } }}
+				</ul>
+				{{# } }}	
+			</dd>
+		{{# } else { }}
+			<dd  class="first_list" data-id="{{ d.sort_list[i].sort_id }}">
+				<i class="one"><b class="mui-pull-left"></b><span class="texts">{{ d.sort_list[i].cat_name }}</span><sub class="mui-pull-right"></sub></i>
+				{{# if(d.sort_list[i].son_list != undefined ){ }}
+				<ul class="hidden">
+					{{# for(var j in d.sort_list[i].son_list ){ }}
+						<li class="secord_list" data-id="{{ d.sort_list[i].son_list[j].sort_id }}">
+							<em class="two"><b></b><span class="texts">{{ d.sort_list[i].son_list[j].cat_name }}</span></em>
+							{{# if( d.sort_list[i].son_list[j].son_list != undefined ){ }}
+								<div class="hidden">
+									{{# for(var k in d.sort_list[i].son_list[j].son_list ){ }}
+									<p class="last_list" data-id="{{ d.sort_list[i].son_list[j].son_list[k].sort_id }}">
+										<b></b> <span class="texts">{{ d.sort_list[i].son_list[j].son_list[k].cat_name}}</span>
+									</p>
+									{{# } }}
+								</div>
+							{{# } }}
+						</li>
+					{{# } }}
+				</ul>
+				{{# } }}
+			</dd>
+		{{# } }}
+	{{# } }}
+</script>
+<script id="goodsHtml" type="text/html">	
+	{{# for(var i = 0; i < d.product_list.length; i++){ }}
+		<li class="mui-clearfix" data-goodid="{{ d.product_list[i].goods_id }}">
+			{{# if( type==0 ){ }}
+				<i data-goodid="{{ d.product_list[i].goods_id }}" class=" mui-pull-left check_tiggle" style="display: none;"></i>
+			{{# } else { }}
+				<i data-goodid="{{ d.product_list[i].goods_id }}" class=" mui-pull-left check_tiggle"></i>
+			{{# } }}
+			
+			<img class="mui-pull-left" src="{{ d.product_list[i].pic_arr[0].url.s_image }}">
+			{{# if( d.product_list[i].status==0 ){ }}
+				{{# if( fls==0 ){ }}
+				<sub class="floor 111">已下架</sub>
+				{{# } else { }}
+				<sub class="floor 333" style="margin-left: 38px;">已下架</sub>
+				{{# } }}
+			{{# } else { }}
+				<sub class="floor 222 mr38" style="display:none;">已下架</sub>
+			{{# } }}
+			<ul class="mui-pull-left">
+				<li>{{ d.product_list[i].name}}</li>
+				<li>
+					{{# if( d.product_list[i].original_stock == "-1" ){ }}
+					<sapn>无限量库存</sapn>
+					{{# } else { }}
+						<sapn>原始库存{{ d.product_list[i].original_stock }}</sapn> 
+					{{# } }}
+					<span>月售{{ d.product_list[i].sell_count }}</span>
+				</li>
+				<li><b>￥{{ d.product_list[i].price }}</b> 
+
+					
+					{{# if( d.product_list[i].stock_num == -1 ){ }}
+					<!-- <sapn>无限量库存</sapn> -->
+					{{# } else { }}
+						<sapn class="now_stock">当前库存{{ d.product_list[i].stock_num }}</sapn> 
+					{{# } }}
+				</li>
+			</ul>
+			{{# if( type==0 ){ }}
+				<div class="mui-media-body hide_btn">
+					<button data-goodid="{{ d.product_list[i].goods_id }}" type="button" class="goods_modify">修改</button>
+					{{# if( d.product_list[i].status==0 ){ }}
+						<button data-goodid="{{ d.product_list[i].goods_id }}" type="button" class="goods_off">上架</button>
+					{{# } else { }}
+						<button data-goodid="{{ d.product_list[i].goods_id }}" type="button" class="goods_off">下架</button>
+					{{# } }}
+					<button data-goodid="{{ d.product_list[i].goods_id }}" type="button" class="goods_size">规格</button>
+				</div>
+			{{# } else { }}
+				<div class="mui-media-body hide_btn" style="display:none;">
+					<button data-goodid="{{ d.product_list[i].goods_id }}" type="button" class="goods_modify">修改</button>
+					{{# if( d.product_list[i].status==0 ){ }}
+						<button data-goodid="{{ d.product_list[i].goods_id }}" type="button" class="goods_off">上架</button>
+					{{# } else { }}
+						<button data-goodid="{{ d.product_list[i].goods_id }}" type="button" class="goods_off">下架</button>
+					{{# } }}
+					<button data-goodid="{{ d.product_list[i].goods_id }}" type="button" class="goods_size">规格</button>
+				</div>
+			{{# } }}
+			
+		</li>
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+	mui.init();
+	var ticket = common.getCache('ticket');
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var shopId= common.getCache('shopId');//店铺ID
+	var sort_id='';//默认渲染商品ID
+	var type=0;//根据用户是否点击批量管理按钮修改样式
+	var fls=0;
+	var f_class=0;
+	var mr=true;
+	//初次加载页面渲染三级分类
+	common.http('WapMerchant&a=shopGoods',{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':sort_id},function(data){
+		console.log(data);
+		if(data.sort_list.length==0){
+			mui.toast('还没有分类哦,快去添加吧');
+			$('.all_checkbox').hide();
+		}else{
+			f_class=1;
+		}
+		laytpl(document.getElementById('classLists').innerHTML).render(data, function(html){
+			$('.classHtml').html(html);
+		});
+		laytpl(document.getElementById('goodsHtml').innerHTML).render(data, function(html){
+			$('.goods_news').html(html);
+		});
+		if(data.sort_list.length>0){
+			$('.all_change_show>p').text(data.sort_list[0].cat_name);
+		}
+	});
+	// function isShow(){
+	// 	if($('#cancel')){
+	// 		$('.floor').css('margin-left','38px');
+	// 	}else{
+	// 		$('.floor').css('margin-left','0');
+	// 	}
+	// }
+
+
+
+
+	//一级列表点击
+	mui('#segmentedControls').on('tap','dl dd .one',function(e){
+		$(this).parent().addClass('active').siblings('dd').removeClass('active');
+		$(this).parent().find('ul').removeClass('hidden');
+		$(this).parent().siblings('dd').find('ul li').removeClass('active');
+		$(this).parent().siblings('dd').find('ul li div p').removeClass('active');
+		$(this).parent().siblings('dd').find('ul').addClass('hidden');
+		$('.all_change_show>p').text($(this).find('.texts').text());
+		var firstId=$(this).parent().attr('data-id');
+		$('.all_checkbox').removeClass('active');
+		$('.yiselect').text('已选0件');
+		common.http('WapMerchant&a=shopGoods',{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':firstId},function(data){
+			laytpl(document.getElementById('goodsHtml').innerHTML).render(data, function(html){
+				$('.goods_news').html(html);
+				if(mr){
+                    if($(".mr38").length>0){
+                        $(".mr38").css("margin-left",'0px')
+                    }
+				}else{
+                    if($(".mr38").length>0){
+                        $(".mr38").css("margin-left",'38px')
+                    }
+				}
+
+			});
+			if(fls==1){
+				var lengths=data.product_list.length;
+				if(lengths==0){
+					mui.toast('此分类下还没有可以操作的商品，先去添加吧');
+					$('.all_checkbox').hide();
+				}else{
+					$('.all_checkbox').show();
+				}
+			}
+		});
+		
+		
+	});
+	//二级列表点击	
+	mui('.classHtml').on('tap','.two',function(e){
+		$(this).parent().addClass('active').siblings('li').removeClass('active');
+		$(this).parent().find('div').removeClass('hidden');
+		$(this).parent().siblings('li').find('div p').removeClass('active');
+		$(this).parent().siblings('li').find('div').addClass('hidden');
+		$('.all_change_show>p').text($(this).find('.texts').text());
+		var secoudtId=$(this).parent().attr('data-id');
+		$('.all_checkbox').removeClass('active');
+		$('.yiselect').text('已选0件');
+		common.http('WapMerchant&a=shopGoods',{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':secoudtId},function(data){
+			laytpl(document.getElementById('goodsHtml').innerHTML).render(data, function(html){
+				$('.goods_news').html(html);
+			});
+			if(fls==1){
+				var lengths=data.product_list.length;
+				if(lengths==0){
+					mui.toast('此分类下还没有可以操作的商品，先去添加吧');
+					$('.all_checkbox').hide();
+				}else{
+					$('.all_checkbox').show();
+				}
+			}
+		});
+		
+		
+		
+	});
+	//三级列表点击
+	mui('.classHtml').on('tap','p.last_list',function(e){
+		$(this).addClass('active').siblings('p').removeClass('active');
+		var threetId=$(this).attr('data-id');
+		$('.all_checkbox').removeClass('active');
+		$('.all_change_show>p').text($(this).find('.texts').text());
+		$('.yiselect').text('已选0件');
+		common.http('WapMerchant&a=shopGoods',{'ticket':ticket,'client':client,'store_id':shopId,'sort_id':threetId},function(data){
+			laytpl(document.getElementById('goodsHtml').innerHTML).render(data, function(html){
+				$('.goods_news').html(html);
+			});
+			if(fls==1){
+				var lengths=data.product_list.length;
+				if(lengths==0){
+					mui.toast('此分类下还没有可以操作的商品，先去添加吧');
+					$('.all_checkbox').hide();
+				}else{
+					$('.all_checkbox').show();
+				}
+			}
+		});
+		
+		
+	});
+
+	//商品上下架点击
+	$('.mui-content').unbind('click','.goods_off').on('click','.goods_off',function(e){
+		e.stopPropagation();
+		var goods_ids=$(this).attr('data-goodid');
+		var me=this;
+		if($(this).text()=="上架"){
+			common.http('WapMerchant&a=updateGoodsStatus',{'ticket':ticket,'client':client,'store_id':shopId,'goods_ids':goods_ids,'status':1},function(data){
+				mui.toast('上架成功');
+				$(me).parents('li.mui-clearfix').find('.floor').hide();
+				$(me).text('下架');
+			});
+		}else{
+			
+			common.http('WapMerchant&a=updateGoodsStatus',{'ticket':ticket,'client':client,'store_id':shopId,'goods_ids':goods_ids,'status':0},function(data){
+				mui.toast('下架成功');
+				$(me).parents('li.mui-clearfix').find('.floor').show();
+				$(me).text('上架');
+			});
+
+		}
+		// return false;
+	});
+var chuHeight='';
+if(common.checkIosApp()){
+	chuHeight=$(window).height()-158;
+
+}else{
+	 chuHeight=$(window).height()-138;
+}
+
+
+$('.mui-col-xs-3').css('height',chuHeight);
+$('.mui-col-xs-9').css('height',chuHeight);
+
+
+
+
+	
+//批量管理点击
+mui('.mui-content').on('tap','.batch_management',function(e){
+	type=1;//按钮隐藏 选择框显示
+	mr=false;
+	if($(".mr38").length>0){
+        $(".mr38").css("margin-left",'38px')
+	}
+	$('.mui-bar-nav span').removeClass('hidden');
+	$('.goods_news li i').show();
+	$('.commod').hide();
+	$('.all_checkbox').show();
+	$('.all_change_show').addClass('active');
+	$('.shop_guan1').addClass('hidden').next('nav').removeClass('hidden');
+	$('.hide_btn').hide();
+	$('.floor').addClass('active');
+	//var height=$('.mui-col-xs-3').height();
+	// $('.mui-col-xs-3').css('height',height+44);
+	// $('.mui-col-xs-9').css('height',height+44);
+	$('.mui-col-xs-3').css('height',chuHeight+44);
+	$('.mui-col-xs-9').css('height',chuHeight+44);
+	var lengths=$('.goods_news>li').length;
+	$('.all_change_show>p').hide();
+	$('.goods_news>li i.check_tiggle').removeClass('active');
+	$('.yiselect').text('已选0件');
+	$('.all_checkbox').removeClass('active');
+	$('.bottom_bg').show();
+	fls=1;
+	if(lengths==0){
+		mui.toast('此分类下还没有可以操作的商品，先去添加吧');
+		$('.all_checkbox').hide();
+	}else{
+		$('.all_checkbox').show();
+	}
+
+	$('.goods_news li img').css('margin-left','0');
+	$('.goods_news li .floor').css('margin-left','0');
+	$('.bottom_bg').click(function(e){
+		mui.toast('请先选择商品后操作');
+	});
+
+
+
+
+
+	//下架点击
+	$('.shop_change').off("click",'.goods_downshelves').on('click','.goods_downshelves',function(e){
+		 $('.bottom_bg').show();
+		var goods_id=[];
+		$.each($('.goods_news>li.mui-clearfix'),function(i,val){
+			if($(this).find('.check_tiggle').is('.active')){
+				goods_id.push($(this).attr('data-goodid'));
+				$(this).find('.floor').show();
+				$(this).find('.goods_off').text('上架');
+			}
+		});
+		// $('.bottom_bg').show();
+		common.http('WapMerchant&a=updateGoodsStatus',{'ticket':ticket,'client':client,'store_id':shopId,'goods_ids':goods_id,'status':0},function(data){
+			// if(data.lengths==0){
+				mui.toast('下架成功');
+				$('.bottom_bg').hide();
+			// }
+		},function(){$('.bottom_bg').hide();});
+	});
+	//上架点击
+	$('.shop_change').off("click",'.goods_upshelves').on('click','.goods_upshelves',function(e){
+		$('.bottom_bg').show();
+		var goods_id=[];
+		$.each($('.goods_news>li.mui-clearfix'),function(i,val){
+			if($(this).find('.check_tiggle').is('.active')){
+				goods_id.push($(this).attr('data-goodid'));
+				$(this).find('.floor').hide();
+				$(this).find('.goods_off').text('下架');
+			}
+		});
+		// $('.bottom_bg').show();
+		common.http('WapMerchant&a=updateGoodsStatus',{'ticket':ticket,'client':client,'store_id':shopId,'goods_ids':goods_id,'status':1},function(data){
+			// if(data.lengths==0){
+				mui.toast('上架成功');
+				$('.bottom_bg').hide();
+			// }
+		},function(){$('.bottom_bg').hide();});
+	});
+	//复选框点击事件check_tiggle
+	// mui('.goods_news').on('tap','.check_tiggle',function(e){
+	$('.goods_news').off('click','.check_tiggle').on('click','.check_tiggle',function(e){
+		e.stopPropagation();
+		if($(this).is('.active')){
+			$(this).removeClass('active')
+		}else{
+			$(this).addClass('active');
+		}
+		var lengths=$('.goods_news>li>i.active').length;
+		$('.all_checkbox').find('i').html('(已选'+lengths+'件)');
+		if(lengths==$('.goods_news>li').length){
+			$('.all_checkbox').addClass('active');
+		}else{
+			$('.all_checkbox').removeClass('active');
+		}
+  		if(lengths>0){
+  			$('.bottom_bg').hide();
+  		}else{
+  			$('.bottom_bg').show();
+  			$('.all_checkbox').removeClass('active');
+  		}
+	});
+	//全选点击all_checkbox
+	$('.all_checkbox').unbind('click').click(function(e){
+		if($(this).is('.active')){
+			$(this).removeClass('active');
+			$('.goods_news>li>i').removeClass('active');
+			var len=$('.goods_news>li i.active').length;
+   			//console.log(len);
+   			$(this).find('i').html('(已选'+len+'件)');
+		}else{
+			$(this).addClass('active');
+			$('.goods_news>li>i').addClass('active');
+			var len=$('.goods_news>li i.active').length;
+   			//console.log(len);
+   			$(this).find('i').html('(已选'+len+'件)');
+		}
+		var lengths=$('.goods_news>li>i.active').length;
+		//console.log(lengths);
+  		if(lengths>0){
+  			$('.bottom_bg').hide();
+  		}else{
+  			$('.bottom_bg').show();
+  			
+  		}
+	});
+	//删除按钮点击  delate_goods  cancel
+	$('.shop_change').off('click','#delate_goods').on('click','#delate_goods',function(e){
+		e.stopPropagation();
+		mui.confirm('你确认删除这些商品吗？',/* btnArray, */function(e) {
+			if (e.index == 1) {
+				var goods_id=[];
+				$.each($('.goods_news>li.mui-clearfix'),function(i,val){
+					if($(this).find('.check_tiggle').is('.active')){
+						goods_id.push($(this).attr('data-goodid'));
+						$(this).remove();
+					}
+				});
+				$('.bottom_bg').show();
+				$('.all_checkbox .yiselect').text('已选0件');
+				$('.all_checkbox').removeClass('active');
+				common.http('WapMerchant&a=goodsDel',{'ticket':ticket,'client':client,'store_id':shopId,'goods_id':goods_id},function(data){
+					console.log(data);
+					if(data.lengths==0){
+						mui.toast('删除成功');
+					}
+				});
+			}
+		})
+	});
+	//完成按钮点击
+	mui('.mui-bar-nav').on('tap','#cancel',function(e){
+		type=0;//按钮显示 选择框隐藏
+        mr=true;
+		if($(".mr38").length>0){
+            $(".mr38").css("margin-left",'0px')
+		}
+		$('.mui-bar-nav span').addClass('hidden');
+		$('.goods_news li i').hide();
+		$('.goods_news li img').css('margin-left','5%');
+		$('.goods_news>li i.check_tiggle').removeClass('active');
+		$('.all_checkbox').hide();
+		$('.bottom_bg').hide();
+		$('.hide_btn').show();
+		$('.shop_change').addClass('hidden').prev('nav').removeClass('hidden');
+		$('.floor').removeClass('active');
+		$('.commod').show();
+		$('.all_change_show').removeClass('active');
+		$('.mui-col-xs-3').css('height',chuHeight);
+		$('.mui-col-xs-9').css('height',chuHeight);
+		$('.all_checkbox').hide();
+		$('.all_change_show').removeClass('active');
+		$('.all_change_show>p').show();
+		fls=0;
+		$('.floor').css('margin-left',0);
+		// $('.goods_news li img').css('margin-left','5%');
+	});
+});
+
+//点击分类管理
+mui('.mui-content').on('tap','.classified_management',function(e){
+	openWindow({
+		url:'class_list.html',
+		id:'class_list'
+	});
+});
+
+//点击新建商品
+mui('.mui-content').on('tap','.new_merchandise',function(e){
+	e.stopPropagation();
+	e.preventDefault(); 
+	if(f_class==0){
+		mui.toast('还没有分类哦,快去添加吧');
+	}else{
+		common.setCache('addType',0);
+		openWindow({
+			url:'add_goods.html?store_id='+shopId,
+			id:'add_goods'
+		});
+	}
+	
+});
+//点击修改
+mui('.mui-content').on('tap','.goods_modify',function(e){
+	e.stopPropagation();
+	e.preventDefault(); 
+	common.setCache('addType',1);
+	var id=$(this).attr('data-goodid');
+	//common.setCache('goods_id',id);
+	openWindow({
+		url:'add_goods.html?goods_id='+id+'&store_id='+shopId,
+		id:'add_goods'
+	});
+});
+//点击规格
+mui('.mui-content').on('tap','.goods_size',function(e){
+	e.stopPropagation();
+	e.preventDefault();
+	var id=$(this).attr('data-goodid');
+	common.setCache('goods_id',id);
+	openWindow({
+		url:'goods_size.html',
+		id:'goods_size'
+	});
+});
+
+//点击搜索框
+$('.search').on('tap',function(e){
+	openWindow({
+		url:'search.html?data='+shopId,
+		id:'search'
+	});
+	//window.location.href='search.html?data='+shopId;
+});
+
+// 
+function  stock(stock){
+	var goods_ids=[];
+	$.each($('.goods_news>li.mui-clearfix'),function(i,val){
+		if($(this).find('.check_tiggle').is('.active')){
+			goods_ids.push($(this).attr('data-goodid'));
+		}
+	});
+	common.http('WapMerchant&a=updateGoodsStock',{'ticket':ticket,'client':client,'store_id':shopId,'goods_ids':goods_ids,'stock':stock },function(data){
+		console.log(data);
+		if(stock>0||stock==0){
+			$.each($('.goods_news>li.mui-clearfix'),function(i,val){
+				if($(this).find('.check_tiggle').is('.active')){
+					$(this).find('.now_stock').text('当前库存'+stock);
+				}
+			});
+		}
+		if(data.length==0){
+			mui.toast('操作成功');
+		}
+		$('#forward').hide();
+		$('.mui-backdrop').hide();
+		
+	});	
+}
+
+// 库存置空点击
+mui('body').on('tap','.enpoty',function(e){
+	stock(0);
+});
+
+//填满点击
+mui('body').on('tap','.fill',function(e){
+	stock(-1);
+});
+
+
+
+
+
+
+
+mui('body').on('tap', '.mui-popover-action li>a.custom', function(e) {
+	mui('#forward').popover('toggle');
+	$('.custom_content').show();
+	$('.custom_header').show();
+	$('.bottom_bg').show();
+	$('.now_custom input').val('');
+	//保存按钮点击
+	mui('body').on('tap','.custom_header p a',function(e){
+		$('.bottom_bg').hide();
+		$('.custom_content').hide();
+		$('.custom_header').hide();
+		var val=Number($('.now_custom input').val());
+		if(val!=''&&val>0){
+			stock(val);
+		}
+	});
+});
+$('.now_custom input').click(function(e){
+	$(this).focus();
+});
+//库存蒙层点击
+mui('body').on('tap','.custom_content',function(e){
+	$('.bottom_bg').hide();
+	$('.custom_content').hide();
+	$('.custom_header').hide();
+
+});
+function pageShowFunc(){
+	location.reload(true);
+}
+</script>
+</body>
+</html>

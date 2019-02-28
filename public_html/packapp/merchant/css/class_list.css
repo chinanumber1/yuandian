@@ -1,0 +1,198 @@
+ul,p,dl,dd{
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+.mui-bar-nav{
+	background: #FFA200;
+}
+.mui-bar-nav a,.mui-bar-nav h1{
+	color: #FFFFFF;
+}
+.mui-bar-nav a.mui-pull-right{
+	line-height: 44px;
+	font-size: 14px;
+}
+.mui-popup-title{
+	border-bottom: 1px solid #ddd;
+}
+.mui-popup-button:after{
+	border-left: 1px solid #fff;
+	/*background-color: #ddd;*/
+}
+.mui-popup-button.mui-popup-button-bold{
+	font-weight: normal;
+}
+.mui-bar-nav a.mui-pull-right i{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../images/6-_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+	margin-right: 5px;
+}
+/*content*/
+.mui-content .mui-card{
+	margin: 0;
+	margin-bottom:15px;
+}
+.mui-card-header:after, .mui-card-footer:before{
+	background-color: #f2f2f2;
+}
+.mui-card-header.edge_color{
+	border-left:3px solid #FFA200;
+	padding: 0;
+}
+.mui-card-header.edge_color span{
+	margin-left: 2%;
+	font-size: 16px;
+}
+.mui-card-header.edge_color p{
+	/*margin-right: 3%;*/
+}
+.mui-card-header.edge_color b{
+	display: inline-block;
+    width: 30px;
+    height: 44px;
+    background: url(../images/14-_03.png) center no-repeat;
+    background-size: 14px 15px;
+    margin-right: 3px;
+}
+.mui-card-header.edge_color i{
+	display: inline-block;
+    width: 30px;
+    height: 44px;
+    background: url(../images/14-_05.png) center no-repeat;
+    background-size: 13px 15px;
+}
+/*折扣和星期样式*/
+.week_discount{
+	background: #FAFAFA;
+}
+.week_discount .list_discount,.list_week{
+	padding: 10px 0 10px 5%;
+}
+.week_discount .list_discount{
+	border-bottom: 1px solid #f5f5f5;
+}
+.week_discount .mui-col-sm-4{
+	width: 35%;
+}
+.week_discount .mui-col-sm-8{
+	width: 60%;
+}
+.week_discount .mui-col-sm-8 span,.week_discount .mui-col-sm-8 li{
+	color: #F86A76;
+}
+.week_discount span{
+	color: #666;
+	font-size: 13px;
+}
+.week_discount .list_discount .mui-col-sm-4 span b{
+	display: inline-block;
+	width: 14px;height: 14px;
+	background: url(../images/14-_10.png) center no-repeat;
+	background-size: contain;
+	vertical-align: text-top;
+	margin-right: 2%;
+}
+
+.week_discount .list_week .mui-col-sm-4 span b{
+	display: inline-block;
+	width: 14px;height: 14px;
+	background: url(../images/14-_13.png) center no-repeat;
+	background-size: contain;
+	vertical-align: text-top;
+	margin-right: 2%;
+}
+
+.week_discount .mui-col-sm-8 li{
+	width: 25%;
+	font-size: 13px;
+}
+/*列表*/
+.mui-card-footer{
+	padding: 0;
+	padding-left: 5%;
+}
+.mui-card-footer ul{
+	width: 100%;
+}
+.mui-card-footer ul p{
+	padding:6px 0px 6px 1%;
+	border-top: 1px solid #f5f5f5;
+	line-height: 28px;
+}
+.mui-card-footer ul li dd p{
+	padding: 6px 0 6px 7%;
+}
+.mui-card-footer ul p i.mui-pull-right{
+	display: inline-block;
+	width:30px;height: 40px;
+	background: url(../images/14-_03.png) center no-repeat;
+	background-size: 14px 15px;
+	margin-top: -5px;
+}
+.mui-card-footer ul p b.mui-pull-right{
+	display: inline-block;
+	width:30px;height: 40px;
+	background: url(../images/14-_05.png) center no-repeat;
+	background-size: 14px 15px;
+	margin-top: -5px;
+}
+
+.mui-card-footer .first_list>li>p{
+	font-size: 14px;
+	color: #333333;
+}
+.mui-card-footer .first_list>li>p>span{
+	display: inline-block;width: 80%;
+}
+.mui-card-footer .first_list>li>p>span>b{
+	display: inline-block;
+	width: 30px;
+	height: 16px;
+	background: url(../images/14-_21.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.mui-card-footer  .secrod_list dd>p{
+	font-size: 12px;
+	color: #3F3F3F;
+}
+.mui-card-footer .secrod_list dd>p>span>b{
+	display: inline-block;
+	width: 30px;
+	height: 16px;
+	background: url(../images/14-_25.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+
+/*展示收起更多*/
+.show_more{
+	padding-left: 3%;
+	min-height: 38px;
+}
+.show_more i{
+	font-style: normal;
+	font-size: 13px;
+	color: #A1A1A1;
+}
+.show_more span b{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../images/14-1_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+}
+.show_more.active b{
+	display: inline-block;
+	width: 15px;height: 15px;
+	background: url(../images/14-_17.png) center no-repeat;
+	background-size: contain;
+	vertical-align: sub;
+}
+.hidden{
+	display: none;
+}

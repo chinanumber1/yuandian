@@ -1,0 +1,243 @@
+*{
+	margin: 0;
+	padding:0 ;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background: #F4F4F4;
+}
+ul,ol,dl,dd,dt{
+	list-style: none;
+}
+.ft{
+	float: left;
+}
+.rg{
+	float: right;
+}
+.after:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.sort{
+	width: 100%;
+	background: #fff;
+	height: 50px;
+	position: fixed;
+	top: 0;
+	z-index:999;
+}
+.sort li{
+	width: 33.1%;
+	color: #333;
+	font-size: 0.220338rem;
+	padding: 17px 0;
+	text-align: center;
+}
+.sort li:first-child i{
+	display: inline-block;
+	width:0.177966rem;
+	height: 0.101694rem;
+	background: url(../images/1-1_06.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-left: 0.166666rem;
+}
+.sort li.active span{
+	color: #06C1AE;
+}
+.sort li{
+	color: #333333;
+}
+.border{
+	border-left: 1px solid #E3E3E3;border-right: 1px solid #E3E3E3;
+}
+	
+.sort li.active>i{
+	width:0.177966rem;
+	height: 0.101694rem;
+	background: url(../images/1-8_03.png) center no-repeat;
+	background-size: contain;
+}
+.sort li.active:nth-child(2){
+
+	color: #06C1AE;
+}
+.sort li:nth-child(2) dl,.sort li:nth-child(3) dl{
+	display: inline-block;
+	margin-left: 0.166666rem;
+	vertical-align: middle;
+}
+.sort li.active  .up.active{
+	width:0.177966rem;
+	height: 0.101694rem;
+	background: url(../images/1-1_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-bottom: 5px;
+}
+.sort li .up{
+	width:0.177966rem;
+	height: 0.101694rem;
+	background: url(../images/1-23_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+	margin-bottom: 5px;
+}
+.sort li:nth-child(2) .down,.sort li:nth-child(3) .down{
+	width:0.177966rem;
+	height: 0.101694rem;
+	background: url(../images/1-1_06.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+.sort li.active .down.active{
+	width:0.177966rem;
+	height: 0.101694rem;
+	background: url(../images/1-8_03.png) center no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+
+
+/*洗车大礼包样式*/
+.all_cars{
+	width: 90%;
+	margin: 65px 5% 15px 5%;
+	
+}
+.car_package{
+	margin-top: 15px;
+	width: 100%;
+	background: #fff;
+	position: relative;
+		border-radius: 5px;
+}
+.car_header{
+	width: 86%;
+	padding: 20px 7% 10px 7%;
+	
+}
+.car_header h4{
+	font-size: 0.271186rem;
+	padding-bottom: 20px;
+	color: #333;
+}
+.frequency{
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #EEEEEE;
+}
+.frequency>span{
+	color: #ff5000;
+	display: block;
+	margin-bottom: 0.067796rem;
+}
+.frequency>span b{
+	font-size: 0.305084rem;
+}
+.frequency>span span{
+	font-size: 0.203389rem;
+	font-weight: 700;
+}
+.frequency a{
+	font-size: 0.18644rem;
+	line-height: 0.406779rem;
+	color: #ffb905;
+	border: 1px solid #ffb905;
+	padding: 3px 10px;
+	border-radius: 30px;
+}
+.car_content{
+	width: 86%;
+	padding: 0 7% 10px 7%;
+}
+.car_content p{
+	font-size: 0.18644rem;
+	color: #666;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+.car_footer{
+	width: 86%;
+	padding: 5px 7% 10px 7%;
+}
+.car_footer p,.car_footer span{
+	color: #999;
+	font-size: 0.169491rem;
+}
+.car_footer p i{
+	display: inline-block;
+	width: 0.169491rem;
+	height: 0.169491rem;
+	background: url(../images/1-1_13.png) center no-repeat;
+	background-size: contain;
+	
+}
+div.bg1{
+	width: 0.244237rem;
+	height: 2.033898rem;
+	background: url(../images/1-1_09.png) center no-repeat;
+	background-size: contain;
+	position: absolute;
+	top:50%;
+	left:-1px;
+	margin-top:-1.016949rem ;
+}
+div.bg2{
+	width: 0.244237rem;
+	height: 2.033898rem;
+	background: url(../images/1-1_16.png) center no-repeat;
+	background-size: contain;
+	position: absolute;
+	top:50%;
+	left:-1px;
+	margin-top:-1.016949rem ;
+}
+div.bg3{
+	width: 0.244237rem;
+	height: 2.033898rem;
+	background: url(../images/1-1_18.png) center no-repeat;
+	background-size: contain;
+	position: absolute;
+	top:50%;
+	left:-1px;
+	margin-top:-1.016949rem ;
+}
+.bottom_css{
+	text-align: center;
+	color: #06C1AE;
+	font-size: 0.237288rem;
+	padding-bottom: 10px;
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

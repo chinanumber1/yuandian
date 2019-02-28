@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+	<head>
+		<meta charset="utf-8"/>
+		<title>店员中心</title>
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name='apple-touch-fullscreen' content='yes'/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="format-detection" content="address=no"/>
+		<link href="css/pigcms.css" rel="stylesheet"/>
+		<style type="text/css">
+			.orderno_end .consum{
+			    padding: 0px 10px;
+			    line-height: 30px;
+			    color: #fff;
+			    background: #2ecc71;
+			    border-radius: 5px;
+			    bottom: 10px;
+			    width: 48px;
+			    z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="public pageSliderHide">
+			<div class="return link-url" data-url-type="openLeftWindow" data-url="back"></div>
+			<div class="content">免单订单列表</div>
+		</section>
+		<section class="order">
+			<div class="cable pageSliderHide">
+				<div class="cable_n">
+					<form id="searchForm" method="post">
+						<div class="input">
+							<input type="search" id="keyword" placeholder="请输入搜索内容" />
+						</div>
+						<div class="select">
+							<select id="find_type">
+								<option value="pass">消费密码</option>
+								<option value="nickname">用户昵称</option>
+								<option value="phone">手机号码</option>
+							</select>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="discount" id="order_list"><ul></ul></div>
+		</section>
+		<script id="listTpl" type="text/html">
+			{{# for(var i = 0, len = d.length; i < len; i++){ }}
+				<li>
+					<a href="sub_card_order_detail.html?pass={{ d[i].pass }}"  data-webview="true">
+						<div class="orderno">
+							<div class="orderno_top">
+								<h2>消费码:{{ d[i].pass }}</h2> 
+								<div class="clr letter">
+									<div class="fl clr"><em class="fl">总价：</em><span class="fl">{{ parseFloat(d[i].money) }} </span> 元</div>
+									{{# if(d[i].phone){ }}<div class="fr callPhone" data-phone="{{ d[i].phone }}">用户手机：{{ d[i].phone }}{{# } }}</div>
+									
+								</div>
+							</div>
+						</a>	
+							{{# if(d[i].status==1){ }}
+								<div class="orderno_end">消费时间：{{ d[i].use_time }}</div>
+							 {{# }else if(d[i].status==0){ }} 
+							 
+								<div class="orderno_end" style="padding: 3px 0 3px 77%;" ><div class="consum" data-pass="{{ d[i].pass }}" data-id="{{ d[i].id }}" >消费验证</div></div>
+							{{# } }}
+
+						</div>
+					
+				</li>
+			{{# } }}
+		</script>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/fastclick.js"></script>
+		<script src="scripts/layer/layer.m.js"></script>
+		<script src="scripts/common.js"></script>
+		<script src="scripts/work/sub_card_order_list.js"></script>
+	</body>
+</html>

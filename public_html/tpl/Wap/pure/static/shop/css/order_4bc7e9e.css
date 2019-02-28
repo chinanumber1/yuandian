@@ -1,0 +1,926 @@
+.p-flex {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box
+}
+.redenvelopes .redenvelopesCeng {
+	display: none;
+	position: fixed;
+	z-index: 10000;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	background-color: #000;
+	opacity: .5;
+	-moz-opacity: .5;
+	filter: alpha(opacity=50)
+}
+.redenvelopes .card-big {
+	display: none;
+	background-color: #fff;
+	position: absolute;
+	z-index: 10000;
+	top: 0;
+	left: 12px;
+	right: 0;
+	bottom: 0;
+	width: 250px;
+	height: 122px;
+	text-align: center;
+	margin: auto
+}
+.redenvelopes .card-big .input-tips {
+	padding: 20px 10px 0 20px;
+	height: 60px;
+	border-bottom: solid #c4c7cc 1px
+}
+.redenvelopes .card-big .input-tips p {
+	font-weight: 700;
+	text-align: center;
+	font-size: 14px;
+	margin: 0 16px;
+	margin: 8px 0
+}
+.redenvelopes .card-big .input-command {
+	padding: 10px 0;
+	margin-left: auto;
+	font-size: 16px
+}
+.redenvelopes .card-big .input-command a {
+	text-align: center;
+	margin: 0 16px 0 18px
+}
+.redenvelopes .card-big .input-command a:last-child {
+	padding: 10px 0 10px 10px;
+	height: 20px;
+	color: red;
+	border-left: solid #c4c7cc 1px
+}
+.red_img {
+	position: fixed;
+	bottom: 90px;
+	right: 20px
+}
+.red_img img {
+	width: 100%
+}
+.p-flex {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box
+}
+.order-widget-orderconfirm {
+}
+.order-widget-orderconfirm .hide {
+	display: none
+}
+.order-widget-orderconfirm .recive-info {
+	margin-top: -1px;
+	min-height: 68px
+}
+.order-widget-orderconfirm .recive-info .editaddr {
+	background: #fd405b;
+	color: #fff
+}
+.order-widget-orderconfirm .recive-info .editaddr:after {
+	color: #fff
+}
+.order-widget-orderconfirm .pay-info .pay-title {
+	color: #999;
+	font-size: 14px;
+	padding-left: 15px;
+	padding-top: 6px
+}
+.order-widget-orderconfirm .pay-info .pay-list {
+	padding: 0 15px
+}
+.order-widget-orderconfirm .pay-info .pay-list li {
+	display: table;
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 1px solid #eee
+}
+.order-widget-orderconfirm .pay-info .pay-list li:last-child {
+	border-bottom: 0
+}
+.order-widget-orderconfirm .pay-info .pay-list li div {
+	display: table-cell
+}
+.order-widget-orderconfirm .pay-info .pay-list li .row-right {
+	width: 40px;
+	vertical-align: middle
+}
+.order-widget-orderconfirm .pay-info .pay-list li .pay-msg {
+	color: #f76c70;
+	font-size: 12px;
+	margin-top: 5px
+}
+.order-widget-orderconfirm .pay-info .pradio {
+	display: block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #cbcbd0;
+	border-radius: 50%;
+	float: right
+}
+.order-widget-orderconfirm .pay-info .checkmark {
+	display: block;
+	width: 22px;
+	height: 22px;
+	background: url(http://webmap0.map.bdimg.com/static/mwaimai/images/checkmark_35c19cc.png) no-repeat center;
+	background-size: 22px;
+	float: right
+}
+.order-widget-orderconfirm .pay-info .icon-pay {
+	color: #de0400;
+	margin: 0 3px 0 1px;
+	vertical-align: text-bottom
+}
+.order-widget-orderconfirm .send-info {
+}
+.order-widget-orderconfirm .send-info .user-time select {
+	-webkit-appearance: none;
+	border: 0;
+	color: #999;
+	font-size: 14px;
+	background: #fff
+}
+.order-widget-orderconfirm .send-info .user-note .right-value>span {
+	display: block;
+	padding: 0 0 0 80px;
+	height: 45px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis
+}
+.order-widget-orderconfirm .send-info .user-invoice {
+	height: auto
+}
+.order-widget-orderconfirm .send-info .user-invoice .invoice i {
+	line-height: 45px;
+	font-size: 18px
+}
+.order-widget-orderconfirm .send-info .user-invoice .invoice .icon-checkbox-checked {
+	color: #fe2947
+}
+.order-widget-orderconfirm .send-info .user-invoice .invoice-input {
+	border-top: 1px solid #eee
+}
+.order-widget-orderconfirm .send-info .user-invoice .invoice-input input {
+	width: 100%;
+	height: 43px;
+	border: 0;
+	font-size: 14px;
+	color: #404142
+}
+.order-widget-orderconfirm .coupon-info .cou-pri {
+	float: right;
+	color: #fe2947;
+	font-size: 14px;
+	margin-right: 25px
+}
+.order-widget-orderconfirm .coupon-info .disable {
+	background: #eee;
+	color: #ccc
+}
+.order-widget-orderconfirm .coupon-notice {
+	display: none;
+	margin-bottom: 5px
+}
+.order-widget-orderconfirm .coupon-notice img {
+	width: 15px;
+	height: 15px;
+	margin: -2px 5px 0 5px;
+	vertical-align: middle
+}
+.order-widget-orderconfirm .coupon-notice p {
+	font-size: .75em;
+	display: inline
+}
+.order-widget-orderconfirm .cart-info .cart-list li:first-child {
+	border-top: 1px solid #eee
+}
+.order-widget-orderconfirm .cart-info .cart-list .list-ics {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 400;
+	text-align: center;
+	line-height: 18px;
+	border-radius: 50%
+}
+.order-widget-orderconfirm .cart-info .list-ics {
+	display: inline-block;
+	position: relative;
+	top: 4px
+}
+.order-widget-orderconfirm .cart-info .welfare-msg {
+	display: inline-block
+}
+.order-widget-orderconfirm .cart-info .list-group .left-span1 {
+	position: absolute
+}
+.order-widget-orderconfirm .cart-info .list-group .left-span1 .welfare-msg {
+	float: left;
+	max-width: 12em;
+	height: 43px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+.order-widget-orderconfirm .cart-info .list-group .multi {
+	position: absolute;
+	padding-top: 15px;
+	font-size: 12px;
+	color: #ccc;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 300px
+}
+.order-widget-orderconfirm .cart-confirm {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #484d54;
+	color: #fff;
+	z-index: 9999;
+	line-height: 50px;
+	text-align: center;
+	display: -moz-box;
+	display: -webkit-box;
+	display: box
+}
+.order-widget-orderconfirm .cart-confirm .submit-info {
+	-moz-box-flex: 8;
+	-webkit-box-flex: 8;
+	box-flex: 8
+}
+.order-widget-orderconfirm .cart-confirm .submit-btn {
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	box-flex: 1;
+	display: block;
+	width: 110px;
+	height: 50px;
+	background-color: #fe2947;
+	color: #fff;
+	font-size: 16px
+}
+.order-widget-orderconfirm .cart-confirm .cc-disable {
+	background: #ccc
+}
+.order-widget-orderconfirm .empty .empty-img {
+	display: block;
+	margin: 100px auto 0;
+	width: 110px;
+	height: 110px
+}
+.order-widget-orderconfirm .empty .empty-img.submit-succ {
+	background: url(http://webmap1.map.bdimg.com/static/mwaimai/images/submit-succ_b5c1436.jpg) no-repeat center;
+	background-size: 100%
+}
+.order-widget-orderconfirm .empty .empty-img.submit-fail {
+	background: url(http://webmap0.map.bdimg.com/static/mwaimai/images/submit-fail_37c9aef.jpg) no-repeat center;
+	background-size: 100%
+}
+.order-widget-orderconfirm .empty .empty-img.cart-empty {
+	background: url(http://webmap0.map.bdimg.com/static/mwaimai/images/cart-empty_45dbff2.png) no-repeat center;
+	background-size: 100%
+}
+.order-widget-orderconfirm .empty .empty-img.order-empty {
+	background: url(http://webmap0.map.bdimg.com/static/mwaimai/images/no_result_e709648.png) no-repeat center;
+	background-size: 100%
+}
+.order-widget-orderconfirm .empty .title {
+	text-align: center;
+	color: #4a4a4a;
+	font-size: 18px;
+	margin-top: 25px
+}
+.order-widget-orderconfirm .empty .desc {
+	text-align: center;
+	color: #4a4a4a;
+	font-size: 15px
+}
+.order-widget-orderconfirm .empty .empty-btn {
+	width: 130px;
+	height: 40px;
+	background: #fe2947;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 40px;
+	margin-top: 70px
+}
+.order-widget-orderconfirm .empty .empty-btn a {
+	color: #fff;
+	font-size: 15px
+}
+.order-widget-orderconfirm .weaksuggestion {
+	position: absolute;
+	width: 81%;
+	z-index: 2;
+	background: #ff5c65;
+	border-radius: 6px;
+	color: #fff;
+	padding: 10px;
+	font-size: 14px;
+	display: none
+}
+.order-widget-orderconfirm .weaksuggestion .weaksuggestiontitle {
+	float: left;
+	display: block;
+	width: 78%;
+	line-height: 22px
+}
+.order-widget-orderconfirm .weaksuggestion .weaksuggestionbtn {
+	float: right;
+	padding-left: 10px;
+	height: 42px;
+	line-height: 42px;
+	border-left: 1px solid #d5464d;
+	display: block
+}
+.order-widget-orderconfirm .weaksuggestion .toptriangle {
+	position: absolute;
+	top: -8px;
+	left: 18px;
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #ff5c65
+}
+.order-widget-orderconfirm .searchnavmask {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .5;
+	z-index: 10000
+}
+.order-widget-orderconfirm .mapaddmore, .order-widget-orderconfirm .mapchosemore {
+	display: none;
+	position: fixed;
+	width: 80%;
+	background: #fff;
+	z-index: 10001;
+	top: 30px;
+	left: 50%;
+	margin-left: -40%
+}
+.order-widget-orderconfirm .mapaddmore .mapaddmore-top, .order-widget-orderconfirm .mapchosemore .mapaddmore-top {
+	width: 80%;
+	margin: 10px auto;
+	text-align: center
+}
+.order-widget-orderconfirm .mapaddmore .mapaddmore-top img, .order-widget-orderconfirm .mapchosemore .mapaddmore-top img {
+	width: 65%;
+	display: inline-block
+}
+.order-widget-orderconfirm .mapaddmore .mapaddmore-top .notInRange, .order-widget-orderconfirm .mapchosemore .mapaddmore-top .notInRange {
+	color: #7d7d7d;
+	padding: 10px 0
+}
+.order-widget-orderconfirm .mapaddmore .mapaddmore-top .notInRange span, .order-widget-orderconfirm .mapchosemore .mapaddmore-top .notInRange span {
+	line-height: 0
+}
+.order-widget-orderconfirm .mapaddmore .mapaddmore-top .notInRange .addressInfo, .order-widget-orderconfirm .mapchosemore .mapaddmore-top .notInRange .addressInfo {
+	width: 95%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center
+}
+.order-widget-orderconfirm .mapaddmore .mapaddmore-top .notInRange .addressInfo strong, .order-widget-orderconfirm .mapchosemore .mapaddmore-top .notInRange .addressInfo strong {
+	font-weight: 400
+}
+.order-widget-orderconfirm .mapaddmore .mapaddmore-top span, .order-widget-orderconfirm .mapchosemore .mapaddmore-top span {
+	display: inline-block;
+	padding: 15px 0;
+	line-height: 25px;
+	text-align: left;
+	color: #7d7d7d
+}
+.order-widget-orderconfirm .mapaddmore .mapaddmore-bot, .order-widget-orderconfirm .mapchosemore .mapaddmore-bot {
+	color: #000;
+	width: 100%
+}
+.order-widget-orderconfirm .mapaddmore .mapaddmore-bot span, .order-widget-orderconfirm .mapchosemore .mapaddmore-bot span {
+	width: 100%;
+	display: block;
+	text-align: center;
+	border-top: 1px solid #c8c8c8;
+	height: 60px;
+	line-height: 60px
+}
+.order-widget-orderconfirm .mapaddmore .mapaddmore-bot span strong, .order-widget-orderconfirm .mapchosemore .mapaddmore-bot span strong {
+	max-width: 50%;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 38px;
+	height: 26px;
+	font-weight: 400
+}
+.p-flex {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box
+}
+#widget-order-detail-menu-detail .list-group {
+	margin: 10px 0
+}
+#widget-order-detail-menu-detail .list-group li {
+	height: auto;
+	min-height: 45px;
+	max-height: 55px
+}
+#widget-order-detail-menu-detail .list-group li .multi {
+	position: absolute;
+	padding-top: 15px;
+	font-size: 12px;
+	color: #ccc;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 300px
+}
+#widget-order-detail-menu-detail .list-group li .left-span {
+	max-width: 16em
+}
+#widget-order-detail-menu-detail .list-group li .left-span.title {
+	font-weight: 700
+}
+#widget-order-detail-menu-detail .list-group li .left-span .list-ics {
+	position: relative;
+	top: 4px
+}
+#widget-order-detail-menu-detail .list-group li .right-value {
+	padding-right: 0
+}
+#widget-order-detail-menu-detail .list-group li .right-value.total {
+	color: #fe2947
+}
+.p-flex {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box
+}
+.order-widget-orderdetail {
+	padding-bottom: 60px
+}
+.order-widget-orderdetail li {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: #4d4d4d
+}
+.order-widget-orderdetail .list-ics {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 400;
+	text-align: center;
+	line-height: 18px;
+	border-radius: 50%
+}
+.order-widget-orderdetail .mian {
+	display: none
+}
+.order-widget-orderdetail .title span {
+	font-weight: 700;
+	color: #000;
+	margin: 0 5px
+}
+.order-widget-orderdetail .submit-btn {
+	background: #fe2947;
+	color: #fff;
+	margin-top: 10px;
+	display: block;
+	height: 50px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	line-height: 50px;
+	font-weight: 700;
+	font-size: 18px
+}
+.p-flex {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box
+}
+.order-widget-orderhistory {
+	position: relative;
+	padding-bottom: 100px
+}
+.order-widget-orderhistory .timeline {
+	position: absolute;
+	width: 1px;
+	height: 170%;
+	background-color:#f94429;
+	left: 38px;
+	top: 58px
+}
+.order-widget-orderhistory .item {
+	margin-bottom: 15px;
+	position: relative;
+	display: -moz-box;
+	display: -webkit-box;
+	display: box
+}
+.order-widget-orderhistory .status-icon {
+	padding-top: 11px
+}
+.order-widget-orderhistory .status-icon span {
+	display: block;
+	width: 25px;
+	height: 25px;
+	border-radius: 12px;
+	margin-left: 11px;
+	padding:8px 0;
+	background-color: #EBEDF0;
+}
+.order-widget-orderhistory .status-icon span.-mark img {
+	width: 25px
+}
+.order-widget-orderhistory .status-icon .myline::before {
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 65px;
+	background-color: #fe2947;
+	left: 23px;
+	top: -43px
+}
+.order-widget-orderhistory .status-card {
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	box-flex: 1;
+	position: relative;
+	margin-left: 18px;
+	border: 1px solid #dbdcde;
+	background: #fff
+}
+.order-widget-orderhistory .status-card .card-arrow {
+	background-color: #fff;
+	height: 10px;
+	width: 10px;
+	border-left: #d4d4d4 solid 1px;
+	border-top: #d4d4d4 solid 1px;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	left: -6px;
+	top: 25px
+}
+.order-widget-orderhistory .status-card .card-content {
+	padding: 10px;
+	min-height: 40px
+}
+.order-widget-orderhistory .status-card .card-content .big {
+	color: #404142;
+	font-size: 14px
+}
+.order-widget-orderhistory .status-card .card-content .big span {
+	color: #b9bcc0;
+	font-size: 12px;
+	float: right
+}
+.order-widget-orderhistory .status-card .card-content .middle {
+	line-height: 40px
+}
+.order-widget-orderhistory .status-card .card-content .small {
+	margin-top: 5px;
+	color: #b9bcc0;
+	font-size: 12px
+}
+.order-widget-orderhistory .time-btm {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 70px;
+	border-top: 1px solid #d4d5d8;
+	background: #fff;
+	padding: 5px 0 10px
+}
+.order-widget-orderhistory .time-btm img {
+	width: 33px;
+	height: 33px;
+	float: left;
+	margin: 20px 0 0 10px
+}
+.order-widget-orderhistory .time-btm .right-btn {
+	margin-left: 58px
+}
+.order-widget-orderhistory .time-btm .right-btn p {
+	color: #999
+}
+.order-widget-orderhistory .time-btm .right-btn p span {
+	margin: 0 3px;
+	color: #000
+}
+.order-widget-orderhistory .time-btm .right-btn .title {
+	margin-right: 15px;
+	display: -moz-box;
+	display: -webkit-box;
+	display: box
+}
+.order-widget-orderhistory .time-btm .right-btn .have {
+	margin-top: 5px
+}
+.order-widget-orderhistory .time-btm .right-btn .none {
+	margin-top: 20px
+}
+.order-widget-orderhistory .time-btm .cui-btn {
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	box-flex: 1;
+	width: 0;
+	height: 30px;
+	border-radius: 3px;
+	display: block;
+	background: #fff;
+	color: #fe2947;
+	text-align: center;
+	line-height: 30px;
+	font-size: 13px;
+	border: 1px solid #c3c5c8;
+	margin: 0 10px 0 0
+}
+.order-widget-orderhistory .time-btm .cui-btn:last-child {
+	margin-right: 0
+}
+.order-widget-orderhistory .time-btm .active {
+	background: #fe2947;
+	color: #fff;
+	border: 1px solid #fe2947
+}
+.order-widget-orderhistory .time-btm .unuse {
+	background: #ecedf1;
+	color: #acadb0;
+	border: 1px solid #ecedf1
+}
+.order-widget-orderhistory .refund-list {
+	background: #f0f0f0;
+	border-radius: 3px;
+	height: 130px
+}
+.order-widget-orderhistory .refund-list .left-line {
+	position: absolute;
+	top: 30px;
+	left: 24px;
+	width: 2px;
+	height: 60px;
+	background: #c1c7d1
+}
+.order-widget-orderhistory .refund-list ul {
+	padding: 25px 20px 20px
+}
+.order-widget-orderhistory .refund-list ul li {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	position: relative;
+	margin-bottom: 15px
+}
+.order-widget-orderhistory .refund-list ul li:last-child {
+	margin-bottom: 0
+}
+.order-widget-orderhistory .refund-list ul .circle {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: #c1c7d1;
+	border-radius: 10px;
+	margin-right: 10px
+}
+.order-widget-orderhistory .refund-list ul .circle.red {
+	background: #ff2e4b
+}
+.order-widget-orderhistory .refund-list ul .redline {
+	position: absolute;
+	top: 12px;
+	left: 4px;
+	width: 2px;
+	height: 21px;
+	background: #ff2e4b
+}
+.order-widget-orderhistory .refund-list ul .msg {
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	box-flex: 1;
+	display: block;
+	color: #4d4d4d;
+	font-size: 14px
+}
+.order-widget-orderhistory .refund-list ul .time {
+	width: 100px;
+	color: #b9bcc0;
+	font-size: 11px
+}
+.relative-wrapper {
+	position: relative;
+	padding: 10px 15px
+}
+.add-coupon-layer .card-big {
+	height: 115px
+}
+.add-coupon-layer .card-small {
+	height: 100px
+}
+.add-coupon-layer .input-tips {
+	padding: 20px 0 5px
+}
+.add-coupon-layer .input-tips p {
+	text-align: center;
+	font-size: 14px;
+	margin: 0 10px
+}
+.add-coupon-layer .input-tips p:last-child {
+	margin: 8px 0;
+	font-weight: 700
+}
+.p-flex {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box
+}
+#wrapper {
+	background-color: #ebedf0
+}
+#order-widget-orderlist {
+	margin-bottom: 50px
+}
+#order-widget-orderlist .order-list {
+	width: 100%
+}
+#order-widget-orderlist .order-list li {
+	background-color: #f9fdff;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #dbdcde
+}
+#order-widget-orderlist .item-shop {
+	border-bottom: 1px solid #dbdcde;
+	display: block;
+	color: #4d4d4d;
+	padding: 9px 10px;
+	font-size: 16px
+}
+#order-widget-orderlist .item-shop .shop-icon {
+	background: url(http://webmap1.map.bdimg.com/static/mwaimai/images/icon_shop_for_orderlist_c6b9007.png) no-repeat center center transparent;
+	background-size: 100%;
+	display: inline-block;
+	width: 19px;
+	height: 1.5em;
+	vertical-align: middle
+}
+#order-widget-orderlist .item-shop .shop-name {
+	font-size: 14px;
+	display: inline-block;
+	margin: 0 5px;
+	line-height: 1.5em;
+	vertical-align: middle;
+	    font-weight: bold;
+    color: #503D3D;
+}
+#order-widget-orderlist .item-shop .enter-icon {
+	background:url(../images/icon_enter_guide_829ae30.png) no-repeat center center transparent;
+	background-size: 100%;
+	display: inline-block;
+	width: 8px;
+	height: 1.5em;
+	vertical-align: middle
+}
+#order-widget-orderlist .item-order {
+	position: relative;
+	padding: 9px 10px;
+	height: 66px
+}
+#order-widget-orderlist .item-order .list-img {
+	position: absolute;
+	left: 10px;
+	top: 10px
+}
+#order-widget-orderlist .item-order .list-img img {
+	display: block;
+	width: 100px;
+	height: 62px;
+	background: url(../images/shoplist-default_31ef1a2.jpg) center center no-repeat;
+	background-size: 100px 62px
+}
+#order-widget-orderlist .item-order .list-content {
+	position: relative;
+	margin-left: 110px
+}
+#order-widget-orderlist .item-order .order-detail {
+	color: #999
+}
+#order-widget-orderlist .item-order .order-detail .desc {
+	font-size: 16px;
+	line-height: 1.4;
+	margin-top: 5px;
+	color: #4d4d4d
+}
+#order-widget-orderlist .item-order .order-detail .time {
+	font-size: 12px;
+	line-height: 1.4;
+	margin-top: 4px
+}
+#order-widget-orderlist .item-order .order-content-rt {
+	text-align: right;
+	position: absolute;
+	right: 10px;
+	top: 0
+}
+#order-widget-orderlist .item-order .order-content-rt .order-status {
+	color: #999;
+	font-size: 14px;
+	line-height: 1.4;
+	margin-bottom: 5px
+}
+#order-widget-orderlist .item-order .order-content-rt .order-status button{    width: 65px;
+    /* height: 20px; */
+    z-index: 999;
+    background: #EF3851;
+    line-height: 25px;
+    color: #f9fdff;
+    font-size: 14px;
+    border-radius: 2px;}
+#order-widget-orderlist .item-order .order-content-rt .order-status.red {
+	color: #ff2e4b
+}
+#order-widget-orderlist .item-order .order-content-rt .order-comment-btn {
+	display: block;
+	color: #4d4d4d;
+	border: solid 1px #ccc;
+	border-radius: 3px;
+	padding: 3px 10px;
+	text-align: center
+}
+#order-widget-orderlist .item-order .order-content-rt .order-del-btn {
+	background:url(../images/icon_delete_b749aa3.png) no-repeat right center transparent;
+	background-size: 70%;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 28px 0 0 28px;
+	overflow: hidden;
+	width: 0;
+	height: 0
+}
+#order-widget-orderlist .item-order .order-content-rt .order-pay-btn {
+	display: inline-block;
+	padding: 0 13px;
+	background: #fe2947;
+	color: #f9fdff;
+	font-size: 16px;
+	line-height: 1.8;
+	border-radius: 2px
+}
+#order-widget-orderlist .list-more {
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	color: #000;
+	font-size: 15px
+}
+#order-widget-orderlist .list-more button {
+	border: 0;
+	background: #fff;
+	font-size: 15px
+}
+.add-coupon-layer .card-big {
+	height: 115px
+}
+.add-coupon-layer .card-small {
+	height: 100px
+}
+.add-coupon-layer .input-tips {
+	padding: 20px 0 5px
+}
+.add-coupon-layer .input-tips p {
+	text-align: center;
+	font-size: 14px;
+	margin: 0 10px
+}
+.add-coupon-layer .input-tips p:last-child {
+	margin: 8px 0;
+	font-weight: 700
+}
+.recive-info a{ color:#888}
+.order_banner{ position: fixed; z-index:999; bottom: 10%; right: 10%; width: 80px; height: 104px; background:url(../images/hb@2x.png); background-size:80px; cursor:pointer;}

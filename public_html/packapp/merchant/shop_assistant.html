@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN" manifest="appcache.php">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>店员管理</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/shop_assistant.css"/>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+	<div class=" mui-icon mui-icon-left-nav mui-pull-left" data-url="back" ></div>
+	<h1 class="mui-title">店员管理</h1>
+	<a class="mui-pull-right" href="javascript:;"><i></i>添加店员</a>
+	<div style="clear: both;"></div>
+</header>
+<div class="mui-content">
+  
+	 
+</div>
+<script src="js/fastclick.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/laytpl.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/layer/layer.m.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script id="shopUser" type="text/html">
+	{{# for(var i = 0, len = d.length; i < len; i++){ }}
+		<div class="mui-card" data-id="{{ d[i].staff_id }}">
+			<div class="mui-card-content">
+				<div class="mui-row">
+					
+					<div class="mui-col-sm-2">
+						{{# if( d[i].type==2 ){ }}
+						<dl class="acc">
+							<dt>{{ d[i].name }}</dt>
+							<dd>店长</dd>	
+						</dl>						
+						{{# } else { }}
+						<dl>
+							<dt>{{ d[i].name }}</dt>
+						</dl>
+						{{# } }}
+				    </div>	
+				    <div class="mui-col-sm-10">
+				    	<ul>
+				    		<li><i></i>店员账号：{{ d[i].username }}</li>
+							<li><b></b>所属店铺：{{ d[i].storename }}</li>
+				    	</ul>
+				    </div>
+				</div>
+			</div>
+			
+			<div class="mui-card-footer">
+				<p class="assistant_penci"><i></i> 编辑</p>
+				{{# if(common.checkApp()){ }}
+				<p class="assistant_loading" data-ticket="{{ d[i].ticket }}"><b></b> 登录</p>
+				{{# } else { }}
+				<p class="assistant_loading">&nbsp;</p>
+				{{# } }}
+				
+				<p class="assistant_delate"><span></span> 删除</p>
+			</div>
+		</div> 
+	{{# } }}
+</script>
+<script type="text/javascript" charset="utf-8">
+  	mui.init();
+	var client = common.checkAndroidApp()  ?  2 : (common.checkIosApp() ? 1 : 0);
+	var store_id=$.getUrlParam('store_id');
+	var appUrl=common.getCache('appUrl');
+	var ticket=common.getCache('ticket',true);
+	var androidUrl=common.getCache('androidUrl');
+	var iosUrl=common.getCache('iosUrl');
+	var ios_device=common.getDeviceId();
+	var androidBao=common.getCache('androidBao');
+	var iosBao=common.getCache('iosBao');
+	var ticket1='';
+	common.http('Merchantapp&a=staff',{'client':client,'store_id':store_id},function(data){
+		console.log(data);
+		if(data.length>0){
+			laytpl(document.getElementById('shopUser').innerHTML).render(data, function(html){
+					$('.mui-content').html(html);
+			});
+		}
+		
+	});
+
+  	//添加店员
+  	mui('.mui-bar-nav').on('tap','a.mui-pull-right',function(e){
+		openWindow({
+  			url:'edit_clerk.html?edit=1&store_id='+store_id,
+  			id:'edit_clerk'
+  		});
+  	});
+  	//删除按钮点击
+  	mui('.mui-content').on('tap','.assistant_delate',function(e){
+  		var id=$(this).parents('.mui-card').attr('data-id');
+  		var me=this;
+  		mui.confirm('您确认删除这个店员吗?',function(e) {
+            if (e.index == 1) {
+                common.http('Merchantapp&a=staff_dell',{'client':client,'staff_id':id},function(data){
+		  			console.log(data);
+		  			if(data.length==0){
+		  				mui.toast("删除成功");
+		  				$(me).parents('.mui-card').remove();
+		  			}
+		  		});
+            } 
+        });
+
+  		
+  	});
+
+
+  	mui('.mui-content').on('tap','.assistant_penci',function(e){
+  		var staff_id=$(this).parents('.mui-card').attr('data-id');
+		openWindow({
+  			url:'edit_clerk.html?staff_id='+staff_id+'store_id='+store_id,
+  			id:'edit_clerk'
+  		});
+  	});
+
+  	function loadStatus(status){
+  		if(status==1){
+  			mui.toast('下载成功');
+  		}else{
+  			mui.toast('下载失败');
+  		}
+  	}
+  	function downApp(status){
+  		if(status==1){
+  			if(common.checkAndroidApp()){//打开店员APP
+				window.pigcmspackapp.openapp(androidBao,'','from=merchant&ticket='+ticket1);
+			}else{
+				common.iosFunction('openapp/'+iosBao+'//'+'from=merchant&ios_device='+ios_device+'&ticket='+ticket1);
+			}
+  		}else{
+  			var btnArray = ['取消', '确认'];
+			mui.confirm('暂时未检测到您的店员app，系统默认给您下载，点击确定按钮后开始下载。', '提示',btnArray, function(e) {
+			    if (e.index == 1) {
+			        if(common.checkAndroidApp()){//去下载店员APP
+						window.pigcmspackapp.downLoadApp(androidUrl,'loadStatus');
+					}else{
+						var iosHref = window.btoa(iosUrl);
+						iosHref = iosHref.replace('/','&');
+						common.iosFunction('downLoadApp/'+iosBao+'/'+iosHref);
+					}
+			     }
+			});
+  		}
+  	}
+
+  	mui('.mui-content').on('tap','.assistant_loading',function(e){
+  		ticket1=$(this).attr('data-ticket');
+    	if(common.checkApp()){
+			if(common.checkAndroidApp()){
+				window.pigcmspackapp.judgeappexist(androidBao,'downApp');
+			}else{
+				common.iosFunction('judgeappexist/'+iosBao+'/downApp');
+			}
+		}
+  		
+  		// openWindow({
+  		// 	url:window.location.protocol+'//'+requestDomain+'/packapp/storestaff/index.html',
+  		// 	id:'pickO2O_shopcenter'
+  		// });
+		
+  	});
+  	function pageShowFunc(){
+		location.reload(true);
+	}
+</script>
+</body>
+</html>
